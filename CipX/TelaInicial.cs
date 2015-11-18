@@ -20,8 +20,9 @@ namespace CipX
         {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
-            CadastrarTrafo t = new CadastrarTrafo();
-            t.ShowDialog();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastroProgramacao ip = new CadastroProgramacao();
+            ip.ShowDialog();
         }
 
         private void menuItem5_Click(object sender, EventArgs e)

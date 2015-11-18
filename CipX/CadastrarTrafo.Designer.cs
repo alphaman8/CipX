@@ -39,6 +39,7 @@
             System.Windows.Forms.Label chaveLabel;
             System.Windows.Forms.Label ciaLabel;
             System.Windows.Forms.Label alimentadorLabel;
+            System.Windows.Forms.Label gps_timeLabel;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
@@ -52,12 +53,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listGPS = new System.Windows.Forms.ListBox();
             this.alimentadorTextBox = new System.Windows.Forms.TextBox();
             this.ciaTextBox = new System.Windows.Forms.TextBox();
             this.chaveTextBox = new System.Windows.Forms.TextBox();
             this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
-            this.listGPS = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer();
+            this.gps_timeTextBox = new System.Windows.Forms.TextBox();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             gps_timeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -67,6 +69,7 @@
             chaveLabel = new System.Windows.Forms.Label();
             ciaLabel = new System.Windows.Forms.Label();
             alimentadorLabel = new System.Windows.Forms.Label();
+            gps_timeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -175,6 +178,7 @@
             // 
             this.trafoBindingSource.DataMember = "trafo";
             this.trafoBindingSource.DataSource = this.eletrocadDataSet;
+            this.trafoBindingSource.Position = 0;
             // 
             // eletrocadDataSet
             // 
@@ -225,6 +229,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(gps_timeLabel);
+            this.tabPage2.Controls.Add(this.gps_timeTextBox);
             this.tabPage2.Controls.Add(this.listGPS);
             this.tabPage2.Controls.Add(alimentadorLabel);
             this.tabPage2.Controls.Add(this.alimentadorTextBox);
@@ -236,6 +242,17 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(240, 271);
             this.tabPage2.Text = "tabPage2";
+            // 
+            // listGPS
+            // 
+            this.listGPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listGPS.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listGPS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.listGPS.ForeColor = System.Drawing.Color.Lime;
+            this.listGPS.Location = new System.Drawing.Point(0, 152);
+            this.listGPS.Name = "listGPS";
+            this.listGPS.Size = new System.Drawing.Size(240, 119);
+            this.listGPS.TabIndex = 8;
             // 
             // alimentadorTextBox
             // 
@@ -265,21 +282,27 @@
             // 
             this.trafoTableAdapter.ClearBeforeFill = true;
             // 
-            // listGPS
-            // 
-            this.listGPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listGPS.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listGPS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.listGPS.ForeColor = System.Drawing.Color.Lime;
-            this.listGPS.Location = new System.Drawing.Point(0, 152);
-            this.listGPS.Name = "listGPS";
-            this.listGPS.Size = new System.Drawing.Size(240, 119);
-            this.listGPS.TabIndex = 8;
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // gps_timeLabel
+            // 
+            gps_timeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            gps_timeLabel.Location = new System.Drawing.Point(34, 91);
+            gps_timeLabel.Name = "gps_timeLabel";
+            gps_timeLabel.Size = new System.Drawing.Size(64, 14);
+            gps_timeLabel.Text = "gps time:";
+            // 
+            // gps_timeTextBox
+            // 
+            this.gps_timeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "gps_time", true));
+            this.gps_timeTextBox.Location = new System.Drawing.Point(105, 88);
+            this.gps_timeTextBox.Name = "gps_timeTextBox";
+            this.gps_timeTextBox.ReadOnly = true;
+            this.gps_timeTextBox.Size = new System.Drawing.Size(100, 21);
+            this.gps_timeTextBox.TabIndex = 12;
             // 
             // CadastrarTrafo
             // 
@@ -326,5 +349,6 @@
         private System.Windows.Forms.TextBox chaveTextBox;
         private System.Windows.Forms.ListBox listGPS;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox gps_timeTextBox;
     }
 }

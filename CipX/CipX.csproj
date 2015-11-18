@@ -46,6 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="MySql.Data.CF, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\mysql-connector-net-6.8.5-noinstall\v2.0\MySql.Data.CF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL">
@@ -64,6 +68,12 @@
     </Compile>
     <Compile Include="CadastrarTrafo.Designer.cs">
       <DependentUpon>CadastrarTrafo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroProgramacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroProgramacao.Designer.cs">
+      <DependentUpon>CadastroProgramacao.cs</DependentUpon>
     </Compile>
     <Compile Include="components\ButtonImage.cs">
       <SubType>Component</SubType>
@@ -86,6 +96,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CadastrarTrafo.resx">
       <DependentUpon>CadastrarTrafo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroProgramacao.resx">
+      <DependentUpon>CadastroProgramacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

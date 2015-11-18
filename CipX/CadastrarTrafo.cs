@@ -57,6 +57,7 @@ namespace CipX
             ciaTextBox.Text = "";
             alimentadorTextBox.Text = "";
             chaveTextBox.Focus();
+            tabControl1.SelectedIndex = 1;
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -138,6 +139,7 @@ namespace CipX
             listGPS.Items.Add("Satélites: " + GPS.numberOfSatellites);
             listGPS.Items.Add("Acurácia: " + GPS.accuracy + "m");
             listGPS.Items.Add("Data/Hora do GPS: " + GPS.gpsTtime.ToString("dd/MM/yyyy - HH:mm"));
+            gps_timeTextBox.Text = GPS.gpsTtime.ToString();
 
             if (GPS.accuracy > 15 && GPS.status.Contains("corretamente"))
             {

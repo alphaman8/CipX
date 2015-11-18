@@ -16,3 +16,5 @@ C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\Inter
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\Interop.PFTGPSReceiver.dll
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\Interop.PFTSSFWriter.dll
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.csproj.ResolveComReference.cache
+C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\MySql.Data.CF.dll
+C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastroProgramacao.resources
