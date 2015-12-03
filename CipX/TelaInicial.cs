@@ -25,7 +25,7 @@ namespace CipX
             ip.ShowDialog();
         }
 
-        private void menuItem5_Click(object sender, EventArgs e)
+        private void conectarGps()
         {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
@@ -33,6 +33,11 @@ namespace CipX
             listGPS.Items.Add(ConectarTrimble());
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            conectarGps();
         }
 
         int quantPosicoes = 5;
@@ -97,6 +102,11 @@ namespace CipX
         private void menuItem2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void TelaInicial_Load(object sender, EventArgs e)
+        {
+            conectarGps();
         }
     }
 }

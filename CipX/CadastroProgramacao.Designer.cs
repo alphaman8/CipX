@@ -53,14 +53,27 @@
             System.Windows.Forms.DataGridTextBoxColumn municipio_idDataGridColumnStyleDataGridTextBoxColumn;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.programacaoipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.programacao_ipTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter();
             this.programacao_ipDataGrid = new System.Windows.Forms.DataGrid();
             this.programacao_ipTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
+            this.contratoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
+            this.programacao_ipTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter();
+            this.municipioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.municipioTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.municipioTableAdapter();
+            this.estadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estadoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.estadoTableAdapter();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.clienteTableAdapter();
+            this.pripsituacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pr_ip_situacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.pr_ip_situacaoTableAdapter();
+            this.pripsituacaobaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pr_ip_situacao_baseTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.pr_ip_situacao_baseTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
             idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             regionalDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             cod_localDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -82,86 +95,15 @@
             pr_ip_situacao_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             valor_faturadoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             municipio_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.municipioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pripsituacaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pripsituacaobaseBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mainMenu1
-            // 
-            this.mainMenu1.MenuItems.Add(this.menuItem1);
-            // 
-            // menuItem1
-            // 
-            this.menuItem1.MenuItems.Add(this.menuItem4);
-            this.menuItem1.MenuItems.Add(this.menuItem3);
-            this.menuItem1.MenuItems.Add(this.menuItem2);
-            this.menuItem1.Text = "Opções";
-            // 
-            // menuItem2
-            // 
-            this.menuItem2.Text = "Sair";
-            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
-            // 
-            // menuItem3
-            // 
-            this.menuItem3.Text = "-";
-            // 
-            // menuItem4
-            // 
-            this.menuItem4.Text = "Atualizar";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
-            // 
-            // eletrocadDataSet
-            // 
-            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
-            this.eletrocadDataSet.Prefix = "";
-            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // programacaoipBindingSource
-            // 
-            this.programacaoipBindingSource.DataMember = "programacao_ip";
-            this.programacaoipBindingSource.DataSource = this.eletrocadDataSet;
-            // 
-            // programacao_ipTableAdapter
-            // 
-            this.programacao_ipTableAdapter.ClearBeforeFill = true;
-            // 
-            // programacao_ipDataGrid
-            // 
-            this.programacao_ipDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.programacao_ipDataGrid.DataSource = this.programacaoipBindingSource;
-            this.programacao_ipDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.programacao_ipDataGrid.Location = new System.Drawing.Point(0, 0);
-            this.programacao_ipDataGrid.Name = "programacao_ipDataGrid";
-            this.programacao_ipDataGrid.RowHeadersVisible = false;
-            this.programacao_ipDataGrid.Size = new System.Drawing.Size(240, 294);
-            this.programacao_ipDataGrid.TabIndex = 0;
-            this.programacao_ipDataGrid.TableStyles.Add(this.programacao_ipTableStyleDataGridTableStyle);
-            // 
-            // programacao_ipTableStyleDataGridTableStyle
-            // 
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(idDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(regionalDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cod_localDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(inicio_programadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(termino_programadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cliente_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(data_faturamentoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(pr_situacao_base_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(inicioDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(fimDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(relatorios_entregueDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cd_entregueDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(shape_entregueDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(shape_atualiza_inicoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(shape_atualiza_fimDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(pr_ip_situacao_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(valor_faturadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(municipio_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.MappingName = "programacao_ip";
             // 
             // idDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -310,6 +252,145 @@
             municipio_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "municipio_id";
             municipio_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "municipio_id";
             // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.Add(this.menuItem1);
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.MenuItems.Add(this.menuItem4);
+            this.menuItem1.MenuItems.Add(this.menuItem5);
+            this.menuItem1.MenuItems.Add(this.menuItem3);
+            this.menuItem1.MenuItems.Add(this.menuItem2);
+            this.menuItem1.Text = "Opções";
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Text = "Importar";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Text = "Novo";
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Text = "-";
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Text = "Sair";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            // 
+            // programacaoipBindingSource
+            // 
+            this.programacaoipBindingSource.DataMember = "programacao_ip";
+            this.programacaoipBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // programacao_ipDataGrid
+            // 
+            this.programacao_ipDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.programacao_ipDataGrid.DataSource = this.programacaoipBindingSource;
+            this.programacao_ipDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.programacao_ipDataGrid.Location = new System.Drawing.Point(0, 0);
+            this.programacao_ipDataGrid.Name = "programacao_ipDataGrid";
+            this.programacao_ipDataGrid.RowHeadersVisible = false;
+            this.programacao_ipDataGrid.Size = new System.Drawing.Size(240, 294);
+            this.programacao_ipDataGrid.TabIndex = 0;
+            this.programacao_ipDataGrid.TableStyles.Add(this.programacao_ipTableStyleDataGridTableStyle);
+            // 
+            // programacao_ipTableStyleDataGridTableStyle
+            // 
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(idDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(regionalDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cod_localDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(inicio_programadoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(termino_programadoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cliente_idDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(data_faturamentoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(pr_situacao_base_idDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(inicioDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(fimDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(relatorios_entregueDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cd_entregueDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(shape_entregueDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(shape_atualiza_inicoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(shape_atualiza_fimDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(pr_ip_situacao_idDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(valor_faturadoDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(municipio_idDataGridColumnStyleDataGridTextBoxColumn);
+            this.programacao_ipTableStyleDataGridTableStyle.MappingName = "programacao_ip";
+            // 
+            // eletrocadDataSet
+            // 
+            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
+            this.eletrocadDataSet.Prefix = "";
+            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // programacao_ipTableAdapter
+            // 
+            this.programacao_ipTableAdapter.ClearBeforeFill = true;
+            // 
+            // municipioBindingSource
+            // 
+            this.municipioBindingSource.DataMember = "municipio";
+            this.municipioBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // municipioTableAdapter
+            // 
+            this.municipioTableAdapter.ClearBeforeFill = true;
+            // 
+            // estadoBindingSource
+            // 
+            this.estadoBindingSource.DataMember = "estado";
+            this.estadoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // estadoTableAdapter
+            // 
+            this.estadoTableAdapter.ClearBeforeFill = true;
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "cliente";
+            this.clienteBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // pripsituacaoBindingSource
+            // 
+            this.pripsituacaoBindingSource.DataMember = "pr_ip_situacao";
+            this.pripsituacaoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // pr_ip_situacaoTableAdapter
+            // 
+            this.pr_ip_situacaoTableAdapter.ClearBeforeFill = true;
+            // 
+            // pripsituacaobaseBindingSource
+            // 
+            this.pripsituacaobaseBindingSource.DataMember = "pr_ip_situacao_base";
+            this.pripsituacaobaseBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // pr_ip_situacao_baseTableAdapter
+            // 
+            this.pr_ip_situacao_baseTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Enabled = false;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(16, 235);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(209, 20);
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
+            // 
             // CadastroProgramacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -317,6 +398,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.programacao_ipDataGrid);
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
@@ -325,8 +407,14 @@
             this.Text = "CadastroProgramacao";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CadastroProgramacao_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.municipioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pripsituacaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pripsituacaobaseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -342,5 +430,19 @@
         private CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter programacao_ipTableAdapter;
         private System.Windows.Forms.DataGrid programacao_ipDataGrid;
         private System.Windows.Forms.DataGridTableStyle programacao_ipTableStyleDataGridTableStyle;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.BindingSource municipioBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.municipioTableAdapter municipioTableAdapter;
+        private System.Windows.Forms.BindingSource estadoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.estadoTableAdapter estadoTableAdapter;
+        private System.Windows.Forms.BindingSource clienteBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
+        private System.Windows.Forms.BindingSource pripsituacaoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.pr_ip_situacaoTableAdapter pr_ip_situacaoTableAdapter;
+        private System.Windows.Forms.BindingSource pripsituacaobaseBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.pr_ip_situacao_baseTableAdapter pr_ip_situacao_baseTableAdapter;
+        private System.Windows.Forms.BindingSource contratoBindingSource;
+        private System.Windows.Forms.BindingSource contasreceberBindingSource;
+        private System.Windows.Forms.Label label1;
     }
 }

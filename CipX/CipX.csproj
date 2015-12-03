@@ -133,6 +133,7 @@
       <Link>PFTSSFWriter.dll</Link>
     </Content>
     <Content Include="db\eletrocad.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

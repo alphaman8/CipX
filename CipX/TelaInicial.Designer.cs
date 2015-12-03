@@ -109,6 +109,7 @@
             this.Name = "TelaInicial";
             this.Text = "TelaInicial";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.TelaInicial_Load);
             this.ResumeLayout(false);
 
         }
