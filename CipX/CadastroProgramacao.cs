@@ -24,6 +24,8 @@ namespace CipX
 
         private void CadastroProgramacao_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
+            this.trafoTableAdapter.Fill(this.eletrocadDataSet.trafo);
             // TODO: This line of code loads data into the 'eletrocadDataSet.programacao_ip' table. You can move, or remove it, as needed.
             this.programacao_ipTableAdapter.Fill(this.eletrocadDataSet.programacao_ip);
 
@@ -59,11 +61,19 @@ namespace CipX
         {
             try
             {
+                while (eletrocadDataSet.trafo.Count > 0)
+                {
+                    eletrocadDataSet.trafo.Rows[0].Delete();
+                    trafoTableAdapter.Update(eletrocadDataSet.trafo);
+                    eletrocadDataSet.trafo.AcceptChanges();
+                }
+
                 // Remove all
                 while (eletrocadDataSet.programacao_ip.Count > 0)
                 {
                     eletrocadDataSet.programacao_ip.Rows[0].Delete();
                     programacao_ipTableAdapter.Update(eletrocadDataSet.programacao_ip);
+                    eletrocadDataSet.programacao_ip.AcceptChanges();
                 }
             }
             catch (Exception ex)
@@ -76,6 +86,8 @@ namespace CipX
         {
             importar();
         }
+
+        public static int programacaoId;
 
         private void importar()
         {
@@ -178,6 +190,16 @@ namespace CipX
             label1.Visible = false;
             Cursor.Current = Cursors.Default;
             Application.DoEvents(); 
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            programacaoId = Convert.ToInt32(label2.Text);
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarTrafo t = new CadastrarTrafo();
+            t.ShowDialog();
         }
         //fim
     }

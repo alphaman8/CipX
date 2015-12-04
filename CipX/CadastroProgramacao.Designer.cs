@@ -44,16 +44,18 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.programacaoipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.programacao_ipDataGrid = new System.Windows.Forms.DataGrid();
             this.programacao_ipTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
-            this.contratoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.programacao_ipTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
+            this.programacao_ipTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter();
+            this.trafoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
             regionalDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             cod_localDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -67,7 +69,7 @@
             municipio_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // regionalDataGridColumnStyleDataGridTextBoxColumn
@@ -153,8 +155,8 @@
             // 
             // menuItem1
             // 
-            this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem5);
+            this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
@@ -163,10 +165,6 @@
             // 
             this.menuItem4.Text = "Importar";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Text = "Novo";
             // 
             // menuItem3
             // 
@@ -181,12 +179,6 @@
             // 
             this.programacaoipBindingSource.DataMember = "programacao_ip";
             this.programacaoipBindingSource.DataSource = this.eletrocadDataSet;
-            // 
-            // eletrocadDataSet
-            // 
-            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
-            this.eletrocadDataSet.Prefix = "";
-            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // programacao_ipDataGrid
             // 
@@ -215,16 +207,10 @@
             this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(municipio_idDataGridColumnStyleDataGridTextBoxColumn);
             this.programacao_ipTableStyleDataGridTableStyle.MappingName = "programacao_ip";
             // 
-            // programacao_ipTableAdapter
-            // 
-            this.programacao_ipTableAdapter.ClearBeforeFill = true;
-
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(0, 274);
@@ -233,6 +219,43 @@
             this.label1.Text = "label1";
             this.label1.Visible = false;
             // 
+            // menuItem5
+            // 
+            this.menuItem5.Text = "Trafos";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.programacaoipBindingSource, "id", true));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(0, 254);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(240, 20);
+            this.label2.Text = "0";
+            this.label2.Visible = false;
+            // 
+            // eletrocadDataSet
+            // 
+            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
+            this.eletrocadDataSet.Prefix = "";
+            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // programacao_ipTableAdapter
+            // 
+            this.programacao_ipTableAdapter.ClearBeforeFill = true;
+            // 
+            // trafoBindingSource
+            // 
+            this.trafoBindingSource.DataMember = "trafo";
+            this.trafoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // trafoTableAdapter
+            // 
+            this.trafoTableAdapter.ClearBeforeFill = true;
+            // 
             // CadastroProgramacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -240,6 +263,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.programacao_ipDataGrid);
             this.Location = new System.Drawing.Point(0, 0);
@@ -251,7 +275,7 @@
             this.Load += new System.EventHandler(this.CadastroProgramacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,11 +291,13 @@
         private CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter programacao_ipTableAdapter;
         private System.Windows.Forms.DataGrid programacao_ipDataGrid;
         private System.Windows.Forms.DataGridTableStyle programacao_ipTableStyleDataGridTableStyle;
-        private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.BindingSource pripsituacaoBindingSource;
         private System.Windows.Forms.BindingSource pripsituacaobaseBindingSource;
-        private System.Windows.Forms.BindingSource contratoBindingSource;
         private System.Windows.Forms.BindingSource contasreceberBindingSource;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource trafoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter trafoTableAdapter;
     }
 }

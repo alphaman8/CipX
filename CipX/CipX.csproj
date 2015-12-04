@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastrarPostes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarPostes.Designer.cs">
+      <DependentUpon>CadastrarPostes.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarTrafo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     <Compile Include="Library.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastrarPostes.resx">
+      <DependentUpon>CadastrarPostes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastrarTrafo.resx">
       <DependentUpon>CadastrarTrafo.cs</DependentUpon>
     </EmbeddedResource>

@@ -10564,12 +10564,18 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [id], [chave], [cia], [gps_time], [alimentador], [usuario_id], [programaca" +
                 "o_ip_id] FROM [trafo]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT [id], [chave], [cia], [gps_time], [alimentador], [usuario_id], [programaca" +
+                "o_ip_id] FROM [trafo]\r\nwhere programacao_ip_id=@pip";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@pip", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "programacao_ip_id", global::System.Data.DataRowVersion.Current, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10587,6 +10593,28 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual eletrocadDataSet.trafoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            eletrocadDataSet.trafoDataTable dataTable = new eletrocadDataSet.trafoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPip(eletrocadDataSet.trafoDataTable dataTable, int pip) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(pip));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual eletrocadDataSet.trafoDataTable GetDataByPip(int pip) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(pip));
             eletrocadDataSet.trafoDataTable dataTable = new eletrocadDataSet.trafoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

@@ -24,7 +24,7 @@ namespace CipX
         private void CadastrarTrafo_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
-            this.trafoTableAdapter.Fill(this.eletrocadDataSet.trafo);
+            this.trafoTableAdapter.FillByPip(this.eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -58,10 +58,15 @@ namespace CipX
             alimentadorTextBox.Text = "";
             chaveTextBox.Focus();
             tabControl1.SelectedIndex = 1;
+            usuario_idTextBox.Text = ""+1;
+            programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
         }
+
+
+        public static int trafoId;
 
         private void menuItem5_Click(object sender, EventArgs e)
         {
@@ -76,7 +81,7 @@ namespace CipX
                     return;
                 }
 
-                DataTable dt = changes.Tables["material"];
+                DataTable dt = changes.Tables["trafo"];
                 db.eletrocadDataSet.trafoRow r = (db.eletrocadDataSet.trafoRow)dt.Rows[0];
                 DataRow[] badRows = dt.GetErrors();
 
@@ -84,28 +89,7 @@ namespace CipX
                 {
                     int numRows = trafoTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
-
-                    try
-                    {
-                        trafoBindingSource.CancelEdit();
-                        trafoBindingSource.AddNew();
-
-                        DataRowView drv = (DataRowView)trafoBindingSource.Current;
-                        drv["alimentador"] = r.alimentador;
-                        drv["chave"] = r.chave;
-                        drv["cia"] = r.cia;
-                        drv["gps_time"] = r.gps_time;
-
-                        this.trafoBindingSource.EndEdit();
-                        changes = (db.eletrocadDataSet)this.eletrocadDataSet.GetChanges();
-                        numRows = trafoTableAdapter.Update(changes);
-                        this.eletrocadDataSet.AcceptChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-
+                    trafoTableAdapter.FillByPip(eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
                     MessageBox.Show("Informações salvas com sucesso! ");
                 }
                 else
@@ -157,6 +141,17 @@ namespace CipX
         {
             timer1.Enabled = false;
             Application.DoEvents();
+        }
+
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            trafoId = Convert.ToInt32(lblTtrafoId.Text);
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarPostes p = new CadastrarPostes();
+            p.ShowDialog();
         }
     }
 }
