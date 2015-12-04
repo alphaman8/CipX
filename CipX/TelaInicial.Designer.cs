@@ -39,6 +39,7 @@
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.button1 = new CipX.components.ButtonImage(this.components);
             this.listGPS = new System.Windows.Forms.ListBox();
+            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // mainMenu1
@@ -47,6 +48,7 @@
             // 
             // menuItem1
             // 
+            this.menuItem1.MenuItems.Add(this.menuItem6);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem2);
@@ -94,6 +96,11 @@
             this.listGPS.Size = new System.Drawing.Size(240, 119);
             this.listGPS.TabIndex = 1;
             // 
+            // menuItem6
+            // 
+            this.menuItem6.Text = "Cadastrar";
+            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -123,5 +130,6 @@
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.ListBox listGPS;
+        private System.Windows.Forms.MenuItem menuItem6;
     }
 }

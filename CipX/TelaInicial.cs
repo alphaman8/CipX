@@ -101,12 +101,21 @@ namespace CipX
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void TelaInicial_Load(object sender, EventArgs e)
         {
             conectarGps();
+        }
+
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastroProgramacao ip = new CadastroProgramacao();
+            ip.ShowDialog();
         }
     }
 }
