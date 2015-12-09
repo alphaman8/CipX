@@ -44,18 +44,25 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem6 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.programacaoipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.programacao_ipDataGrid = new System.Windows.Forms.DataGrid();
             this.programacao_ipTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.label2 = new System.Windows.Forms.Label();
-            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.programacao_ipTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter();
             this.trafoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
+            this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
+            this.postehaslampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter();
+            this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter();
             regionalDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             cod_localDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -70,6 +77,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // regionalDataGridColumnStyleDataGridTextBoxColumn
@@ -155,8 +165,9 @@
             // 
             // menuItem1
             // 
-            this.menuItem1.MenuItems.Add(this.menuItem5);
             this.menuItem1.MenuItems.Add(this.menuItem4);
+            this.menuItem1.MenuItems.Add(this.menuItem6);
+            this.menuItem1.MenuItems.Add(this.menuItem5);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
@@ -165,6 +176,15 @@
             // 
             this.menuItem4.Text = "Importar";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
+            // menuItem6
+            // 
+            this.menuItem6.Text = "-";
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Text = "Trafos";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // menuItem3
             // 
@@ -179,6 +199,12 @@
             // 
             this.programacaoipBindingSource.DataMember = "programacao_ip";
             this.programacaoipBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // eletrocadDataSet
+            // 
+            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
+            this.eletrocadDataSet.Prefix = "";
+            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // programacao_ipDataGrid
             // 
@@ -219,11 +245,6 @@
             this.label1.Text = "label1";
             this.label1.Visible = false;
             // 
-            // menuItem5
-            // 
-            this.menuItem5.Text = "Trafos";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -237,12 +258,6 @@
             this.label2.Text = "0";
             this.label2.Visible = false;
             // 
-            // eletrocadDataSet
-            // 
-            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
-            this.eletrocadDataSet.Prefix = "";
-            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // programacao_ipTableAdapter
             // 
             this.programacao_ipTableAdapter.ClearBeforeFill = true;
@@ -255,6 +270,33 @@
             // trafoTableAdapter
             // 
             this.trafoTableAdapter.ClearBeforeFill = true;
+            // 
+            // posteBindingSource
+            // 
+            this.posteBindingSource.DataMember = "poste";
+            this.posteBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // posteTableAdapter
+            // 
+            this.posteTableAdapter.ClearBeforeFill = true;
+            // 
+            // postehaslampadaBindingSource
+            // 
+            this.postehaslampadaBindingSource.DataMember = "poste_has_lampada";
+            this.postehaslampadaBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // poste_has_lampadaTableAdapter
+            // 
+            this.poste_has_lampadaTableAdapter.ClearBeforeFill = true;
+            // 
+            // postehastipoluminariaBindingSource
+            // 
+            this.postehastipoluminariaBindingSource.DataMember = "poste_has_tipo_luminaria";
+            this.postehastipoluminariaBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // poste_has_tipo_luminariaTableAdapter
+            // 
+            this.poste_has_tipo_luminariaTableAdapter.ClearBeforeFill = true;
             // 
             // CadastroProgramacao
             // 
@@ -276,6 +318,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +344,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource trafoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter trafoTableAdapter;
+        private System.Windows.Forms.MenuItem menuItem6;
+        private System.Windows.Forms.BindingSource posteBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
+        private System.Windows.Forms.BindingSource postehaslampadaBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter poste_has_lampadaTableAdapter;
+        private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
     }
 }

@@ -25,6 +25,8 @@ namespace CipX
         {
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
             this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
+            this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -34,31 +36,31 @@ namespace CipX
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            listGPS.Items.Clear();
+            //listGPS.Items.Clear();
 
-            listGPS.Items.Add("Situação do GPS: " + GPS.status);
-            listGPS.Items.Add("Latitude: " + GPS.lat);
-            listGPS.Items.Add("Longitude: " + GPS.lon);
-            listGPS.Items.Add("Satélites: " + GPS.numberOfSatellites);
-            listGPS.Items.Add("Acurácia: " + GPS.accuracy + "m");
-            listGPS.Items.Add("Data/Hora do GPS: " + GPS.gpsTtime.ToString("dd/MM/yyyy - HH:mm"));
+            //listGPS.Items.Add("Situação do GPS: " + GPS.status);
+            //listGPS.Items.Add("Latitude: " + GPS.lat);
+            //listGPS.Items.Add("Longitude: " + GPS.lon);
+            //listGPS.Items.Add("Satélites: " + GPS.numberOfSatellites);
+            //listGPS.Items.Add("Acurácia: " + GPS.accuracy + "m");
+            //listGPS.Items.Add("Data/Hora do GPS: " + GPS.gpsTtime.ToString("dd/MM/yyyy - HH:mm"));
             gps_timeTextBox.Text = GPS.gpsTtime.ToString();
             latTextBox.Text = GPS.lat.ToString();
             lonTextBox.Text = GPS.lon.ToString();
 
-            if (GPS.accuracy > 15 && GPS.status.Contains("corretamente"))
-            {
-                listGPS.Items.Add("Baixa acurácia!");
-                listGPS.ForeColor = Color.Orange;
-            }
-            if (GPS.accuracy < 15 && GPS.status.Contains("corretamente"))
-            {
-                listGPS.Items.Add("Boa acurácia!");
-                listGPS.ForeColor = Color.Lime;
-            }
+            //if (GPS.accuracy > 15 && GPS.status.Contains("corretamente"))
+            //{
+            //    listGPS.Items.Add("Baixa acurácia!");
+            //    listGPS.ForeColor = Color.Orange;
+            //}
+            //if (GPS.accuracy < 15 && GPS.status.Contains("corretamente"))
+            //{
+            //    listGPS.Items.Add("Boa acurácia!");
+            //    listGPS.ForeColor = Color.Lime;
+            //}
         }
 
-        private void menuItem4_Click(object sender, EventArgs e)
+        private void novo(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
@@ -76,15 +78,17 @@ namespace CipX
             //ciaTextBox.Text = "";
             //alimentadorTextBox.Text = "";
             //chaveTextBox.Focus();
-            //tabControl1.SelectedIndex = 1;
+            bairroTextBox.Focus();
+            tabControl1.SelectedIndex = 1;
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
+            trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
         }
 
-        private void menuItem10_Click(object sender, EventArgs e)
+        private void salvar(object sender, EventArgs e)
         {
             try
             {
@@ -98,14 +102,14 @@ namespace CipX
                 }
 
                 DataTable dt = changes.Tables["poste"];
-                db.eletrocadDataSet.trafoRow r = (db.eletrocadDataSet.trafoRow)dt.Rows[0];
+                db.eletrocadDataSet.posteRow r = (db.eletrocadDataSet.posteRow)dt.Rows[0];
                 DataRow[] badRows = dt.GetErrors();
 
                 if (badRows.Length == 0)
                 {
                     int numRows = posteTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
-                    posteTableAdapter.FillByPip(eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
+                    posteTableAdapter.FillByTrafo(eletrocadDataSet.poste, CadastrarTrafo.trafoId);
                     MessageBox.Show("Informações salvas com sucesso! ");
                 }
                 else
@@ -127,6 +131,35 @@ namespace CipX
                 MessageBox.Show(ex.Message);
                 //citeluz2DataSet.RejectChanges();
             }
+        }
+
+        private void menuItem9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public static int posteId;
+
+        private void lampadas(object sender, EventArgs e)
+        {
+            posteId = Convert.ToInt32(label1.Text);
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarLampadas p = new CadastrarLampadas();
+            p.ShowDialog();
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            posteId = Convert.ToInt32(label1.Text);
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarLuminaria p = new CadastrarLuminaria();
+            p.ShowDialog();
         }
     }
 }

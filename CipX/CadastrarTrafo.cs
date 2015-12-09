@@ -31,7 +31,7 @@ namespace CipX
             timer1.Enabled = true;
         }
 
-        private void menuItem4_Click(object sender, EventArgs e)
+        private void novo(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
@@ -68,7 +68,7 @@ namespace CipX
 
         public static int trafoId;
 
-        private void menuItem5_Click(object sender, EventArgs e)
+        private void salvar(object sender, EventArgs e)
         {
             try
             {
@@ -115,26 +115,26 @@ namespace CipX
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            listGPS.Items.Clear();
+            //listGPS.Items.Clear();
 
-            listGPS.Items.Add("Situação do GPS: " + GPS.status);
-            listGPS.Items.Add("Latitude: " + GPS.lat);
-            listGPS.Items.Add("Longitude: " + GPS.lon);
-            listGPS.Items.Add("Satélites: " + GPS.numberOfSatellites);
-            listGPS.Items.Add("Acurácia: " + GPS.accuracy + "m");
-            listGPS.Items.Add("Data/Hora do GPS: " + GPS.gpsTtime.ToString("dd/MM/yyyy - HH:mm"));
+            //listGPS.Items.Add("Situação do GPS: " + GPS.status);
+            //listGPS.Items.Add("Latitude: " + GPS.lat);
+            //listGPS.Items.Add("Longitude: " + GPS.lon);
+            //listGPS.Items.Add("Satélites: " + GPS.numberOfSatellites);
+            //listGPS.Items.Add("Acurácia: " + GPS.accuracy + "m");
+            //listGPS.Items.Add("Data/Hora do GPS: " + GPS.gpsTtime.ToString("dd/MM/yyyy - HH:mm"));
             gps_timeTextBox.Text = GPS.gpsTtime.ToString();
 
-            if (GPS.accuracy > 15 && GPS.status.Contains("corretamente"))
-            {
-                listGPS.Items.Add("Baixa acurácia!");
-                listGPS.ForeColor = Color.Orange;
-            }
-            if (GPS.accuracy < 15 && GPS.status.Contains("corretamente"))
-            {
-                listGPS.Items.Add("Boa acurácia!");
-                listGPS.ForeColor = Color.Lime;
-            }
+            //if (GPS.accuracy > 15 && GPS.status.Contains("corretamente"))
+            //{
+            //    listGPS.Items.Add("Baixa acurácia!");
+            //    listGPS.ForeColor = Color.Orange;
+            //}
+            //if (GPS.accuracy < 15 && GPS.status.Contains("corretamente"))
+            //{
+            //    listGPS.Items.Add("Boa acurácia!");
+            //    listGPS.ForeColor = Color.Lime;
+            //}
         }
 
         private void CadastrarTrafo_Closing(object sender, CancelEventArgs e)

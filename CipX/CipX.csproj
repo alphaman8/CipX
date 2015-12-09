@@ -63,6 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastrarLampadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarLampadas.Designer.cs">
+      <DependentUpon>CadastrarLampadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarLuminaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarLuminaria.Designer.cs">
+      <DependentUpon>CadastrarLuminaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarPostes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +86,12 @@
     </Compile>
     <Compile Include="CadastrarTrafo.Designer.cs">
       <DependentUpon>CadastrarTrafo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarUsoMutuo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarUsoMutuo.Designer.cs">
+      <DependentUpon>CadastrarUsoMutuo.cs</DependentUpon>
     </Compile>
     <Compile Include="CadastroProgramacao.cs">
       <SubType>Form</SubType>
@@ -87,11 +105,6 @@
     <Compile Include="components\ButtonImage.Designer.cs">
       <DependentUpon>ButtonImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="db\eletrocadDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="GPS.cs" />
     <Compile Include="GPSForm.cs">
       <SubType>Form</SubType>
@@ -100,11 +113,20 @@
     <Compile Include="Library.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastrarLampadas.resx">
+      <DependentUpon>CadastrarLampadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarLuminaria.resx">
+      <DependentUpon>CadastrarLuminaria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastrarPostes.resx">
       <DependentUpon>CadastrarPostes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarTrafo.resx">
       <DependentUpon>CadastrarTrafo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarUsoMutuo.resx">
+      <DependentUpon>CadastrarUsoMutuo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroProgramacao.resx">
       <DependentUpon>CadastroProgramacao.cs</DependentUpon>
@@ -150,7 +172,6 @@
     </None>
     <None Include="db\eletrocadDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>eletrocadDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="db\eletrocadDataSet.xss">

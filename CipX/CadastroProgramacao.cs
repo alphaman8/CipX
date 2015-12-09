@@ -24,6 +24,12 @@ namespace CipX
 
         private void CadastroProgramacao_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
+            this.poste_has_tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.poste_has_tipo_luminaria);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_lampada' table. You can move, or remove it, as needed.
+            this.poste_has_lampadaTableAdapter.Fill(this.eletrocadDataSet.poste_has_lampada);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
+            this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
             // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
             this.trafoTableAdapter.Fill(this.eletrocadDataSet.trafo);
             // TODO: This line of code loads data into the 'eletrocadDataSet.programacao_ip' table. You can move, or remove it, as needed.
@@ -61,6 +67,27 @@ namespace CipX
         {
             try
             {
+                while (eletrocadDataSet.poste_has_tipo_luminaria.Count > 0)
+                {
+                    eletrocadDataSet.poste_has_tipo_luminaria.Rows[0].Delete();
+                    poste_has_tipo_luminariaTableAdapter.Update(eletrocadDataSet.poste_has_tipo_luminaria);
+                    eletrocadDataSet.poste_has_tipo_luminaria.AcceptChanges();
+                }
+
+                while (eletrocadDataSet.poste_has_lampada.Count > 0)
+                {
+                    eletrocadDataSet.poste_has_lampada.Rows[0].Delete();
+                    poste_has_lampadaTableAdapter.Update(eletrocadDataSet.poste_has_lampada);
+                    eletrocadDataSet.poste_has_lampada.AcceptChanges();
+                }
+
+                while (eletrocadDataSet.poste.Count > 0)
+                {
+                    eletrocadDataSet.poste.Rows[0].Delete();
+                    posteTableAdapter.Update(eletrocadDataSet.poste);
+                    eletrocadDataSet.poste.AcceptChanges();
+                }
+
                 while (eletrocadDataSet.trafo.Count > 0)
                 {
                     eletrocadDataSet.trafo.Rows[0].Delete();

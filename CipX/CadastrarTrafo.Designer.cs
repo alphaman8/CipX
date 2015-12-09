@@ -46,26 +46,26 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.trafoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.trafoDataGrid = new System.Windows.Forms.DataGrid();
             this.trafoTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.programacao_ip_idTextBox = new System.Windows.Forms.TextBox();
+            this.usuario_idTextBox = new System.Windows.Forms.TextBox();
             this.gps_timeTextBox = new System.Windows.Forms.TextBox();
             this.alimentadorTextBox = new System.Windows.Forms.TextBox();
             this.ciaTextBox = new System.Windows.Forms.TextBox();
             this.chaveTextBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer();
-            this.usuario_idTextBox = new System.Windows.Forms.TextBox();
-            this.listGPS = new System.Windows.Forms.ListBox();
-            this.programacao_ip_idTextBox = new System.Windows.Forms.TextBox();
-            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
-            this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.lblTtrafoId = new System.Windows.Forms.Label();
+            this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
+            this.menuItem7 = new System.Windows.Forms.MenuItem();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             gps_timeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -79,10 +79,10 @@
             usuario_idLabel = new System.Windows.Forms.Label();
             programacao_ip_idLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // chaveDataGridColumnStyleDataGridTextBoxColumn
@@ -159,6 +159,22 @@
             gps_timeLabel.Size = new System.Drawing.Size(64, 14);
             gps_timeLabel.Text = "gps time:";
             // 
+            // usuario_idLabel
+            // 
+            usuario_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            usuario_idLabel.Location = new System.Drawing.Point(27, 118);
+            usuario_idLabel.Name = "usuario_idLabel";
+            usuario_idLabel.Size = new System.Drawing.Size(71, 14);
+            usuario_idLabel.Text = "usuario id:";
+            // 
+            // programacao_ip_idLabel
+            // 
+            programacao_ip_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            programacao_ip_idLabel.Location = new System.Drawing.Point(7, 145);
+            programacao_ip_idLabel.Name = "programacao_ip_idLabel";
+            programacao_ip_idLabel.Size = new System.Drawing.Size(91, 14);
+            programacao_ip_idLabel.Text = "programação:";
+            // 
             // mainMenu1
             // 
             this.mainMenu1.MenuItems.Add(this.menuItem1);
@@ -167,6 +183,7 @@
             // 
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem5);
+            this.menuItem1.MenuItems.Add(this.menuItem7);
             this.menuItem1.MenuItems.Add(this.menuItem6);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
@@ -175,12 +192,17 @@
             // menuItem4
             // 
             this.menuItem4.Text = "Novo";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            this.menuItem4.Click += new System.EventHandler(this.novo);
             // 
             // menuItem5
             // 
             this.menuItem5.Text = "Salvar";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            this.menuItem5.Click += new System.EventHandler(this.salvar);
+            // 
+            // menuItem6
+            // 
+            this.menuItem6.Text = "Postes";
+            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // menuItem3
             // 
@@ -195,17 +217,22 @@
             // 
             this.trafoBindingSource.DataMember = "trafo";
             this.trafoBindingSource.DataSource = this.eletrocadDataSet;
-            this.trafoBindingSource.Position = 0;
+            // 
+            // eletrocadDataSet
+            // 
+            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
+            this.eletrocadDataSet.Prefix = "";
+            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // trafoDataGrid
             // 
             this.trafoDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.trafoDataGrid.DataSource = this.trafoBindingSource;
-            this.trafoDataGrid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.trafoDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trafoDataGrid.Location = new System.Drawing.Point(0, 0);
             this.trafoDataGrid.Name = "trafoDataGrid";
             this.trafoDataGrid.RowHeadersVisible = false;
-            this.trafoDataGrid.Size = new System.Drawing.Size(240, 146);
+            this.trafoDataGrid.Size = new System.Drawing.Size(240, 271);
             this.trafoDataGrid.TabIndex = 1;
             this.trafoDataGrid.TableStyles.Add(this.trafoTableStyleDataGridTableStyle);
             // 
@@ -232,7 +259,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listGPS);
             this.tabPage1.Controls.Add(this.trafoDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
@@ -255,8 +281,27 @@
             this.tabPage2.Controls.Add(this.chaveTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 271);
+            this.tabPage2.Size = new System.Drawing.Size(232, 268);
             this.tabPage2.Text = "tabPage2";
+            // 
+            // programacao_ip_idTextBox
+            // 
+            this.programacao_ip_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "programacao_ip_id", true));
+            this.programacao_ip_idTextBox.Location = new System.Drawing.Point(105, 142);
+            this.programacao_ip_idTextBox.Name = "programacao_ip_idTextBox";
+            this.programacao_ip_idTextBox.ReadOnly = true;
+            this.programacao_ip_idTextBox.Size = new System.Drawing.Size(100, 21);
+            this.programacao_ip_idTextBox.TabIndex = 17;
+            // 
+            // usuario_idTextBox
+            // 
+            this.usuario_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "usuario_id", true));
+            this.usuario_idTextBox.Location = new System.Drawing.Point(105, 115);
+            this.usuario_idTextBox.Name = "usuario_idTextBox";
+            this.usuario_idTextBox.ReadOnly = true;
+            this.usuario_idTextBox.Size = new System.Drawing.Size(100, 21);
+            this.usuario_idTextBox.TabIndex = 16;
+            this.usuario_idTextBox.Text = "USER";
             // 
             // gps_timeTextBox
             // 
@@ -293,69 +338,8 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 1500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // usuario_idLabel
-            // 
-            usuario_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            usuario_idLabel.Location = new System.Drawing.Point(27, 118);
-            usuario_idLabel.Name = "usuario_idLabel";
-            usuario_idLabel.Size = new System.Drawing.Size(71, 14);
-            usuario_idLabel.Text = "usuario id:";
-            // 
-            // usuario_idTextBox
-            // 
-            this.usuario_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "usuario_id", true));
-            this.usuario_idTextBox.Location = new System.Drawing.Point(105, 115);
-            this.usuario_idTextBox.Name = "usuario_idTextBox";
-            this.usuario_idTextBox.ReadOnly = true;
-            this.usuario_idTextBox.Size = new System.Drawing.Size(100, 21);
-            this.usuario_idTextBox.TabIndex = 16;
-            this.usuario_idTextBox.Text = "USER";
-            // 
-            // listGPS
-            // 
-            this.listGPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listGPS.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listGPS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.listGPS.ForeColor = System.Drawing.Color.Lime;
-            this.listGPS.Location = new System.Drawing.Point(0, 152);
-            this.listGPS.Name = "listGPS";
-            this.listGPS.Size = new System.Drawing.Size(240, 119);
-            this.listGPS.TabIndex = 9;
-            // 
-            // programacao_ip_idLabel
-            // 
-            programacao_ip_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            programacao_ip_idLabel.Location = new System.Drawing.Point(7, 145);
-            programacao_ip_idLabel.Name = "programacao_ip_idLabel";
-            programacao_ip_idLabel.Size = new System.Drawing.Size(91, 14);
-            programacao_ip_idLabel.Text = "programação:";
-            // 
-            // programacao_ip_idTextBox
-            // 
-            this.programacao_ip_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "programacao_ip_id", true));
-            this.programacao_ip_idTextBox.Location = new System.Drawing.Point(105, 142);
-            this.programacao_ip_idTextBox.Name = "programacao_ip_idTextBox";
-            this.programacao_ip_idTextBox.ReadOnly = true;
-            this.programacao_ip_idTextBox.Size = new System.Drawing.Size(100, 21);
-            this.programacao_ip_idTextBox.TabIndex = 17;
-            // 
-            // eletrocadDataSet
-            // 
-            this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
-            this.eletrocadDataSet.Prefix = "";
-            this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // trafoTableAdapter
-            // 
-            this.trafoTableAdapter.ClearBeforeFill = true;
-            // 
-            // menuItem6
-            // 
-            this.menuItem6.Text = "Postes";
-            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // lblTtrafoId
             // 
@@ -369,6 +353,14 @@
             this.lblTtrafoId.Size = new System.Drawing.Size(240, 20);
             this.lblTtrafoId.Text = "0";
             this.lblTtrafoId.Visible = false;
+            // 
+            // trafoTableAdapter
+            // 
+            this.trafoTableAdapter.ClearBeforeFill = true;
+            // 
+            // menuItem7
+            // 
+            this.menuItem7.Text = "-";
             // 
             // CadastrarTrafo
             // 
@@ -388,10 +380,10 @@
             this.Load += new System.EventHandler(this.CadastrarTrafo_Load);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.CadastrarTrafo_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -417,9 +409,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox gps_timeTextBox;
         private System.Windows.Forms.TextBox usuario_idTextBox;
-        private System.Windows.Forms.ListBox listGPS;
         private System.Windows.Forms.TextBox programacao_ip_idTextBox;
         private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.Label lblTtrafoId;
+        private System.Windows.Forms.MenuItem menuItem7;
     }
 }
