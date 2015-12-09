@@ -63,7 +63,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
+            this.eletrocadDataSet = new CipX.eletrocadDataSet();
             this.posteDataGrid = new System.Windows.Forms.DataGrid();
             this.posteTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -510,7 +510,7 @@
 
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
-        private CipX.db.eletrocadDataSet eletrocadDataSet;
+        private CipX.eletrocadDataSet eletrocadDataSet;
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.Timer timer1;
@@ -535,7 +535,7 @@
         private System.Windows.Forms.TextBox obsTextBox;
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.BindingSource posteBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
+        private CipX.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
         private System.Windows.Forms.TextBox sequenciaTextBox;
         private System.Windows.Forms.DataGrid posteDataGrid;
         private System.Windows.Forms.DataGridTableStyle posteTableStyleDataGridTableStyle;

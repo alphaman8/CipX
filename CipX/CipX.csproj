@@ -105,6 +105,12 @@
     <Compile Include="components\ButtonImage.Designer.cs">
       <DependentUpon>ButtonImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="db\eletrocadDataSet.cs">
+      <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db\eletrocadDataSet.Designer.cs">
+      <DependentUpon>eletrocadDataSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="GPS.cs" />
     <Compile Include="GPSForm.cs">
       <SubType>Form</SubType>

@@ -392,9 +392,9 @@
 
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
-        private CipX.db.eletrocadDataSet eletrocadDataSet;
+        private CipX.eletrocadDataSet eletrocadDataSet;
         private System.Windows.Forms.BindingSource trafoBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter trafoTableAdapter;
+        private CipX.eletrocadDataSetTableAdapters.trafoTableAdapter trafoTableAdapter;
         private System.Windows.Forms.DataGrid trafoDataGrid;
         private System.Windows.Forms.DataGridTableStyle trafoTableStyleDataGridTableStyle;
         private System.Windows.Forms.TabControl tabControl1;
