@@ -108,8 +108,10 @@
     <Compile Include="db\eletrocadDataSet.cs">
       <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="db\eletrocadDataSet.Designer.cs">
-      <DependentUpon>eletrocadDataSet.cs</DependentUpon>
+    <Compile Include="db\eletrocadDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GPS.cs" />
     <Compile Include="GPSForm.cs">
@@ -179,6 +181,7 @@
     <None Include="db\eletrocadDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>eletrocadDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="db\eletrocadDataSet.xss">
       <DependentUpon>eletrocadDataSet.xsd</DependentUpon>

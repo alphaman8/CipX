@@ -1,6 +1,4 @@
-﻿namespace CipX.db {
-    
-    
-    public partial class eletrocadDataSet {
-    }
+﻿
+
+public partial class eletrocadDataSet {
 }

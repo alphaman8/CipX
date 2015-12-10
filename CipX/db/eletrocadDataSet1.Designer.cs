@@ -1920,8 +1920,6 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columntipo_luminaria_id;
             
-            private global::System.Data.DataColumn columndescricao;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public poste_has_tipo_luminariaDataTable() {
                 this.TableName = "poste_has_tipo_luminaria";
@@ -1961,13 +1959,6 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn descricaoColumn {
-                get {
-                    return this.columndescricao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int Count {
                 get {
                     return this.Rows.Count;
@@ -1995,12 +1986,11 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public poste_has_tipo_luminariaRow Addposte_has_tipo_luminariaRow(posteRow parentposteRowByfk_poste_has_tipo_luminaria_poste1, tipo_luminariaRow parenttipo_luminariaRowByfk_poste_has_tipo_luminaria_tipo_luminaria1, string descricao) {
+            public poste_has_tipo_luminariaRow Addposte_has_tipo_luminariaRow(posteRow parentposteRowByfk_poste_has_tipo_luminaria_poste1, tipo_luminariaRow parenttipo_luminariaRowByfk_poste_has_tipo_luminaria_tipo_luminaria1) {
                 poste_has_tipo_luminariaRow rowposte_has_tipo_luminariaRow = ((poste_has_tipo_luminariaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
-                        descricao};
+                        null};
                 if ((parentposteRowByfk_poste_has_tipo_luminaria_poste1 != null)) {
                     columnValuesArray[0] = parentposteRowByfk_poste_has_tipo_luminaria_poste1[0];
                 }
@@ -2035,7 +2025,6 @@ namespace CipX.db {
             internal void InitVars() {
                 this.columnposte_id = base.Columns["poste_id"];
                 this.columntipo_luminaria_id = base.Columns["tipo_luminaria_id"];
-                this.columndescricao = base.Columns["descricao"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2044,15 +2033,11 @@ namespace CipX.db {
                 base.Columns.Add(this.columnposte_id);
                 this.columntipo_luminaria_id = new global::System.Data.DataColumn("tipo_luminaria_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntipo_luminaria_id);
-                this.columndescricao = new global::System.Data.DataColumn("descricao", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndescricao);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnposte_id,
                                 this.columntipo_luminaria_id}, true));
                 this.columnposte_id.AllowDBNull = false;
                 this.columntipo_luminaria_id.AllowDBNull = false;
-                this.columndescricao.ReadOnly = true;
-                this.columndescricao.MaxLength = 45;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5699,21 +5684,6 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string descricao {
-                get {
-                    try {
-                        return ((string)(this[this.tableposte_has_tipo_luminaria.descricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'descricao\' in table \'poste_has_tipo_luminaria\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableposte_has_tipo_luminaria.descricaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public posteRow posteRow {
                 get {
                     return ((posteRow)(this.GetParentRow(this.Table.ParentRelations["fk_poste_has_tipo_luminaria_poste1"])));
@@ -5731,16 +5701,6 @@ namespace CipX.db {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fk_poste_has_tipo_luminaria_tipo_luminaria1"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsdescricaoNull() {
-                return this.IsNull(this.tableposte_has_tipo_luminaria.descricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetdescricaoNull() {
-                this[this.tableposte_has_tipo_luminaria.descricaoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7343,7 +7303,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -7626,7 +7586,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -8055,7 +8015,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -8336,7 +8296,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -8547,8 +8507,30 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.DataSetTable = "poste_has_tipo_luminaria";
             tableMapping.ColumnMappings.Add("poste_id", "poste_id");
             tableMapping.ColumnMappings.Add("tipo_luminaria_id", "tipo_luminaria_id");
-            tableMapping.ColumnMappings.Add("descricao", "descricao");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [poste_has_tipo_luminaria] WHERE (([poste_id] = @p1) AND ([tipo_lumin" +
+                "aria_id] = @p2))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "tipo_luminaria_id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [poste_has_tipo_luminaria] ([poste_id], [tipo_luminaria_id]) VALUES (" +
+                "@p1, @p2)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "tipo_luminaria_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [poste_has_tipo_luminaria] SET [poste_id] = @p1, [tipo_luminaria_id] = @p2" +
+                " WHERE (([poste_id] = @p3) AND ([tipo_luminaria_id] = @p4))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "tipo_luminaria_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "tipo_luminaria_id", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8556,7 +8538,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -8565,9 +8547,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        p.poste_id, p.tipo_luminaria_id, t.descricao\r\nFROM            poste" +
-                "_has_tipo_luminaria AS p INNER JOIN\r\n                         tipo_luminaria AS " +
-                "t ON t.id = p.tipo_luminaria_id";
+            this._commandCollection[0].CommandText = "SELECT        poste_id, tipo_luminaria_id\r\nFROM            poste_has_tipo_luminar" +
+                "ia";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -8618,6 +8599,98 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             eletrocadDataSet.poste_has_tipo_luminariaDataTable dataTable = new eletrocadDataSet.poste_has_tipo_luminariaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public virtual int Update(eletrocadDataSet.poste_has_tipo_luminariaDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public virtual int Update(eletrocadDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "poste_has_tipo_luminaria");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int p1, int p2) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(p2));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int p1, int p2) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int p1, int p2, int p3, int p4) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(p2));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int p3, int p4) {
+            return this.Update(p3, p4, p3, p4);
         }
     }
     
@@ -8740,7 +8813,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -9044,7 +9117,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -9559,7 +9632,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -9800,7 +9873,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -10035,7 +10108,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -10270,7 +10343,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -10505,7 +10578,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -10760,7 +10833,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -11066,7 +11139,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -11308,7 +11381,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\eletrocad.sdf;" 
+                        + ("\\db\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
