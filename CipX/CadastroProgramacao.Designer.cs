@@ -331,9 +331,9 @@
         private System.Windows.Forms.MenuItem menuItem2;
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.MenuItem menuItem3;
-        private CipX.eletrocadDataSet eletrocadDataSet;
+        private CipX.db.eletrocadDataSet eletrocadDataSet;
         private System.Windows.Forms.BindingSource programacaoipBindingSource;
-        private CipX.eletrocadDataSetTableAdapters.programacao_ipTableAdapter programacao_ipTableAdapter;
+        private CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter programacao_ipTableAdapter;
         private System.Windows.Forms.DataGrid programacao_ipDataGrid;
         private System.Windows.Forms.DataGridTableStyle programacao_ipTableStyleDataGridTableStyle;
         private System.Windows.Forms.BindingSource pripsituacaoBindingSource;
@@ -343,13 +343,13 @@
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource trafoBindingSource;
-        private CipX.eletrocadDataSetTableAdapters.trafoTableAdapter trafoTableAdapter;
+        private CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter trafoTableAdapter;
         private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.BindingSource posteBindingSource;
-        private CipX.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
+        private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
         private System.Windows.Forms.BindingSource postehaslampadaBindingSource;
-        private CipX.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter poste_has_lampadaTableAdapter;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter poste_has_lampadaTableAdapter;
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;
-        private CipX.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
     }
 }

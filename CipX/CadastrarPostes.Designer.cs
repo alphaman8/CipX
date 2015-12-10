@@ -510,7 +510,7 @@
 
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
-        private CipX.eletrocadDataSet eletrocadDataSet;
+        private CipX.db.eletrocadDataSet eletrocadDataSet;
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.Timer timer1;
@@ -535,7 +535,7 @@
         private System.Windows.Forms.TextBox obsTextBox;
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.BindingSource posteBindingSource;
-        private CipX.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
+        private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
         private System.Windows.Forms.TextBox sequenciaTextBox;
         private System.Windows.Forms.DataGrid posteDataGrid;
         private System.Windows.Forms.DataGridTableStyle posteTableStyleDataGridTableStyle;
