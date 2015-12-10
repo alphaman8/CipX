@@ -63,7 +63,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eletrocadDataSet = new CipX.eletrocadDataSet();
+            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.posteDataGrid = new System.Windows.Forms.DataGrid();
             this.posteTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
