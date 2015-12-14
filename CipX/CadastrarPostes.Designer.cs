@@ -50,6 +50,7 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
+            this.menuItem12 = new System.Windows.Forms.MenuItem();
             this.menuItem11 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
@@ -235,6 +236,7 @@
             // 
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem10);
+            this.menuItem1.MenuItems.Add(this.menuItem12);
             this.menuItem1.MenuItems.Add(this.menuItem11);
             this.menuItem1.MenuItems.Add(this.menuItem7);
             this.menuItem1.MenuItems.Add(this.menuItem3);
@@ -250,6 +252,11 @@
             // 
             this.menuItem10.Text = "Salvar";
             this.menuItem10.Click += new System.EventHandler(this.salvar);
+            // 
+            // menuItem12
+            // 
+            this.menuItem12.Text = "Croqui";
+            this.menuItem12.Click += new System.EventHandler(this.croqui);
             // 
             // menuItem11
             // 
@@ -382,7 +389,7 @@
             this.tabPage2.Controls.Add(this.bairroTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 268);
+            this.tabPage2.Size = new System.Drawing.Size(240, 271);
             this.tabPage2.Text = "tabPage2";
             // 
             // sequenciaTextBox
@@ -395,6 +402,7 @@
             // 
             // lonTextBox
             // 
+            this.lonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.posteBindingSource, "lon", true));
             this.lonTextBox.Location = new System.Drawing.Point(133, 193);
             this.lonTextBox.Name = "lonTextBox";
             this.lonTextBox.Size = new System.Drawing.Size(100, 21);
@@ -402,6 +410,7 @@
             // 
             // latTextBox
             // 
+            this.latTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.posteBindingSource, "lat", true));
             this.latTextBox.Location = new System.Drawing.Point(133, 169);
             this.latTextBox.Name = "latTextBox";
             this.latTextBox.Size = new System.Drawing.Size(100, 21);
@@ -541,5 +550,6 @@
         private System.Windows.Forms.DataGridTableStyle posteTableStyleDataGridTableStyle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuItem menuItem11;
+        private System.Windows.Forms.MenuItem menuItem12;
     }
 }

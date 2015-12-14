@@ -161,5 +161,14 @@ namespace CipX
             CadastrarLuminaria p = new CadastrarLuminaria();
             p.ShowDialog();
         }
+
+        private void croqui(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            Croqui p = new Croqui();
+            p.ShowDialog();
+        }
     }
 }

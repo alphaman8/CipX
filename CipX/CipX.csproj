@@ -45,6 +45,18 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GpsShapeNET.200.CF, Version=2.3.1.227, Culture=neutral, PublicKeyToken=d529d3eaea61b0c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GpsShapeNET.200.CF.dll</HintPath>
+    </Reference>
+    <Reference Include="GpsToolsNET.200.CF, Version=2.3.1.227, Culture=neutral, PublicKeyToken=d529d3eaea61b0c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GpsToolsNET.200.CF.dll</HintPath>
+    </Reference>
+    <Reference Include="GpsViewNET.200.CF, Version=2.3.1.227, Culture=neutral, PublicKeyToken=d529d3eaea61b0c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GpsViewNET.200.CF.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="MySql.Data.CF, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -105,6 +117,12 @@
     <Compile Include="components\ButtonImage.Designer.cs">
       <DependentUpon>ButtonImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Croqui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Croqui.Designer.cs">
+      <DependentUpon>Croqui.cs</DependentUpon>
+    </Compile>
     <Compile Include="db\eletrocadDataSet.cs">
       <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
     </Compile>
@@ -138,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroProgramacao.resx">
       <DependentUpon>CadastroProgramacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Croqui.resx">
+      <DependentUpon>Croqui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,6 +194,9 @@
     </Content>
     <Content Include="db\eletrocad.sdf">
     </Content>
+    <Content Include="GpsLibCE.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="db\eletrocadDataSet.xsc">
@@ -186,6 +210,9 @@
     <None Include="db\eletrocadDataSet.xss">
       <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
     </None>
+    <Content Include="map\bahia.MapLib">
+    </Content>
+    <Content Include="map\geral.MapLib" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="PFTConverters">
