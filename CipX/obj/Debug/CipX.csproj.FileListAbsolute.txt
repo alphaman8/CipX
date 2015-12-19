@@ -27,3 +27,4 @@ C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\GpsTo
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\GpsViewNET.200.CF.dll
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.Croqui.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\GpsLibCE.dll
+C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastrarReator.resources

@@ -40,5 +40,41 @@
         </ColumnUISetting>
       </ColumnUISettings>
     </TableUISetting>
+    <TableUISetting Name="reator">
+      <ColumnUISettings>
+        <ColumnUISetting Name="descricao">
+          <ControlSettings>
+            <ControlSetting ArtifactName="Microsoft:DefaultCompactFramework2.0">
+              <IDeviceBindableCtrlInfo>
+                <DisplayName>ComboBox</DisplayName>
+                <TypeName>System.Windows.Forms.ComboBox</TypeName>
+                <BitmapName />
+                <SimpleBinding>true</SimpleBinding>
+                <ComplexBinding>false</ComplexBinding>
+                <LookupBinding>true</LookupBinding>
+                <ToolboxTypeName>System.Windows.Forms.ComboBox</ToolboxTypeName>
+              </IDeviceBindableCtrlInfo>
+            </ControlSetting>
+          </ControlSettings>
+        </ColumnUISetting>
+      </ColumnUISettings>
+    </TableUISetting>
+    <TableUISetting Name="uso_mutuo">
+      <ColumnUISettings>
+        <ColumnUISetting Name="descricao">
+          <ControlSettings><ControlSetting ArtifactName="Microsoft:DefaultCompactFramework2.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+              <IDeviceBindableCtrlInfo>
+                <DisplayName>ComboBox</DisplayName>
+                <TypeName>System.Windows.Forms.ComboBox</TypeName>
+                <BitmapName />
+                <SimpleBinding>true</SimpleBinding>
+                <ComplexBinding>false</ComplexBinding>
+                <LookupBinding>true</LookupBinding>
+                <ToolboxTypeName>System.Windows.Forms.ComboBox</ToolboxTypeName>
+              </IDeviceBindableCtrlInfo>
+            </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+      </ColumnUISettings>
+    </TableUISetting>
   </TableUISettings>
 </DataSetUISetting>

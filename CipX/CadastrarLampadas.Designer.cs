@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridTextBoxColumn lampada_idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.Label lampada_idLabel;
             System.Windows.Forms.Label poste_idLabel;
-            System.Windows.Forms.Label descricaoLabel;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
@@ -50,12 +49,10 @@
             this.lampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lampadaCb = new System.Windows.Forms.ComboBox();
             this.poste_idTextBox = new System.Windows.Forms.TextBox();
-            this.descricaoTextBox = new System.Windows.Forms.TextBox();
             this.lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.lampadaTableAdapter();
             lampada_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             lampada_idLabel = new System.Windows.Forms.Label();
             poste_idLabel = new System.Windows.Forms.Label();
-            descricaoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipolampadaBindingSource)).BeginInit();
@@ -85,14 +82,6 @@
             poste_idLabel.Name = "poste_idLabel";
             poste_idLabel.Size = new System.Drawing.Size(61, 14);
             poste_idLabel.Text = "poste id:";
-            // 
-            // descricaoLabel
-            // 
-            descricaoLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            descricaoLabel.Location = new System.Drawing.Point(27, 73);
-            descricaoLabel.Name = "descricaoLabel";
-            descricaoLabel.Size = new System.Drawing.Size(67, 14);
-            descricaoLabel.Text = "descricao:";
             // 
             // mainMenu1
             // 
@@ -174,6 +163,7 @@
             // lampadaCb
             // 
             this.lampadaCb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehaslampadaBindingSource, "lampada_id", true));
+            this.lampadaCb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehaslampadaBindingSource, "descricao", true));
             this.lampadaCb.DataSource = this.lampadaBindingSource;
             this.lampadaCb.DisplayMember = "descricao";
             this.lampadaCb.Location = new System.Drawing.Point(101, 15);
@@ -181,24 +171,16 @@
             this.lampadaCb.Size = new System.Drawing.Size(100, 22);
             this.lampadaCb.TabIndex = 3;
             this.lampadaCb.ValueMember = "id";
-            this.lampadaCb.SelectedIndexChanged += new System.EventHandler(this.lampadaCb_SelectedIndexChanged);
             // 
             // poste_idTextBox
             // 
             this.poste_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehaslampadaBindingSource, "poste_id", true));
+            this.poste_idTextBox.Enabled = false;
             this.poste_idTextBox.Location = new System.Drawing.Point(101, 43);
             this.poste_idTextBox.Name = "poste_idTextBox";
             this.poste_idTextBox.ReadOnly = true;
             this.poste_idTextBox.Size = new System.Drawing.Size(100, 21);
             this.poste_idTextBox.TabIndex = 4;
-            // 
-            // descricaoTextBox
-            // 
-            this.descricaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehaslampadaBindingSource, "descricao", true));
-            this.descricaoTextBox.Location = new System.Drawing.Point(101, 70);
-            this.descricaoTextBox.Name = "descricaoTextBox";
-            this.descricaoTextBox.Size = new System.Drawing.Size(100, 21);
-            this.descricaoTextBox.TabIndex = 6;
             // 
             // lampadaTableAdapter
             // 
@@ -211,8 +193,6 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
-            this.Controls.Add(descricaoLabel);
-            this.Controls.Add(this.descricaoTextBox);
             this.Controls.Add(poste_idLabel);
             this.Controls.Add(this.poste_idTextBox);
             this.Controls.Add(this.lampadaCb);
@@ -249,7 +229,6 @@
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.TextBox descricaoTextBox;
         private System.Windows.Forms.BindingSource lampadaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.lampadaTableAdapter lampadaTableAdapter;
     }

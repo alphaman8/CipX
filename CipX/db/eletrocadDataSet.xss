@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:lampada" ZOrder="28" X="1459" Y="3871" Height="172" Width="194" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:poste" ZOrder="27" X="887" Y="3871" Height="324" Width="251" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:poste_has_lampada" ZOrder="2" X="1133" Y="3871" Height="153" Width="256" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:poste_has_reator" ZOrder="26" X="1133" Y="4113" Height="115" Width="242" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:poste_has_reator" ZOrder="26" X="1133" Y="4113" Height="134" Width="242" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:poste_has_tipo_luminaria" ZOrder="1" X="1134" Y="4356" Height="134" Width="290" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:poste_has_uso_mutuo" ZOrder="25" X="1133" Y="4540" Height="134" Width="271" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:programacao_ip" ZOrder="24" X="336" Y="2808" Height="305" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />

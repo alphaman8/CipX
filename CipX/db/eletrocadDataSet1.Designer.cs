@@ -1675,6 +1675,8 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columnreator_id;
             
+            private global::System.Data.DataColumn columndescricao;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public poste_has_reatorDataTable() {
                 this.TableName = "poste_has_reator";
@@ -1714,6 +1716,13 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn descricaoColumn {
+                get {
+                    return this.columndescricao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int Count {
                 get {
                     return this.Rows.Count;
@@ -1741,11 +1750,12 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public poste_has_reatorRow Addposte_has_reatorRow(posteRow parentposteRowByfk_poste_has_reator_poste1, reatorRow parentreatorRowByfk_poste_has_reator_reator1) {
+            public poste_has_reatorRow Addposte_has_reatorRow(posteRow parentposteRowByfk_poste_has_reator_poste1, reatorRow parentreatorRowByfk_poste_has_reator_reator1, string descricao) {
                 poste_has_reatorRow rowposte_has_reatorRow = ((poste_has_reatorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null};
+                        null,
+                        descricao};
                 if ((parentposteRowByfk_poste_has_reator_poste1 != null)) {
                     columnValuesArray[0] = parentposteRowByfk_poste_has_reator_poste1[0];
                 }
@@ -1780,6 +1790,7 @@ namespace CipX.db {
             internal void InitVars() {
                 this.columnposte_id = base.Columns["poste_id"];
                 this.columnreator_id = base.Columns["reator_id"];
+                this.columndescricao = base.Columns["descricao"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1788,11 +1799,14 @@ namespace CipX.db {
                 base.Columns.Add(this.columnposte_id);
                 this.columnreator_id = new global::System.Data.DataColumn("reator_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreator_id);
+                this.columndescricao = new global::System.Data.DataColumn("descricao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescricao);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnposte_id,
                                 this.columnreator_id}, true));
                 this.columnposte_id.AllowDBNull = false;
                 this.columnreator_id.AllowDBNull = false;
+                this.columndescricao.MaxLength = 45;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5630,6 +5644,21 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string descricao {
+                get {
+                    try {
+                        return ((string)(this[this.tableposte_has_reator.descricaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'descricao\' in table \'poste_has_reator\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableposte_has_reator.descricaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public posteRow posteRow {
                 get {
                     return ((posteRow)(this.GetParentRow(this.Table.ParentRelations["fk_poste_has_reator_poste1"])));
@@ -5647,6 +5676,16 @@ namespace CipX.db {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fk_poste_has_reator_reator1"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsdescricaoNull() {
+                return this.IsNull(this.tableposte_has_reator.descricaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetdescricaoNull() {
+                this[this.tableposte_has_reator.descricaoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8266,6 +8305,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.DataSetTable = "poste_has_reator";
             tableMapping.ColumnMappings.Add("poste_id", "poste_id");
             tableMapping.ColumnMappings.Add("reator_id", "reator_id");
+            tableMapping.ColumnMappings.Add("descricao", "descricao");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -8276,19 +8316,22 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Original, null));
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [poste_has_reator] ([poste_id], [reator_id]) VALUES (@p1, @p2)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [poste_has_reator] ([poste_id], [reator_id], [descricao]) VALUES (@p1" +
+                ", @p2, @p3)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "descricao", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [poste_has_reator] SET [poste_id] = @p1, [reator_id] = @p2 WHERE (([poste_" +
-                "id] = @p3) AND ([reator_id] = @p4))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [poste_has_reator] SET [poste_id] = @p1, [reator_id] = @p2, [descricao] = " +
+                "@p3 WHERE (([poste_id] = @p4) AND ([reator_id] = @p5))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Original, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "descricao", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8302,11 +8345,17 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [poste_id], [reator_id] FROM [poste_has_reator]";
+            this._commandCollection[0].CommandText = "SELECT poste_id, reator_id, descricao FROM poste_has_reator";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT poste_id, reator_id, descricao FROM poste_has_reator\r\nwhere poste_id=@post" +
+                "eId";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@posteId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8324,6 +8373,28 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual eletrocadDataSet.poste_has_reatorDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            eletrocadDataSet.poste_has_reatorDataTable dataTable = new eletrocadDataSet.poste_has_reatorDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPoste(eletrocadDataSet.poste_has_reatorDataTable dataTable, int posteId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(posteId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual eletrocadDataSet.poste_has_reatorDataTable GetDataByPoste(int posteId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(posteId));
             eletrocadDataSet.poste_has_reatorDataTable dataTable = new eletrocadDataSet.poste_has_reatorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8373,9 +8444,15 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int p1, int p2) {
+        public virtual int Insert(int p1, int p2, string p3) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2));
+            if ((p3 == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(p3));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8394,11 +8471,17 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int p1, int p2, int p3, int p4) {
+        public virtual int Update(int p1, int p2, string p3, int p4, int p5) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(p2));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
+            if ((p3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(p3));
+            }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8417,8 +8500,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int p3, int p4) {
-            return this.Update(p3, p4, p3, p4);
+        public virtual int Update(string p3, int p4, int p5) {
+            return this.Update(p4, p5, p3, p4, p5);
         }
     }
     
@@ -8819,11 +8902,17 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT poste_id, uso_mutuo_id, descricao FROM poste_has_uso_mutuo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT poste_id, uso_mutuo_id, descricao FROM poste_has_uso_mutuo\r\nwhere poste_id" +
+                " = @posteId";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@posteId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8841,6 +8930,28 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual eletrocadDataSet.poste_has_uso_mutuoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            eletrocadDataSet.poste_has_uso_mutuoDataTable dataTable = new eletrocadDataSet.poste_has_uso_mutuoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPoste(eletrocadDataSet.poste_has_uso_mutuoDataTable dataTable, int posteId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(posteId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual eletrocadDataSet.poste_has_uso_mutuoDataTable GetDataByPoste(int posteId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(posteId));
             eletrocadDataSet.poste_has_uso_mutuoDataTable dataTable = new eletrocadDataSet.poste_has_uso_mutuoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

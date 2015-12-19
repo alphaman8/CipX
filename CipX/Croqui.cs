@@ -54,8 +54,8 @@ namespace CipX
             p2.Latitude = GPS.lat;
             p2.Longitude = GPS.lon;
 
-            p1.Move(300, 45, GpsToolsNET.DistanceMethod.GREAT_CIRCLE_DISTANCE);
-            p2.Move(300, 225, GpsToolsNET.DistanceMethod.GREAT_CIRCLE_DISTANCE);
+            p1.Move(500, 45, GpsToolsNET.DistanceMethod.GREAT_CIRCLE_DISTANCE);
+            p2.Move(500, 225, GpsToolsNET.DistanceMethod.GREAT_CIRCLE_DISTANCE);
 
             create_blank_map(p1, p2);
 
@@ -81,8 +81,8 @@ namespace CipX
             objPoste = map1.NewEllipse();
             objPoste.Brush.Red = 200;
             objPoste.Brush.Transparent = false;
-            objPoste.Width = 6;
-            objPoste.Height = 6;
+            objPoste.Width = 12;
+            objPoste.Height = 12;
             mapShapePoste.NodeTemplate = objPoste;
 
             marcarPostes();
@@ -127,6 +127,9 @@ namespace CipX
                 //map1.Position = objPosition;
 
                 objPoste.Position = objPosition;
+
+                GpsViewNET.Label label = make_label(row.sequencia.ToString());
+                label.Position = objPosition;
                                 
                 objShapePostes.DatumGridTemplate = nodeDatumGrid;
                 objShapePostes.NewPart(partIndex);
@@ -225,6 +228,21 @@ namespace CipX
             p.Longitude = GPS.lon;
             map1.Position = p;
             map1.Update();
+        }
+
+        private GpsViewNET.Label make_label(string text)
+        {
+            GpsViewNET.Label objLabel = map1.NewLabel();
+            objLabel.Width = 10;
+            objLabel.Height = 10;
+            GpsViewNET.TextFont font = new GpsViewNET.TextFont();
+            font.Size = 8;
+            font.Bold = true;
+            //font.Color.Blue = 255;
+            objLabel.TextFont = font;
+            objLabel.Text = text;
+
+            return objLabel;
         }
     }
 }

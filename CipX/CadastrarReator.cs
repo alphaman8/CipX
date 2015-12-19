@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CipX
 {
-    public partial class CadastrarLampadas : Form
+    public partial class CadastrarReator : Form
     {
-        public CadastrarLampadas()
+        public CadastrarReator()
         {
             InitializeComponent();
         }
@@ -21,14 +21,12 @@ namespace CipX
             Close();
         }
 
-        private void CadastrarLampadas_Load(object sender, EventArgs e)
+        private void CadastrarReator_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eletrocadDataSet.lampada' table. You can move, or remove it, as needed.
-            this.lampadaTableAdapter.Fill(this.eletrocadDataSet.lampada);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.tipo_lampada' table. You can move, or remove it, as needed.
-            this.tipo_lampadaTableAdapter.Fill(this.eletrocadDataSet.tipo_lampada);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_lampada' table. You can move, or remove it, as needed.
-            this.poste_has_lampadaTableAdapter.FillByPoste(this.eletrocadDataSet.poste_has_lampada, CadastrarPostes.posteId);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.reator' table. You can move, or remove it, as needed.
+            this.reatorTableAdapter.Fill(this.eletrocadDataSet.reator);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_reator' table. You can move, or remove it, as needed.
+            this.poste_has_reatorTableAdapter.FillByPoste(this.eletrocadDataSet.poste_has_reator, CadastrarPostes.posteId);
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -41,8 +39,8 @@ namespace CipX
 
             try
             {
-                postehaslampadaBindingSource.CancelEdit();
-                postehaslampadaBindingSource.AddNew();
+                postehasreatorBindingSource.CancelEdit();
+                postehasreatorBindingSource.AddNew();
             }
             catch (Exception ex)
             {
@@ -52,7 +50,7 @@ namespace CipX
             //ciaTextBox.Text = "";
             //alimentadorTextBox.Text = "";
             //chaveTextBox.Focus();
-            lampadaCb.Focus();
+            descricaoComboBox.Focus();
             poste_idTextBox.Text = CadastrarPostes.posteId.ToString();
 
             //tabControl1.SelectedIndex = 1;
@@ -68,7 +66,7 @@ namespace CipX
         {
             try
             {
-                this.postehaslampadaBindingSource.EndEdit();
+                this.postehasreatorBindingSource.EndEdit();
                 db.eletrocadDataSet changes = (db.eletrocadDataSet)this.eletrocadDataSet.GetChanges();
 
                 if (changes == null)
@@ -77,15 +75,15 @@ namespace CipX
                     return;
                 }
 
-                DataTable dt = changes.Tables["poste_has_lampada"];
-                db.eletrocadDataSet.poste_has_lampadaRow r = (db.eletrocadDataSet.poste_has_lampadaRow)dt.Rows[0];
+                DataTable dt = changes.Tables["poste_has_reator"];
+                db.eletrocadDataSet.poste_has_reatorRow r = (db.eletrocadDataSet.poste_has_reatorRow)dt.Rows[0];
                 DataRow[] badRows = dt.GetErrors();
 
                 if (badRows.Length == 0)
                 {
-                    int numRows = poste_has_lampadaTableAdapter.Update(changes);
+                    int numRows = poste_has_reatorTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
-                    poste_has_lampadaTableAdapter.FillByPoste(eletrocadDataSet.poste_has_lampada, CadastrarPostes.posteId);
+                    poste_has_reatorTableAdapter.FillByPoste(eletrocadDataSet.poste_has_reator, CadastrarPostes.posteId);
                     MessageBox.Show("Informações salvas com sucesso! ");
                 }
                 else

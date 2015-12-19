@@ -99,7 +99,7 @@
             this.zoomUpDown.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.zoomUpDown.Location = new System.Drawing.Point(172, 255);
             this.zoomUpDown.Maximum = new decimal(new int[] {
-            10,
+            20,
             0,
             0,
             0});

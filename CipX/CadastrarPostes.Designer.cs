@@ -283,6 +283,7 @@
             // menuItem8
             // 
             this.menuItem8.Text = "Reator";
+            this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
             // menuItem9
             // 
@@ -389,7 +390,7 @@
             this.tabPage2.Controls.Add(this.bairroTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 271);
+            this.tabPage2.Size = new System.Drawing.Size(232, 268);
             this.tabPage2.Text = "tabPage2";
             // 
             // sequenciaTextBox

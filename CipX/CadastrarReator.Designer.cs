@@ -1,6 +1,6 @@
 ﻿namespace CipX
 {
-    partial class CadastrarUsoMutuo
+    partial class CadastrarReator
     {
         /// <summary>
         /// Required designer variable.
@@ -36,24 +36,24 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.postehasreatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
-            this.usomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.uso_mutuoTableAdapter();
-            this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
-            this.poste_has_uso_mutuoDataGrid = new System.Windows.Forms.DataGrid();
-            this.poste_has_uso_mutuoTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
+            this.poste_has_reatorTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter();
+            this.reatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reatorTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.reatorTableAdapter();
+            this.poste_has_reatorDataGrid = new System.Windows.Forms.DataGrid();
+            this.poste_has_reatorTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.descricaoComboBox = new System.Windows.Forms.ComboBox();
             this.poste_idTextBox = new System.Windows.Forms.TextBox();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             descricaoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             descricaoLabel = new System.Windows.Forms.Label();
             poste_idLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usomutuoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // descricaoDataGridColumnStyleDataGridTextBoxColumn
@@ -62,11 +62,12 @@
             descricaoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             descricaoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "descricao";
             descricaoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "descricao";
+            descricaoDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // descricaoLabel
             // 
             descricaoLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            descricaoLabel.Location = new System.Drawing.Point(11, 14);
+            descricaoLabel.Location = new System.Drawing.Point(8, 16);
             descricaoLabel.Name = "descricaoLabel";
             descricaoLabel.Size = new System.Drawing.Size(67, 14);
             descricaoLabel.Text = "descricao:";
@@ -74,7 +75,7 @@
             // poste_idLabel
             // 
             poste_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            poste_idLabel.Location = new System.Drawing.Point(17, 45);
+            poste_idLabel.Location = new System.Drawing.Point(14, 47);
             poste_idLabel.Name = "poste_idLabel";
             poste_idLabel.Size = new System.Drawing.Size(61, 14);
             poste_idLabel.Text = "poste id:";
@@ -96,11 +97,6 @@
             this.menuItem4.Text = "Novo";
             this.menuItem4.Click += new System.EventHandler(this.novo);
             // 
-            // menuItem5
-            // 
-            this.menuItem5.Text = "Salvar";
-            this.menuItem5.Click += new System.EventHandler(this.salvar);
-            // 
             // menuItem3
             // 
             this.menuItem3.Text = "-";
@@ -110,54 +106,54 @@
             this.menuItem2.Text = "Sair";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
             // 
+            // postehasreatorBindingSource
+            // 
+            this.postehasreatorBindingSource.DataMember = "poste_has_reator";
+            this.postehasreatorBindingSource.DataSource = this.eletrocadDataSet;
+            // 
             // eletrocadDataSet
             // 
             this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
             this.eletrocadDataSet.Prefix = "";
             this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // usomutuoBindingSource
+            // poste_has_reatorTableAdapter
             // 
-            this.usomutuoBindingSource.DataMember = "uso_mutuo";
-            this.usomutuoBindingSource.DataSource = this.eletrocadDataSet;
+            this.poste_has_reatorTableAdapter.ClearBeforeFill = true;
             // 
-            // uso_mutuoTableAdapter
+            // reatorBindingSource
             // 
-            this.uso_mutuoTableAdapter.ClearBeforeFill = true;
+            this.reatorBindingSource.DataMember = "reator";
+            this.reatorBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // postehasusomutuoBindingSource
+            // reatorTableAdapter
             // 
-            this.postehasusomutuoBindingSource.DataMember = "poste_has_uso_mutuo";
-            this.postehasusomutuoBindingSource.DataSource = this.eletrocadDataSet;
+            this.reatorTableAdapter.ClearBeforeFill = true;
             // 
-            // poste_has_uso_mutuoTableAdapter
+            // poste_has_reatorDataGrid
             // 
-            this.poste_has_uso_mutuoTableAdapter.ClearBeforeFill = true;
+            this.poste_has_reatorDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.poste_has_reatorDataGrid.DataSource = this.postehasreatorBindingSource;
+            this.poste_has_reatorDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.poste_has_reatorDataGrid.Location = new System.Drawing.Point(0, 105);
+            this.poste_has_reatorDataGrid.Name = "poste_has_reatorDataGrid";
+            this.poste_has_reatorDataGrid.Size = new System.Drawing.Size(240, 189);
+            this.poste_has_reatorDataGrid.TabIndex = 1;
+            this.poste_has_reatorDataGrid.TableStyles.Add(this.poste_has_reatorTableStyleDataGridTableStyle);
             // 
-            // poste_has_uso_mutuoDataGrid
+            // poste_has_reatorTableStyleDataGridTableStyle
             // 
-            this.poste_has_uso_mutuoDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.poste_has_uso_mutuoDataGrid.DataSource = this.postehasusomutuoBindingSource;
-            this.poste_has_uso_mutuoDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.poste_has_uso_mutuoDataGrid.Location = new System.Drawing.Point(0, 135);
-            this.poste_has_uso_mutuoDataGrid.Name = "poste_has_uso_mutuoDataGrid";
-            this.poste_has_uso_mutuoDataGrid.Size = new System.Drawing.Size(240, 159);
-            this.poste_has_uso_mutuoDataGrid.TabIndex = 0;
-            this.poste_has_uso_mutuoDataGrid.TableStyles.Add(this.poste_has_uso_mutuoTableStyleDataGridTableStyle);
-            // 
-            // poste_has_uso_mutuoTableStyleDataGridTableStyle
-            // 
-            this.poste_has_uso_mutuoTableStyleDataGridTableStyle.GridColumnStyles.Add(descricaoDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_uso_mutuoTableStyleDataGridTableStyle.MappingName = "poste_has_uso_mutuo";
+            this.poste_has_reatorTableStyleDataGridTableStyle.GridColumnStyles.Add(descricaoDataGridColumnStyleDataGridTextBoxColumn);
+            this.poste_has_reatorTableStyleDataGridTableStyle.MappingName = "poste_has_reator";
             // 
             // descricaoComboBox
             // 
-            this.descricaoComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehasusomutuoBindingSource, "uso_mutuo_id", true));
-            this.descricaoComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehasusomutuoBindingSource, "descricao", true));
-            this.descricaoComboBox.DataSource = this.usomutuoBindingSource;
+            this.descricaoComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehasreatorBindingSource, "descricao", true));
+            this.descricaoComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehasreatorBindingSource, "reator_id", true));
+            this.descricaoComboBox.DataSource = this.reatorBindingSource;
             this.descricaoComboBox.DisplayMember = "descricao";
             this.descricaoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.descricaoComboBox.Location = new System.Drawing.Point(85, 14);
+            this.descricaoComboBox.Location = new System.Drawing.Point(82, 16);
             this.descricaoComboBox.Name = "descricaoComboBox";
             this.descricaoComboBox.Size = new System.Drawing.Size(100, 22);
             this.descricaoComboBox.TabIndex = 2;
@@ -165,15 +161,20 @@
             // 
             // poste_idTextBox
             // 
-            this.poste_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehasusomutuoBindingSource, "poste_id", true));
+            this.poste_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehasreatorBindingSource, "poste_id", true));
             this.poste_idTextBox.Enabled = false;
-            this.poste_idTextBox.Location = new System.Drawing.Point(85, 42);
+            this.poste_idTextBox.Location = new System.Drawing.Point(82, 44);
             this.poste_idTextBox.Name = "poste_idTextBox";
             this.poste_idTextBox.ReadOnly = true;
             this.poste_idTextBox.Size = new System.Drawing.Size(100, 21);
             this.poste_idTextBox.TabIndex = 4;
             // 
-            // CadastrarUsoMutuo
+            // menuItem5
+            // 
+            this.menuItem5.Text = "Salvar";
+            this.menuItem5.Click += new System.EventHandler(this.salvar);
+            // 
+            // CadastrarReator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -184,18 +185,17 @@
             this.Controls.Add(this.poste_idTextBox);
             this.Controls.Add(descricaoLabel);
             this.Controls.Add(this.descricaoComboBox);
-            this.Controls.Add(this.poste_has_uso_mutuoDataGrid);
-            this.KeyPreview = true;
+            this.Controls.Add(this.poste_has_reatorDataGrid);
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
-            this.Name = "CadastrarUsoMutuo";
-            this.Text = "CadastrarUsoMutuo";
+            this.Name = "CadastrarReator";
+            this.Text = "CadastrarReator";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.CadastrarUsoMutuo_Load);
+            this.Load += new System.EventHandler(this.CadastrarReator_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usomutuoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,16 +205,16 @@
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
         private CipX.db.eletrocadDataSet eletrocadDataSet;
-        private System.Windows.Forms.BindingSource usomutuoBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.uso_mutuoTableAdapter uso_mutuoTableAdapter;
-        private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
-        private System.Windows.Forms.DataGrid poste_has_uso_mutuoDataGrid;
-        private System.Windows.Forms.DataGridTableStyle poste_has_uso_mutuoTableStyleDataGridTableStyle;
+        private System.Windows.Forms.BindingSource postehasreatorBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter poste_has_reatorTableAdapter;
+        private System.Windows.Forms.BindingSource reatorBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.reatorTableAdapter reatorTableAdapter;
+        private System.Windows.Forms.DataGrid poste_has_reatorDataGrid;
+        private System.Windows.Forms.DataGridTableStyle poste_has_reatorTableStyleDataGridTableStyle;
         private System.Windows.Forms.ComboBox descricaoComboBox;
-        private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.TextBox poste_idTextBox;
+        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.MenuItem menuItem5;
     }
 }

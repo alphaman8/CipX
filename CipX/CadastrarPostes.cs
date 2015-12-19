@@ -135,7 +135,13 @@ namespace CipX
 
         private void menuItem9_Click(object sender, EventArgs e)
         {
+            posteId = Convert.ToInt32(label1.Text);
 
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarUsoMutuo p = new CadastrarUsoMutuo();
+            p.ShowDialog();
         }
 
         public static int posteId;
@@ -168,6 +174,16 @@ namespace CipX
             Application.DoEvents();
             //CadastrarTrafo t = new CadastrarTrafo();
             Croqui p = new Croqui();
+            p.ShowDialog();
+        }
+
+        private void menuItem8_Click(object sender, EventArgs e)
+        {
+            posteId = Convert.ToInt32(label1.Text);
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarReator p = new CadastrarReator();
             p.ShowDialog();
         }
     }

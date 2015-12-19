@@ -93,6 +93,12 @@
     <Compile Include="CadastrarPostes.Designer.cs">
       <DependentUpon>CadastrarPostes.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastrarReator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarReator.Designer.cs">
+      <DependentUpon>CadastrarReator.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarTrafo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarPostes.resx">
       <DependentUpon>CadastrarPostes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarReator.resx">
+      <DependentUpon>CadastrarReator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarTrafo.resx">
       <DependentUpon>CadastrarTrafo.cs</DependentUpon>
@@ -210,9 +219,6 @@
     <None Include="db\eletrocadDataSet.xss">
       <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
     </None>
-    <Content Include="map\bahia.MapLib">
-    </Content>
-    <Content Include="map\geral.MapLib" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="PFTConverters">
