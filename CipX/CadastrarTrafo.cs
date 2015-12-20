@@ -153,5 +153,21 @@ namespace CipX
             CadastrarPostes p = new CadastrarPostes();
             p.ShowDialog();
         }
+
+        private void enviarDados(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Enviar dados?", "Enviar", 
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2)==DialogResult.OK)
+            {
+                enviarDados();
+            }
+        }
+
+        private void enviarDados()
+        {
+            
+        }
     }
 }

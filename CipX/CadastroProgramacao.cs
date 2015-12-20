@@ -102,6 +102,7 @@ namespace CipX
                     programacao_ipTableAdapter.Update(eletrocadDataSet.programacao_ip);
                     eletrocadDataSet.programacao_ip.AcceptChanges();
                 }
+
             }
             catch (Exception ex)
             {

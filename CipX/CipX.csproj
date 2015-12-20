@@ -137,6 +137,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>eletrocadDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EnviarDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnviarDados.Designer.cs">
+      <DependentUpon>EnviarDados.cs</DependentUpon>
+    </Compile>
     <Compile Include="GPS.cs" />
     <Compile Include="GPSForm.cs">
       <SubType>Form</SubType>

@@ -108,6 +108,115 @@ namespace CipX
             }
         }
 
+        private void limpaTabelas()
+        {
+            try
+            {
+                while (eletrocadDataSet.uso_mutuo.Count > 0)
+                {
+                    eletrocadDataSet.uso_mutuo.Rows[0].Delete();
+                    uso_mutuoTableAdapter.Update(eletrocadDataSet.uso_mutuo);
+                    eletrocadDataSet.uso_mutuo.AcceptChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void importar()
+        {
+            label1.Text = "Iniciando Importação. Aguarde";
+            label1.Visible = true;
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+
+            limpaTabelas();
+            label1.Text = "Dados locais apagados";
+            Application.DoEvents();
+
+            //abre conexao
+            try
+            {
+                myconn = new MySql.Data.MySqlClient.MySqlConnection(strconn);
+                myconn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível conectar ao servidor, verifique a sua conexão com a internet.");
+                return;
+            }
+
+            if (myconn.State == ConnectionState.Open)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                Application.DoEvents();
+                //inicia a transacao
+                MySql.Data.MySqlClient.MySqlCommand mycommand = myconn.CreateCommand();
+                mycommand.Connection = myconn;
+                mycommand.CommandText =
+                    "SELECT `uso_mutuo`.`id`,"+
+                        "`uso_mutuo`.`descricao` "+
+                    "FROM `eletrocad`.`uso_mutuo`";
+                //mycommand.Parameters.Clear();
+                //mycommand.Parameters.AddWithValue("estado", cbEstado.Text);
+                //mycommand.Parameters.AddWithValue("ano", txtAno.Value);
+
+                try
+                {
+                    MySql.Data.MySqlClient.MySqlDataReader reader = mycommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //
+                        //insere nova programação
+                        db.eletrocadDataSet.uso_mutuoRow pipRow;
+                        pipRow = eletrocadDataSet.uso_mutuo.Newuso_mutuoRow();
+                        pipRow.id = reader.GetInt32("id");
+                        pipRow.descricao = reader.GetString("descricao");
+                        eletrocadDataSet.uso_mutuo.Rows.Add(pipRow);
+
+                    }
+                    uso_mutuoTableAdapter.Update(eletrocadDataSet.uso_mutuo);
+                    eletrocadDataSet.uso_mutuo.AcceptChanges();
+                    uso_mutuoTableAdapter.Fill(eletrocadDataSet.uso_mutuo);
+
+                    reader.Close();
+
+                    Cursor.Current = Cursors.Default;
+                    Application.DoEvents();
+                    MessageBox.Show("Informações recuperadas com sucesso");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível importar: " + ex.Message);
+                }
+                finally
+                {
+                    //myconn.Close();
+                }
+            }
+            myconn.Close();
+            label1.Visible = false;
+            Cursor.Current = Cursors.Default;
+            Application.DoEvents();
+        }
+
+        private MySql.Data.MySqlClient.MySqlConnection myconn;
+        string strconn =
+            "Server=cipweb.com.br;Database=eletrocad;Uid=marcelo;Pwd=0830@rnmf;pooling=false;";
+
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            if ((MessageBox.Show("Atualizar uso mútuo", "atualizar",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2)) == DialogResult.OK)
+            {
+                importar();
+            }
+        }
+
 
 
     }

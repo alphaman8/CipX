@@ -46,6 +46,7 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -65,7 +66,7 @@
             this.timer1 = new System.Windows.Forms.Timer();
             this.lblTtrafoId = new System.Windows.Forms.Label();
             this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.menuItem8 = new System.Windows.Forms.MenuItem();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             gps_timeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -185,6 +186,7 @@
             this.menuItem1.MenuItems.Add(this.menuItem5);
             this.menuItem1.MenuItems.Add(this.menuItem7);
             this.menuItem1.MenuItems.Add(this.menuItem6);
+            this.menuItem1.MenuItems.Add(this.menuItem8);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
@@ -198,6 +200,10 @@
             // 
             this.menuItem5.Text = "Salvar";
             this.menuItem5.Click += new System.EventHandler(this.salvar);
+            // 
+            // menuItem7
+            // 
+            this.menuItem7.Text = "-";
             // 
             // menuItem6
             // 
@@ -358,9 +364,10 @@
             // 
             this.trafoTableAdapter.ClearBeforeFill = true;
             // 
-            // menuItem7
+            // menuItem8
             // 
-            this.menuItem7.Text = "-";
+            this.menuItem8.Text = "Enviar Dados";
+            this.menuItem8.Click += new System.EventHandler(this.enviarDados);
             // 
             // CadastrarTrafo
             // 
@@ -413,5 +420,6 @@
         private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.Label lblTtrafoId;
         private System.Windows.Forms.MenuItem menuItem7;
+        private System.Windows.Forms.MenuItem menuItem8;
     }
 }
