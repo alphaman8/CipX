@@ -209,12 +209,12 @@ namespace CipX
 
         private void menuItem6_Click(object sender, EventArgs e)
         {
-            if ((MessageBox.Show("Atualizar uso mútuo", "atualizar",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2)) == DialogResult.OK)
-            {
-                importar();
-            }
+            //if ((MessageBox.Show("Atualizar uso mútuo", "atualizar",
+            //    MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+            //    MessageBoxDefaultButton.Button2)) == DialogResult.OK)
+            //{
+            //    importar();
+            //}
         }
 
 

@@ -25,12 +25,22 @@ namespace CipX
         {
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
             this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.condicao_risco' table. You can move, or remove it, as needed.
+            this.condicao_riscoTableAdapter.Fill(this.eletrocadDataSet.condicao_risco);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.ativacao' table. You can move, or remove it, as needed.
+            this.ativacaoTableAdapter.Fill(this.eletrocadDataSet.ativacao);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.fase' table. You can move, or remove it, as needed.
+            this.faseTableAdapter.Fill(this.eletrocadDataSet.fase);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.braco' table. You can move, or remove it, as needed.
+            this.bracoTableAdapter.Fill(this.eletrocadDataSet.braco);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
+            this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
             this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
-            timer1.Enabled = true;
+            //timer1.Enabled = true;
 
         }
 
@@ -74,6 +84,7 @@ namespace CipX
             {
                 Console.WriteLine(ex.Message);
             }
+            timer1.Enabled = true;
             //chaveTextBox.Text = "";
             //ciaTextBox.Text = "";
             //alimentadorTextBox.Text = "";
@@ -90,6 +101,7 @@ namespace CipX
 
         private void salvar(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             try
             {
                 this.posteBindingSource.EndEdit();
@@ -135,7 +147,7 @@ namespace CipX
 
         private void menuItem9_Click(object sender, EventArgs e)
         {
-            posteId = Convert.ToInt32(label1.Text);
+            posteId = Convert.ToInt32(labelPosteID.Text);
 
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
@@ -148,7 +160,7 @@ namespace CipX
 
         private void lampadas(object sender, EventArgs e)
         {
-            posteId = Convert.ToInt32(label1.Text);
+            posteId = Convert.ToInt32(labelPosteID.Text);
 
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
@@ -159,7 +171,7 @@ namespace CipX
 
         private void menuItem5_Click(object sender, EventArgs e)
         {
-            posteId = Convert.ToInt32(label1.Text);
+            posteId = Convert.ToInt32(labelPosteID.Text);
 
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
@@ -179,12 +191,17 @@ namespace CipX
 
         private void menuItem8_Click(object sender, EventArgs e)
         {
-            posteId = Convert.ToInt32(label1.Text);
+            posteId = Convert.ToInt32(labelPosteID.Text);
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
             //CadastrarTrafo t = new CadastrarTrafo();
             CadastrarReator p = new CadastrarReator();
             p.ShowDialog();
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+            medidorTextBox.Enabled = checkBox1.Checked;
         }
     }
 }

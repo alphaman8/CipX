@@ -36,6 +36,7 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.postehasreatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -47,7 +48,7 @@
             this.poste_has_reatorTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.descricaoComboBox = new System.Windows.Forms.ComboBox();
             this.poste_idTextBox = new System.Windows.Forms.TextBox();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             descricaoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             descricaoLabel = new System.Windows.Forms.Label();
             poste_idLabel = new System.Windows.Forms.Label();
@@ -97,6 +98,11 @@
             this.menuItem4.Text = "Novo";
             this.menuItem4.Click += new System.EventHandler(this.novo);
             // 
+            // menuItem5
+            // 
+            this.menuItem5.Text = "Salvar";
+            this.menuItem5.Click += new System.EventHandler(this.salvar);
+            // 
             // menuItem3
             // 
             this.menuItem3.Text = "-";
@@ -135,7 +141,7 @@
             this.poste_has_reatorDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.poste_has_reatorDataGrid.DataSource = this.postehasreatorBindingSource;
             this.poste_has_reatorDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.poste_has_reatorDataGrid.Location = new System.Drawing.Point(0, 105);
+            this.poste_has_reatorDataGrid.Location = new System.Drawing.Point(0, 85);
             this.poste_has_reatorDataGrid.Name = "poste_has_reatorDataGrid";
             this.poste_has_reatorDataGrid.Size = new System.Drawing.Size(240, 189);
             this.poste_has_reatorDataGrid.TabIndex = 1;
@@ -169,10 +175,18 @@
             this.poste_idTextBox.Size = new System.Drawing.Size(100, 21);
             this.poste_idTextBox.TabIndex = 4;
             // 
-            // menuItem5
+            // label1
             // 
-            this.menuItem5.Text = "Salvar";
-            this.menuItem5.Click += new System.EventHandler(this.salvar);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(0, 274);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 20);
+            this.label1.Text = "label1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Visible = false;
             // 
             // CadastrarReator
             // 
@@ -186,6 +200,7 @@
             this.Controls.Add(descricaoLabel);
             this.Controls.Add(this.descricaoComboBox);
             this.Controls.Add(this.poste_has_reatorDataGrid);
+            this.Controls.Add(this.label1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
@@ -216,5 +231,6 @@
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -43,9 +43,9 @@
             System.Windows.Forms.DataGridTextBoxColumn municipio_idDataGridColumnStyleDataGridTextBoxColumn;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem6 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.programacaoipBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -63,6 +63,28 @@
             this.poste_has_lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter();
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usuarioTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.usuarioTableAdapter();
+            this.bracoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bracoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter();
+            this.faseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.faseTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter();
+            this.ativacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ativacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter();
+            this.condicaoriscoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.condicao_riscoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter();
+            this.lampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.lampadaTableAdapter();
+            this.tipolampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipo_lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.tipo_lampadaTableAdapter();
+            this.reatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reatorTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.reatorTableAdapter();
+            this.usomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.uso_mutuoTableAdapter();
+            this.postehasreatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_reatorTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter();
+            this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
             regionalDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             cod_localDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -80,6 +102,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lampadaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipolampadaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usomutuoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // regionalDataGridColumnStyleDataGridTextBoxColumn
@@ -165,26 +198,26 @@
             // 
             // menuItem1
             // 
-            this.menuItem1.MenuItems.Add(this.menuItem4);
-            this.menuItem1.MenuItems.Add(this.menuItem6);
             this.menuItem1.MenuItems.Add(this.menuItem5);
+            this.menuItem1.MenuItems.Add(this.menuItem6);
+            this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
-            // 
-            // menuItem4
-            // 
-            this.menuItem4.Text = "Importar";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
-            // 
-            // menuItem6
-            // 
-            this.menuItem6.Text = "-";
             // 
             // menuItem5
             // 
             this.menuItem5.Text = "Trafos";
             this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // menuItem6
+            // 
+            this.menuItem6.Text = "-";
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Text = "Importar";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
             // menuItem3
             // 
@@ -298,6 +331,105 @@
             // 
             this.poste_has_tipo_luminariaTableAdapter.ClearBeforeFill = true;
             // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataMember = "usuario";
+            this.usuarioBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // bracoBindingSource
+            // 
+            this.bracoBindingSource.DataMember = "braco";
+            this.bracoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // bracoTableAdapter
+            // 
+            this.bracoTableAdapter.ClearBeforeFill = true;
+            // 
+            // faseBindingSource
+            // 
+            this.faseBindingSource.DataMember = "fase";
+            this.faseBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // faseTableAdapter
+            // 
+            this.faseTableAdapter.ClearBeforeFill = true;
+            // 
+            // ativacaoBindingSource
+            // 
+            this.ativacaoBindingSource.DataMember = "ativacao";
+            this.ativacaoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // ativacaoTableAdapter
+            // 
+            this.ativacaoTableAdapter.ClearBeforeFill = true;
+            // 
+            // condicaoriscoBindingSource
+            // 
+            this.condicaoriscoBindingSource.DataMember = "condicao_risco";
+            this.condicaoriscoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // condicao_riscoTableAdapter
+            // 
+            this.condicao_riscoTableAdapter.ClearBeforeFill = true;
+            // 
+            // lampadaBindingSource
+            // 
+            this.lampadaBindingSource.DataMember = "lampada";
+            this.lampadaBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // lampadaTableAdapter
+            // 
+            this.lampadaTableAdapter.ClearBeforeFill = true;
+            // 
+            // tipolampadaBindingSource
+            // 
+            this.tipolampadaBindingSource.DataMember = "tipo_lampada";
+            this.tipolampadaBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // tipo_lampadaTableAdapter
+            // 
+            this.tipo_lampadaTableAdapter.ClearBeforeFill = true;
+            // 
+            // reatorBindingSource
+            // 
+            this.reatorBindingSource.DataMember = "reator";
+            this.reatorBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // reatorTableAdapter
+            // 
+            this.reatorTableAdapter.ClearBeforeFill = true;
+            // 
+            // usomutuoBindingSource
+            // 
+            this.usomutuoBindingSource.DataMember = "uso_mutuo";
+            this.usomutuoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // uso_mutuoTableAdapter
+            // 
+            this.uso_mutuoTableAdapter.ClearBeforeFill = true;
+            // 
+            // postehasreatorBindingSource
+            // 
+            this.postehasreatorBindingSource.DataMember = "poste_has_reator";
+            this.postehasreatorBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // poste_has_reatorTableAdapter
+            // 
+            this.poste_has_reatorTableAdapter.ClearBeforeFill = true;
+            // 
+            // postehasusomutuoBindingSource
+            // 
+            this.postehasusomutuoBindingSource.DataMember = "poste_has_uso_mutuo";
+            this.postehasusomutuoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // poste_has_uso_mutuoTableAdapter
+            // 
+            this.poste_has_uso_mutuoTableAdapter.ClearBeforeFill = true;
+            // 
             // CadastroProgramacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -321,6 +453,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lampadaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipolampadaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usomutuoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,5 +494,27 @@
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter poste_has_lampadaTableAdapter;
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
+        private System.Windows.Forms.BindingSource usuarioBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
+        private System.Windows.Forms.BindingSource bracoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter bracoTableAdapter;
+        private System.Windows.Forms.BindingSource faseBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter faseTableAdapter;
+        private System.Windows.Forms.BindingSource ativacaoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter ativacaoTableAdapter;
+        private System.Windows.Forms.BindingSource condicaoriscoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter condicao_riscoTableAdapter;
+        private System.Windows.Forms.BindingSource lampadaBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.lampadaTableAdapter lampadaTableAdapter;
+        private System.Windows.Forms.BindingSource tipolampadaBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.tipo_lampadaTableAdapter tipo_lampadaTableAdapter;
+        private System.Windows.Forms.BindingSource reatorBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.reatorTableAdapter reatorTableAdapter;
+        private System.Windows.Forms.BindingSource usomutuoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.uso_mutuoTableAdapter uso_mutuoTableAdapter;
+        private System.Windows.Forms.BindingSource postehasreatorBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter poste_has_reatorTableAdapter;
+        private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
     }
 }

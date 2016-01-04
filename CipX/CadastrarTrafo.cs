@@ -28,7 +28,7 @@ namespace CipX
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
-            timer1.Enabled = true;
+            //timer1.Enabled = true;
         }
 
         private void novo(object sender, EventArgs e)
@@ -53,6 +53,7 @@ namespace CipX
             //cod_reatorComboBox.SelectedIndex = 0;
             //plaqueta_fkTextBox.Text = Plaqueta.plaqueta;
             //observacaoTextBox.Text = "";
+            timer1.Enabled = true;
             chaveTextBox.Text = "";
             ciaTextBox.Text = "";
             alimentadorTextBox.Text = "";
@@ -70,6 +71,7 @@ namespace CipX
 
         private void salvar(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             try
             {
                 this.trafoBindingSource.EndEdit();
@@ -156,18 +158,11 @@ namespace CipX
 
         private void enviarDados(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Enviar dados?", "Enviar", 
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2)==DialogResult.OK)
-            {
-                enviarDados();
-            }
-        }
-
-        private void enviarDados()
-        {
-            
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            EnviarDados p = new EnviarDados();
+            p.ShowDialog();
         }
     }
 }

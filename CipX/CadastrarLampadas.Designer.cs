@@ -50,7 +50,6 @@
             this.lampadaCb = new System.Windows.Forms.ComboBox();
             this.poste_idTextBox = new System.Windows.Forms.TextBox();
             this.lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.lampadaTableAdapter();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.label1 = new System.Windows.Forms.Label();
             lampada_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             lampada_idLabel = new System.Windows.Forms.Label();
@@ -93,7 +92,6 @@
             // 
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem5);
-            this.menuItem1.MenuItems.Add(this.menuItem6);
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
@@ -189,11 +187,6 @@
             // 
             this.lampadaTableAdapter.ClearBeforeFill = true;
             // 
-            // menuItem6
-            // 
-            this.menuItem6.Text = "Atualizar Lâmpadas";
-            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -253,7 +246,6 @@
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.BindingSource lampadaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.lampadaTableAdapter lampadaTableAdapter;
-        private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.Label label1;
     }
 }

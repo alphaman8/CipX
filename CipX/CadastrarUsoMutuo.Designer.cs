@@ -48,7 +48,6 @@
             this.poste_has_uso_mutuoTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.descricaoComboBox = new System.Windows.Forms.ComboBox();
             this.poste_idTextBox = new System.Windows.Forms.TextBox();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.label1 = new System.Windows.Forms.Label();
             descricaoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             descricaoLabel = new System.Windows.Forms.Label();
@@ -89,7 +88,6 @@
             // 
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem5);
-            this.menuItem1.MenuItems.Add(this.menuItem6);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
@@ -176,11 +174,6 @@
             this.poste_idTextBox.Size = new System.Drawing.Size(100, 21);
             this.poste_idTextBox.TabIndex = 4;
             // 
-            // menuItem6
-            // 
-            this.menuItem6.Text = "Atualizar Uso Mútuo";
-            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -238,7 +231,6 @@
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.TextBox poste_idTextBox;
-        private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.Label label1;
     }
 }

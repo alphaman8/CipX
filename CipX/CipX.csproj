@@ -175,6 +175,9 @@
     <EmbeddedResource Include="Croqui.resx">
       <DependentUpon>Croqui.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EnviarDados.resx">
+      <DependentUpon>EnviarDados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
