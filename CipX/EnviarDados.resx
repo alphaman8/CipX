@@ -138,6 +138,53 @@
   <metadata name="posteTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>747, 17</value>
   </metadata>
+  <metadata name="postehaslampadaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="poste_has_lampadaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>243, 56</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA8dJREFUaEPt
+        mGlPE1EUhvVHiEFQEbAtO3GJ0UTjbvSH+E0Ji2XfRFyjMUYQl/gL/MQ3hBqhCwjFLqD/AsK+w+u8o7eZ
+        4rSdmbbTIaHJST+09573OefcuefMQQAH9vSHAHvZ9rR4uXr2cvT3AayQvQP9/f29ksFC1qsnMASQxVvh
+        o9Ci+WxGAMLhcEYZ6N8wwNzcnLw4FAphZ2fHdKNf+hc6dJfQ/Pw8FhcXMwIhxNM/dfwrZ30ltLCwgKWl
+        JaysrJgKIcTTL/1Th2GA5eVlrK6uYn19PQKxvb2NdJkQT3/0S/+GAZg+brC2tiYDbG5uphVCiKcf+qNf
+        +hdlrPsMcCHTyI02NjawtbUlR14c7FRmQYjnnvRDf/RL/ykH4BOJEMFgUHaWrHEf7sd9TQPg5ZAKCCGe
+        +5kOoIRg3eo1pfiMARiF2C0+owB6IdTEZxxACcEnSCyLJd4SAIkg4om3DEAsiETiLQUgIAKBgHyj8lvL
+        bJGRx2i8YUE5zWkZKkwFoLNUfsS8oeUmvvsll67jttbyRKbWzIl+KB0DjhCfqJkjQCIIGYBtrLKd5qOR
+        mwuIVDZzSvH0E6+dpviagYK4EBEAMdCIlloJkWwTt3s9gyPEi05UbaAhQLe/AnUDJ2NCyABipGQWRFvN
+        yNDiXVZ6fhPloOeb0X/sr8SzydNwfrWrQsgAHKZZRuIsEIJTEqOTKqPwapcNzmE7mjwOtI0VoXO8WNUe
+        jpega6IMdb5cPPWfwoufZ/EqcB4Ng0X/QcgAs7OzURBMJ7MhMkKgZI0Atd/taHTb0eIrQscPdfGE6poo
+        RbU7G3WeHDSM5eFl4BxeBy/gbfgSmoZKoyBkgJmZmQgEy4nZEBlhVlJhBKgfsaPZ60C7SvSrPFlyNkT0
+        a905cHqPosF7Am3jNrwJXUTP1BW8n76OVld5BMK0V4sEaHI70DqqXjoEuDd8CFUjh1HjPoIHHgnYexxN
+        vgK0jdrQ5S9B39RVfPp1E59/30H7t0oZInJJSJkgTNqMzlp8jpilQ4D7I1moHslGrVQ6Tu8xNHrz0TJa
+        iE5/MXol8R+mb0jib6PN9Vd81Ov1dIrn3nSo5eB2S08dHtx6bx6afYXo8DvQE76MvulrUvRvSeVTEX0G
+        xFVtBkCig/vIX44nEsDzyTNS6eSjfcImH9x3UvQ/SqWzW3xUBhL1HMn+ruf5L/7bMFisenCVWjS/g0wW
+        wMh6gvDgtrjKYt/ERjY2aw0Bmodiize1hIxAa+pGjWxs1ppErbTlM6AlUJY+xPsAWiKQ6f/sl1CmM/AH
+        fy20jic620sAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="postehasreatorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>474, 56</value>
+  </metadata>
+  <metadata name="poste_has_reatorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>686, 56</value>
+  </metadata>
+  <metadata name="postehasusomutuoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="poste_has_uso_mutuoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>252, 95</value>
+  </metadata>
+  <metadata name="postehastipoluminariaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>497, 95</value>
+  </metadata>
+  <metadata name="poste_has_tipo_luminariaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
+  </metadata>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
     <value>Pocket_PC</value>
   </metadata>

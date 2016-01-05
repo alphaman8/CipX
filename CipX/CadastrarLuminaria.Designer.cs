@@ -37,7 +37,6 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -90,7 +89,6 @@
             // 
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem5);
-            this.menuItem1.MenuItems.Add(this.menuItem6);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
@@ -104,11 +102,6 @@
             // 
             this.menuItem5.Text = "Salvar";
             this.menuItem5.Click += new System.EventHandler(this.salvar);
-            // 
-            // menuItem6
-            // 
-            this.menuItem6.Text = "Atualizar Luminária";
-            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // menuItem3
             // 
@@ -155,6 +148,7 @@
             this.poste_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "poste_id", true));
             this.poste_idTextBox.Location = new System.Drawing.Point(121, 44);
             this.poste_idTextBox.Name = "poste_idTextBox";
+            this.poste_idTextBox.ReadOnly = true;
             this.poste_idTextBox.Size = new System.Drawing.Size(100, 21);
             this.poste_idTextBox.TabIndex = 3;
             // 
@@ -234,7 +228,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource tipoluminariaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.tipo_luminariaTableAdapter tipo_luminariaTableAdapter;
-        private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.Label label1;
     }
 }

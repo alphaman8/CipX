@@ -23,6 +23,14 @@ namespace CipX
 
         private void EnviarDados_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
+            this.poste_has_tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.poste_has_tipo_luminaria);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_uso_mutuo' table. You can move, or remove it, as needed.
+            this.poste_has_uso_mutuoTableAdapter.Fill(this.eletrocadDataSet.poste_has_uso_mutuo);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_reator' table. You can move, or remove it, as needed.
+            this.poste_has_reatorTableAdapter.Fill(this.eletrocadDataSet.poste_has_reator);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_lampada' table. You can move, or remove it, as needed.
+            this.poste_has_lampadaTableAdapter.Fill(this.eletrocadDataSet.poste_has_lampada);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
             this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
             // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
@@ -56,17 +64,18 @@ namespace CipX
                 return;
             }
 
-            MySql.Data.MySqlClient.MySqlCommand mycommand = myconn.CreateCommand();
             MySql.Data.MySqlClient.MySqlTransaction mytrans;
             mytrans = myconn.BeginTransaction();
-            mycommand.Connection = myconn;
-            mycommand.Transaction = mytrans;
 
             try
             {
                 foreach (db.eletrocadDataSet.trafoRow row in eletrocadDataSet.trafo.Rows)
                 {
                     //insere transformadores
+                    MySql.Data.MySqlClient.MySqlCommand mycommand = myconn.CreateCommand();
+                    mycommand.Connection = myconn;
+                    mycommand.Transaction = mytrans;
+
                     mycommand.CommandText =
                                 "INSERT INTO `eletrocad`.`trafo` " +
                                 "(`chave`, " +
@@ -94,113 +103,193 @@ namespace CipX
 
                     mycommand.ExecuteNonQuery();
 
-                    listEnviar.Items.Add("Trafo enviado: "+row.chave);
+                    listEnviar.Items.Add("Trafo enviado: " + row.chave);
                     Application.DoEvents();
+
+                    //INSERE POSTES
+                    foreach (db.eletrocadDataSet.posteRow rowPoste in row.GetposteRows())
+                    {
+                        MySql.Data.MySqlClient.MySqlCommand mycommandPoste = myconn.CreateCommand();
+                        mycommandPoste.Transaction = mytrans;
+
+                        mycommandPoste.CommandText =
+                                    "INSERT INTO `eletrocad`.`poste` " +
+                                    "(`bairro`, " +
+                                    "`logradouro`, " +
+                                    "`gps_time`, " +
+                                    "`sequencia`, " +
+                                    "`barramento`, " +
+                                    "`medido`, " +
+                                    "`aceso`, " +
+                                    "`trafo_id`, " +
+                                    "`lat`, " +
+                                    "`lon`, " +
+                                    "`obs`, " +
+                                    "`gpgga`, " +
+                                    "`medidor`, " +
+                                    "`posicao_trafo`, " +
+                                    "`ligacao_clandestina`, " +
+                                    "`braco_id`, " +
+                                    "`fase_id`, " +
+                                    "`ativacao_id`, " +
+                                    "`condicao_risco_id`) " +
+                                    "VALUES " +
+                                    "(@bairro , " +
+                                    "@logradouro , " +
+                                    "@gps_time , " +
+                                    "@sequencia , " +
+                                    "@barramento , " +
+                                    "@medido , " +
+                                    "@aceso , " +
+                                    "@trafo_id , " +
+                                    "@lat , " +
+                                    "@lon , " +
+                                    "@obs , " +
+                                    "@gpgga , " +
+                                    "@medidor , " +
+                                    "@posicao_trafo , " +
+                                    "@ligacao_clandestina , " +
+                                    "@braco_id , " +
+                                    "@fase_id , " +
+                                    "@ativacao_id , " +
+                                    "@condicao_risco_id)";
+
+                        if (rowPoste.IsbairroNull()) { mycommandPoste.Parameters.AddWithValue("bairro", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("bairro", rowPoste.bairro); }
+
+                        if (rowPoste.IslogradouroNull()) { mycommandPoste.Parameters.AddWithValue("logradouro", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("logradouro", rowPoste.logradouro); }
+
+                        mycommandPoste.Parameters.AddWithValue("gps_time", rowPoste.gps_time);
+                        mycommandPoste.Parameters.AddWithValue("sequencia", rowPoste.sequencia);
+
+                        if (rowPoste.IsbarramentoNull()) { mycommandPoste.Parameters.AddWithValue("barramento", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("barramento", rowPoste.barramento); }
+
+                        if (rowPoste.IsmedidoNull()) { mycommandPoste.Parameters.AddWithValue("medido", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("medido", rowPoste.medido); }
+
+                        if (rowPoste.IsacesoNull()) { mycommandPoste.Parameters.AddWithValue("aceso", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("aceso", rowPoste.aceso); }
+
+                        mycommandPoste.Parameters.AddWithValue("trafo_id", mycommand.LastInsertedId);
+                        mycommandPoste.Parameters.AddWithValue("lat", rowPoste.lat);
+                        mycommandPoste.Parameters.AddWithValue("lon", rowPoste.lon);
+
+                        if (rowPoste.IsobsNull()) { mycommandPoste.Parameters.AddWithValue("obs", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("obs", rowPoste.obs); }
+
+                        if (rowPoste.IsgpggaNull()) { mycommandPoste.Parameters.AddWithValue("gpgga", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("gpgga", rowPoste.gpgga); }
+
+                        if (rowPoste.IsmedidorNull()) { mycommandPoste.Parameters.AddWithValue("medidor", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("medidor", rowPoste.medidor); }
+
+                        if (rowPoste.Isposicao_trafoNull()) { mycommandPoste.Parameters.AddWithValue("posicao_trafo", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("posicao_trafo", rowPoste.posicao_trafo); }
+
+                        if (rowPoste.Isligacao_clandestinaNull()) { mycommandPoste.Parameters.AddWithValue("ligacao_clandestina", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("ligacao_clandestina", rowPoste.ligacao_clandestina); }
+
+                        if (rowPoste.Isbraco_idNull()) { mycommandPoste.Parameters.AddWithValue("braco_id", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("braco_id", rowPoste.braco_id); }
+
+                        if (rowPoste.Isfase_idNull()) { mycommandPoste.Parameters.AddWithValue("fase_id", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("fase_id", rowPoste.fase_id); }
+
+                        if (rowPoste.Isativacao_idNull()) { mycommandPoste.Parameters.AddWithValue("ativacao_id", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("ativacao_id", rowPoste.ativacao_id); }
+
+                        if (rowPoste.Iscondicao_risco_idNull()) { mycommandPoste.Parameters.AddWithValue("condicao_risco_id", null); }
+                        else { mycommandPoste.Parameters.AddWithValue("condicao_risco_id", rowPoste.condicao_risco_id); }
+
+                        mycommandPoste.ExecuteNonQuery();
+
+                        //INSERE LAMPADAS
+                        foreach (db.eletrocadDataSet.poste_has_lampadaRow rowPosteHasLampada 
+                                    in rowPoste.Getposte_has_lampadaRows())
+                        {
+
+                            MySql.Data.MySqlClient.MySqlCommand mycommandPosteHasLamapada = myconn.CreateCommand();
+                            mycommandPosteHasLamapada.Transaction = mytrans;
+
+                            mycommandPosteHasLamapada.CommandText = "INSERT INTO `eletrocad`.`poste_has_lampada` " +
+                                "(`poste_id`,`lampada_id`) VALUES (@posteId, @lampadaId)";
+
+                            mycommandPosteHasLamapada.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
+                            mycommandPosteHasLamapada.Parameters.AddWithValue("lampadaId", rowPosteHasLampada.lampada_id);
+
+                            mycommandPosteHasLamapada.ExecuteNonQuery();
+
+                        }
+
+                        //INSERE REATOR
+                        foreach (db.eletrocadDataSet.poste_has_reatorRow rowPosteHasReator
+                                    in rowPoste.Getposte_has_reatorRows())
+                        {
+
+                            MySql.Data.MySqlClient.MySqlCommand mycommandPosteHasReator = myconn.CreateCommand();
+                            mycommandPosteHasReator.Transaction = mytrans;
+
+                            mycommandPosteHasReator.CommandText = "INSERT INTO `eletrocad`.`poste_has_reator` " +
+                                "(`poste_id`,`reator_id`) VALUES (@posteId, @reatorId)";
+
+                            mycommandPosteHasReator.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
+                            mycommandPosteHasReator.Parameters.AddWithValue("reatorId", rowPosteHasReator.reator_id);
+
+                            mycommandPosteHasReator.ExecuteNonQuery();
+
+
+                        }
+
+                        //INSERE luminaria
+                        foreach (db.eletrocadDataSet.poste_has_tipo_luminariaRow rowPosteHasTipoLuminaria
+                                    in rowPoste.Getposte_has_tipo_luminariaRows())
+                        {
+
+                            MySql.Data.MySqlClient.MySqlCommand mycommandPosteHasTipoLuminaria = myconn.CreateCommand();
+                            mycommandPosteHasTipoLuminaria.Transaction = mytrans;
+
+                            mycommandPosteHasTipoLuminaria.CommandText = "INSERT INTO `eletrocad`.`poste_has_tipo_luminaria` " +
+                                "(`poste_id`,`tipo_luminaria_id`) VALUES (@posteId, @tipoId)";
+
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("tipoId", rowPosteHasTipoLuminaria.tipo_luminaria_id);
+
+                            mycommandPosteHasTipoLuminaria.ExecuteNonQuery();
+                        }
+
+                        //INSERE uso mútuo
+                        foreach (db.eletrocadDataSet.poste_has_uso_mutuoRow rowPosteHasUsoMutuo
+                                    in rowPoste.Getposte_has_uso_mutuoRows())
+                        {
+
+                            MySql.Data.MySqlClient.MySqlCommand mycommandPosteHasUsoMutuo = myconn.CreateCommand();
+                            mycommandPosteHasUsoMutuo.Transaction = mytrans;
+
+                            mycommandPosteHasUsoMutuo.CommandText = "INSERT INTO `eletrocad`.`poste_has_uso_mutuo` " +
+                                "(`poste_id`,`uso_mutuo_id`) VALUES (@posteId, @usoId)";
+
+                            mycommandPosteHasUsoMutuo.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
+                            mycommandPosteHasUsoMutuo.Parameters.AddWithValue("usoId", rowPosteHasUsoMutuo.uso_mutuo_id);
+
+                            mycommandPosteHasUsoMutuo.ExecuteNonQuery();
+
+
+                        }
+
+                        listEnviar.Items.Add("Sequência: " + rowPoste.sequencia + " componentes inseridos");
+                        Application.DoEvents();
+
+                    }
+
+                    //listEnviar.Items.Add("Trafo enviado: "+row.chave);
+                    //Application.DoEvents();
 
                     
                 }
+                mytrans.Commit();
                 listEnviar.Items.Add("Trafos enviados com sucesso!");
-
-                //insere postes
-                foreach (db.eletrocadDataSet.posteRow row in eletrocadDataSet.poste.Rows)
-                {
-                    mycommand.CommandText =
-                                "INSERT INTO `eletrocad`.`poste` "+
-                                "(`bairro`, "+
-                                "`logradouro`, "+
-                                "`gps_time`, "+
-                                "`sequencia`, "+
-                                "`barramento`, "+
-                                "`medido`, "+
-                                "`aceso`, "+
-                                "`trafo_id`, "+
-                                "`lat`, "+
-                                "`lon`, "+
-                                "`obs`, "+
-                                "`gpgga`, "+
-                                "`medidor`, "+
-                                "`posicao_trafo`, "+
-                                "`ligacao_clandestina`, "+
-                                "`braco_id`, "+
-                                "`fase_id`, "+
-                                "`ativacao_id`, "+
-                                "`condicao_risco_id`) "+
-                                "VALUES "+
-                                "(@bairro , "+
-                                "@logradouro , "+
-                                "@gps_time , "+
-                                "@sequencia , "+
-                                "@barramento , "+
-                                "@medido , "+
-                                "@aceso , "+
-                                "@trafo_id , "+
-                                "@lat , "+
-                                "@lon , "+
-                                "@obs , "+
-                                "@gpgga , "+
-                                "@medidor , "+
-                                "@posicao_trafo , "+
-                                "@ligacao_clandestina , "+
-                                "@braco_id , "+
-                                "@fase_id , "+
-                                "@ativacao_id , " +
-                                "@condicao_risco_id)";
-
-                    if (row.IsbairroNull()) { mycommand.Parameters.AddWithValue("bairro", null); }
-                    else { mycommand.Parameters.AddWithValue("bairro", row.bairro); }
-
-                    if (row.IslogradouroNull()) { mycommand.Parameters.AddWithValue("logradouro", null); }
-                    else { mycommand.Parameters.AddWithValue("logradouro", row.logradouro); }
-
-                    mycommand.Parameters.AddWithValue("gps_time", row.gps_time);
-                    mycommand.Parameters.AddWithValue("sequencia", row.sequencia);
-
-                    if (row.IsbarramentoNull()) { mycommand.Parameters.AddWithValue("barramento", null); }
-                    else { mycommand.Parameters.AddWithValue("barramento", row.barramento); }
-
-                    if (row.IsmedidoNull()) { mycommand.Parameters.AddWithValue("medido", null); }
-                    else { mycommand.Parameters.AddWithValue("medido", row.medido); }
-
-                    if (row.IsacesoNull()) { mycommand.Parameters.AddWithValue("aceso", null); }
-                    else { mycommand.Parameters.AddWithValue("aceso", row.aceso); }
-
-                    mycommand.Parameters.AddWithValue("lat", row.lat);
-                    mycommand.Parameters.AddWithValue("lon", row.lon);
-
-                    if (row.IsobsNull()) { mycommand.Parameters.AddWithValue("obs", null); }
-                    else { mycommand.Parameters.AddWithValue("obs", row.obs); }
-
-                    if (row.IsgpggaNull()) { mycommand.Parameters.AddWithValue("gpgga", null); }
-                    else { mycommand.Parameters.AddWithValue("gpgga", row.gpgga); }
-
-                    if (row.IsmedidorNull()) { mycommand.Parameters.AddWithValue("medidor", null); }
-                    else { mycommand.Parameters.AddWithValue("medidor", row.medidor); }
-
-                    if (row.Isposicao_trafoNull()) { mycommand.Parameters.AddWithValue("posicao_trafo", null); }
-                    else { mycommand.Parameters.AddWithValue("posicao_trafo", row.posicao_trafo); }
-
-                    if (row.Isligacao_clandestinaNull()) { mycommand.Parameters.AddWithValue("ligacao_clandestina", null); }
-                    else { mycommand.Parameters.AddWithValue("ligacao_clandestina", row.ligacao_clandestina); }
-
-                    if (row.Isbraco_idNull()) { mycommand.Parameters.AddWithValue("braco_id", null); }
-                    else { mycommand.Parameters.AddWithValue("braco_id", row.braco_id); }
-
-                    if (row.Isfase_idNull()) { mycommand.Parameters.AddWithValue("fase_id", null); }
-                    else { mycommand.Parameters.AddWithValue("fase_id", row.fase_id); }
-
-                    if (row.Isativacao_idNull()) { mycommand.Parameters.AddWithValue("ativacao_id", null); }
-                    else { mycommand.Parameters.AddWithValue("ativacao_id", row.ativacao_id); }
-
-                    if (row.Iscondicao_risco_idNull()) { mycommand.Parameters.AddWithValue("condicao_risco_id", null); }
-                    else { mycommand.Parameters.AddWithValue("condicao_risco_id", row.condicao_risco_id); }
-
-                    mycommand.ExecuteNonQuery();
-
-                    listEnviar.Items.Add("Poste enviado: " + row.sequencia);
-                    Application.DoEvents();
-
-                }
-
                 
             }
             catch (Exception ex)
@@ -220,11 +309,18 @@ namespace CipX
 
                 MessageBox.Show("Não foi possível enviar: "+ex.Message);
             }
-
-
-            mytrans.Commit();
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            enviar(sender, e);
         }
     }
 }

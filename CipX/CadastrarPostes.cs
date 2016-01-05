@@ -38,6 +38,8 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
             this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
 
+            medidorTextBox.Enabled = checkBox1.Checked;
+
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
             //timer1.Enabled = true;
