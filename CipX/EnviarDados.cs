@@ -23,6 +23,8 @@ namespace CipX
 
         private void EnviarDados_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.usuario' table. You can move, or remove it, as needed.
+            this.usuarioTableAdapter.Fill(this.eletrocadDataSet.usuario);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
             this.poste_has_tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.poste_has_tipo_luminaria);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_uso_mutuo' table. You can move, or remove it, as needed.
@@ -36,13 +38,17 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
             this.trafoTableAdapter.Fill(this.eletrocadDataSet.trafo);
 
+            myconn = new MySql.Data.MySqlClient.MySqlConnection(strconn);
+
+            panelLogin.Location = new Point(19, 75);
+
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
         }
 
         private MySql.Data.MySqlClient.MySqlConnection myconn;
         string strconn =
-            "Server=cipweb.com.br;Database=cip2;Uid=marcelo;Pwd=0830@rnmf;pooling=false;";
+            "Server=cipweb.com.br;Database=eletrocad;Uid=marcelo;Pwd=0830@rnmf;pooling=false;";
 
         private void enviar(object sender, EventArgs e)
         {
@@ -50,8 +56,6 @@ namespace CipX
             Application.DoEvents();
 
             //inicia a transacao
-            myconn = new MySql.Data.MySqlClient.MySqlConnection(strconn);
-
             try
             {
                 myconn.Open();
@@ -206,7 +210,7 @@ namespace CipX
                         mycommandPoste.ExecuteNonQuery();
 
                         //INSERE LAMPADAS
-                        foreach (db.eletrocadDataSet.poste_has_lampadaRow rowPosteHasLampada 
+                        foreach (db.eletrocadDataSet.poste_has_lampadaRow rowPosteHasLampada
                                     in rowPoste.Getposte_has_lampadaRows())
                         {
 
@@ -286,11 +290,11 @@ namespace CipX
                     //listEnviar.Items.Add("Trafo enviado: "+row.chave);
                     //Application.DoEvents();
 
-                    
+
                 }
                 mytrans.Commit();
                 listEnviar.Items.Add("Trafos enviados com sucesso!");
-                
+
             }
             catch (Exception ex)
             {
@@ -307,20 +311,108 @@ namespace CipX
                     }
                 }
 
-                MessageBox.Show("Não foi possível enviar: "+ex.Message);
+                MessageBox.Show("Não foi possível enviar: " + ex.Message);
+            }
+            finally
+            {
+                myconn.Close();
             }
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
+            if (chkEnviarTudo.Checked)
+            {
+                enviar(sender, e);
+            }
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panelLogin.BringToFront();
+            panelLogin.Visible = false;
+        }
+
+        int usuarioId = 0;
+
+        private void login(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+
+            DataRowView view = (DataRowView)usuarioBindingSource.Current;
+            string senha = view["senha"].ToString();
+            if (senha.Equals(senhaTextBox.Text))
+            {
+                //verificar online usuario
+                MySql.Data.MySqlClient.MySqlCommand mycomm = myconn.CreateCommand();
+                mycomm.CommandText = "select count(1) from usuario "+
+                    "where nome=@nome and senha=@senha";
+                mycomm.Parameters.AddWithValue("nome", nomeComboBox.Text);
+                mycomm.Parameters.AddWithValue("senha", senhaTextBox.Text);
+
+                try
+                {
+                    myconn.Open();
+                    int i = Convert.ToInt32(mycomm.ExecuteScalar());
+                    if (i > 0)
+                    {
+                        btEnviar.Enabled = true;
+                        panelLogin.Visible = false;
+                        usuarioId = (int)view["id"];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Cursor.Current = Cursors.Default;
+                    Application.DoEvents();
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                finally
+                {
+                    myconn.Close();
+                }
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+                MessageBox.Show("Login falhou");
+            }
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void menuItem5_Click(object sender, EventArgs e)
         {
-            enviar(sender, e);
+            panelLogin.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listTrafos.SelectedValue != null)
+            {
+                chkEnviarTudo.Checked = false;
+                listEnviaveis.Items.Add(listTrafos.SelectedValue);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (listEnviaveis.SelectedItem != null)
+            {
+                listEnviaveis.Items.Remove(listEnviaveis.SelectedItem);
+
+                if (listEnviaveis.Items.Count == 0)
+                {
+                    chkEnviarTudo.Checked = true;
+                }
+            }
         }
     }
 }

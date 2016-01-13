@@ -147,6 +147,12 @@
     <Compile Include="GPSForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ImportarDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportarDados.Designer.cs">
+      <DependentUpon>ImportarDados.cs</DependentUpon>
+    </Compile>
     <Compile Include="LatLon.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Program.cs" />
@@ -178,6 +184,12 @@
     <EmbeddedResource Include="EnviarDados.resx">
       <DependentUpon>EnviarDados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GPSForm.resx">
+      <DependentUpon>GPSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportarDados.resx">
+      <DependentUpon>ImportarDados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -196,6 +208,7 @@
     <Compile Include="TelaInicial.Designer.cs">
       <DependentUpon>TelaInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\PFTConverters.dll">

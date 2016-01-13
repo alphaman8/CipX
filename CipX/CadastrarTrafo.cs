@@ -26,15 +26,36 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
             this.trafoTableAdapter.FillByPip(this.eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
 
+            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy;
+
             Cursor.Current = Cursors.Default;
-            Application.DoEvents();
-            //timer1.Enabled = true;
+            Application.DoEvents();            
+
+            /* APENAS PARA TESTE, APAGAR QUANDO FOR COMPILADO
+             * FUNÇÃO PARA CLICAR NO BOTAO APÓS ALGUNS SEGUNDOS
+             * EVITANDO QUE O PROGRAMADOR TENHA QUE CLICAR SEMPRE
+             * NO MESMO BOTÃO PARA TESTAR O APLICATIVO
+             */
+            //System.Threading.Thread.Sleep(1000);
+            //enviarDados(sender, e);
         }
 
         private void novo(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
+
+            GPSForm.StartTraking();
+
+            while (GPS.accuracy > GPS.accuracyIdeal)
+            {
+                label1.Text = "Precisão está baixa: "+GPS.accuracy+"m";
+                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+                System.Threading.Thread.Sleep(1000);
+                Application.DoEvents();
+            }
+
+            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy+"m";
 
             try
             {
@@ -53,14 +74,21 @@ namespace CipX
             //cod_reatorComboBox.SelectedIndex = 0;
             //plaqueta_fkTextBox.Text = Plaqueta.plaqueta;
             //observacaoTextBox.Text = "";
-            timer1.Enabled = true;
-            chaveTextBox.Text = "";
-            ciaTextBox.Text = "";
-            alimentadorTextBox.Text = "";
+            //chaveTextBox.Text = "";
+            //ciaTextBox.Text = "";
+            //alimentadorTextBox.Text = "";
             chaveTextBox.Focus();
             tabControl1.SelectedIndex = 1;
             usuario_idTextBox.Text = ""+1;
+            gps_timeTextBox.Text = GPS.gpsTime.ToString();
+
+
+            //GPS.gpsOldTime = GPS.gpsTime;
+            //System.Threading.Thread.Sleep(1000);
+
             programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
+
+            GPSForm.StopTrimble();
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -70,8 +98,7 @@ namespace CipX
         public static int trafoId;
 
         private void salvar(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
+        {            
             try
             {
                 this.trafoBindingSource.EndEdit();
@@ -115,33 +142,8 @@ namespace CipX
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //listGPS.Items.Clear();
-
-            //listGPS.Items.Add("Situação do GPS: " + GPS.status);
-            //listGPS.Items.Add("Latitude: " + GPS.lat);
-            //listGPS.Items.Add("Longitude: " + GPS.lon);
-            //listGPS.Items.Add("Satélites: " + GPS.numberOfSatellites);
-            //listGPS.Items.Add("Acurácia: " + GPS.accuracy + "m");
-            //listGPS.Items.Add("Data/Hora do GPS: " + GPS.gpsTtime.ToString("dd/MM/yyyy - HH:mm"));
-            gps_timeTextBox.Text = GPS.gpsTtime.ToString();
-
-            //if (GPS.accuracy > 15 && GPS.status.Contains("corretamente"))
-            //{
-            //    listGPS.Items.Add("Baixa acurácia!");
-            //    listGPS.ForeColor = Color.Orange;
-            //}
-            //if (GPS.accuracy < 15 && GPS.status.Contains("corretamente"))
-            //{
-            //    listGPS.Items.Add("Boa acurácia!");
-            //    listGPS.ForeColor = Color.Lime;
-            //}
-        }
-
         private void CadastrarTrafo_Closing(object sender, CancelEventArgs e)
         {
-            timer1.Enabled = false;
             Application.DoEvents();
         }
 

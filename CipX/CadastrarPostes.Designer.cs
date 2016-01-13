@@ -80,7 +80,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.timer1 = new System.Windows.Forms.Timer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.labelPosteID = new System.Windows.Forms.Label();
@@ -89,6 +88,7 @@
             this.posteDataGrid = new System.Windows.Forms.DataGrid();
             this.posteTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.posteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.medidorTextBox = new System.Windows.Forms.TextBox();
@@ -117,7 +117,7 @@
             this.ativacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter();
             this.condicao_riscoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter();
             this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             bairroLabel = new System.Windows.Forms.Label();
             ruaLabel = new System.Windows.Forms.Label();
             barramentoLabel = new System.Windows.Forms.Label();
@@ -514,11 +514,6 @@
             this.menuItem2.Text = "Sair";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -533,6 +528,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.labelPosteID);
             this.tabPage1.Controls.Add(this.posteDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
@@ -623,8 +619,17 @@
             this.tabPage2.Controls.Add(bairroLabel);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 271);
+            this.tabPage2.Size = new System.Drawing.Size(232, 268);
             this.tabPage2.Text = "II";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.posteBindingSource, "aceso", true));
+            this.checkBox2.Location = new System.Drawing.Point(132, 170);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(100, 20);
+            this.checkBox2.TabIndex = 68;
+            this.checkBox2.Text = "Aceso";
             // 
             // posteBindingSource1
             // 
@@ -856,14 +861,16 @@
             // 
             this.posteTableAdapter.ClearBeforeFill = true;
             // 
-            // checkBox2
+            // label1
             // 
-            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.posteBindingSource, "aceso", true));
-            this.checkBox2.Location = new System.Drawing.Point(132, 170);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(100, 20);
-            this.checkBox2.TabIndex = 68;
-            this.checkBox2.Text = "Aceso";
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(0, 231);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 20);
+            this.label1.Text = "label1";
             // 
             // CadastrarPostes
             // 
@@ -902,7 +909,6 @@
         private CipX.db.eletrocadDataSet eletrocadDataSet;
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -947,5 +953,6 @@
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label labelPosteID;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label1;
     }
 }

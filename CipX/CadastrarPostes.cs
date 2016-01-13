@@ -24,7 +24,7 @@ namespace CipX
         private void CadastrarPostes_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
-            this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
+            this.posteTableAdapter.FillByTrafo(this.eletrocadDataSet.poste, CadastrarTrafo.trafoId);
             // TODO: This line of code loads data into the 'eletrocadDataSet.condicao_risco' table. You can move, or remove it, as needed.
             this.condicao_riscoTableAdapter.Fill(this.eletrocadDataSet.condicao_risco);
             // TODO: This line of code loads data into the 'eletrocadDataSet.ativacao' table. You can move, or remove it, as needed.
@@ -34,48 +34,30 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.braco' table. You can move, or remove it, as needed.
             this.bracoTableAdapter.Fill(this.eletrocadDataSet.braco);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
-            this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
-            this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
 
             medidorTextBox.Enabled = checkBox1.Checked;
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
             //timer1.Enabled = true;
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //listGPS.Items.Clear();
-
-            //listGPS.Items.Add("Situação do GPS: " + GPS.status);
-            //listGPS.Items.Add("Latitude: " + GPS.lat);
-            //listGPS.Items.Add("Longitude: " + GPS.lon);
-            //listGPS.Items.Add("Satélites: " + GPS.numberOfSatellites);
-            //listGPS.Items.Add("Acurácia: " + GPS.accuracy + "m");
-            //listGPS.Items.Add("Data/Hora do GPS: " + GPS.gpsTtime.ToString("dd/MM/yyyy - HH:mm"));
-            gps_timeTextBox.Text = GPS.gpsTtime.ToString();
-            latTextBox.Text = GPS.lat.ToString();
-            lonTextBox.Text = GPS.lon.ToString();
-
-            //if (GPS.accuracy > 15 && GPS.status.Contains("corretamente"))
-            //{
-            //    listGPS.Items.Add("Baixa acurácia!");
-            //    listGPS.ForeColor = Color.Orange;
-            //}
-            //if (GPS.accuracy < 15 && GPS.status.Contains("corretamente"))
-            //{
-            //    listGPS.Items.Add("Boa acurácia!");
-            //    listGPS.ForeColor = Color.Lime;
-            //}
         }
 
         private void novo(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
+
+            GPSForm.StartTraking();
+
+            while (GPS.accuracy > GPS.accuracyIdeal)
+            {
+                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+                System.Threading.Thread.Sleep(1000);
+                Application.DoEvents();
+            }
+
+            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy + "m";
 
             try
             {
@@ -86,16 +68,20 @@ namespace CipX
             {
                 Console.WriteLine(ex.Message);
             }
-            timer1.Enabled = true;
             //chaveTextBox.Text = "";
             //ciaTextBox.Text = "";
             //alimentadorTextBox.Text = "";
             //chaveTextBox.Focus();
             bairroTextBox.Focus();
             tabControl1.SelectedIndex = 1;
+            gps_timeTextBox.Text = GPS.gpsTime.ToString();
+            latTextBox.Text = GPS.lat.ToString();
+            lonTextBox.Text = GPS.lon.ToString();
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
+
+            GPSForm.StopTrimble();
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -103,7 +89,13 @@ namespace CipX
 
         private void salvar(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            if (!verifica())
+            {
+                MessageBox.Show("Barramento deve ter entre "
+                    + Usuario.nMinBarramento + " a " + Usuario.nMaxBarramento + " dígitos");
+                return;
+            }
+
             try
             {
                 this.posteBindingSource.EndEdit();
@@ -144,6 +136,19 @@ namespace CipX
             {
                 MessageBox.Show(ex.Message);
                 //citeluz2DataSet.RejectChanges();
+            }
+        }
+
+        private bool verifica()
+        {
+            int len = barramentoTextBox.Text.Length;
+            if (Usuario.nMaxBarramento <= len && Usuario.nMinBarramento >= len)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

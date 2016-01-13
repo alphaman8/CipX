@@ -14,7 +14,6 @@ namespace CipX
 {
     public partial class GPSForm : Form
     {
-        public Timer timerCoordenada;
         public string displayString = "";
         public string quantSatelites = "0";
         public string gpgga = "";
@@ -41,12 +40,24 @@ namespace CipX
         public static SSFWriter ssfWriter;
         public static String gpsTrimbleStatus;
 
-        public void DesconectarTrimble()
+        public static void StopTrimble()
         {
+            GPS.accuracy = 200;
             if (gpsTrimble != null)
             {
                 gpsTrimble.StopTracking();
-                gpsTrimble = null;
+                //gpsTrimble.ResetGPSReceiver();
+                //Usuario.UsandoTrimble = false;
+            }
+        }
+
+        public static void StartTraking()
+        {
+            GPS.accuracy = 200;
+            if (gpsTrimble != null)
+            {
+                gpsTrimble.StartTracking();
+                //gpsTrimble.ResetGPSReceiver();
                 //Usuario.UsandoTrimble = false;
             }
         }
@@ -59,7 +70,7 @@ namespace CipX
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 2.0f;
+            gpsTrimble.PositionMinimumInterval = 3.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -100,7 +111,7 @@ namespace CipX
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 2.0f;
+            gpsTrimble.PositionMinimumInterval = 3.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -139,42 +150,27 @@ namespace CipX
 
         void gpsTrimble_NewError(GPSReceiverErrorCode ErrorCode, string ErrorString)
         {
-            Console.WriteLine("" + ErrorCode.ToString() + " " + ErrorString);
-        }
+            GPS.error = "" + ErrorCode.ToString() + " " + ErrorString;
 
-        public void coletarSSFLpt(string filename)
-        {
-            ssfWriter = new SSFWriter();
-            ssfWriter.LogCarrier = true;
-            ssfWriter.PointLoggingInterval = 1f;
-            ssfWriter.SetAntennaSettings("interna",
-                AntennaMeasurementMethod.pfAntennaMeasurementMethodNone,
-                1.5f);
-
-            String ssfFile = filename + ".ssf";
-            String ssfPath = Library.appDir + "\\ssf";
-
-            this.errorCode = ssfWriter.AttachToGPSReceiverObject(gpsTrimble);
-
-            if (System.IO.File.Exists(ssfPath + "\\" + ssfFile))
+            string fileText = "error.txt";
+            if (!System.IO.File.Exists(fileText))
             {
-                //System.Windows.Forms.MessageBox.Show("Arquivo SSF já existe");
-                this.errorCode = ssfWriter.AppendSSFFile(ssfPath, ssfFile);
-                //System.Windows.Forms.MessageBox.Show("Append: " + errorCode.ToString());
+                System.IO.File.CreateText(fileText);
             }
-            else
+
+            using (System.IO.StreamWriter writetext = new System.IO.StreamWriter(fileText))
             {
-                //System.Windows.Forms.MessageBox.Show("Arquivo SSF não existe e será criado");
-                this.errorCode = ssfWriter.StartSSFFile(ssfPath, ssfFile);
-                //System.Windows.Forms.MessageBox.Show("Start: " + errorCode.ToString());
+                writetext.WriteLine(GPS.error);
             }
         }
 
         public static GPSPosition pos;
 
+
         private void gpsTrimble_NewPosition(GPSPosition position)
         {
             pos = position;
+            
             statusTrimble();
         }
 
@@ -327,13 +323,7 @@ namespace CipX
 
         private void InitializeComponent()
         {
-            this.timerCoordenada = new System.Windows.Forms.Timer();
             this.SuspendLayout();
-            // 
-            // timerCoordenada
-            // 
-            this.timerCoordenada.Interval = 1500;
-            this.timerCoordenada.Tick += new System.EventHandler(this.timerCoordenada_Tick);
             // 
             // GPSForm
             // 
@@ -353,22 +343,20 @@ namespace CipX
 
         private void GPSForm_Closing(object sender, CancelEventArgs e)
         {
-            timerCoordenada.Enabled = false;
+            //if (ssfWriter != null)
+            //{
+            //    if (ssfWriter.IsFeatureInProgress())
+            //    {
+            //        ssfWriter.CancelFeature();
+            //    }
 
-            if (ssfWriter != null)
-            {
-                if (ssfWriter.IsFeatureInProgress())
-                {
-                    ssfWriter.CancelFeature();
-                }
+            //    if (ssfWriter.IsSSFFileInProgress())
+            //    {
+            //        ssfWriter.EndSSFFile();
+            //    }
 
-                if (ssfWriter.IsSSFFileInProgress())
-                {
-                    ssfWriter.EndSSFFile();
-                }
-
-                ssfWriter = null;
-            }
+            //    ssfWriter = null;
+            //}
             if (gpsTrimble != null)
             {
                 if (gpsTrimble.IsTracking())

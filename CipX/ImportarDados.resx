@@ -117,99 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="nomeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="senhaLabel.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <metadata name="mainMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="eletrocadDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>134, 17</value>
-  </metadata>
-  <metadata name="trafoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>279, 17</value>
-  </metadata>
-  <metadata name="trafoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>435, 17</value>
-  </metadata>
-  <metadata name="posteBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>586, 17</value>
-  </metadata>
-  <metadata name="posteTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>747, 17</value>
-  </metadata>
-  <metadata name="postehaslampadaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="poste_has_lampadaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>243, 56</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btEnviar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAA4NJREFUSEu1lVlP
-        U1EQx68fwO/gu1HjvisaIlFxSVwSNWgMmhC3F00kGGJ88BnEGEM0YtyNiUgBKSJLCdRaS0tZgogV2tJ6
-        ube9l5alYGn/zpwCAaRaDd5kcnrPmTO/mf9M20UApP/6FNWpWGiblTAHV2Uddj/QPgD45CF4glF0KkBQ
-        j0AbjOCbBiihKELaEHxh8iELqTqUcBS9OjAYSvh1B4DcEttsSRhgdQ3CT5ecMvBFjYtLnkHgeziOgWE2
-        QB0BAiNxBEZpJQvS56DYIzj5qGRNX3RcKKr/FfDS4sNrmwxfKIYuFegJAm4CcKYyBVemABx4jvHZ93AM
-        z80+PGz0zA/o02MoafTicZMXHi0qJHGReUN0eQgzKpjMnqugzLkqrx7FA5MHd9/30b2J+QGcaXcgjpfW
-        AXLsRbccEYFZKlEFfZ6uYjKwRhD2Y/9nFhldSgxe8p1XoilAq38CBqeOW0YXHO6wyJJ74Z+sQhF6U4PH
-        IM7Z702rDlt/NHVAo2sM90394rLRqWD4R0ImhrAko1GIfT6/19CPup5I6oDaz2HcqemFuUdDcDiKR9ST
-        p81ejIzHMDQOsfI77/M5+0nFEhbfXIwnXaZpiTKrd0srS5dJq94slyQeU25ymUPFgwY3XMoowiQBZ8vT
-        UeFQUGJyw/JVEyu/8z6fsx8D8m3XBMTgsooebDFskhiyuXxDAsBjWtMRgByeIDniYK1njmN9lyYk4XXm
-        PvsxwKp+wN7qDAE5eruYV4kh+99lJgDf1DG4qYpeLSa+WNzIucaBkplFNSPfnov0tzsEhPxWT0EEoM03
-        Dnv/D3TK9BORxDh4m+5Ah+6EU7PDEbTBFrDiI2X/QWlGdtMpXLKcQ1rFtlkQAWhxeFDaHhHW7PCjqi2E
-        F61jaHCqwl45IyL7Vq0FN5x5uPzpAs5bziC7OQvHTYdx4P0epBu3I70qDVkNx7CmdNUUJEO6Sj9O3Jg/
-        GQNaglbk2a9Q8LM43XQCB2v3YKdxK7ZUrsfaspVYUboUGw3rQNpjyfMlCUjKDwE+BSwCcNZ8Cofq9iGz
-        Zhd2GXcgrXIzaCRBowmaHp4iEfzv/msI8JGaed2Rh4uWHOSYSSLS/aTpOI7VHwGN5K/Bi1NOX5I4o2RW
-        2FEgZJmVOQdPFcClJjOGlrsN8wdfKEBhe8E/aD5Dvj9V8NuG/u7yQpwl1XYhgnOMnw72hLjVbSUPAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="postehasreatorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>474, 56</value>
-  </metadata>
-  <metadata name="poste_has_reatorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>686, 56</value>
-  </metadata>
-  <metadata name="postehasusomutuoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
-  <metadata name="poste_has_uso_mutuoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>252, 95</value>
-  </metadata>
-  <metadata name="postehastipoluminariaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>497, 95</value>
-  </metadata>
-  <metadata name="poste_has_tipo_luminariaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 134</value>
-  </metadata>
-  <metadata name="usuarioBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>278, 134</value>
-  </metadata>
-  <metadata name="usuarioBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>278, 134</value>
-  </metadata>
-  <metadata name="usuarioTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>448, 134</value>
   </metadata>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
     <value>Pocket_PC</value>
   </metadata>
   <metadata name="$this.Skin" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
   </metadata>
 </root>

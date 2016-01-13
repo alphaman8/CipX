@@ -12,8 +12,12 @@ namespace CipX
         public static double lon { get; set; }
         public static int numberOfSatellites { get; set; }
         public static double accuracy { get; set; }
-        public static DateTime gpsTtime { get; set; }
+        public static double accuracyIdeal = 15;
+        public static DateTime gpsTime { get; set; }
+        public static string msg { get; set; }
+        public static DateTime gpsOldTime { get; set; }
         public static string gpgga { get; set; }
+        public static string error { get; set; }
 
     }
 }

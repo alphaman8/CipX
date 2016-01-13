@@ -5163,6 +5163,10 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columnid;
             
+            private global::System.Data.DataColumn columnnmax_barramento;
+            
+            private global::System.Data.DataColumn columnnmin_barramento;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public usuarioDataTable() {
                 this.TableName = "usuario";
@@ -5216,6 +5220,20 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn nmax_barramentoColumn {
+                get {
+                    return this.columnnmax_barramento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn nmin_barramentoColumn {
+                get {
+                    return this.columnnmin_barramento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int Count {
                 get {
                     return this.Rows.Count;
@@ -5243,13 +5261,15 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public usuarioRow AddusuarioRow(string nome, string senha, string email, int id) {
+            public usuarioRow AddusuarioRow(string nome, string senha, string email, int id, int nmax_barramento, int nmin_barramento) {
                 usuarioRow rowusuarioRow = ((usuarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nome,
                         senha,
                         email,
-                        id};
+                        id,
+                        nmax_barramento,
+                        nmin_barramento};
                 rowusuarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowusuarioRow);
                 return rowusuarioRow;
@@ -5279,6 +5299,8 @@ namespace CipX.db {
                 this.columnsenha = base.Columns["senha"];
                 this.columnemail = base.Columns["email"];
                 this.columnid = base.Columns["id"];
+                this.columnnmax_barramento = base.Columns["nmax_barramento"];
+                this.columnnmin_barramento = base.Columns["nmin_barramento"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5291,6 +5313,10 @@ namespace CipX.db {
                 base.Columns.Add(this.columnemail);
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
+                this.columnnmax_barramento = new global::System.Data.DataColumn("nmax_barramento", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnmax_barramento);
+                this.columnnmin_barramento = new global::System.Data.DataColumn("nmin_barramento", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnmin_barramento);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnnome.AllowDBNull = false;
@@ -7608,6 +7634,56 @@ namespace CipX.db {
                 set {
                     this[this.tableusuario.idColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int nmax_barramento {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuario.nmax_barramentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nmax_barramento\' in table \'usuario\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuario.nmax_barramentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int nmin_barramento {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuario.nmin_barramentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nmin_barramento\' in table \'usuario\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuario.nmin_barramentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isnmax_barramentoNull() {
+                return this.IsNull(this.tableusuario.nmax_barramentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setnmax_barramentoNull() {
+                this[this.tableusuario.nmax_barramentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isnmin_barramentoNull() {
+                return this.IsNull(this.tableusuario.nmin_barramentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setnmin_barramentoNull() {
+                this[this.tableusuario.nmin_barramentoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12824,6 +12900,8 @@ where trafo_id=@trafo";
             tableMapping.ColumnMappings.Add("senha", "senha");
             tableMapping.ColumnMappings.Add("email", "email");
             tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("nmax_barramento", "nmax_barramento");
+            tableMapping.ColumnMappings.Add("nmin_barramento", "nmin_barramento");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -12832,23 +12910,27 @@ where trafo_id=@trafo";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [usuario] ([nome], [senha], [email], [id]) VALUES (@p1, @p2, @p3, @p4" +
-                ")";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [usuario] ([nome], [senha], [email], [id], [nmax_barramento], [nmin_b" +
+                "arramento]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nome", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "senha", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "email", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmax_barramento", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmin_barramento", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [usuario] SET [nome] = @p1, [senha] = @p2, [email] = @p3, [id] = @p4 WHERE" +
-                " (([id] = @p5))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [usuario] SET [nome] = @p1, [senha] = @p2, [email] = @p3, [id] = @p4, [nma" +
+                "x_barramento] = @p5, [nmin_barramento] = @p6 WHERE (([id] = @p7))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nome", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "senha", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "email", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmax_barramento", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmin_barramento", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12865,7 +12947,7 @@ where trafo_id=@trafo";
             this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [nome], [senha], [email], [id] FROM [usuario]";
+            this._commandCollection[0].CommandText = "SELECT nome, senha, email, id, nmax_barramento, nmin_barramento FROM usuario";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12932,7 +13014,7 @@ where trafo_id=@trafo";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, int p4) {
+        public virtual int Insert(string p1, string p2, string p3, int p4, global::System.Nullable<int> p5, global::System.Nullable<int> p6) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -12952,6 +13034,18 @@ where trafo_id=@trafo";
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(p3));
             }
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4));
+            if ((p5.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(p5.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((p6.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12970,7 +13064,7 @@ where trafo_id=@trafo";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, int p4, int p5) {
+        public virtual int Update(string p1, string p2, string p3, int p4, global::System.Nullable<int> p5, global::System.Nullable<int> p6, int p7) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -12990,7 +13084,19 @@ where trafo_id=@trafo";
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(p3));
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
+            if ((p5.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((p6.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13009,8 +13115,8 @@ where trafo_id=@trafo";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, int p5) {
-            return this.Update(p1, p2, p3, p5, p5);
+        public virtual int Update(string p1, string p2, string p3, global::System.Nullable<int> p5, global::System.Nullable<int> p6, int p7) {
+            return this.Update(p1, p2, p3, p7, p5, p6, p7);
         }
     }
     

@@ -48,6 +48,7 @@
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
+            this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.trafoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -63,10 +64,9 @@
             this.alimentadorTextBox = new System.Windows.Forms.TextBox();
             this.ciaTextBox = new System.Windows.Forms.TextBox();
             this.chaveTextBox = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer();
             this.lblTtrafoId = new System.Windows.Forms.Label();
             this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
-            this.menuItem8 = new System.Windows.Forms.MenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             gps_timeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -210,6 +210,11 @@
             this.menuItem6.Text = "Postes";
             this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
+            // menuItem8
+            // 
+            this.menuItem8.Text = "Enviar Dados";
+            this.menuItem8.Click += new System.EventHandler(this.enviarDados);
+            // 
             // menuItem3
             // 
             this.menuItem3.Text = "-";
@@ -265,6 +270,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.trafoDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
@@ -342,11 +348,6 @@
             this.chaveTextBox.Size = new System.Drawing.Size(100, 21);
             this.chaveTextBox.TabIndex = 1;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // lblTtrafoId
             // 
             this.lblTtrafoId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -364,10 +365,16 @@
             // 
             this.trafoTableAdapter.ClearBeforeFill = true;
             // 
-            // menuItem8
+            // label1
             // 
-            this.menuItem8.Text = "Enviar Dados";
-            this.menuItem8.Click += new System.EventHandler(this.enviarDados);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(0, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 20);
+            this.label1.Text = "label1";
             // 
             // CadastrarTrafo
             // 
@@ -413,7 +420,6 @@
         private System.Windows.Forms.TextBox alimentadorTextBox;
         private System.Windows.Forms.TextBox ciaTextBox;
         private System.Windows.Forms.TextBox chaveTextBox;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox gps_timeTextBox;
         private System.Windows.Forms.TextBox usuario_idTextBox;
         private System.Windows.Forms.TextBox programacao_ip_idTextBox;
@@ -421,5 +427,6 @@
         private System.Windows.Forms.Label lblTtrafoId;
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.MenuItem menuItem8;
+        private System.Windows.Forms.Label label1;
     }
 }
