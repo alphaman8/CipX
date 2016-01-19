@@ -41,7 +41,6 @@
             System.Windows.Forms.Label medidorLabel;
             System.Windows.Forms.Label trafo_idLabel;
             System.Windows.Forms.Label posicao_trafoLabel;
-            System.Windows.Forms.Label braco_idLabel;
             System.Windows.Forms.Label fase_idLabel;
             System.Windows.Forms.Label ativacao_idLabel;
             System.Windows.Forms.Label condicao_risco_idLabel;
@@ -52,19 +51,13 @@
             System.Windows.Forms.DataGridTextBoxColumn gps_timeDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn sequenciaDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn barramentoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn medidoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn acesoDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn trafo_idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn latDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn lonDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn obsDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn gpggaDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn medidorDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn posicao_trafoDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn braco_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn fase_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn ativacao_idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
@@ -82,6 +75,7 @@
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.labelPosteID = new System.Windows.Forms.Label();
             this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
@@ -106,18 +100,16 @@
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.faseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.bracoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.trafo_idTextBox = new System.Windows.Forms.TextBox();
             this.gps_timeTextBox = new System.Windows.Forms.TextBox();
             this.obsTextBox = new System.Windows.Forms.TextBox();
+            this.bracoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bracoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter();
             this.faseTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter();
             this.ativacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter();
             this.condicao_riscoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter();
             this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
             bairroLabel = new System.Windows.Forms.Label();
             ruaLabel = new System.Windows.Forms.Label();
             barramentoLabel = new System.Windows.Forms.Label();
@@ -129,7 +121,6 @@
             medidorLabel = new System.Windows.Forms.Label();
             trafo_idLabel = new System.Windows.Forms.Label();
             posicao_trafoLabel = new System.Windows.Forms.Label();
-            braco_idLabel = new System.Windows.Forms.Label();
             fase_idLabel = new System.Windows.Forms.Label();
             ativacao_idLabel = new System.Windows.Forms.Label();
             condicao_risco_idLabel = new System.Windows.Forms.Label();
@@ -140,19 +131,13 @@
             gps_timeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             sequenciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             barramentoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            medidoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            acesoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             trafo_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             latDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             lonDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             obsDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             gpggaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            medidorDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             posicao_trafoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            braco_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            fase_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             this.tabControl1.SuspendLayout();
@@ -227,7 +212,7 @@
             // gps_timeLabel
             // 
             gps_timeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            gps_timeLabel.Location = new System.Drawing.Point(61, 251);
+            gps_timeLabel.Location = new System.Drawing.Point(61, 223);
             gps_timeLabel.Name = "gps_timeLabel";
             gps_timeLabel.Size = new System.Drawing.Size(64, 14);
             gps_timeLabel.Text = "gps time:";
@@ -243,7 +228,7 @@
             // trafo_idLabel
             // 
             trafo_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            trafo_idLabel.Location = new System.Drawing.Point(68, 224);
+            trafo_idLabel.Location = new System.Drawing.Point(68, 196);
             trafo_idLabel.Name = "trafo_idLabel";
             trafo_idLabel.Size = new System.Drawing.Size(57, 14);
             trafo_idLabel.Text = "trafo id:";
@@ -256,18 +241,10 @@
             posicao_trafoLabel.Size = new System.Drawing.Size(92, 14);
             posicao_trafoLabel.Text = "posicao trafo:";
             // 
-            // braco_idLabel
-            // 
-            braco_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            braco_idLabel.Location = new System.Drawing.Point(68, 114);
-            braco_idLabel.Name = "braco_idLabel";
-            braco_idLabel.Size = new System.Drawing.Size(60, 14);
-            braco_idLabel.Text = "braco id:";
-            // 
             // fase_idLabel
             // 
             fase_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            fase_idLabel.Location = new System.Drawing.Point(76, 142);
+            fase_idLabel.Location = new System.Drawing.Point(76, 114);
             fase_idLabel.Name = "fase_idLabel";
             fase_idLabel.Size = new System.Drawing.Size(51, 14);
             fase_idLabel.Text = "fase id:";
@@ -275,7 +252,7 @@
             // ativacao_idLabel
             // 
             ativacao_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            ativacao_idLabel.Location = new System.Drawing.Point(49, 170);
+            ativacao_idLabel.Location = new System.Drawing.Point(49, 142);
             ativacao_idLabel.Name = "ativacao_idLabel";
             ativacao_idLabel.Size = new System.Drawing.Size(77, 14);
             ativacao_idLabel.Text = "ativacao id:";
@@ -283,7 +260,7 @@
             // condicao_risco_idLabel
             // 
             condicao_risco_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            condicao_risco_idLabel.Location = new System.Drawing.Point(13, 198);
+            condicao_risco_idLabel.Location = new System.Drawing.Point(13, 170);
             condicao_risco_idLabel.Name = "condicao_risco_idLabel";
             condicao_risco_idLabel.Size = new System.Drawing.Size(112, 14);
             condicao_risco_idLabel.Text = "condicao risco id:";
@@ -338,20 +315,6 @@
             barramentoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "barramento";
             barramentoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "barramento";
             // 
-            // medidoDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            medidoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            medidoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            medidoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "medido";
-            medidoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "medido";
-            // 
-            // acesoDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            acesoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            acesoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            acesoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "aceso";
-            acesoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "aceso";
-            // 
             // trafo_idDataGridColumnStyleDataGridTextBoxColumn
             // 
             trafo_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
@@ -387,13 +350,6 @@
             gpggaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "gpgga";
             gpggaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "gpgga";
             // 
-            // medidorDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            medidorDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            medidorDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            medidorDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "medidor";
-            medidorDataGridColumnStyleDataGridTextBoxColumn.MappingName = "medidor";
-            // 
             // posicao_trafoDataGridColumnStyleDataGridTextBoxColumn
             // 
             posicao_trafoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
@@ -407,27 +363,6 @@
             ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "ligacao_clandestina";
             ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "ligacao_clandestina";
-            // 
-            // braco_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "braco_id";
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "braco_id";
-            // 
-            // fase_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "fase_id";
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "fase_id";
-            // 
-            // ativacao_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "ativacao_id";
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "ativacao_id";
             // 
             // condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -536,6 +471,17 @@
             this.tabPage1.Size = new System.Drawing.Size(240, 271);
             this.tabPage1.Text = "I";
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(0, 231);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 20);
+            this.label1.Text = "label1";
+            // 
             // labelPosteID
             // 
             this.labelPosteID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -579,20 +525,14 @@
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(logradouroDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(gps_timeDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(barramentoDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(medidoDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(acesoDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(trafo_idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(latDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(lonDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(obsDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(gpggaDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(medidorDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(posicao_trafoDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(braco_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(fase_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(ativacao_idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.MappingName = "poste";
@@ -724,8 +664,6 @@
             this.tabPage3.Controls.Add(ativacao_idLabel);
             this.tabPage3.Controls.Add(this.comboBox3);
             this.tabPage3.Controls.Add(fase_idLabel);
-            this.tabPage3.Controls.Add(this.comboBox2);
-            this.tabPage3.Controls.Add(braco_idLabel);
             this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(posicao_trafoLabel);
             this.tabPage3.Controls.Add(trafo_idLabel);
@@ -749,7 +687,7 @@
             this.comboBox5.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "condicao_risco_id", true));
             this.comboBox5.DataSource = this.condicaoriscoBindingSource;
             this.comboBox5.DisplayMember = "descricao";
-            this.comboBox5.Location = new System.Drawing.Point(133, 195);
+            this.comboBox5.Location = new System.Drawing.Point(133, 167);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(100, 22);
             this.comboBox5.TabIndex = 22;
@@ -765,7 +703,7 @@
             this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "ativacao_id", true));
             this.comboBox4.DataSource = this.ativacaoBindingSource;
             this.comboBox4.DisplayMember = "descricao";
-            this.comboBox4.Location = new System.Drawing.Point(132, 167);
+            this.comboBox4.Location = new System.Drawing.Point(132, 139);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(100, 22);
             this.comboBox4.TabIndex = 21;
@@ -781,27 +719,11 @@
             this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "fase_id", true));
             this.comboBox3.DataSource = this.faseBindingSource;
             this.comboBox3.DisplayMember = "descricao";
-            this.comboBox3.Location = new System.Drawing.Point(133, 139);
+            this.comboBox3.Location = new System.Drawing.Point(133, 111);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(100, 22);
             this.comboBox3.TabIndex = 20;
             this.comboBox3.ValueMember = "id";
-            // 
-            // bracoBindingSource
-            // 
-            this.bracoBindingSource.DataMember = "braco";
-            this.bracoBindingSource.DataSource = this.eletrocadDataSet;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "braco_id", true));
-            this.comboBox2.DataSource = this.bracoBindingSource;
-            this.comboBox2.DisplayMember = "descricao";
-            this.comboBox2.Location = new System.Drawing.Point(133, 111);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 22);
-            this.comboBox2.TabIndex = 19;
-            this.comboBox2.ValueMember = "id";
             // 
             // comboBox1
             // 
@@ -816,7 +738,7 @@
             // trafo_idTextBox
             // 
             this.trafo_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.posteBindingSource, "trafo_id", true));
-            this.trafo_idTextBox.Location = new System.Drawing.Point(132, 221);
+            this.trafo_idTextBox.Location = new System.Drawing.Point(132, 193);
             this.trafo_idTextBox.Name = "trafo_idTextBox";
             this.trafo_idTextBox.ReadOnly = true;
             this.trafo_idTextBox.Size = new System.Drawing.Size(100, 21);
@@ -825,7 +747,7 @@
             // gps_timeTextBox
             // 
             this.gps_timeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.posteBindingSource, "gps_time", true));
-            this.gps_timeTextBox.Location = new System.Drawing.Point(132, 248);
+            this.gps_timeTextBox.Location = new System.Drawing.Point(132, 220);
             this.gps_timeTextBox.Name = "gps_timeTextBox";
             this.gps_timeTextBox.ReadOnly = true;
             this.gps_timeTextBox.Size = new System.Drawing.Size(100, 21);
@@ -840,6 +762,11 @@
             this.obsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.obsTextBox.Size = new System.Drawing.Size(187, 62);
             this.obsTextBox.TabIndex = 1;
+            // 
+            // bracoBindingSource
+            // 
+            this.bracoBindingSource.DataMember = "braco";
+            this.bracoBindingSource.DataSource = this.eletrocadDataSet;
             // 
             // bracoTableAdapter
             // 
@@ -860,17 +787,6 @@
             // posteTableAdapter
             // 
             this.posteTableAdapter.ClearBeforeFill = true;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(0, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 20);
-            this.label1.Text = "label1";
             // 
             // CadastrarPostes
             // 
@@ -933,7 +849,6 @@
         private System.Windows.Forms.TextBox gps_timeTextBox;
         private System.Windows.Forms.TextBox trafo_idTextBox;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.BindingSource bracoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter bracoTableAdapter;
         private System.Windows.Forms.ComboBox comboBox3;
