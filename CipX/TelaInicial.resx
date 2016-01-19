@@ -127,8 +127,8 @@
   <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAvCAYAAAClgknJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALAwAA
-        CwMBSY6M0gAABmRJREFUaEPtmWtsFFUUx4tGjI9vJhoJsu3O7sy0CAExStTQ587OTIHwCKCGRzAaxEQ0
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALAgAA
+        CwIBm8luNgAABmRJREFUaEPtmWtsFFUUx4tGjI9vJhoJsu3O7sy0CAExStTQ587OTIHwCKCGRzAaxEQ0
         QLQ8BBX6QKS73d0St+3MlCDGthaRBLUKSBHkVRSRSpQikYRSSrVQSsFu2+u5u8w+OjO7s7N9+MFNJt3u
         nHvn/7vnnHvPvZOU9P8nNAK0ffujJCdmUZz0KsWJq+EqJHmpwP+dF5dQfGXm49PKH/nvjNn69XdhwTQn
         fQRCz9G8hPRcJC/8BnZbaVZIT4I+hhwoLd3zIM2JyyleuqhHcHQb4QL0s2zSVO/9gw8CowXCX6ZZ6Wri
@@ -176,9 +176,6 @@
   <metadata name="postehaslampadaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>278, 56</value>
   </metadata>
-  <metadata name="poste_has_lampadaTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>504, 56</value>
-  </metadata>
   <metadata name="postehasusomutuoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>735, 56</value>
   </metadata>
@@ -187,9 +184,6 @@
   </metadata>
   <metadata name="postehasreatorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 95</value>
-  </metadata>
-  <metadata name="poste_has_reatorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>229, 95</value>
   </metadata>
   <metadata name="ativacaoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>446, 95</value>

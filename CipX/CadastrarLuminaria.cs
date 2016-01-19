@@ -23,6 +23,12 @@ namespace CipX
 
         private void CadastrarLuminaria_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.braco' table. You can move, or remove it, as needed.
+            this.bracoTableAdapter.Fill(this.eletrocadDataSet.braco);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.reator' table. You can move, or remove it, as needed.
+            this.reatorTableAdapter.Fill(this.eletrocadDataSet.reator);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.lampada' table. You can move, or remove it, as needed.
+            this.lampadaTableAdapter.Fill(this.eletrocadDataSet.lampada);
             // TODO: This line of code loads data into the 'eletrocadDataSet.tipo_luminaria' table. You can move, or remove it, as needed.
             this.tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.tipo_luminaria);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
