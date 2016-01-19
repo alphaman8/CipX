@@ -47,21 +47,14 @@ namespace CipX
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
-            GPSForm.StopTrimble();
+            GPSForm.StartTraking();
 
-            if (GPSForm.StartTraking())
+            while (GPS.accuracy > GPS.accuracyIdeal)
             {
-                while (GPS.accuracy > GPS.accuracyIdeal)
-                {
-                    label1.Text = "Ajustando precisão: " + GPS.accuracy + "m";
-                    //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
-                    System.Threading.Thread.Sleep(1000);
-                    Application.DoEvents();
-                }
-            }
-            else
-            {
-                return;
+                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+                System.Threading.Thread.Sleep(1000);
+                Application.DoEvents();
             }
 
             label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy + "m";
@@ -172,6 +165,17 @@ namespace CipX
 
         public static int posteId;
 
+        private void lampadas(object sender, EventArgs e)
+        {
+            posteId = Convert.ToInt32(labelPosteID.Text);
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarLampadas p = new CadastrarLampadas();
+            p.ShowDialog();
+        }
+
         private void menuItem5_Click(object sender, EventArgs e)
         {
             posteId = Convert.ToInt32(labelPosteID.Text);
@@ -189,6 +193,16 @@ namespace CipX
             Application.DoEvents();
             //CadastrarTrafo t = new CadastrarTrafo();
             Croqui p = new Croqui();
+            p.ShowDialog();
+        }
+
+        private void menuItem8_Click(object sender, EventArgs e)
+        {
+            posteId = Convert.ToInt32(labelPosteID.Text);
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            CadastrarReator p = new CadastrarReator();
             p.ShowDialog();
         }
 

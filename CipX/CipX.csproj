@@ -75,6 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastrarLampadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarLampadas.Designer.cs">
+      <DependentUpon>CadastrarLampadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarLuminaria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="CadastrarPostes.Designer.cs">
       <DependentUpon>CadastrarPostes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarReator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarReator.Designer.cs">
+      <DependentUpon>CadastrarReator.cs</DependentUpon>
     </Compile>
     <Compile Include="CadastrarTrafo.cs">
       <SubType>Form</SubType>
@@ -145,11 +157,17 @@
     <Compile Include="Library.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastrarLampadas.resx">
+      <DependentUpon>CadastrarLampadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastrarLuminaria.resx">
       <DependentUpon>CadastrarLuminaria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarPostes.resx">
       <DependentUpon>CadastrarPostes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarReator.resx">
+      <DependentUpon>CadastrarReator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarTrafo.resx">
       <DependentUpon>CadastrarTrafo.cs</DependentUpon>

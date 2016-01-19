@@ -47,8 +47,10 @@
             this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
             this.postehaslampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter();
             this.btEnviar = new CipX.components.ButtonImage(this.components);
             this.postehasreatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_reatorTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter();
             this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -176,6 +178,10 @@
             this.postehaslampadaBindingSource.DataMember = "poste_has_lampada";
             this.postehaslampadaBindingSource.DataSource = this.eletrocadDataSet;
             // 
+            // poste_has_lampadaTableAdapter
+            // 
+            this.poste_has_lampadaTableAdapter.ClearBeforeFill = true;
+            // 
             // btEnviar
             // 
             this.btEnviar.BackColor = System.Drawing.SystemColors.Control;
@@ -193,6 +199,10 @@
             // 
             this.postehasreatorBindingSource.DataMember = "poste_has_reator";
             this.postehasreatorBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // poste_has_reatorTableAdapter
+            // 
+            this.poste_has_reatorTableAdapter.ClearBeforeFill = true;
             // 
             // postehasusomutuoBindingSource
             // 
@@ -345,6 +355,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             this.panelLogin.ResumeLayout(false);
@@ -366,7 +378,9 @@
         private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
         private CipX.components.ButtonImage btEnviar;
         private System.Windows.Forms.BindingSource postehaslampadaBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter poste_has_lampadaTableAdapter;
         private System.Windows.Forms.BindingSource postehasreatorBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter poste_has_reatorTableAdapter;
         private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;

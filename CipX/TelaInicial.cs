@@ -122,9 +122,8 @@ namespace CipX
                 listGPS.Items.Add("Boa acurácia!");
                 listGPS.ForeColor = Color.Lime;
                 gpsOk = true;
-                MessageBeep();
             }
-            
+            MessageBeep();
 
         }
 
@@ -141,7 +140,13 @@ namespace CipX
         {
             try
             {
-                
+                while (eletrocadDataSet.poste_has_lampada.Count > 0)
+                {
+                    eletrocadDataSet.poste_has_lampada.Rows[0].Delete();
+                    poste_has_lampadaTableAdapter.Update(eletrocadDataSet.poste_has_lampada);
+                    eletrocadDataSet.poste_has_lampada.AcceptChanges();
+                }
+
                 while (eletrocadDataSet.poste_has_tipo_luminaria.Count > 0)
                 {
                     eletrocadDataSet.poste_has_tipo_luminaria.Rows[0].Delete();
@@ -154,6 +159,13 @@ namespace CipX
                     eletrocadDataSet.poste_has_uso_mutuo.Rows[0].Delete();
                     poste_has_uso_mutuoTableAdapter.Update(eletrocadDataSet.poste_has_uso_mutuo);
                     eletrocadDataSet.poste_has_uso_mutuo.AcceptChanges();
+                }
+
+                while (eletrocadDataSet.poste_has_reator.Count > 0)
+                {
+                    eletrocadDataSet.poste_has_reator.Rows[0].Delete();
+                    poste_has_reatorTableAdapter.Update(eletrocadDataSet.poste_has_reator);
+                    eletrocadDataSet.poste_has_reator.AcceptChanges();
                 }
 
                 //CONDICAO DE RISCO
@@ -245,12 +257,12 @@ namespace CipX
                 }
 
                 // Remove all
-                while (eletrocadDataSet.programacao_ip.Count > 0)
-                {
-                    eletrocadDataSet.programacao_ip.Rows[0].Delete();
-                    programacao_ipTableAdapter.Update(eletrocadDataSet.programacao_ip);
-                    eletrocadDataSet.programacao_ip.AcceptChanges();
-                }
+                //while (eletrocadDataSet.programacao_ip.Count > 0)
+                //{
+                //    eletrocadDataSet.programacao_ip.Rows[0].Delete();
+                //    programacao_ipTableAdapter.Update(eletrocadDataSet.programacao_ip);
+                //    eletrocadDataSet.programacao_ip.AcceptChanges();
+                //}
 
             }
             catch (Exception ex)
@@ -596,36 +608,6 @@ namespace CipX
                     label1.Text = "Uso Mútuo importado com sucesso!";
                     Application.DoEvents();
 
-                    mycommand.CommandText =
-                        "SELECT `tipo_luminaria`.`id`,"+
-                        "`tipo_luminaria`.`descricao` "+
-                        "FROM `eletrocad`.`tipo_luminaria`";
-                    //mycommand.Parameters.Clear();
-                    //mycommand.Parameters.AddWithValue("estado", cbEstado.Text);
-                    //mycommand.Parameters.AddWithValue("ano", txtAno.Value);
-
-                    reader = mycommand.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        //
-                        //insere nova programação
-                        db.eletrocadDataSet.tipo_luminariaRow pipRow;
-                        pipRow = eletrocadDataSet.tipo_luminaria.Newtipo_luminariaRow();
-                        pipRow.id = reader.GetInt32("id");
-                        pipRow.descricao = reader.GetString("descricao");
-
-                        eletrocadDataSet.tipo_luminaria.Rows.Add(pipRow);
-
-                    }
-                    tipo_luminariaTableAdapter.Update(eletrocadDataSet.tipo_luminaria);
-                    eletrocadDataSet.tipo_luminaria.AcceptChanges();
-                    tipo_luminariaTableAdapter.Fill(eletrocadDataSet.tipo_luminaria);
-
-                    reader.Close();
-
-                    label1.Text = "Luminária importada com sucesso!";
-                    Application.DoEvents();
-
                     //MSG FINAL
                     label1.Text = "Dados importados com sucesso!";
                     Application.DoEvents();
@@ -673,6 +655,12 @@ namespace CipX
             this.bracoTableAdapter.Fill(this.eletrocadDataSet.braco);
             // TODO: This line of code loads data into the 'eletrocadDataSet.ativacao' table. You can move, or remove it, as needed.
             this.ativacaoTableAdapter.Fill(this.eletrocadDataSet.ativacao);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_reator' table. You can move, or remove it, as needed.
+            this.poste_has_reatorTableAdapter.Fill(this.eletrocadDataSet.poste_has_reator);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_uso_mutuo' table. You can move, or remove it, as needed.
+            this.poste_has_uso_mutuoTableAdapter.Fill(this.eletrocadDataSet.poste_has_uso_mutuo);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_lampada' table. You can move, or remove it, as needed.
+            this.poste_has_lampadaTableAdapter.Fill(this.eletrocadDataSet.poste_has_lampada);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
             this.poste_has_tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.poste_has_tipo_luminaria);
             // TODO: This line of code loads data into the 'eletrocadDataSet.usuario' table. You can move, or remove it, as needed.
@@ -736,9 +724,6 @@ namespace CipX
             StopTrimble();
             CadastroProgramacao ip = new CadastroProgramacao();
             ip.ShowDialog();
-            gpsOk = false;
-            GPS.accuracy = 200;
-            StartTraking();
         }
 
         private void menuItem7_Click(object sender, EventArgs e)
@@ -765,18 +750,6 @@ namespace CipX
             }
 
             GPS.gpsOldTime = GPS.gpsTime;
-        }
-
-        private void menuItem8_Click(object sender, EventArgs e)
-        {
-            StopTrimble();
-            Cursor.Current = Cursors.WaitCursor;
-            Application.DoEvents();
-            //CadastrarTrafo t = new CadastrarTrafo();
-            EnviarDados p = new EnviarDados();
-            p.ShowDialog();
-            GPS.accuracy = 200;
-            StartTraking();
         }
     }
 }

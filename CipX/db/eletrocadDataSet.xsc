@@ -26,7 +26,8 @@
     <TableUISetting Name="usuario">
       <ColumnUISettings>
         <ColumnUISetting Name="nome">
-          <ControlSettings><ControlSetting ArtifactName="Microsoft:DefaultCompactFramework2.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+          <ControlSettings>
+            <ControlSetting ArtifactName="Microsoft:DefaultCompactFramework2.0">
               <IDeviceBindableCtrlInfo>
                 <DisplayName>ComboBox</DisplayName>
                 <TypeName>System.Windows.Forms.ComboBox</TypeName>
@@ -36,7 +37,8 @@
                 <LookupBinding>true</LookupBinding>
                 <ToolboxTypeName>System.Windows.Forms.ComboBox</ToolboxTypeName>
               </IDeviceBindableCtrlInfo>
-            </ControlSetting></ControlSettings>
+            </ControlSetting>
+          </ControlSettings>
         </ColumnUISetting>
       </ColumnUISettings>
     </TableUISetting>

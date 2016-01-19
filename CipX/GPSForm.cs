@@ -51,16 +51,15 @@ namespace CipX
             }
         }
 
-        public static bool StartTraking()
+        public static void StartTraking()
         {
             GPS.accuracy = 200;
             if (gpsTrimble != null)
             {
-                return gpsTrimble.StartTracking();
+                gpsTrimble.StartTracking();
                 //gpsTrimble.ResetGPSReceiver();
                 //Usuario.UsandoTrimble = false;
             }
-            return false;
         }
 
         public bool usarSSF = true;
@@ -71,7 +70,7 @@ namespace CipX
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 1.0f;
+            gpsTrimble.PositionMinimumInterval = 3.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -159,7 +158,7 @@ namespace CipX
                 System.IO.File.CreateText(fileText);
             }
 
-            using (System.IO.StreamWriter writetext = new System.IO.StreamWriter(fileText, true))
+            using (System.IO.StreamWriter writetext = new System.IO.StreamWriter(fileText))
             {
                 writetext.WriteLine(GPS.error);
             }

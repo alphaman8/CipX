@@ -45,21 +45,14 @@ namespace CipX
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
-            GPSForm.StopTrimble();
-            if (GPSForm.StartTraking())
+            GPSForm.StartTraking();
+
+            while (GPS.accuracy > GPS.accuracyIdeal)
             {
-                while (GPS.accuracy > GPS.accuracyIdeal)
-                {
-                    label1.Text = "Ajustando precisão: " + GPS.accuracy + "m";
-                    //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
-                    //System.Threading.Thread.Sleep(1000);
-                    Application.DoEvents();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Não foi possível iniciar o GPS");
-                return;
+                label1.Text = "Precisão está baixa: "+GPS.accuracy+"m";
+                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+                System.Threading.Thread.Sleep(1000);
+                Application.DoEvents();
             }
 
             label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy+"m";

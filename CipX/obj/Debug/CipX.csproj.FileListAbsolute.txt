@@ -20,12 +20,14 @@ C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\MySql
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastroProgramacao.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastrarPostes.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastrarUsoMutuo.resources
+C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastrarLampadas.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastrarLuminaria.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\GpsShapeNET.200.CF.dll
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\GpsToolsNET.200.CF.dll
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\GpsViewNET.200.CF.dll
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.Croqui.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\GpsLibCE.dll
+C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.CadastrarReator.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.EnviarDados.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.ImportarDados.resources
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.GPSForm.resources
