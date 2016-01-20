@@ -30,10 +30,6 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_uso_mutuo' table. You can move, or remove it, as needed.
             this.poste_has_uso_mutuoTableAdapter.Fill(this.eletrocadDataSet.poste_has_uso_mutuo);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_reator' table. You can move, or remove it, as needed.
-            this.poste_has_reatorTableAdapter.Fill(this.eletrocadDataSet.poste_has_reator);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_lampada' table. You can move, or remove it, as needed.
-            this.poste_has_lampadaTableAdapter.Fill(this.eletrocadDataSet.poste_has_lampada);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
             this.posteTableAdapter.Fill(this.eletrocadDataSet.poste);
             // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
             this.trafoTableAdapter.Fill(this.eletrocadDataSet.trafo);
@@ -195,56 +191,11 @@ namespace CipX
                         if (rowPoste.Isligacao_clandestinaNull()) { mycommandPoste.Parameters.AddWithValue("ligacao_clandestina", null); }
                         else { mycommandPoste.Parameters.AddWithValue("ligacao_clandestina", rowPoste.ligacao_clandestina); }
 
-                        if (rowPoste.Isbraco_idNull()) { mycommandPoste.Parameters.AddWithValue("braco_id", null); }
-                        else { mycommandPoste.Parameters.AddWithValue("braco_id", rowPoste.braco_id); }
-
-                        if (rowPoste.Isfase_idNull()) { mycommandPoste.Parameters.AddWithValue("fase_id", null); }
-                        else { mycommandPoste.Parameters.AddWithValue("fase_id", rowPoste.fase_id); }
-
-                        if (rowPoste.Isativacao_idNull()) { mycommandPoste.Parameters.AddWithValue("ativacao_id", null); }
-                        else { mycommandPoste.Parameters.AddWithValue("ativacao_id", rowPoste.ativacao_id); }
-
                         if (rowPoste.Iscondicao_risco_idNull()) { mycommandPoste.Parameters.AddWithValue("condicao_risco_id", null); }
                         else { mycommandPoste.Parameters.AddWithValue("condicao_risco_id", rowPoste.condicao_risco_id); }
 
                         mycommandPoste.ExecuteNonQuery();
 
-                        //INSERE LAMPADAS
-                        foreach (db.eletrocadDataSet.poste_has_lampadaRow rowPosteHasLampada
-                                    in rowPoste.Getposte_has_lampadaRows())
-                        {
-
-                            MySql.Data.MySqlClient.MySqlCommand mycommandPosteHasLamapada = myconn.CreateCommand();
-                            mycommandPosteHasLamapada.Transaction = mytrans;
-
-                            mycommandPosteHasLamapada.CommandText = "INSERT INTO `eletrocad`.`poste_has_lampada` " +
-                                "(`poste_id`,`lampada_id`) VALUES (@posteId, @lampadaId)";
-
-                            mycommandPosteHasLamapada.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
-                            mycommandPosteHasLamapada.Parameters.AddWithValue("lampadaId", rowPosteHasLampada.lampada_id);
-
-                            mycommandPosteHasLamapada.ExecuteNonQuery();
-
-                        }
-
-                        //INSERE REATOR
-                        foreach (db.eletrocadDataSet.poste_has_reatorRow rowPosteHasReator
-                                    in rowPoste.Getposte_has_reatorRows())
-                        {
-
-                            MySql.Data.MySqlClient.MySqlCommand mycommandPosteHasReator = myconn.CreateCommand();
-                            mycommandPosteHasReator.Transaction = mytrans;
-
-                            mycommandPosteHasReator.CommandText = "INSERT INTO `eletrocad`.`poste_has_reator` " +
-                                "(`poste_id`,`reator_id`) VALUES (@posteId, @reatorId)";
-
-                            mycommandPosteHasReator.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
-                            mycommandPosteHasReator.Parameters.AddWithValue("reatorId", rowPosteHasReator.reator_id);
-
-                            mycommandPosteHasReator.ExecuteNonQuery();
-
-
-                        }
 
                         //INSERE luminaria
                         foreach (db.eletrocadDataSet.poste_has_tipo_luminariaRow rowPosteHasTipoLuminaria

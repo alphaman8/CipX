@@ -68,8 +68,6 @@
             this.menuItem11 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -83,7 +81,6 @@
             this.posteTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.posteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.medidorTextBox = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -96,18 +93,12 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.condicaoriscoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.ativacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.faseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.trafo_idTextBox = new System.Windows.Forms.TextBox();
             this.gps_timeTextBox = new System.Windows.Forms.TextBox();
             this.obsTextBox = new System.Windows.Forms.TextBox();
-            this.bracoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bracoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter();
-            this.faseTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter();
-            this.ativacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter();
             this.condicao_riscoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter();
             this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
             bairroLabel = new System.Windows.Forms.Label();
@@ -145,12 +136,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bairroLabel
@@ -415,8 +402,6 @@
             // menuItem7
             // 
             this.menuItem7.MenuItems.Add(this.menuItem5);
-            this.menuItem7.MenuItems.Add(this.menuItem6);
-            this.menuItem7.MenuItems.Add(this.menuItem8);
             this.menuItem7.MenuItems.Add(this.menuItem9);
             this.menuItem7.Text = "Componentes";
             // 
@@ -424,16 +409,6 @@
             // 
             this.menuItem5.Text = "Luminárias";
             this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
-            // 
-            // menuItem6
-            // 
-            this.menuItem6.Text = "Lâmpadas";
-            this.menuItem6.Click += new System.EventHandler(this.lampadas);
-            // 
-            // menuItem8
-            // 
-            this.menuItem8.Text = "Reator";
-            this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
             // menuItem9
             // 
@@ -571,16 +546,9 @@
             this.checkBox2.TabIndex = 68;
             this.checkBox2.Text = "Aceso";
             // 
-            // posteBindingSource1
-            // 
-            this.posteBindingSource1.DataMember = "poste";
-            this.posteBindingSource1.DataSource = this.eletrocadDataSet;
-            // 
             // comboBox6
             // 
             this.comboBox6.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "poste_vizinho_id", true));
-            this.comboBox6.DataSource = this.posteBindingSource1;
-            this.comboBox6.DisplayMember = "sequencia";
             this.comboBox6.Location = new System.Drawing.Point(131, 246);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(66, 22);
@@ -693,32 +661,18 @@
             this.comboBox5.TabIndex = 22;
             this.comboBox5.ValueMember = "id";
             // 
-            // ativacaoBindingSource
-            // 
-            this.ativacaoBindingSource.DataMember = "ativacao";
-            this.ativacaoBindingSource.DataSource = this.eletrocadDataSet;
-            // 
             // comboBox4
             // 
             this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "ativacao_id", true));
-            this.comboBox4.DataSource = this.ativacaoBindingSource;
-            this.comboBox4.DisplayMember = "descricao";
             this.comboBox4.Location = new System.Drawing.Point(132, 139);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(100, 22);
             this.comboBox4.TabIndex = 21;
             this.comboBox4.ValueMember = "id";
             // 
-            // faseBindingSource
-            // 
-            this.faseBindingSource.DataMember = "fase";
-            this.faseBindingSource.DataSource = this.eletrocadDataSet;
-            // 
             // comboBox3
             // 
             this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "fase_id", true));
-            this.comboBox3.DataSource = this.faseBindingSource;
-            this.comboBox3.DisplayMember = "descricao";
             this.comboBox3.Location = new System.Drawing.Point(133, 111);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(100, 22);
@@ -763,23 +717,6 @@
             this.obsTextBox.Size = new System.Drawing.Size(187, 62);
             this.obsTextBox.TabIndex = 1;
             // 
-            // bracoBindingSource
-            // 
-            this.bracoBindingSource.DataMember = "braco";
-            this.bracoBindingSource.DataSource = this.eletrocadDataSet;
-            // 
-            // bracoTableAdapter
-            // 
-            this.bracoTableAdapter.ClearBeforeFill = true;
-            // 
-            // faseTableAdapter
-            // 
-            this.faseTableAdapter.ClearBeforeFill = true;
-            // 
-            // ativacaoTableAdapter
-            // 
-            this.ativacaoTableAdapter.ClearBeforeFill = true;
-            // 
             // condicao_riscoTableAdapter
             // 
             this.condicao_riscoTableAdapter.ClearBeforeFill = true;
@@ -808,12 +745,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -835,8 +768,6 @@
         private System.Windows.Forms.TextBox bairroTextBox;
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem menuItem6;
-        private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox obsTextBox;
@@ -849,14 +780,8 @@
         private System.Windows.Forms.TextBox gps_timeTextBox;
         private System.Windows.Forms.TextBox trafo_idTextBox;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource bracoBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter bracoTableAdapter;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.BindingSource faseBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter faseTableAdapter;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.BindingSource ativacaoBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter ativacaoTableAdapter;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.BindingSource condicaoriscoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter condicao_riscoTableAdapter;
@@ -864,7 +789,6 @@
         private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
         private System.Windows.Forms.DataGrid posteDataGrid;
         private System.Windows.Forms.DataGridTableStyle posteTableStyleDataGridTableStyle;
-        private System.Windows.Forms.BindingSource posteBindingSource1;
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label labelPosteID;
         private System.Windows.Forms.CheckBox checkBox2;

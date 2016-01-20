@@ -28,12 +28,6 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.condicao_risco' table. You can move, or remove it, as needed.
             this.condicao_riscoTableAdapter.Fill(this.eletrocadDataSet.condicao_risco);
             // TODO: This line of code loads data into the 'eletrocadDataSet.ativacao' table. You can move, or remove it, as needed.
-            this.ativacaoTableAdapter.Fill(this.eletrocadDataSet.ativacao);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.fase' table. You can move, or remove it, as needed.
-            this.faseTableAdapter.Fill(this.eletrocadDataSet.fase);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.braco' table. You can move, or remove it, as needed.
-            this.bracoTableAdapter.Fill(this.eletrocadDataSet.braco);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
 
             medidorTextBox.Enabled = checkBox1.Checked;
 
@@ -165,16 +159,7 @@ namespace CipX
 
         public static int posteId;
 
-        private void lampadas(object sender, EventArgs e)
-        {
-            posteId = Convert.ToInt32(labelPosteID.Text);
 
-            Cursor.Current = Cursors.WaitCursor;
-            Application.DoEvents();
-            //CadastrarTrafo t = new CadastrarTrafo();
-            CadastrarLampadas p = new CadastrarLampadas();
-            p.ShowDialog();
-        }
 
         private void menuItem5_Click(object sender, EventArgs e)
         {
@@ -193,16 +178,6 @@ namespace CipX
             Application.DoEvents();
             //CadastrarTrafo t = new CadastrarTrafo();
             Croqui p = new Croqui();
-            p.ShowDialog();
-        }
-
-        private void menuItem8_Click(object sender, EventArgs e)
-        {
-            posteId = Convert.ToInt32(labelPosteID.Text);
-            Cursor.Current = Cursors.WaitCursor;
-            Application.DoEvents();
-            //CadastrarTrafo t = new CadastrarTrafo();
-            CadastrarReator p = new CadastrarReator();
             p.ShowDialog();
         }
 

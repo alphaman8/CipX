@@ -50,11 +50,9 @@
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter();
             this.postehaslampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.poste_has_lampadaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter();
             this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
             this.postehasreatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.poste_has_reatorTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter();
             this.ativacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ativacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter();
             this.bracoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -226,10 +224,6 @@
             this.postehaslampadaBindingSource.DataMember = "poste_has_lampada";
             this.postehaslampadaBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // poste_has_lampadaTableAdapter
-            // 
-            this.poste_has_lampadaTableAdapter.ClearBeforeFill = true;
-            // 
             // postehasusomutuoBindingSource
             // 
             this.postehasusomutuoBindingSource.DataMember = "poste_has_uso_mutuo";
@@ -243,10 +237,6 @@
             // 
             this.postehasreatorBindingSource.DataMember = "poste_has_reator";
             this.postehasreatorBindingSource.DataSource = this.eletrocadDataSet;
-            // 
-            // poste_has_reatorTableAdapter
-            // 
-            this.poste_has_reatorTableAdapter.ClearBeforeFill = true;
             // 
             // ativacaoBindingSource
             // 
@@ -382,9 +372,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).EndInit();
@@ -420,11 +409,9 @@
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
         private System.Windows.Forms.BindingSource postehaslampadaBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.poste_has_lampadaTableAdapter poste_has_lampadaTableAdapter;
         private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
         private System.Windows.Forms.BindingSource postehasreatorBindingSource;
-        private CipX.db.eletrocadDataSetTableAdapters.poste_has_reatorTableAdapter poste_has_reatorTableAdapter;
         private System.Windows.Forms.BindingSource ativacaoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter ativacaoTableAdapter;
         private System.Windows.Forms.BindingSource bracoBindingSource;

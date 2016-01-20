@@ -140,12 +140,6 @@ namespace CipX
         {
             try
             {
-                while (eletrocadDataSet.poste_has_lampada.Count > 0)
-                {
-                    eletrocadDataSet.poste_has_lampada.Rows[0].Delete();
-                    poste_has_lampadaTableAdapter.Update(eletrocadDataSet.poste_has_lampada);
-                    eletrocadDataSet.poste_has_lampada.AcceptChanges();
-                }
 
                 while (eletrocadDataSet.poste_has_tipo_luminaria.Count > 0)
                 {
@@ -161,12 +155,6 @@ namespace CipX
                     eletrocadDataSet.poste_has_uso_mutuo.AcceptChanges();
                 }
 
-                while (eletrocadDataSet.poste_has_reator.Count > 0)
-                {
-                    eletrocadDataSet.poste_has_reator.Rows[0].Delete();
-                    poste_has_reatorTableAdapter.Update(eletrocadDataSet.poste_has_reator);
-                    eletrocadDataSet.poste_has_reator.AcceptChanges();
-                }
 
                 //CONDICAO DE RISCO
                 while (eletrocadDataSet.condicao_risco.Count > 0)
@@ -655,13 +643,9 @@ namespace CipX
             this.bracoTableAdapter.Fill(this.eletrocadDataSet.braco);
             // TODO: This line of code loads data into the 'eletrocadDataSet.ativacao' table. You can move, or remove it, as needed.
             this.ativacaoTableAdapter.Fill(this.eletrocadDataSet.ativacao);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_reator' table. You can move, or remove it, as needed.
-            this.poste_has_reatorTableAdapter.Fill(this.eletrocadDataSet.poste_has_reator);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_uso_mutuo' table. You can move, or remove it, as needed.
             this.poste_has_uso_mutuoTableAdapter.Fill(this.eletrocadDataSet.poste_has_uso_mutuo);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_lampada' table. You can move, or remove it, as needed.
-            this.poste_has_lampadaTableAdapter.Fill(this.eletrocadDataSet.poste_has_lampada);
-            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
             this.poste_has_tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.poste_has_tipo_luminaria);
             // TODO: This line of code loads data into the 'eletrocadDataSet.usuario' table. You can move, or remove it, as needed.
             this.usuarioTableAdapter.Fill(this.eletrocadDataSet.usuario);
