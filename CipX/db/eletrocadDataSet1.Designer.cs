@@ -4985,6 +4985,13 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public poste_has_tipo_luminariaRow FindByposte_idtipo_luminaria_id(int poste_id, int tipo_luminaria_id) {
+                return ((poste_has_tipo_luminariaRow)(this.Rows.Find(new object[] {
+                            poste_id,
+                            tipo_luminaria_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
                 poste_has_tipo_luminariaDataTable cln = ((poste_has_tipo_luminariaDataTable)(base.Clone()));
                 cln.InitVars();
@@ -5029,6 +5036,9 @@ namespace CipX.db {
                 base.Columns.Add(this.columnativacao_id);
                 this.columnfase_id = new global::System.Data.DataColumn("fase_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfase_id);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnposte_id,
+                                this.columntipo_luminaria_id}, true));
                 this.columnposte_id.AllowDBNull = false;
                 this.columntipo_luminaria_id.AllowDBNull = false;
                 this.columndescricao.MaxLength = 45;
@@ -12109,6 +12119,12 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string p3, int p4, int p5) {
+            return this.Update(p4, p5, p3, p4, p5);
         }
     }
 }

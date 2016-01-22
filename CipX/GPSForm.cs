@@ -64,7 +64,7 @@ namespace CipX
 
         public bool usarSSF = true;
 
-        public string ConectarTrimbleSimulacao()
+        public void ConectarTrimbleSimulacao()
         {
             gpsTrimble = new GPSReceiver();
             gpsTrimble.CommPort = "COM4";
@@ -98,12 +98,10 @@ namespace CipX
             {
                 gpsTrimbleStatus = "Pesquisando Satélite";
                 //Usuario.UsandoTrimble = true;
-                return gpsTrimbleStatus;
             }
             else
             {
                 gpsTrimbleStatus = "Não foi possível conectar ao GPS";
-                return gpsTrimbleStatus;
             }
         }
 

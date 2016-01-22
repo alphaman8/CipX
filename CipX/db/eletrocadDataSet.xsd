@@ -1288,11 +1288,11 @@ where programacao_ip_id = @pip</CommandText>
       <xs:selector xpath=".//mstns:usuario" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
-    <!--<xs:unique name="poste_has_tipo_luminaria_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+    <xs:unique name="poste_has_tipo_luminaria_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:poste_has_tipo_luminaria" />
       <xs:field xpath="mstns:poste_id" />
       <xs:field xpath="mstns:tipo_luminaria_id" />
-    </xs:unique>-->
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
