@@ -596,6 +596,36 @@ namespace CipX
                     label1.Text = "Uso Mútuo importado com sucesso!";
                     Application.DoEvents();
 
+                    mycommand.CommandText =
+                        "SELECT `tipo_luminaria`.`id`," +
+                        "`tipo_luminaria`.`descricao` " +
+                        "FROM `eletrocad`.`tipo_luminaria`";
+                    //mycommand.Parameters.Clear();
+                    //mycommand.Parameters.AddWithValue("estado", cbEstado.Text);
+                    //mycommand.Parameters.AddWithValue("ano", txtAno.Value);
+
+                    reader = mycommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //
+                        //insere nova programação
+                        db.eletrocadDataSet.tipo_luminariaRow pipRow;
+                        pipRow = eletrocadDataSet.tipo_luminaria.Newtipo_luminariaRow();
+                        pipRow.id = reader.GetInt32("id");
+                        pipRow.descricao = reader.GetString("descricao");
+
+                        eletrocadDataSet.tipo_luminaria.Rows.Add(pipRow);
+
+                    }
+                    tipo_luminariaTableAdapter.Update(eletrocadDataSet.tipo_luminaria);
+                    eletrocadDataSet.tipo_luminaria.AcceptChanges();
+                    tipo_luminariaTableAdapter.Fill(eletrocadDataSet.tipo_luminaria);
+
+                    reader.Close();
+
+                    label1.Text = "Luminária importada com sucesso!";
+                    Application.DoEvents();
+
                     //MSG FINAL
                     label1.Text = "Dados importados com sucesso!";
                     Application.DoEvents();
