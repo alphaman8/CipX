@@ -56,11 +56,7 @@ namespace CipX.db {
         
         private global::System.Data.DataRelation relationtipo_lampada_fk;
         
-        private global::System.Data.DataRelation relationativacao_fk;
-        
         private global::System.Data.DataRelation relationcond_risco_fk;
-        
-        private global::System.Data.DataRelation relationfase_fk;
         
         private global::System.Data.DataRelation relationfk_poste_trafo1;
         
@@ -83,6 +79,10 @@ namespace CipX.db {
         private global::System.Data.DataRelation relationlampada_fk;
         
         private global::System.Data.DataRelation relationreator_fk;
+        
+        private global::System.Data.DataRelation relationativacao_fk;
+        
+        private global::System.Data.DataRelation relationfase_fk;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -422,9 +422,7 @@ namespace CipX.db {
                 }
             }
             this.relationtipo_lampada_fk = this.Relations["tipo_lampada_fk"];
-            this.relationativacao_fk = this.Relations["ativacao_fk"];
             this.relationcond_risco_fk = this.Relations["cond_risco_fk"];
-            this.relationfase_fk = this.Relations["fase_fk"];
             this.relationfk_poste_trafo1 = this.Relations["fk_poste_trafo1"];
             this.relationfk_poste_has_uso_mutuo_poste1 = this.Relations["fk_poste_has_uso_mutuo_poste1"];
             this.relationuso_mutuo_id_fk = this.Relations["uso_mutuo_id_fk"];
@@ -436,6 +434,8 @@ namespace CipX.db {
             this.relationbraco_fk = this.Relations["braco_fk"];
             this.relationlampada_fk = this.Relations["lampada_fk"];
             this.relationreator_fk = this.Relations["reator_fk"];
+            this.relationativacao_fk = this.Relations["ativacao_fk"];
+            this.relationfase_fk = this.Relations["fase_fk"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -479,18 +479,10 @@ namespace CipX.db {
                         this.tabletipo_lampada.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablelampada.tipo_lampada_idColumn}, false);
             this.Relations.Add(this.relationtipo_lampada_fk);
-            this.relationativacao_fk = new global::System.Data.DataRelation("ativacao_fk", new global::System.Data.DataColumn[] {
-                        this.tableativacao.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableposte.ativacao_idColumn}, false);
-            this.Relations.Add(this.relationativacao_fk);
             this.relationcond_risco_fk = new global::System.Data.DataRelation("cond_risco_fk", new global::System.Data.DataColumn[] {
                         this.tablecondicao_risco.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableposte.condicao_risco_idColumn}, false);
             this.Relations.Add(this.relationcond_risco_fk);
-            this.relationfase_fk = new global::System.Data.DataRelation("fase_fk", new global::System.Data.DataColumn[] {
-                        this.tablefase.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableposte.fase_idColumn}, false);
-            this.Relations.Add(this.relationfase_fk);
             this.relationfk_poste_trafo1 = new global::System.Data.DataRelation("fk_poste_trafo1", new global::System.Data.DataColumn[] {
                         this.tabletrafo.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableposte.trafo_idColumn}, false);
@@ -535,6 +527,14 @@ namespace CipX.db {
                         this.tablereator.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableposte_has_tipo_luminaria.reator_idColumn}, false);
             this.Relations.Add(this.relationreator_fk);
+            this.relationativacao_fk = new global::System.Data.DataRelation("ativacao_fk", new global::System.Data.DataColumn[] {
+                        this.tableativacao.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableposte_has_tipo_luminaria.ativacao_idColumn}, false);
+            this.Relations.Add(this.relationativacao_fk);
+            this.relationfase_fk = new global::System.Data.DataRelation("fase_fk", new global::System.Data.DataColumn[] {
+                        this.tablefase.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableposte_has_tipo_luminaria.fase_idColumn}, false);
+            this.Relations.Add(this.relationfase_fk);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1972,10 +1972,6 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columnligacao_clandestina;
             
-            private global::System.Data.DataColumn columnfase_id;
-            
-            private global::System.Data.DataColumn columnativacao_id;
-            
             private global::System.Data.DataColumn columncondicao_risco_id;
             
             private global::System.Data.DataColumn columnposte_vizinho_id;
@@ -2117,20 +2113,6 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn fase_idColumn {
-                get {
-                    return this.columnfase_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ativacao_idColumn {
-                get {
-                    return this.columnativacao_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn condicao_risco_idColumn {
                 get {
                     return this.columncondicao_risco_id;
@@ -2188,8 +2170,6 @@ namespace CipX.db {
                         string medidor, 
                         short posicao_trafo, 
                         short ligacao_clandestina, 
-                        faseRow parentfaseRowByfase_fk, 
-                        ativacaoRow parentativacaoRowByativacao_fk, 
                         condicao_riscoRow parentcondicao_riscoRowBycond_risco_fk, 
                         int poste_vizinho_id) {
                 posteRow rowposteRow = ((posteRow)(this.NewRow()));
@@ -2211,20 +2191,12 @@ namespace CipX.db {
                         posicao_trafo,
                         ligacao_clandestina,
                         null,
-                        null,
-                        null,
                         poste_vizinho_id};
                 if ((parenttrafoRowByfk_poste_trafo1 != null)) {
                     columnValuesArray[8] = parenttrafoRowByfk_poste_trafo1[0];
                 }
-                if ((parentfaseRowByfase_fk != null)) {
-                    columnValuesArray[16] = parentfaseRowByfase_fk[1];
-                }
-                if ((parentativacaoRowByativacao_fk != null)) {
-                    columnValuesArray[17] = parentativacaoRowByativacao_fk[1];
-                }
                 if ((parentcondicao_riscoRowBycond_risco_fk != null)) {
-                    columnValuesArray[18] = parentcondicao_riscoRowBycond_risco_fk[1];
+                    columnValuesArray[16] = parentcondicao_riscoRowBycond_risco_fk[1];
                 }
                 rowposteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowposteRow);
@@ -2267,8 +2239,6 @@ namespace CipX.db {
                 this.columnmedidor = base.Columns["medidor"];
                 this.columnposicao_trafo = base.Columns["posicao_trafo"];
                 this.columnligacao_clandestina = base.Columns["ligacao_clandestina"];
-                this.columnfase_id = base.Columns["fase_id"];
-                this.columnativacao_id = base.Columns["ativacao_id"];
                 this.columncondicao_risco_id = base.Columns["condicao_risco_id"];
                 this.columnposte_vizinho_id = base.Columns["poste_vizinho_id"];
             }
@@ -2307,10 +2277,6 @@ namespace CipX.db {
                 base.Columns.Add(this.columnposicao_trafo);
                 this.columnligacao_clandestina = new global::System.Data.DataColumn("ligacao_clandestina", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnligacao_clandestina);
-                this.columnfase_id = new global::System.Data.DataColumn("fase_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfase_id);
-                this.columnativacao_id = new global::System.Data.DataColumn("ativacao_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnativacao_id);
                 this.columncondicao_risco_id = new global::System.Data.DataColumn("condicao_risco_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncondicao_risco_id);
                 this.columnposte_vizinho_id = new global::System.Data.DataColumn("poste_vizinho_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -4861,6 +4827,10 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columnquantidade;
             
+            private global::System.Data.DataColumn columnativacao_id;
+            
+            private global::System.Data.DataColumn columnfase_id;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public poste_has_tipo_luminariaDataTable() {
                 this.TableName = "poste_has_tipo_luminaria";
@@ -4935,6 +4905,20 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ativacao_idColumn {
+                get {
+                    return this.columnativacao_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn fase_idColumn {
+                get {
+                    return this.columnfase_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int Count {
                 get {
                     return this.Rows.Count;
@@ -4962,7 +4946,7 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public poste_has_tipo_luminariaRow Addposte_has_tipo_luminariaRow(posteRow parentposteRowByfk_poste_has_tipo_luminaria_poste1, tipo_luminariaRow parenttipo_luminariaRowBytipo_luminaria_id_fk, string descricao, lampadaRow parentlampadaRowBylampada_fk, reatorRow parentreatorRowByreator_fk, bracoRow parentbracoRowBybraco_fk, int quantidade) {
+            public poste_has_tipo_luminariaRow Addposte_has_tipo_luminariaRow(posteRow parentposteRowByfk_poste_has_tipo_luminaria_poste1, tipo_luminariaRow parenttipo_luminariaRowBytipo_luminaria_id_fk, string descricao, lampadaRow parentlampadaRowBylampada_fk, reatorRow parentreatorRowByreator_fk, bracoRow parentbracoRowBybraco_fk, int quantidade, ativacaoRow parentativacaoRowByativacao_fk, faseRow parentfaseRowByfase_fk) {
                 poste_has_tipo_luminariaRow rowposte_has_tipo_luminariaRow = ((poste_has_tipo_luminariaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4971,7 +4955,9 @@ namespace CipX.db {
                         null,
                         null,
                         null,
-                        quantidade};
+                        quantidade,
+                        null,
+                        null};
                 if ((parentposteRowByfk_poste_has_tipo_luminaria_poste1 != null)) {
                     columnValuesArray[0] = parentposteRowByfk_poste_has_tipo_luminaria_poste1[0];
                 }
@@ -4986,6 +4972,12 @@ namespace CipX.db {
                 }
                 if ((parentbracoRowBybraco_fk != null)) {
                     columnValuesArray[5] = parentbracoRowBybraco_fk[1];
+                }
+                if ((parentativacaoRowByativacao_fk != null)) {
+                    columnValuesArray[7] = parentativacaoRowByativacao_fk[1];
+                }
+                if ((parentfaseRowByfase_fk != null)) {
+                    columnValuesArray[8] = parentfaseRowByfase_fk[1];
                 }
                 rowposte_has_tipo_luminariaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowposte_has_tipo_luminariaRow);
@@ -5020,6 +5012,8 @@ namespace CipX.db {
                 this.columnreator_id = base.Columns["reator_id"];
                 this.columnbraco_id = base.Columns["braco_id"];
                 this.columnquantidade = base.Columns["quantidade"];
+                this.columnativacao_id = base.Columns["ativacao_id"];
+                this.columnfase_id = base.Columns["fase_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5038,6 +5032,10 @@ namespace CipX.db {
                 base.Columns.Add(this.columnbraco_id);
                 this.columnquantidade = new global::System.Data.DataColumn("quantidade", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantidade);
+                this.columnativacao_id = new global::System.Data.DataColumn("ativacao_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnativacao_id);
+                this.columnfase_id = new global::System.Data.DataColumn("fase_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfase_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnposte_id,
                                 this.columntipo_luminaria_id}, true));
@@ -5196,12 +5194,12 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public posteRow[] GetposteRows() {
+            public poste_has_tipo_luminariaRow[] Getposte_has_tipo_luminariaRows() {
                 if ((this.Table.ChildRelations["ativacao_fk"] == null)) {
-                    return new posteRow[0];
+                    return new poste_has_tipo_luminariaRow[0];
                 }
                 else {
-                    return ((posteRow[])(base.GetChildRows(this.Table.ChildRelations["ativacao_fk"])));
+                    return ((poste_has_tipo_luminariaRow[])(base.GetChildRows(this.Table.ChildRelations["ativacao_fk"])));
                 }
             }
         }
@@ -5343,12 +5341,12 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public posteRow[] GetposteRows() {
+            public poste_has_tipo_luminariaRow[] Getposte_has_tipo_luminariaRows() {
                 if ((this.Table.ChildRelations["fase_fk"] == null)) {
-                    return new posteRow[0];
+                    return new poste_has_tipo_luminariaRow[0];
                 }
                 else {
-                    return ((posteRow[])(base.GetChildRows(this.Table.ChildRelations["fase_fk"])));
+                    return ((poste_has_tipo_luminariaRow[])(base.GetChildRows(this.Table.ChildRelations["fase_fk"])));
                 }
             }
         }
@@ -5661,36 +5659,6 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int fase_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableposte.fase_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fase_id\' in table \'poste\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableposte.fase_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int ativacao_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableposte.ativacao_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ativacao_id\' in table \'poste\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableposte.ativacao_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int condicao_risco_id {
                 get {
                     try {
@@ -5721,32 +5689,12 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ativacaoRow ativacaoRow {
-                get {
-                    return ((ativacaoRow)(this.GetParentRow(this.Table.ParentRelations["ativacao_fk"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["ativacao_fk"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public condicao_riscoRow condicao_riscoRow {
                 get {
                     return ((condicao_riscoRow)(this.GetParentRow(this.Table.ParentRelations["cond_risco_fk"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["cond_risco_fk"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public faseRow faseRow {
-                get {
-                    return ((faseRow)(this.GetParentRow(this.Table.ParentRelations["fase_fk"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["fase_fk"]);
                 }
             }
             
@@ -5858,26 +5806,6 @@ namespace CipX.db {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void Setligacao_clandestinaNull() {
                 this[this.tableposte.ligacao_clandestinaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isfase_idNull() {
-                return this.IsNull(this.tableposte.fase_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setfase_idNull() {
-                this[this.tableposte.fase_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isativacao_idNull() {
-                return this.IsNull(this.tableposte.ativacao_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setativacao_idNull() {
-                this[this.tableposte.ativacao_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7047,6 +6975,37 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ativacao_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableposte_has_tipo_luminaria.ativacao_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ativacao_id\' in table \'poste_has_tipo_luminaria\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableposte_has_tipo_luminaria.ativacao_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int fase_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableposte_has_tipo_luminaria.fase_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fase_id\' in table \'poste_has_tipo_luminaria\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableposte_has_tipo_luminaria.fase_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public posteRow posteRow {
                 get {
                     return ((posteRow)(this.GetParentRow(this.Table.ParentRelations["fk_poste_has_tipo_luminaria_poste1"])));
@@ -7097,6 +7056,26 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ativacaoRow ativacaoRow {
+                get {
+                    return ((ativacaoRow)(this.GetParentRow(this.Table.ParentRelations["ativacao_fk"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ativacao_fk"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public faseRow faseRow {
+                get {
+                    return ((faseRow)(this.GetParentRow(this.Table.ParentRelations["fase_fk"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fase_fk"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsdescricaoNull() {
                 return this.IsNull(this.tableposte_has_tipo_luminaria.descricaoColumn);
             }
@@ -7134,6 +7113,26 @@ namespace CipX.db {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetquantidadeNull() {
                 this[this.tableposte_has_tipo_luminaria.quantidadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isativacao_idNull() {
+                return this.IsNull(this.tableposte_has_tipo_luminaria.ativacao_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setativacao_idNull() {
+                this[this.tableposte_has_tipo_luminaria.ativacao_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isfase_idNull() {
+                return this.IsNull(this.tableposte_has_tipo_luminaria.fase_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setfase_idNull() {
+                this[this.tableposte_has_tipo_luminaria.fase_idColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8932,8 +8931,6 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("medidor", "medidor");
             tableMapping.ColumnMappings.Add("posicao_trafo", "posicao_trafo");
             tableMapping.ColumnMappings.Add("ligacao_clandestina", "ligacao_clandestina");
-            tableMapping.ColumnMappings.Add("fase_id", "fase_id");
-            tableMapping.ColumnMappings.Add("ativacao_id", "ativacao_id");
             tableMapping.ColumnMappings.Add("condicao_risco_id", "condicao_risco_id");
             tableMapping.ColumnMappings.Add("poste_vizinho_id", "poste_vizinho_id");
             this._adapter.TableMappings.Add(tableMapping);
@@ -8944,7 +8941,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [poste] ([bairro], [logradouro], [gps_time], [sequencia], [barramento], [medido], [aceso], [trafo_id], [lat], [lon], [obs], [gpgga], [medidor], [posicao_trafo], [ligacao_clandestina], [fase_id], [ativacao_id], [condicao_risco_id], [poste_vizinho_id]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [poste] ([bairro], [logradouro], [gps_time], [sequencia], [barramento], [medido], [aceso], [trafo_id], [lat], [lon], [obs], [gpgga], [medidor], [posicao_trafo], [ligacao_clandestina], [condicao_risco_id], [poste_vizinho_id]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "bairro", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "logradouro", global::System.Data.DataRowVersion.Current, null));
@@ -8961,13 +8958,11 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medidor", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "posicao_trafo", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ligacao_clandestina", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "fase_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p17", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ativacao_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p18", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p19", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p17", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [poste] SET [bairro] = @p1, [logradouro] = @p2, [gps_time] = @p3, [sequencia] = @p4, [barramento] = @p5, [medido] = @p6, [aceso] = @p7, [trafo_id] = @p8, [lat] = @p9, [lon] = @p10, [obs] = @p11, [gpgga] = @p12, [medidor] = @p13, [posicao_trafo] = @p14, [ligacao_clandestina] = @p15, [fase_id] = @p16, [ativacao_id] = @p17, [condicao_risco_id] = @p18, [poste_vizinho_id] = @p19 WHERE (([id] = @p20))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [poste] SET [bairro] = @p1, [logradouro] = @p2, [gps_time] = @p3, [sequencia] = @p4, [barramento] = @p5, [medido] = @p6, [aceso] = @p7, [trafo_id] = @p8, [lat] = @p9, [lon] = @p10, [obs] = @p11, [gpgga] = @p12, [medidor] = @p13, [posicao_trafo] = @p14, [ligacao_clandestina] = @p15, [condicao_risco_id] = @p16, [poste_vizinho_id] = @p17 WHERE (([id] = @p18))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "bairro", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "logradouro", global::System.Data.DataRowVersion.Current, null));
@@ -8984,11 +8979,9 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medidor", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "posicao_trafo", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ligacao_clandestina", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "fase_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p17", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ativacao_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p18", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p19", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p20", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p17", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p18", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9006,15 +8999,14 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, bairro, logradouro, gps_time, sequencia, barramento, medido, aceso, tr" +
-                "afo_id, lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, fase_" +
-                "id, ativacao_id, condicao_risco_id, poste_vizinho_id FROM poste";
+                "afo_id, lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, condi" +
+                "cao_risco_id, poste_vizinho_id FROM poste";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT id, bairro, logradouro, gps_time, sequencia, barramento, medido, aceso, tr" +
-                "afo_id, lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, fase_" +
-                "id, ativacao_id, condicao_risco_id, poste_vizinho_id FROM poste WHERE (trafo_id " +
-                "= @trafo)";
+                "afo_id, lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, condi" +
+                "cao_risco_id, poste_vizinho_id FROM poste WHERE (trafo_id = @trafo)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@trafo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Current, null));
         }
@@ -9121,9 +9113,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                     global::System.Nullable<short> p14, 
                     global::System.Nullable<short> p15, 
                     global::System.Nullable<int> p16, 
-                    global::System.Nullable<int> p17, 
-                    global::System.Nullable<int> p18, 
-                    global::System.Nullable<int> p19) {
+                    global::System.Nullable<int> p17) {
             if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -9201,18 +9191,6 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((p18.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((int)(p18.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((p19.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(p19.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9249,9 +9227,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                     global::System.Nullable<short> p15, 
                     global::System.Nullable<int> p16, 
                     global::System.Nullable<int> p17, 
-                    global::System.Nullable<int> p18, 
-                    global::System.Nullable<int> p19, 
-                    int p20) {
+                    int p18) {
             if ((p1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -9329,19 +9305,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((p18.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(p18.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((p19.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(p19.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(p20));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(p18));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11928,6 +11892,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("reator_id", "reator_id");
             tableMapping.ColumnMappings.Add("braco_id", "braco_id");
             tableMapping.ColumnMappings.Add("quantidade", "quantidade");
+            tableMapping.ColumnMappings.Add("ativacao_id", "ativacao_id");
+            tableMapping.ColumnMappings.Add("fase_id", "fase_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -11939,8 +11905,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [poste_has_tipo_luminaria] ([poste_id], [tipo_luminaria_id], [descric" +
-                "ao], [braco_id], [lampada_id], [quantidade], [reator_id]) VALUES (@p1, @p2, @p3," +
-                " @p4, @p5, @p6, @p7)";
+                "ao], [braco_id], [lampada_id], [quantidade], [reator_id], [ativacao_id], [fase_i" +
+                "d]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "tipo_luminaria_id", global::System.Data.DataRowVersion.Current, null));
@@ -11949,6 +11915,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lampada_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "quantidade", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ativacao_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "fase_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [poste_has_tipo_luminaria] SET [poste_id] = @p1, [tipo_luminaria_id] = @p2" +
@@ -11976,12 +11944,13 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT poste_id, tipo_luminaria_id, descricao, braco_id, lampada_id, quantidade, " +
-                "reator_id FROM poste_has_tipo_luminaria";
+                "reator_id, ativacao_id, fase_id FROM poste_has_tipo_luminaria";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT poste_id, tipo_luminaria_id, descricao, braco_id, lampada_id, quantidade, " +
-                "reator_id FROM poste_has_tipo_luminaria WHERE (poste_id = @poste)";
+                "reator_id, ativacao_id, fase_id FROM poste_has_tipo_luminaria WHERE (poste_id = " +
+                "@poste)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@poste", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
         }
@@ -12072,7 +12041,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int p1, int p2, string p3, global::System.Nullable<int> p4, int p5, global::System.Nullable<int> p6, global::System.Nullable<int> p7) {
+        public virtual int Insert(int p1, int p2, string p3, global::System.Nullable<int> p4, int p5, int p6, global::System.Nullable<int> p7, global::System.Nullable<int> p8, global::System.Nullable<int> p9) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2));
             if ((p3 == null)) {
@@ -12088,17 +12057,24 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(p5));
-            if ((p6.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6));
             if ((p7.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((int)(p7.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((p8.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(p8.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((p9.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(p9.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

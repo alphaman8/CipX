@@ -23,6 +23,16 @@ namespace CipX
 
         private void CadastrarLuminaria_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.fase' table. You can move, or remove it, as needed.
+            this.faseTableAdapter.Fill(this.eletrocadDataSet.fase);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.ativacao' table. You can move, or remove it, as needed.
+            this.ativacaoTableAdapter.Fill(this.eletrocadDataSet.ativacao);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.braco' table. You can move, or remove it, as needed.
+            this.bracoTableAdapter.Fill(this.eletrocadDataSet.braco);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.reator' table. You can move, or remove it, as needed.
+            this.reatorTableAdapter.Fill(this.eletrocadDataSet.reator);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.lampada' table. You can move, or remove it, as needed.
+            this.lampadaTableAdapter.Fill(this.eletrocadDataSet.lampada);
             // TODO: This line of code loads data into the 'eletrocadDataSet.tipo_luminaria' table. You can move, or remove it, as needed.
             this.tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.tipo_luminaria);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
@@ -54,7 +64,8 @@ namespace CipX
             comboBox1.Focus();
             poste_idTextBox.Text = CadastrarPostes.posteId.ToString();
 
-            //tabControl1.SelectedIndex = 1;
+            tabControl1.SelectedIndex = 1;
+            comboBox1.Focus();
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             //trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
@@ -65,6 +76,7 @@ namespace CipX
 
         private void salvar(object sender, EventArgs e)
         {
+
             try
             {
                 this.postehastipoluminariaBindingSource.EndEdit();
@@ -73,6 +85,12 @@ namespace CipX
                 if (changes == null)
                 {
                     MessageBox.Show("Não há modificações a serem salvas");
+                    return;
+                }
+
+                if (numericUpDown1.Value <= 0)
+                {
+                    MessageBox.Show("Quantidade deve ser maior que 1");
                     return;
                 }
 

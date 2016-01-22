@@ -41,8 +41,6 @@
             System.Windows.Forms.Label medidorLabel;
             System.Windows.Forms.Label trafo_idLabel;
             System.Windows.Forms.Label posicao_trafoLabel;
-            System.Windows.Forms.Label fase_idLabel;
-            System.Windows.Forms.Label ativacao_idLabel;
             System.Windows.Forms.Label condicao_risco_idLabel;
             System.Windows.Forms.Label poste_vizinho_idLabel;
             System.Windows.Forms.DataGridTextBoxColumn idDataGridColumnStyleDataGridTextBoxColumn;
@@ -93,8 +91,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.condicaoriscoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.trafo_idTextBox = new System.Windows.Forms.TextBox();
             this.gps_timeTextBox = new System.Windows.Forms.TextBox();
@@ -112,8 +108,6 @@
             medidorLabel = new System.Windows.Forms.Label();
             trafo_idLabel = new System.Windows.Forms.Label();
             posicao_trafoLabel = new System.Windows.Forms.Label();
-            fase_idLabel = new System.Windows.Forms.Label();
-            ativacao_idLabel = new System.Windows.Forms.Label();
             condicao_risco_idLabel = new System.Windows.Forms.Label();
             poste_vizinho_idLabel = new System.Windows.Forms.Label();
             idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -203,6 +197,7 @@
             gps_timeLabel.Name = "gps_timeLabel";
             gps_timeLabel.Size = new System.Drawing.Size(64, 14);
             gps_timeLabel.Text = "gps time:";
+            gps_timeLabel.Visible = false;
             // 
             // medidorLabel
             // 
@@ -219,6 +214,7 @@
             trafo_idLabel.Name = "trafo_idLabel";
             trafo_idLabel.Size = new System.Drawing.Size(57, 14);
             trafo_idLabel.Text = "trafo id:";
+            trafo_idLabel.Visible = false;
             // 
             // posicao_trafoLabel
             // 
@@ -228,26 +224,10 @@
             posicao_trafoLabel.Size = new System.Drawing.Size(92, 14);
             posicao_trafoLabel.Text = "posicao trafo:";
             // 
-            // fase_idLabel
-            // 
-            fase_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            fase_idLabel.Location = new System.Drawing.Point(76, 114);
-            fase_idLabel.Name = "fase_idLabel";
-            fase_idLabel.Size = new System.Drawing.Size(51, 14);
-            fase_idLabel.Text = "fase id:";
-            // 
-            // ativacao_idLabel
-            // 
-            ativacao_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            ativacao_idLabel.Location = new System.Drawing.Point(49, 142);
-            ativacao_idLabel.Name = "ativacao_idLabel";
-            ativacao_idLabel.Size = new System.Drawing.Size(77, 14);
-            ativacao_idLabel.Text = "ativacao id:";
-            // 
             // condicao_risco_idLabel
             // 
             condicao_risco_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            condicao_risco_idLabel.Location = new System.Drawing.Point(13, 170);
+            condicao_risco_idLabel.Location = new System.Drawing.Point(13, 114);
             condicao_risco_idLabel.Name = "condicao_risco_idLabel";
             condicao_risco_idLabel.Size = new System.Drawing.Size(112, 14);
             condicao_risco_idLabel.Text = "condicao risco id:";
@@ -455,7 +435,6 @@
             this.label1.Location = new System.Drawing.Point(0, 231);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 20);
-            this.label1.Text = "label1";
             // 
             // labelPosteID
             // 
@@ -534,7 +513,7 @@
             this.tabPage2.Controls.Add(bairroLabel);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 268);
+            this.tabPage2.Size = new System.Drawing.Size(240, 271);
             this.tabPage2.Text = "II";
             // 
             // checkBox2
@@ -549,6 +528,7 @@
             // comboBox6
             // 
             this.comboBox6.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "poste_vizinho_id", true));
+            this.comboBox6.DisplayMember = "id";
             this.comboBox6.Location = new System.Drawing.Point(131, 246);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(66, 22);
@@ -628,10 +608,6 @@
             // 
             this.tabPage3.Controls.Add(this.comboBox5);
             this.tabPage3.Controls.Add(condicao_risco_idLabel);
-            this.tabPage3.Controls.Add(this.comboBox4);
-            this.tabPage3.Controls.Add(ativacao_idLabel);
-            this.tabPage3.Controls.Add(this.comboBox3);
-            this.tabPage3.Controls.Add(fase_idLabel);
             this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(posicao_trafoLabel);
             this.tabPage3.Controls.Add(trafo_idLabel);
@@ -642,7 +618,7 @@
             this.tabPage3.Controls.Add(this.obsTextBox);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(232, 268);
+            this.tabPage3.Size = new System.Drawing.Size(240, 271);
             this.tabPage3.Text = "III";
             // 
             // condicaoriscoBindingSource
@@ -655,29 +631,11 @@
             this.comboBox5.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "condicao_risco_id", true));
             this.comboBox5.DataSource = this.condicaoriscoBindingSource;
             this.comboBox5.DisplayMember = "descricao";
-            this.comboBox5.Location = new System.Drawing.Point(133, 167);
+            this.comboBox5.Location = new System.Drawing.Point(133, 111);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(100, 22);
             this.comboBox5.TabIndex = 22;
             this.comboBox5.ValueMember = "id";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "ativacao_id", true));
-            this.comboBox4.Location = new System.Drawing.Point(132, 139);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(100, 22);
-            this.comboBox4.TabIndex = 21;
-            this.comboBox4.ValueMember = "id";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "fase_id", true));
-            this.comboBox3.Location = new System.Drawing.Point(133, 111);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 22);
-            this.comboBox3.TabIndex = 20;
-            this.comboBox3.ValueMember = "id";
             // 
             // comboBox1
             // 
@@ -697,6 +655,7 @@
             this.trafo_idTextBox.ReadOnly = true;
             this.trafo_idTextBox.Size = new System.Drawing.Size(100, 21);
             this.trafo_idTextBox.TabIndex = 17;
+            this.trafo_idTextBox.Visible = false;
             // 
             // gps_timeTextBox
             // 
@@ -706,6 +665,7 @@
             this.gps_timeTextBox.ReadOnly = true;
             this.gps_timeTextBox.Size = new System.Drawing.Size(100, 21);
             this.gps_timeTextBox.TabIndex = 7;
+            this.gps_timeTextBox.Visible = false;
             // 
             // obsTextBox
             // 
@@ -780,8 +740,6 @@
         private System.Windows.Forms.TextBox gps_timeTextBox;
         private System.Windows.Forms.TextBox trafo_idTextBox;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.BindingSource condicaoriscoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter condicao_riscoTableAdapter;

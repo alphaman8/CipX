@@ -47,11 +47,11 @@ namespace CipX
 
             GPSForm.StartTraking();
 
-            while (GPS.accuracy > GPS.accuracyIdeal)
+            while (GPS.accuracy > GPS.accuracyIdeal+100)
             {
                 label1.Text = "Precisão está baixa: "+GPS.accuracy+"m";
                 //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(1000);
                 Application.DoEvents();
             }
 
