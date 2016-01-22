@@ -22,7 +22,8 @@ namespace CipX
             Application.DoEvents();
             StopTrimble();
             listGPS.Items.Clear();
-            listGPS.Items.Add(ConectarTrimble());
+            //listGPS.Items.Add(ConectarTrimble());
+            listGPS.Items.Add(ConectarTrimbleSimulacao());
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
         }
