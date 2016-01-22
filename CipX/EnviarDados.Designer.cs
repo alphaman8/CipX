@@ -46,9 +46,7 @@
             this.listEnviar = new System.Windows.Forms.ListBox();
             this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
-            this.postehaslampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btEnviar = new CipX.components.ButtonImage(this.components);
-            this.postehasreatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,8 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -171,11 +167,6 @@
             // 
             this.posteTableAdapter.ClearBeforeFill = true;
             // 
-            // postehaslampadaBindingSource
-            // 
-            this.postehaslampadaBindingSource.DataMember = "poste_has_lampada";
-            this.postehaslampadaBindingSource.DataSource = this.eletrocadDataSet;
-            // 
             // btEnviar
             // 
             this.btEnviar.BackColor = System.Drawing.SystemColors.Control;
@@ -188,11 +179,6 @@
             this.btEnviar.TabIndex = 3;
             this.btEnviar.Text = "Enviar";
             this.btEnviar.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // postehasreatorBindingSource
-            // 
-            this.postehasreatorBindingSource.DataMember = "poste_has_reator";
-            this.postehasreatorBindingSource.DataSource = this.eletrocadDataSet;
             // 
             // postehasusomutuoBindingSource
             // 
@@ -345,8 +331,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             this.panelLogin.ResumeLayout(false);
@@ -367,8 +351,6 @@
         private System.Windows.Forms.BindingSource posteBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
         private CipX.components.ButtonImage btEnviar;
-        private System.Windows.Forms.BindingSource postehaslampadaBindingSource;
-        private System.Windows.Forms.BindingSource postehasreatorBindingSource;
         private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;

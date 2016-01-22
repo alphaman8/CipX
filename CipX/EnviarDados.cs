@@ -129,9 +129,6 @@ namespace CipX
                                     "`medidor`, " +
                                     "`posicao_trafo`, " +
                                     "`ligacao_clandestina`, " +
-                                    "`braco_id`, " +
-                                    "`fase_id`, " +
-                                    "`ativacao_id`, " +
                                     "`condicao_risco_id`) " +
                                     "VALUES " +
                                     "(@bairro , " +
@@ -149,9 +146,6 @@ namespace CipX
                                     "@medidor , " +
                                     "@posicao_trafo , " +
                                     "@ligacao_clandestina , " +
-                                    "@braco_id , " +
-                                    "@fase_id , " +
-                                    "@ativacao_id , " +
                                     "@condicao_risco_id)";
 
                         if (rowPoste.IsbairroNull()) { mycommandPoste.Parameters.AddWithValue("bairro", null); }
@@ -205,11 +199,23 @@ namespace CipX
                             MySql.Data.MySqlClient.MySqlCommand mycommandPosteHasTipoLuminaria = myconn.CreateCommand();
                             mycommandPosteHasTipoLuminaria.Transaction = mytrans;
 
+                            //mfrn@0830$X-PRO
                             mycommandPosteHasTipoLuminaria.CommandText = "INSERT INTO `eletrocad`.`poste_has_tipo_luminaria` " +
-                                "(`poste_id`,`tipo_luminaria_id`) VALUES (@posteId, @tipoId)";
+                                "(`poste_id`,`tipo_luminaria_id`,`lampada_id`,`reator_id`,`braco_id`,"+
+                                "`quantidade`,`ativacao_id`,`fase_id`) VALUES "+
+                                "(@posteId, @tipoId,@lampada,@reator,@braco,@quantidade,@ativacao,@fase)";
 
                             mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
                             mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("tipoId", rowPosteHasTipoLuminaria.tipo_luminaria_id);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("lampada", rowPosteHasTipoLuminaria.lampada_id);
+
+                            if (rowPosteHasTipoLuminaria.Isreator_idNull()) { mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("reator", null); }
+                            else { mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("reator", rowPosteHasTipoLuminaria.reator_id); }
+
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("braco", rowPosteHasTipoLuminaria.braco_id);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("quantidade", rowPosteHasTipoLuminaria.quantidade);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("ativacao", rowPosteHasTipoLuminaria.ativacao_id);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("fase", rowPosteHasTipoLuminaria.fase_id);
 
                             mycommandPosteHasTipoLuminaria.ExecuteNonQuery();
                         }
