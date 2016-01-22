@@ -64,13 +64,13 @@ namespace CipX
 
         public bool usarSSF = true;
 
-        public void ConectarTrimbleSimulacao()
+        public string ConectarTrimbleSimulacao()
         {
             gpsTrimble = new GPSReceiver();
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 3.0f;
+            gpsTrimble.PositionMinimumInterval = 2.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -97,11 +97,13 @@ namespace CipX
             if (started)
             {
                 gpsTrimbleStatus = "Pesquisando Satélite";
+                return gpsTrimbleStatus;
                 //Usuario.UsandoTrimble = true;
             }
             else
             {
                 gpsTrimbleStatus = "Não foi possível conectar ao GPS";
+                return gpsTrimbleStatus;
             }
         }
 
