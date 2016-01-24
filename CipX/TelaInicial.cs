@@ -130,7 +130,8 @@ namespace CipX
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private MySql.Data.MySqlClient.MySqlConnection myconn;

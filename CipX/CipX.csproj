@@ -18,6 +18,7 @@
     <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <DeployDirPrefix>\</DeployDirPrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -185,6 +186,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="TelaInicial.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="TelaInicial.Designer.cs">
       <DependentUpon>TelaInicial.cs</DependentUpon>

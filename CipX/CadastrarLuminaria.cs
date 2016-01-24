@@ -38,6 +38,9 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
             this.poste_has_tipo_luminariaTableAdapter.FillByPoste(this.eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
 
+            numericUpDown1.Maximum = 15;
+            numericUpDown1.Minimum = 1;
+
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
 
@@ -52,6 +55,7 @@ namespace CipX
             {
                 postehastipoluminariaBindingSource.CancelEdit();
                 postehastipoluminariaBindingSource.AddNew();
+                numericUpDown1.Value = 1;
             }
             catch (Exception ex)
             {

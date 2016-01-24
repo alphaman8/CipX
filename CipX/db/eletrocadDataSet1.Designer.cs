@@ -5036,9 +5036,9 @@ namespace CipX.db {
                 base.Columns.Add(this.columnativacao_id);
                 this.columnfase_id = new global::System.Data.DataColumn("fase_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfase_id);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnposte_id,
-                                this.columntipo_luminaria_id}, true));
+                //this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                //                this.columnposte_id,
+                //                this.columntipo_luminaria_id}, true));
                 this.columnposte_id.AllowDBNull = false;
                 this.columntipo_luminaria_id.AllowDBNull = false;
                 this.columndescricao.MaxLength = 45;
