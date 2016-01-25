@@ -19,6 +19,7 @@
     <FormFactorID>
     </FormFactorID>
     <DeployDirPrefix>\</DeployDirPrefix>
+    <ApplicationIcon>1453757317_location.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -206,6 +207,7 @@
     <Content Include="..\..\PFTSSFWriter.dll">
       <Link>PFTSSFWriter.dll</Link>
     </Content>
+    <Content Include="1453757317_location.ico" />
     <Content Include="db\eletrocad.sdf">
     </Content>
     <Content Include="GpsLibCE.dll">
