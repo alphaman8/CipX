@@ -266,6 +266,8 @@ namespace CipX
             label1.Text = "Iniciando Importação. Aguarde";
             label1.Visible = true;
 
+            StopTrimble();
+
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
@@ -626,6 +628,8 @@ namespace CipX
                     reader.Close();
 
                     label1.Text = "Luminária importada com sucesso!";
+                    StartTraking();
+
                     Application.DoEvents();
 
                     //MSG FINAL

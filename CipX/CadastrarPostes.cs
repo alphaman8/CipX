@@ -47,7 +47,7 @@ namespace CipX
             {
                 label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
                 //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(1000);
                 Application.DoEvents();
             }
 

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.WindowsMobile.Forms;
 
 namespace CipX
 {
@@ -23,6 +24,8 @@ namespace CipX
 
         private void CadastrarLuminaria_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.chave_comando' table. You can move, or remove it, as needed.
+            this.chave_comandoTableAdapter.Fill(this.eletrocadDataSet.chave_comando);
             // TODO: This line of code loads data into the 'eletrocadDataSet.fase' table. You can move, or remove it, as needed.
             this.faseTableAdapter.Fill(this.eletrocadDataSet.fase);
             // TODO: This line of code loads data into the 'eletrocadDataSet.ativacao' table. You can move, or remove it, as needed.
@@ -38,8 +41,16 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
             this.poste_has_tipo_luminariaTableAdapter.FillByPoste(this.eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
 
-            numericUpDown1.Maximum = 15;
-            numericUpDown1.Minimum = 1;
+            #region CRIA PASTA PARA FOTOS
+            pathName =
+                    Library.appDir + @"\imagens\cadastro\";
+
+            bool exists = System.IO.Directory.Exists(pathName);
+            if (!exists)
+            {
+                System.IO.Directory.CreateDirectory(pathName);
+            } 
+            #endregion
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -55,7 +66,6 @@ namespace CipX
             {
                 postehastipoluminariaBindingSource.CancelEdit();
                 postehastipoluminariaBindingSource.AddNew();
-                numericUpDown1.Value = 1;
             }
             catch (Exception ex)
             {
@@ -70,6 +80,7 @@ namespace CipX
 
             tabControl1.SelectedIndex = 1;
             comboBox1.Focus();
+            pictureBox1.Image = null;
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             //trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
@@ -92,12 +103,6 @@ namespace CipX
                     return;
                 }
 
-                if (numericUpDown1.Value <= 0)
-                {
-                    MessageBox.Show("Quantidade deve ser maior que 1");
-                    return;
-                }
-
                 DataTable dt = changes.Tables["poste_has_tipo_luminaria"];
                 db.eletrocadDataSet.poste_has_tipo_luminariaRow r = (db.eletrocadDataSet.poste_has_tipo_luminariaRow)dt.Rows[0];
                 DataRow[] badRows = dt.GetErrors();
@@ -107,6 +112,7 @@ namespace CipX
                     int numRows = poste_has_tipo_luminariaTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
                     poste_has_tipo_luminariaTableAdapter.FillByPoste(eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
+                    pictureBox1.Image = null;
                     MessageBox.Show("Informações salvas com sucesso! ");
                 }
                 else
@@ -238,6 +244,98 @@ namespace CipX
             {
                 importar();
             }
+        }
+
+        private string pathName = "";
+        string fileName = "";
+
+        public static string RandomString(int length)
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToLower();
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CameraCaptureDialog camCapture = new CameraCaptureDialog();
+            camCapture.Owner = null;
+
+            camCapture.InitialDirectory = pathName;
+            camCapture.Resolution = new Size(200, 200);
+            camCapture.Mode = CameraCaptureMode.Still;
+
+            //gerar nome aleatorio para a foto
+            fileName = RandomString(5)+".jpg";
+
+            while (System.IO.File.Exists(pathName + fileName))
+            {
+                fileName = RandomString(5) + ".jpg";
+            }
+
+            camCapture.DefaultFileName = fileName;
+
+            if (DialogResult.OK == camCapture.ShowDialog())
+            {
+                Bitmap img = new Bitmap(pathName + fileName);
+                pictureBox1.Image = img;
+
+                //label do caminho do arquivo
+                lblFotoPath.Text = pathName + fileName;
+            }
+        }
+
+        private void tabPage3_GotFocus(object sender, EventArgs e)
+        {
+        }
+
+        private void excluir(object sender, EventArgs e)
+        {
+            DataRowView row =
+                (DataRowView)postehastipoluminariaBindingSource.Current;
+
+            int id = (int)row["id"];
+
+            if ((MessageBox.Show("Certeza ao excluir luminária: " + id + "?", "",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question, 
+                MessageBoxDefaultButton.Button2) == DialogResult.OK))
+            {
+                try
+                {
+                    poste_has_tipo_luminariaTableAdapter.Delete(id);
+                    //projetoTableAdapter.Update(lptDataSet.projeto);
+                    eletrocadDataSet.AcceptChanges();
+                    poste_has_tipo_luminariaTableAdapter.FillByPoste(eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
+                    pictureBox1.Image = null;
+                    Application.DoEvents();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao deletar: " + ex.Message);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (System.IO.File.Exists(lblFotoPath.Text))
+            {
+
+                Bitmap img = new Bitmap(lblFotoPath.Text);
+                pictureBox1.Image = img;
+                Application.DoEvents();
+            }
+            else
+            {
+                MessageBox.Show("Foto não existe");
+            }
+        }
+
+        private void quantidadeTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //aceitar apenas numeros
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
