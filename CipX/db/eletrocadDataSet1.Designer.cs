@@ -5052,13 +5052,6 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public poste_has_tipo_luminariaRow FindByposte_idtipo_luminaria_id(int poste_id, int tipo_luminaria_id) {
-                return ((poste_has_tipo_luminariaRow)(this.Rows.Find(new object[] {
-                            poste_id,
-                            tipo_luminaria_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
                 poste_has_tipo_luminariaDataTable cln = ((poste_has_tipo_luminariaDataTable)(base.Clone()));
                 cln.InitVars();
@@ -5114,8 +5107,6 @@ namespace CipX.db {
                 base.Columns.Add(this.columnfoto_path);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnid}, false));
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint3", new global::System.Data.DataColumn[] {
-                                this.columnfoto_path}, false));
                 this.columnposte_id.AllowDBNull = false;
                 this.columntipo_luminaria_id.AllowDBNull = false;
                 this.columndescricao.MaxLength = 45;
@@ -5126,7 +5117,6 @@ namespace CipX.db {
                 this.columnid.AllowDBNull = false;
                 this.columnid.ReadOnly = true;
                 this.columnid.Unique = true;
-                this.columnfoto_path.Unique = true;
                 this.columnfoto_path.MaxLength = 45;
             }
             
@@ -8170,7 +8160,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -8415,7 +8405,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -8660,7 +8650,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -8905,7 +8895,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -9161,7 +9151,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -9458,7 +9448,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -9911,7 +9901,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -10245,7 +10235,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -10763,7 +10753,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -11014,7 +11004,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -11259,7 +11249,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -11522,7 +11512,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -11830,7 +11820,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -12089,7 +12079,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -12412,7 +12402,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         
@@ -12742,7 +12732,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
             this._connection.ConnectionString = ("Data Source =" 
                         + (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) 
-                        + ("\\db\\eletrocad.sdf;" 
+                        + ("\\eletrocad.sdf;" 
                         + ("Password =" + "\"mfrn@0830$X-PRO\";"))));
         }
         

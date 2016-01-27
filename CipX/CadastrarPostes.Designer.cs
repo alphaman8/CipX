@@ -43,21 +43,13 @@
             System.Windows.Forms.Label posicao_trafoLabel;
             System.Windows.Forms.Label condicao_risco_idLabel;
             System.Windows.Forms.Label poste_vizinho_idLabel;
-            System.Windows.Forms.DataGridTextBoxColumn idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn bairroDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn logradouroDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn gps_timeDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn sequenciaDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn barramentoDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn trafo_idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn latDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn lonDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn obsDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn gpggaDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn posicao_trafoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
@@ -73,8 +65,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.labelPosteID = new System.Windows.Forms.Label();
-            this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
+            this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.posteDataGrid = new System.Windows.Forms.DataGrid();
             this.posteTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -110,25 +102,17 @@
             posicao_trafoLabel = new System.Windows.Forms.Label();
             condicao_risco_idLabel = new System.Windows.Forms.Label();
             poste_vizinho_idLabel = new System.Windows.Forms.Label();
-            idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             bairroDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             logradouroDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             sequenciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             barramentoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             trafo_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             latDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             lonDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            obsDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            gpggaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            posicao_trafoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).BeginInit();
@@ -240,19 +224,14 @@
             poste_vizinho_idLabel.Size = new System.Drawing.Size(93, 14);
             poste_vizinho_idLabel.Text = "poste vizinho:";
             // 
-            // idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "id";
-            idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "id";
-            // 
             // bairroDataGridColumnStyleDataGridTextBoxColumn
             // 
             bairroDataGridColumnStyleDataGridTextBoxColumn.Format = "";
             bairroDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             bairroDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "bairro";
             bairroDataGridColumnStyleDataGridTextBoxColumn.MappingName = "bairro";
+            bairroDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
+            bairroDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // logradouroDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -260,13 +239,8 @@
             logradouroDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             logradouroDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "logradouro";
             logradouroDataGridColumnStyleDataGridTextBoxColumn.MappingName = "logradouro";
-            // 
-            // gps_timeDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "gps_time";
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.MappingName = "gps_time";
+            logradouroDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
+            logradouroDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // sequenciaDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -274,6 +248,7 @@
             sequenciaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             sequenciaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "sequencia";
             sequenciaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "sequencia";
+            sequenciaDataGridColumnStyleDataGridTextBoxColumn.Width = 70;
             // 
             // barramentoDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -281,6 +256,8 @@
             barramentoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             barramentoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "barramento";
             barramentoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "barramento";
+            barramentoDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
+            barramentoDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // trafo_idDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -288,6 +265,7 @@
             trafo_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             trafo_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "trafo_id";
             trafo_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "trafo_id";
+            trafo_idDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
             // 
             // latDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -295,6 +273,8 @@
             latDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             latDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "lat";
             latDataGridColumnStyleDataGridTextBoxColumn.MappingName = "lat";
+            latDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
+            latDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // lonDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -302,48 +282,8 @@
             lonDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             lonDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "lon";
             lonDataGridColumnStyleDataGridTextBoxColumn.MappingName = "lon";
-            // 
-            // obsDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            obsDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            obsDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            obsDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "obs";
-            obsDataGridColumnStyleDataGridTextBoxColumn.MappingName = "obs";
-            // 
-            // gpggaDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            gpggaDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            gpggaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            gpggaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "gpgga";
-            gpggaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "gpgga";
-            // 
-            // posicao_trafoDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            posicao_trafoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            posicao_trafoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            posicao_trafoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "posicao_trafo";
-            posicao_trafoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "posicao_trafo";
-            // 
-            // ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "ligacao_clandestina";
-            ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "ligacao_clandestina";
-            // 
-            // condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "condicao_risco_id";
-            condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "condicao_risco_id";
-            // 
-            // poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "poste_vizinho_id";
-            poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "poste_vizinho_id";
+            lonDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
+            lonDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // mainMenu1
             // 
@@ -424,13 +364,13 @@
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(240, 271);
-            this.tabPage1.Text = "I";
+            this.tabPage1.Text = "Tabela";
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(0, 231);
             this.label1.Name = "label1";
@@ -449,16 +389,17 @@
             this.labelPosteID.Text = "0";
             this.labelPosteID.Visible = false;
             // 
-            // posteBindingSource
-            // 
-            this.posteBindingSource.DataMember = "poste";
-            this.posteBindingSource.DataSource = this.eletrocadDataSet;
-            // 
             // eletrocadDataSet
             // 
             this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
             this.eletrocadDataSet.Prefix = "";
             this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // posteBindingSource
+            // 
+            this.posteBindingSource.DataMember = "poste";
+            this.posteBindingSource.DataSource = this.eletrocadDataSet;
+            this.posteBindingSource.Position = 0;
             // 
             // posteDataGrid
             // 
@@ -477,18 +418,10 @@
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(sequenciaDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(bairroDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(logradouroDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(gps_timeDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(barramentoDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(trafo_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(latDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(lonDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(obsDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(gpggaDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(posicao_trafoDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(ligacao_clandestinaDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(condicao_risco_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(poste_vizinho_idDataGridColumnStyleDataGridTextBoxColumn);
+            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(barramentoDataGridColumnStyleDataGridTextBoxColumn);
+            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(trafo_idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.MappingName = "poste";
             // 
             // tabPage2
@@ -513,8 +446,8 @@
             this.tabPage2.Controls.Add(bairroLabel);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 271);
-            this.tabPage2.Text = "II";
+            this.tabPage2.Size = new System.Drawing.Size(232, 268);
+            this.tabPage2.Text = "Formulário I";
             // 
             // checkBox2
             // 
@@ -618,8 +551,8 @@
             this.tabPage3.Controls.Add(this.obsTextBox);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(240, 271);
-            this.tabPage3.Text = "III";
+            this.tabPage3.Size = new System.Drawing.Size(232, 268);
+            this.tabPage3.Text = "Formulário II";
             // 
             // condicaoriscoBindingSource
             // 
@@ -702,8 +635,8 @@
             this.Load += new System.EventHandler(this.CadastrarPostes_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).EndInit();

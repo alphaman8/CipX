@@ -50,11 +50,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.poste_has_tipo_luminariaDataGrid = new System.Windows.Forms.DataGrid();
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_tipo_luminariaDataGrid = new System.Windows.Forms.DataGrid();
             this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.poste_has_tipo_luminariaTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chavecomandoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.quantidadeTextBox = new System.Windows.Forms.TextBox();
             this.faseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.ativacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -69,7 +72,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.poste_idTextBox = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.lblFotoPath = new System.Windows.Forms.Label();
+            this.foto_pathTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.poste_has_tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter();
@@ -79,10 +83,6 @@
             this.bracoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter();
             this.ativacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter();
             this.faseTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter();
-            this.button2 = new System.Windows.Forms.Button();
-            this.quantidadeTextBox = new System.Windows.Forms.TextBox();
-            this.chavecomandoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.chave_comandoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter();
             tipo_luminaria_idLabel = new System.Windows.Forms.Label();
             poste_idLabel = new System.Windows.Forms.Label();
@@ -98,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).BeginInit();
@@ -105,7 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lampadaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoluminariaBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tipo_luminaria_idLabel
@@ -164,6 +164,22 @@
             fase_idLabel.Name = "fase_idLabel";
             fase_idLabel.Size = new System.Drawing.Size(51, 14);
             fase_idLabel.Text = "fase id:";
+            // 
+            // quantidadeLabel
+            // 
+            quantidadeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            quantidadeLabel.Location = new System.Drawing.Point(40, 180);
+            quantidadeLabel.Name = "quantidadeLabel";
+            quantidadeLabel.Size = new System.Drawing.Size(81, 14);
+            quantidadeLabel.Text = "quantidade:";
+            // 
+            // chave_comandoLabel
+            // 
+            chave_comandoLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            chave_comandoLabel.Location = new System.Drawing.Point(15, 205);
+            chave_comandoLabel.Name = "chave_comandoLabel";
+            chave_comandoLabel.Size = new System.Drawing.Size(106, 14);
+            chave_comandoLabel.Text = "chave comando:";
             // 
             // mainMenu1
             // 
@@ -238,7 +254,13 @@
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(240, 251);
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Tabela";
+            // 
+            // postehastipoluminariaBindingSource
+            // 
+            this.postehastipoluminariaBindingSource.DataMember = "poste_has_tipo_luminaria";
+            this.postehastipoluminariaBindingSource.DataSource = this.eletrocadDataSet;
+            this.postehastipoluminariaBindingSource.Position = 0;
             // 
             // poste_has_tipo_luminariaDataGrid
             // 
@@ -247,14 +269,10 @@
             this.poste_has_tipo_luminariaDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poste_has_tipo_luminariaDataGrid.Location = new System.Drawing.Point(0, 0);
             this.poste_has_tipo_luminariaDataGrid.Name = "poste_has_tipo_luminariaDataGrid";
+            this.poste_has_tipo_luminariaDataGrid.RowHeadersVisible = false;
             this.poste_has_tipo_luminariaDataGrid.Size = new System.Drawing.Size(240, 251);
             this.poste_has_tipo_luminariaDataGrid.TabIndex = 2;
             this.poste_has_tipo_luminariaDataGrid.TableStyles.Add(this.poste_has_tipo_luminariaTableStyleDataGridTableStyle);
-            // 
-            // postehastipoluminariaBindingSource
-            // 
-            this.postehastipoluminariaBindingSource.DataMember = "poste_has_tipo_luminaria";
-            this.postehastipoluminariaBindingSource.DataSource = this.eletrocadDataSet;
             // 
             // eletrocadDataSet
             // 
@@ -288,8 +306,33 @@
             this.tabPage2.Controls.Add(this.poste_idTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 251);
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(232, 248);
+            this.tabPage2.Text = "Formulário";
+            // 
+            // chavecomandoBindingSource
+            // 
+            this.chavecomandoBindingSource.DataMember = "chave_comando";
+            this.chavecomandoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "chave_comando", true));
+            this.comboBox7.DataSource = this.chavecomandoBindingSource;
+            this.comboBox7.DisplayMember = "descricao";
+            this.comboBox7.Location = new System.Drawing.Point(128, 203);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(100, 22);
+            this.comboBox7.TabIndex = 32;
+            this.comboBox7.ValueMember = "id";
+            // 
+            // quantidadeTextBox
+            // 
+            this.quantidadeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "quantidade", true));
+            this.quantidadeTextBox.Location = new System.Drawing.Point(128, 177);
+            this.quantidadeTextBox.Name = "quantidadeTextBox";
+            this.quantidadeTextBox.Size = new System.Drawing.Size(100, 21);
+            this.quantidadeTextBox.TabIndex = 31;
+            this.quantidadeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantidadeTextBox_KeyPress);
             // 
             // faseBindingSource
             // 
@@ -399,23 +442,35 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.foto_pathTextBox);
             this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.lblFotoPath);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(240, 251);
+            this.tabPage3.Size = new System.Drawing.Size(232, 248);
             this.tabPage3.Text = "Foto";
             this.tabPage3.GotFocus += new System.EventHandler(this.tabPage3_GotFocus);
             // 
-            // lblFotoPath
+            // foto_pathTextBox
             // 
-            this.lblFotoPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "foto_path", true));
-            this.lblFotoPath.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.lblFotoPath.Location = new System.Drawing.Point(1, 191);
-            this.lblFotoPath.Name = "lblFotoPath";
-            this.lblFotoPath.Size = new System.Drawing.Size(230, 13);
+            this.foto_pathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.foto_pathTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "foto_path", true));
+            this.foto_pathTextBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.foto_pathTextBox.Location = new System.Drawing.Point(3, 182);
+            this.foto_pathTextBox.Name = "foto_pathTextBox";
+            this.foto_pathTextBox.ReadOnly = true;
+            this.foto_pathTextBox.Size = new System.Drawing.Size(230, 19);
+            this.foto_pathTextBox.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(115, 213);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(86, 33);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Mostar Foto";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -429,6 +484,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.postehastipoluminariaBindingSource, "foto_path", true));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(230, 200);
@@ -462,56 +518,6 @@
             // 
             this.faseTableAdapter.ClearBeforeFill = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(115, 213);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 33);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Mostar Foto";
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // quantidadeLabel
-            // 
-            quantidadeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            quantidadeLabel.Location = new System.Drawing.Point(40, 180);
-            quantidadeLabel.Name = "quantidadeLabel";
-            quantidadeLabel.Size = new System.Drawing.Size(81, 14);
-            quantidadeLabel.Text = "quantidade:";
-            // 
-            // quantidadeTextBox
-            // 
-            this.quantidadeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "quantidade", true));
-            this.quantidadeTextBox.Location = new System.Drawing.Point(128, 177);
-            this.quantidadeTextBox.Name = "quantidadeTextBox";
-            this.quantidadeTextBox.Size = new System.Drawing.Size(100, 21);
-            this.quantidadeTextBox.TabIndex = 31;
-            this.quantidadeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantidadeTextBox_KeyPress);
-            // 
-            // chave_comandoLabel
-            // 
-            chave_comandoLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            chave_comandoLabel.Location = new System.Drawing.Point(15, 205);
-            chave_comandoLabel.Name = "chave_comandoLabel";
-            chave_comandoLabel.Size = new System.Drawing.Size(106, 14);
-            chave_comandoLabel.Text = "chave comando:";
-            // 
-            // chavecomandoBindingSource
-            // 
-            this.chavecomandoBindingSource.DataMember = "chave_comando";
-            this.chavecomandoBindingSource.DataSource = this.eletrocadDataSet;
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "chave_comando", true));
-            this.comboBox7.DataSource = this.chavecomandoBindingSource;
-            this.comboBox7.DisplayMember = "descricao";
-            this.comboBox7.Location = new System.Drawing.Point(128, 203);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(100, 22);
-            this.comboBox7.TabIndex = 32;
-            this.comboBox7.ValueMember = "id";
-            // 
             // chave_comandoTableAdapter
             // 
             this.chave_comandoTableAdapter.ClearBeforeFill = true;
@@ -537,6 +543,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).EndInit();
@@ -544,7 +551,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lampadaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoluminariaBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -587,7 +593,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblFotoPath;
         private System.Windows.Forms.MenuItem menuItem6;
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.Button button2;
@@ -595,5 +600,6 @@
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.BindingSource chavecomandoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter chave_comandoTableAdapter;
+        private System.Windows.Forms.TextBox foto_pathTextBox;
     }
 }

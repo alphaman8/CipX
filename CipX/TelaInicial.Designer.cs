@@ -49,10 +49,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter();
-            this.postehaslampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
-            this.postehasreatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ativacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ativacaoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter();
             this.bracoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -78,13 +76,13 @@
             this.timerVerificarGps = new System.Windows.Forms.Timer();
             this.tipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.tipo_luminariaTableAdapter();
+            this.chavecomandoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chave_comandoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter();
             nomeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehaslampadaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehasreatorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).BeginInit();
@@ -97,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usomutuoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoluminariaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nomeLabel
@@ -190,7 +189,6 @@
             // nomeComboBox
             // 
             this.nomeComboBox.DataSource = this.usuarioBindingSource;
-            this.nomeComboBox.DisplayMember = "nome";
             this.nomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.nomeComboBox.Location = new System.Drawing.Point(3, 83);
             this.nomeComboBox.Name = "nomeComboBox";
@@ -219,11 +217,6 @@
             // 
             this.poste_has_tipo_luminariaTableAdapter.ClearBeforeFill = true;
             // 
-            // postehaslampadaBindingSource
-            // 
-            this.postehaslampadaBindingSource.DataMember = "poste_has_lampada";
-            this.postehaslampadaBindingSource.DataSource = this.eletrocadDataSet;
-            // 
             // postehasusomutuoBindingSource
             // 
             this.postehasusomutuoBindingSource.DataMember = "poste_has_uso_mutuo";
@@ -232,11 +225,6 @@
             // poste_has_uso_mutuoTableAdapter
             // 
             this.poste_has_uso_mutuoTableAdapter.ClearBeforeFill = true;
-            // 
-            // postehasreatorBindingSource
-            // 
-            this.postehasreatorBindingSource.DataMember = "poste_has_reator";
-            this.postehasreatorBindingSource.DataSource = this.eletrocadDataSet;
             // 
             // ativacaoBindingSource
             // 
@@ -350,6 +338,15 @@
             // 
             this.tipo_luminariaTableAdapter.ClearBeforeFill = true;
             // 
+            // chavecomandoBindingSource
+            // 
+            this.chavecomandoBindingSource.DataMember = "chave_comando";
+            this.chavecomandoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // chave_comandoTableAdapter
+            // 
+            this.chave_comandoTableAdapter.ClearBeforeFill = true;
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -373,7 +370,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).EndInit();
-            
             ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).EndInit();
@@ -386,6 +382,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usomutuoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoluminariaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -408,10 +405,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
-        private System.Windows.Forms.BindingSource postehaslampadaBindingSource;
         private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
-        private System.Windows.Forms.BindingSource postehasreatorBindingSource;
         private System.Windows.Forms.BindingSource ativacaoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter ativacaoTableAdapter;
         private System.Windows.Forms.BindingSource bracoBindingSource;
@@ -437,5 +432,7 @@
         private System.Windows.Forms.Timer timerVerificarGps;
         private System.Windows.Forms.BindingSource tipoluminariaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.tipo_luminariaTableAdapter tipo_luminariaTableAdapter;
+        private System.Windows.Forms.BindingSource chavecomandoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter chave_comandoTableAdapter;
     }
 }

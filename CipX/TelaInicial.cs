@@ -157,6 +157,13 @@ namespace CipX
                     eletrocadDataSet.poste_has_uso_mutuo.AcceptChanges();
                 }
 
+                while (eletrocadDataSet.chave_comando.Count > 0)
+                {
+                    eletrocadDataSet.chave_comando.Rows[0].Delete();
+                    chave_comandoTableAdapter.Update(eletrocadDataSet.chave_comando);
+                    eletrocadDataSet.chave_comando.AcceptChanges();
+                }
+
 
                 //CONDICAO DE RISCO
                 while (eletrocadDataSet.condicao_risco.Count > 0)
@@ -398,6 +405,39 @@ namespace CipX
                     reader.Close();
 
                     label1.Text = "Fase importada com sucesso!";
+                    Application.DoEvents();
+
+
+                    //mycommand = myconn.CreateCommand();                
+                    mycommand.CommandText =
+                        "SELECT `chave_comando`.`id`, " +
+                            "`chave_comando`.`descricao` " +
+                        "FROM `eletrocad`.`chave_comando`";
+                    //mycommand.Parameters.Clear();
+                    //mycommand.Parameters.AddWithValue("estado", cbEstado.Text);
+                    //mycommand.Parameters.AddWithValue("ano", txtAno.Value);
+
+                    reader = mycommand.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        //
+                        //insere nova programação
+                        db.eletrocadDataSet.chave_comandoRow uRow;
+                        uRow = eletrocadDataSet.chave_comando.Newchave_comandoRow();
+                        uRow.id = reader.GetInt32("id");
+                        uRow.descricao = reader.GetString("descricao");
+
+                        eletrocadDataSet.chave_comando.Rows.Add(uRow);
+
+                    }
+                    chave_comandoTableAdapter.Update(eletrocadDataSet.chave_comando);
+                    eletrocadDataSet.chave_comando.AcceptChanges();
+                    chave_comandoTableAdapter.Fill(eletrocadDataSet.chave_comando);
+
+                    reader.Close();
+
+                    label1.Text = "Chave de comando importada com sucesso!";
                     Application.DoEvents();
 
 
@@ -655,6 +695,8 @@ namespace CipX
 
         private void TelaInicial_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.chave_comando' table. You can move, or remove it, as needed.
+            this.chave_comandoTableAdapter.Fill(this.eletrocadDataSet.chave_comando);
             // TODO: This line of code loads data into the 'eletrocadDataSet.tipo_luminaria' table. You can move, or remove it, as needed.
             this.tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.tipo_luminaria);
             // TODO: This line of code loads data into the 'eletrocadDataSet.uso_mutuo' table. You can move, or remove it, as needed.

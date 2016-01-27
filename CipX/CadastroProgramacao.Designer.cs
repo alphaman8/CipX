@@ -32,18 +32,13 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridTextBoxColumn regionalDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn cod_localDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn inicio_programadoDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn termino_programadoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn cliente_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn inicioDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn fimDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn municipio_idDataGridColumnStyleDataGridTextBoxColumn;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.programacaoipBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -53,17 +48,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.programacao_ipTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.programacao_ipTableAdapter();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
             regionalDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             cod_localDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             inicio_programadoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             termino_programadoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            cliente_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            inicioDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            fimDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             municipio_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.programacaoipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
@@ -75,6 +63,7 @@
             regionalDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             regionalDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "regional";
             regionalDataGridColumnStyleDataGridTextBoxColumn.MappingName = "regional";
+            regionalDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // cod_localDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -82,13 +71,7 @@
             cod_localDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             cod_localDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "cod_local";
             cod_localDataGridColumnStyleDataGridTextBoxColumn.MappingName = "cod_local";
-            // 
-            // ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "ultimo_levantamento";
-            ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "ultimo_levantamento";
+            cod_localDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // inicio_programadoDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -96,6 +79,7 @@
             inicio_programadoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             inicio_programadoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "inicio_programado";
             inicio_programadoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "inicio_programado";
+            inicio_programadoDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // termino_programadoDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -103,41 +87,7 @@
             termino_programadoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             termino_programadoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "termino_programado";
             termino_programadoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "termino_programado";
-            // 
-            // pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "pontos_projetado";
-            pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "pontos_projetado";
-            // 
-            // cliente_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            cliente_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            cliente_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            cliente_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "cliente_id";
-            cliente_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "cliente_id";
-            // 
-            // total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "total_pt_levantado";
-            total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "total_pt_levantado";
-            // 
-            // inicioDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            inicioDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            inicioDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            inicioDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "inicio";
-            inicioDataGridColumnStyleDataGridTextBoxColumn.MappingName = "inicio";
-            // 
-            // fimDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            fimDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            fimDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            fimDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "fim";
-            fimDataGridColumnStyleDataGridTextBoxColumn.MappingName = "fim";
+            termino_programadoDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // municipio_idDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -145,6 +95,7 @@
             municipio_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             municipio_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "municipio_id";
             municipio_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "municipio_id";
+            municipio_idDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // mainMenu1
             // 
@@ -162,6 +113,11 @@
             // 
             this.menuItem5.Text = "Trafos";
             this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Text = "Importar Programação";
+            this.menuItem3.Click += new System.EventHandler(this.importar);
             // 
             // menuItem6
             // 
@@ -199,14 +155,8 @@
             // 
             this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(regionalDataGridColumnStyleDataGridTextBoxColumn);
             this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cod_localDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(ultimo_levantamentoDataGridColumnStyleDataGridTextBoxColumn);
             this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(inicio_programadoDataGridColumnStyleDataGridTextBoxColumn);
             this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(termino_programadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(pontos_projetadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(cliente_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(total_pt_levantadoDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(inicioDataGridColumnStyleDataGridTextBoxColumn);
-            this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(fimDataGridColumnStyleDataGridTextBoxColumn);
             this.programacao_ipTableStyleDataGridTableStyle.GridColumnStyles.Add(municipio_idDataGridColumnStyleDataGridTextBoxColumn);
             this.programacao_ipTableStyleDataGridTableStyle.MappingName = "programacao_ip";
             // 
@@ -214,7 +164,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(0, 274);
             this.label1.Name = "label1";
@@ -238,11 +188,6 @@
             // programacao_ipTableAdapter
             // 
             this.programacao_ipTableAdapter.ClearBeforeFill = true;
-            // 
-            // menuItem3
-            // 
-            this.menuItem3.Text = "Importar Programação";
-            this.menuItem3.Click += new System.EventHandler(this.importar);
             // 
             // CadastroProgramacao
             // 

@@ -282,8 +282,9 @@ namespace CipX
                 pictureBox1.Image = img;
 
                 //label do caminho do arquivo
-                lblFotoPath.Text = pathName + fileName;
+                foto_pathTextBox.Text = pathName + fileName;
             }
+            this.BringToFront();
         }
 
         private void tabPage3_GotFocus(object sender, EventArgs e)
@@ -319,10 +320,10 @@ namespace CipX
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (System.IO.File.Exists(lblFotoPath.Text))
+            if (System.IO.File.Exists(foto_pathTextBox.Text))
             {
 
-                Bitmap img = new Bitmap(lblFotoPath.Text);
+                Bitmap img = new Bitmap(foto_pathTextBox.Text);
                 pictureBox1.Image = img;
                 Application.DoEvents();
             }

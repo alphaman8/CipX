@@ -38,6 +38,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0D27F2A4ED2A754E204CE829B366C492"
+        "OwnerKey" = "8:_9C6DFA70B52AF875B8A1B2088F634150"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0D27F2A4ED2A754E204CE829B366C492"
+        "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_18544AFD7A47AE0DBD5CF33249C5541E"
         "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
         "MsmSig" = "8:_UNDEFINED"
@@ -236,6 +248,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9C6DFA70B52AF875B8A1B2088F634150"
+        "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9CCDDA084751FBAEC8C605A947F78CE6"
         "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
         "MsmSig" = "8:_UNDEFINED"
@@ -274,6 +292,18 @@
         {
         "MsmKey" = "8:_CA526046FD1F2DE23933BFD595CBC30A"
         "OwnerKey" = "8:_930BDDC80BC5F4361E3A158F95A54CA5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CEABE4929BBAB6099561C86AB64ADDA6"
+        "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CEABE4929BBAB6099561C86AB64ADDA6"
+        "OwnerKey" = "8:_0D27F2A4ED2A754E204CE829B366C492"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -391,6 +421,34 @@
                     }
                 }
             "SourcePath" = "8:GpsToolsNET.200.CF.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_0D27F2A4ED2A754E204CE829B366C492"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsMobile.PocketOutlook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                "ScatterAssemblies"
+                {
+                    "_0D27F2A4ED2A754E204CE829B366C492"
+                    {
+                    "Name" = "8:Microsoft.WindowsMobile.PocketOutlook.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.WindowsMobile.PocketOutlook.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
@@ -915,6 +973,34 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_9C6DFA70B52AF875B8A1B2088F634150"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsMobile.Forms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                "ScatterAssemblies"
+                {
+                    "_9C6DFA70B52AF875B8A1B2088F634150"
+                    {
+                    "Name" = "8:Microsoft.WindowsMobile.Forms.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.WindowsMobile.Forms.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_9CCDDA084751FBAEC8C605A947F78CE6"
             {
             "AssemblyIsInGAC" = "11:FALSE"
@@ -1003,6 +1089,34 @@
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_CEABE4929BBAB6099561C86AB64ADDA6"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                "ScatterAssemblies"
+                {
+                    "_CEABE4929BBAB6099561C86AB64ADDA6"
+                    {
+                    "Name" = "8:Microsoft.WindowsMobile.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.WindowsMobile.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
@@ -1225,16 +1339,6 @@
         }
         "Shortcut"
         {
-            "{971D45E9-E38C-49AC-B36E-4C5BEA533350}:_7D3DFE0E173D4D61A60BEB76A8BD3B18"
-            {
-            "Name" = "8:CipX"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "Target" = "8:_965EB755103C4555873952DCEA19C65B"
-            "Folder" = "8:_57BD23DEBBD8457E8FE905A5995E0B46"
-            "WorkingFolder" = "8:_CCD374147101435E9A255CEDE6F144F7"
-            }
             "{971D45E9-E38C-49AC-B36E-4C5BEA533350}:_8C6942CA715D4CB9BC2846297144E588"
             {
             "Name" = "8:CipX"

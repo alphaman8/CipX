@@ -32,9 +32,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridTextBoxColumn chaveDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn ciaDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn gps_timeDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn alimentadorDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn usuario_idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.Label chaveLabel;
             System.Windows.Forms.Label ciaLabel;
@@ -69,9 +66,6 @@
             this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            alimentadorDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            usuario_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             chaveLabel = new System.Windows.Forms.Label();
             ciaLabel = new System.Windows.Forms.Label();
@@ -92,6 +86,7 @@
             chaveDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             chaveDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "chave";
             chaveDataGridColumnStyleDataGridTextBoxColumn.MappingName = "chave";
+            chaveDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // ciaDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -99,27 +94,7 @@
             ciaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             ciaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "cia";
             ciaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "cia";
-            // 
-            // gps_timeDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "gps_time";
-            gps_timeDataGridColumnStyleDataGridTextBoxColumn.MappingName = "gps_time";
-            // 
-            // alimentadorDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            alimentadorDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            alimentadorDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            alimentadorDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "alimentador";
-            alimentadorDataGridColumnStyleDataGridTextBoxColumn.MappingName = "alimentador";
-            // 
-            // usuario_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            usuario_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            usuario_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            usuario_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "usuario_id";
-            usuario_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "usuario_id";
+            ciaDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn
             // 
@@ -127,6 +102,7 @@
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "programacao_ip_id";
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "programacao_ip_id";
+            programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // chaveLabel
             // 
@@ -253,9 +229,6 @@
             // 
             this.trafoTableStyleDataGridTableStyle.GridColumnStyles.Add(chaveDataGridColumnStyleDataGridTextBoxColumn);
             this.trafoTableStyleDataGridTableStyle.GridColumnStyles.Add(ciaDataGridColumnStyleDataGridTextBoxColumn);
-            this.trafoTableStyleDataGridTableStyle.GridColumnStyles.Add(gps_timeDataGridColumnStyleDataGridTextBoxColumn);
-            this.trafoTableStyleDataGridTableStyle.GridColumnStyles.Add(alimentadorDataGridColumnStyleDataGridTextBoxColumn);
-            this.trafoTableStyleDataGridTableStyle.GridColumnStyles.Add(usuario_idDataGridColumnStyleDataGridTextBoxColumn);
             this.trafoTableStyleDataGridTableStyle.GridColumnStyles.Add(programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn);
             this.trafoTableStyleDataGridTableStyle.MappingName = "trafo";
             // 
@@ -277,13 +250,13 @@
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(240, 251);
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Tabela";
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(0, 231);
             this.label1.Name = "label1";
@@ -306,8 +279,8 @@
             this.tabPage2.Controls.Add(this.chaveTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 251);
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(232, 248);
+            this.tabPage2.Text = "Formulário";
             // 
             // programacao_ip_idTextBox
             // 
