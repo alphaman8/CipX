@@ -57,20 +57,20 @@ namespace CipX
 
             GPSForm.StartTraking();
 
-            int tentativas = 0;
+            //int tentativas = 0;
 
             while (GPS.accuracy > GPS.accuracyIdeal)
             {
                 label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
                 //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
                 //System.Threading.Thread.Sleep(1000);
-                tentativas += 1;
+                //tentativas += 1;
 
-                if (tentativas == 100)
-                {
-                    GPSForm.StartTraking();
-                    tentativas = 0;
-                }
+                //if (tentativas == 100)
+                //{
+                //    GPSForm.StartTraking();
+                //    tentativas = 0;
+                //}
 
                 Application.DoEvents();
             }
@@ -79,8 +79,19 @@ namespace CipX
 
             try
             {
+                posteBindingSource.MoveLast();
+                string bairro = ((DataRowView)posteBindingSource.Current).Row["bairro"].ToString();
+                string logradouro = ((DataRowView)posteBindingSource.Current).Row["logradouro"].ToString();
+                int seq = (int)(((DataRowView)posteBindingSource.Current).Row["sequencia"]);
+                seq++;
+
                 posteBindingSource.CancelEdit();
                 posteBindingSource.AddNew();
+
+                ruaTextBox.Text = logradouro;
+                bairroTextBox.Text = bairro;
+                sequenciaTextBox.Text = "" + seq;
+
             }
             catch (Exception ex)
             {

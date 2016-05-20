@@ -100,6 +100,7 @@ namespace CipX
             tabControl1.SelectedIndex = 1;
             comboBox1.Focus();
             pictureBox1.Image = null;
+            quantidadeTextBox.Text = ""+1;
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             //trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();

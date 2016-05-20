@@ -41,10 +41,10 @@
             System.Windows.Forms.Label programacao_ip_idLabel;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItemNovo = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
+            this.menuItemPostes = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -163,19 +163,21 @@
             // 
             // menuItem1
             // 
-            this.menuItem1.MenuItems.Add(this.menuItem4);
+            this.menuItem1.MenuItems.Add(this.menuItemNovo);
             this.menuItem1.MenuItems.Add(this.menuItem5);
             this.menuItem1.MenuItems.Add(this.menuItem7);
-            this.menuItem1.MenuItems.Add(this.menuItem6);
+            this.menuItem1.MenuItems.Add(this.menuItemPostes);
             this.menuItem1.MenuItems.Add(this.menuItem8);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
+            this.menuItem1.Popup += new System.EventHandler(this.menuItem1_Click);
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
-            // menuItem4
+            // menuItemNovo
             // 
-            this.menuItem4.Text = "Novo";
-            this.menuItem4.Click += new System.EventHandler(this.novo);
+            this.menuItemNovo.Text = "Novo";
+            this.menuItemNovo.Click += new System.EventHandler(this.novo);
             // 
             // menuItem5
             // 
@@ -186,10 +188,10 @@
             // 
             this.menuItem7.Text = "-";
             // 
-            // menuItem6
+            // menuItemPostes
             // 
-            this.menuItem6.Text = "Postes";
-            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
+            this.menuItemPostes.Text = "Postes";
+            this.menuItemPostes.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // menuItem8
             // 
@@ -209,6 +211,7 @@
             // 
             this.trafoBindingSource.DataMember = "trafo";
             this.trafoBindingSource.DataSource = this.eletrocadDataSet;
+            this.trafoBindingSource.Position = 0;
             // 
             // eletrocadDataSet
             // 
@@ -269,7 +272,7 @@
             this.tabPage2.Controls.Add(this.chaveTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(219, 248);
+            this.tabPage2.Size = new System.Drawing.Size(227, 251);
             this.tabPage2.Text = "Formulário";
             // 
             // programacao_ip_idTextBox
@@ -393,7 +396,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MenuItem menuItemNovo;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.TextBox alimentadorTextBox;
@@ -402,7 +405,7 @@
         private System.Windows.Forms.TextBox gps_timeTextBox;
         private System.Windows.Forms.TextBox usuario_idTextBox;
         private System.Windows.Forms.TextBox programacao_ip_idTextBox;
-        private System.Windows.Forms.MenuItem menuItem6;
+        private System.Windows.Forms.MenuItem menuItemPostes;
         private System.Windows.Forms.Label lblTtrafoId;
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.MenuItem menuItem8;

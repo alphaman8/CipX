@@ -21,7 +21,7 @@ namespace CipX
         public string gprmc = "";
         public string txtSatelites = "";
         public bool conectado = false;
-        private static SoundPlayer player = new SoundPlayer(Library.appDir + "\\gps_beep.wav");
+        private static SoundPlayer player = new SoundPlayer(Library.appDir + "\\sounds\\gps_beep.wav");
 
         public static void MessageBeepWav()
         {
@@ -44,8 +44,8 @@ namespace CipX
             GPS.accuracy = 200;
             if (gpsTrimble != null)
             {
-                gpsTrimble.PositionMinimumInterval = 20;
-                //gpsTrimble.StopTracking();
+                //gpsTrimble.PositionMinimumInterval = 25;
+                gpsTrimble.StopTracking();
                 //gpsTrimble.ResetGPSReceiver();
                 //Usuario.UsandoTrimble = false;
             }
@@ -53,11 +53,11 @@ namespace CipX
 
         public static void StartTraking()
         {
-            GPS.accuracy = 20;
+            //GPS.accuracy = 200;
             if (gpsTrimble != null)
             {
-                gpsTrimble.PositionMinimumInterval = 1.0f;
-                //gpsTrimble.StartTracking();
+                //gpsTrimble.PositionMinimumInterval = 5.0f;
+                gpsTrimble.StartTracking();
             }
         }
 
@@ -69,7 +69,7 @@ namespace CipX
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 2.0f;
+            gpsTrimble.PositionMinimumInterval = 10.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -112,7 +112,7 @@ namespace CipX
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 3.0f;
+            gpsTrimble.PositionMinimumInterval = 10.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
