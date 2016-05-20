@@ -42,14 +42,11 @@
             System.Windows.Forms.Label trafo_idLabel;
             System.Windows.Forms.Label posicao_trafoLabel;
             System.Windows.Forms.Label condicao_risco_idLabel;
-            System.Windows.Forms.Label poste_vizinho_idLabel;
             System.Windows.Forms.DataGridTextBoxColumn bairroDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn logradouroDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn sequenciaDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn barramentoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn trafo_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn latDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn lonDataGridColumnStyleDataGridTextBoxColumn;
+            System.Windows.Forms.Label poste_vizinho_idLabel;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
@@ -63,15 +60,13 @@
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.labelPosteID = new System.Windows.Forms.Label();
-            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.posteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.posteDataGrid = new System.Windows.Forms.DataGrid();
             this.posteTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.medidorTextBox = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.sequenciaTextBox = new System.Windows.Forms.TextBox();
@@ -87,8 +82,17 @@
             this.trafo_idTextBox = new System.Windows.Forms.TextBox();
             this.gps_timeTextBox = new System.Windows.Forms.TextBox();
             this.obsTextBox = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.listPendencias = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.condicao_riscoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter();
             this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
+            this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.poste_has_tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             bairroLabel = new System.Windows.Forms.Label();
             ruaLabel = new System.Windows.Forms.Label();
             barramentoLabel = new System.Windows.Forms.Label();
@@ -101,21 +105,21 @@
             trafo_idLabel = new System.Windows.Forms.Label();
             posicao_trafoLabel = new System.Windows.Forms.Label();
             condicao_risco_idLabel = new System.Windows.Forms.Label();
-            poste_vizinho_idLabel = new System.Windows.Forms.Label();
             bairroDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             logradouroDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             sequenciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             barramentoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            trafo_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            latDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            lonDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
+            poste_vizinho_idLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bairroLabel
@@ -216,14 +220,6 @@
             condicao_risco_idLabel.Size = new System.Drawing.Size(112, 14);
             condicao_risco_idLabel.Text = "condicao risco id:";
             // 
-            // poste_vizinho_idLabel
-            // 
-            poste_vizinho_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            poste_vizinho_idLabel.Location = new System.Drawing.Point(32, 249);
-            poste_vizinho_idLabel.Name = "poste_vizinho_idLabel";
-            poste_vizinho_idLabel.Size = new System.Drawing.Size(93, 14);
-            poste_vizinho_idLabel.Text = "poste vizinho:";
-            // 
             // bairroDataGridColumnStyleDataGridTextBoxColumn
             // 
             bairroDataGridColumnStyleDataGridTextBoxColumn.Format = "";
@@ -258,32 +254,6 @@
             barramentoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "barramento";
             barramentoDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
             barramentoDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
-            // 
-            // trafo_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            trafo_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            trafo_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            trafo_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "trafo_id";
-            trafo_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "trafo_id";
-            trafo_idDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
-            // 
-            // latDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            latDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            latDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            latDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "lat";
-            latDataGridColumnStyleDataGridTextBoxColumn.MappingName = "lat";
-            latDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
-            latDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
-            // 
-            // lonDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            lonDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            lonDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            lonDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "lon";
-            lonDataGridColumnStyleDataGridTextBoxColumn.MappingName = "lon";
-            lonDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
-            lonDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // mainMenu1
             // 
@@ -349,32 +319,21 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(240, 294);
+            this.tabControl1.Size = new System.Drawing.Size(240, 271);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.labelPosteID);
             this.tabPage1.Controls.Add(this.posteDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(240, 271);
+            this.tabPage1.Size = new System.Drawing.Size(240, 248);
             this.tabPage1.Text = "Tabela";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(0, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 20);
             // 
             // labelPosteID
             // 
@@ -383,23 +342,22 @@
             this.labelPosteID.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelPosteID.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.labelPosteID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelPosteID.Location = new System.Drawing.Point(0, 251);
+            this.labelPosteID.Location = new System.Drawing.Point(0, 228);
             this.labelPosteID.Name = "labelPosteID";
             this.labelPosteID.Size = new System.Drawing.Size(240, 20);
             this.labelPosteID.Text = "0";
             this.labelPosteID.Visible = false;
+            // 
+            // posteBindingSource
+            // 
+            this.posteBindingSource.DataMember = "poste";
+            this.posteBindingSource.DataSource = this.eletrocadDataSet;
             // 
             // eletrocadDataSet
             // 
             this.eletrocadDataSet.DataSetName = "eletrocadDataSet";
             this.eletrocadDataSet.Prefix = "";
             this.eletrocadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // posteBindingSource
-            // 
-            this.posteBindingSource.DataMember = "poste";
-            this.posteBindingSource.DataSource = this.eletrocadDataSet;
-            this.posteBindingSource.Position = 0;
             // 
             // posteDataGrid
             // 
@@ -409,26 +367,21 @@
             this.posteDataGrid.Location = new System.Drawing.Point(0, 0);
             this.posteDataGrid.Name = "posteDataGrid";
             this.posteDataGrid.RowHeadersVisible = false;
-            this.posteDataGrid.Size = new System.Drawing.Size(240, 271);
+            this.posteDataGrid.Size = new System.Drawing.Size(240, 248);
             this.posteDataGrid.TabIndex = 0;
             this.posteDataGrid.TableStyles.Add(this.posteTableStyleDataGridTableStyle);
             // 
             // posteTableStyleDataGridTableStyle
             // 
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(sequenciaDataGridColumnStyleDataGridTextBoxColumn);
+            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(barramentoDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(bairroDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(logradouroDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(latDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(lonDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(barramentoDataGridColumnStyleDataGridTextBoxColumn);
-            this.posteTableStyleDataGridTableStyle.GridColumnStyles.Add(trafo_idDataGridColumnStyleDataGridTextBoxColumn);
             this.posteTableStyleDataGridTableStyle.MappingName = "poste";
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.checkBox2);
-            this.tabPage2.Controls.Add(this.comboBox6);
-            this.tabPage2.Controls.Add(poste_vizinho_idLabel);
             this.tabPage2.Controls.Add(medidorLabel);
             this.tabPage2.Controls.Add(this.medidorTextBox);
             this.tabPage2.Controls.Add(this.checkBox1);
@@ -446,8 +399,8 @@
             this.tabPage2.Controls.Add(bairroLabel);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 268);
-            this.tabPage2.Text = "Formulário I";
+            this.tabPage2.Size = new System.Drawing.Size(240, 248);
+            this.tabPage2.Text = "Form. I";
             // 
             // checkBox2
             // 
@@ -457,16 +410,6 @@
             this.checkBox2.Size = new System.Drawing.Size(100, 20);
             this.checkBox2.TabIndex = 68;
             this.checkBox2.Text = "Aceso";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "poste_vizinho_id", true));
-            this.comboBox6.DisplayMember = "id";
-            this.comboBox6.Location = new System.Drawing.Point(131, 246);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(66, 22);
-            this.comboBox6.TabIndex = 58;
-            this.comboBox6.ValueMember = "id";
             // 
             // medidorTextBox
             // 
@@ -494,6 +437,7 @@
             this.sequenciaTextBox.Name = "sequenciaTextBox";
             this.sequenciaTextBox.Size = new System.Drawing.Size(64, 21);
             this.sequenciaTextBox.TabIndex = 29;
+            this.sequenciaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sequenciaTextBox_KeyPress);
             // 
             // lonTextBox
             // 
@@ -539,6 +483,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.comboBox6);
+            this.tabPage3.Controls.Add(poste_vizinho_idLabel);
             this.tabPage3.Controls.Add(this.comboBox5);
             this.tabPage3.Controls.Add(condicao_risco_idLabel);
             this.tabPage3.Controls.Add(this.comboBox1);
@@ -551,8 +497,8 @@
             this.tabPage3.Controls.Add(this.obsTextBox);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(232, 268);
-            this.tabPage3.Text = "Formulário II";
+            this.tabPage3.Size = new System.Drawing.Size(240, 248);
+            this.tabPage3.Text = "Form. II";
             // 
             // condicaoriscoBindingSource
             // 
@@ -610,6 +556,39 @@
             this.obsTextBox.Size = new System.Drawing.Size(187, 62);
             this.obsTextBox.TabIndex = 1;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.listPendencias);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Location = new System.Drawing.Point(0, 0);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(240, 248);
+            this.tabPage4.Text = "Pendências";
+            // 
+            // listPendencias
+            // 
+            this.listPendencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.listPendencias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listPendencias.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular);
+            this.listPendencias.ForeColor = System.Drawing.Color.Red;
+            this.listPendencias.Location = new System.Drawing.Point(0, 0);
+            this.listPendencias.Multiline = true;
+            this.listPendencias.Name = "listPendencias";
+            this.listPendencias.ReadOnly = true;
+            this.listPendencias.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.listPendencias.Size = new System.Drawing.Size(240, 219);
+            this.listPendencias.TabIndex = 2;
+            this.listPendencias.WordWrap = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 20);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Gerar";
+            this.button1.Click += new System.EventHandler(this.verificarPendenciaButton);
+            // 
             // condicao_riscoTableAdapter
             // 
             this.condicao_riscoTableAdapter.ClearBeforeFill = true;
@@ -618,6 +597,52 @@
             // 
             this.posteTableAdapter.ClearBeforeFill = true;
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(0, 274);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 20);
+            // 
+            // postehasusomutuoBindingSource
+            // 
+            this.postehasusomutuoBindingSource.DataMember = "poste_has_uso_mutuo";
+            this.postehasusomutuoBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // poste_has_uso_mutuoTableAdapter
+            // 
+            this.poste_has_uso_mutuoTableAdapter.ClearBeforeFill = true;
+            // 
+            // postehastipoluminariaBindingSource
+            // 
+            this.postehastipoluminariaBindingSource.DataMember = "poste_has_tipo_luminaria";
+            this.postehastipoluminariaBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // poste_has_tipo_luminariaTableAdapter
+            // 
+            this.poste_has_tipo_luminariaTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.posteBindingSource, "poste_vizinho_id", true));
+            this.comboBox6.DisplayMember = "id";
+            this.comboBox6.Location = new System.Drawing.Point(133, 139);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(99, 22);
+            this.comboBox6.TabIndex = 60;
+            this.comboBox6.ValueMember = "id";
+            // 
+            // poste_vizinho_idLabel
+            // 
+            poste_vizinho_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            poste_vizinho_idLabel.Location = new System.Drawing.Point(34, 143);
+            poste_vizinho_idLabel.Name = "poste_vizinho_idLabel";
+            poste_vizinho_idLabel.Size = new System.Drawing.Size(93, 14);
+            poste_vizinho_idLabel.Text = "poste vizinho:";
+            // 
             // CadastrarPostes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -625,6 +650,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
@@ -635,11 +661,14 @@
             this.Load += new System.EventHandler(this.CadastrarPostes_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.condicaoriscoBindingSource)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.postehasusomutuoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -680,9 +709,16 @@
         private CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter posteTableAdapter;
         private System.Windows.Forms.DataGrid posteDataGrid;
         private System.Windows.Forms.DataGridTableStyle posteTableStyleDataGridTableStyle;
-        private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label labelPosteID;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
+        private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;
+        private CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox listPendencias;
+        private System.Windows.Forms.ComboBox comboBox6;
     }
 }

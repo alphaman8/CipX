@@ -35,6 +35,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnviarDados));
+            System.Windows.Forms.Label label3;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
@@ -67,6 +68,7 @@
             senhaLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trafoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.posteBindingSource)).BeginInit();
@@ -79,7 +81,7 @@
             // nomeLabel
             // 
             nomeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            nomeLabel.Location = new System.Drawing.Point(19, 14);
+            nomeLabel.Location = new System.Drawing.Point(22, 55);
             nomeLabel.Name = "nomeLabel";
             nomeLabel.Size = new System.Drawing.Size(45, 14);
             nomeLabel.Text = "nome:";
@@ -87,7 +89,7 @@
             // senhaLabel
             // 
             senhaLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            senhaLabel.Location = new System.Drawing.Point(17, 45);
+            senhaLabel.Location = new System.Drawing.Point(20, 86);
             senhaLabel.Name = "senhaLabel";
             senhaLabel.Size = new System.Drawing.Size(47, 14);
             senhaLabel.Text = "senha:";
@@ -201,20 +203,21 @@
             // panelLogin
             // 
             this.panelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelLogin.Controls.Add(label3);
             this.panelLogin.Controls.Add(senhaLabel);
             this.panelLogin.Controls.Add(this.senhaTextBox);
             this.panelLogin.Controls.Add(nomeLabel);
             this.panelLogin.Controls.Add(this.nomeComboBox);
             this.panelLogin.Controls.Add(this.button3);
             this.panelLogin.Controls.Add(this.button2);
-            this.panelLogin.Location = new System.Drawing.Point(23, 180);
+            this.panelLogin.Location = new System.Drawing.Point(23, 140);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(197, 111);
+            this.panelLogin.Size = new System.Drawing.Size(197, 151);
             this.panelLogin.Visible = false;
             // 
             // senhaTextBox
             // 
-            this.senhaTextBox.Location = new System.Drawing.Point(71, 42);
+            this.senhaTextBox.Location = new System.Drawing.Point(74, 83);
             this.senhaTextBox.Name = "senhaTextBox";
             this.senhaTextBox.PasswordChar = '*';
             this.senhaTextBox.Size = new System.Drawing.Size(100, 21);
@@ -231,7 +234,7 @@
             this.nomeComboBox.DataSource = this.usuarioBindingSource;
             this.nomeComboBox.DisplayMember = "nome";
             this.nomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.nomeComboBox.Location = new System.Drawing.Point(71, 14);
+            this.nomeComboBox.Location = new System.Drawing.Point(74, 55);
             this.nomeComboBox.Name = "nomeComboBox";
             this.nomeComboBox.Size = new System.Drawing.Size(100, 22);
             this.nomeComboBox.TabIndex = 3;
@@ -239,7 +242,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(108, 77);
+            this.button3.Location = new System.Drawing.Point(111, 118);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(72, 20);
             this.button3.TabIndex = 1;
@@ -248,7 +251,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(19, 77);
+            this.button2.Location = new System.Drawing.Point(22, 118);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(72, 20);
             this.button2.TabIndex = 0;
@@ -303,6 +306,15 @@
             this.chkEnviarTudo.Size = new System.Drawing.Size(100, 20);
             this.chkEnviarTudo.TabIndex = 13;
             this.chkEnviarTudo.Text = "Enviar Tudo";
+            // 
+            // label3
+            // 
+            label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            label3.Location = new System.Drawing.Point(22, 12);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(152, 40);
+            label3.Text = "Login Online";
             // 
             // EnviarDados
             // 

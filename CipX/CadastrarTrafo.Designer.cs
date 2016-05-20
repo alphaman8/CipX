@@ -54,7 +54,6 @@
             this.trafoTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.programacao_ip_idTextBox = new System.Windows.Forms.TextBox();
             this.usuario_idTextBox = new System.Windows.Forms.TextBox();
@@ -64,6 +63,7 @@
             this.chaveTextBox = new System.Windows.Forms.TextBox();
             this.lblTtrafoId = new System.Windows.Forms.Label();
             this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -86,6 +86,7 @@
             chaveDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             chaveDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "chave";
             chaveDataGridColumnStyleDataGridTextBoxColumn.MappingName = "chave";
+            chaveDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
             chaveDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // ciaDataGridColumnStyleDataGridTextBoxColumn
@@ -94,6 +95,7 @@
             ciaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             ciaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "cia";
             ciaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "cia";
+            ciaDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
             ciaDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn
@@ -102,6 +104,7 @@
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "programacao_ip_id";
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "programacao_ip_id";
+            programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.NullText = "";
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
             // 
             // chaveLabel
@@ -221,7 +224,7 @@
             this.trafoDataGrid.Location = new System.Drawing.Point(0, 0);
             this.trafoDataGrid.Name = "trafoDataGrid";
             this.trafoDataGrid.RowHeadersVisible = false;
-            this.trafoDataGrid.Size = new System.Drawing.Size(240, 251);
+            this.trafoDataGrid.Size = new System.Drawing.Size(227, 251);
             this.trafoDataGrid.TabIndex = 1;
             this.trafoDataGrid.TableStyles.Add(this.trafoTableStyleDataGridTableStyle);
             // 
@@ -236,32 +239,19 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(240, 274);
+            this.tabControl1.Size = new System.Drawing.Size(227, 274);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.trafoDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(240, 251);
+            this.tabPage1.Size = new System.Drawing.Size(227, 251);
             this.tabPage1.Text = "Tabela";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(0, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 20);
-            this.label1.Text = "label1";
             // 
             // tabPage2
             // 
@@ -279,7 +269,7 @@
             this.tabPage2.Controls.Add(this.chaveTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 248);
+            this.tabPage2.Size = new System.Drawing.Size(219, 248);
             this.tabPage2.Text = "Formulário";
             // 
             // programacao_ip_idTextBox
@@ -343,15 +333,26 @@
             this.lblTtrafoId.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblTtrafoId.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.lblTtrafoId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblTtrafoId.Location = new System.Drawing.Point(0, 274);
+            this.lblTtrafoId.Location = new System.Drawing.Point(0, 294);
             this.lblTtrafoId.Name = "lblTtrafoId";
-            this.lblTtrafoId.Size = new System.Drawing.Size(240, 20);
+            this.lblTtrafoId.Size = new System.Drawing.Size(227, 20);
             this.lblTtrafoId.Text = "0";
             this.lblTtrafoId.Visible = false;
             // 
             // trafoTableAdapter
             // 
             this.trafoTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(0, 274);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(227, 20);
+            this.label1.Text = "label1";
             // 
             // CadastrarTrafo
             // 
@@ -360,6 +361,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblTtrafoId);
             this.Location = new System.Drawing.Point(0, 0);

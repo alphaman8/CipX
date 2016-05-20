@@ -40,6 +40,8 @@ namespace CipX
             this.tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.tipo_luminaria);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
             this.poste_has_tipo_luminariaTableAdapter.FillByPoste(this.eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
+            //this.poste_has_tipo_luminariaTableAdapter.FillWithNames(this.eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
+            this.luminariasTableAdapter.Fill(this.eletrocadDataSet.luminarias, CadastrarPostes.posteId);
 
             #region CRIA PASTA PARA FOTOS
             pathName =
@@ -62,6 +64,18 @@ namespace CipX
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
+            GPSForm.StartTraking();
+
+            while (GPS.accuracy > GPS.accuracyIdeal)
+            {
+                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+                //System.Threading.Thread.Sleep(1000);
+                Application.DoEvents();
+            }
+
+            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy + "m";
+
             try
             {
                 postehastipoluminariaBindingSource.CancelEdit();
@@ -78,12 +92,19 @@ namespace CipX
             comboBox1.Focus();
             poste_idTextBox.Text = CadastrarPostes.posteId.ToString();
 
+            gps_timeTextBox.Text = GPS.gpsTime.ToString();
+
+            latTextBox.Text = GPS.lat.ToString();
+            lonTextBox.Text = GPS.lon.ToString();
+
             tabControl1.SelectedIndex = 1;
             comboBox1.Focus();
             pictureBox1.Image = null;
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             //trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
+
+            GPSForm.StopTrimble();
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -113,7 +134,9 @@ namespace CipX
                     this.eletrocadDataSet.AcceptChanges();
                     poste_has_tipo_luminariaTableAdapter.FillByPoste(eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
                     pictureBox1.Image = null;
+                    luminariasBindingSource.Position = 0;
                     MessageBox.Show("Informações salvas com sucesso! ");
+
                 }
                 else
                 {
@@ -337,6 +360,13 @@ namespace CipX
         {
             //aceitar apenas numeros
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void luminariasDataGrid_Click(object sender, EventArgs e)
+        {
+            DataRowView rowView = (DataRowView)luminariasBindingSource.Current;
+            int pos = postehastipoluminariaBindingSource.Find("id",rowView["id"]);
+            postehastipoluminariaBindingSource.Position = pos;
         }
     }
 }

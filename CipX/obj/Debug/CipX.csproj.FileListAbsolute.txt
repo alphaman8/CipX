@@ -35,3 +35,4 @@ C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.csproj.GenerateResource.Cache
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.exe
 C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\obj\Debug\CipX.pdb
+C:\Users\Marcelo\Documents\Visual Studio 2008\Projects\CipX\CipX\bin\Debug\gps_beep.wav

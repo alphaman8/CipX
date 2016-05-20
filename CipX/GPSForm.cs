@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using PFTGPSReceiver;
 using PFTSSFWriter;
+using System.Media;
 
 namespace CipX
 {
@@ -20,13 +21,11 @@ namespace CipX
         public string gprmc = "";
         public string txtSatelites = "";
         public bool conectado = false;
+        private static SoundPlayer player = new SoundPlayer(Library.appDir + "\\gps_beep.wav");
 
-        [DllImport("coredll.dll", SetLastError = true)]
-        public static extern void MessageBeep(int code);
-
-        public static void MessageBeep()
+        public static void MessageBeepWav()
         {
-            MessageBeep(-1);  // Default beep code is -1
+            player.Play();
         }
 
         public GPSForm()
@@ -45,7 +44,8 @@ namespace CipX
             GPS.accuracy = 200;
             if (gpsTrimble != null)
             {
-                gpsTrimble.StopTracking();
+                gpsTrimble.PositionMinimumInterval = 20;
+                //gpsTrimble.StopTracking();
                 //gpsTrimble.ResetGPSReceiver();
                 //Usuario.UsandoTrimble = false;
             }
@@ -53,12 +53,11 @@ namespace CipX
 
         public static void StartTraking()
         {
-            GPS.accuracy = 200;
+            GPS.accuracy = 20;
             if (gpsTrimble != null)
             {
-                gpsTrimble.StartTracking();
-                //gpsTrimble.ResetGPSReceiver();
-                //Usuario.UsandoTrimble = false;
+                gpsTrimble.PositionMinimumInterval = 1.0f;
+                //gpsTrimble.StartTracking();
             }
         }
 
@@ -75,7 +74,7 @@ namespace CipX
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
             gpsTrimble.DOPType = DOPTypeCode.pfDOPTypePDOP;
-            gpsTrimble.MaximumPDOPMask = 8.0f;
+            gpsTrimble.MaximumPDOPMask = 99.0f;
             //this.gpsTrimble.MaximumHDOPMask = 3.9f;
             //this.gpsTrimble.VelocityFilter = false;
 
@@ -154,16 +153,23 @@ namespace CipX
         {
             GPS.error = "" + ErrorCode.ToString() + " " + ErrorString;
 
-            string fileText = "error.txt";
+            string fileText = Library.appDir+"\\error.txt";
             if (!System.IO.File.Exists(fileText))
             {
-                System.IO.File.CreateText(fileText);
+                System.IO.StreamWriter sw = 
+                    System.IO.File.CreateText(fileText);
+                sw.Flush();
+                sw.Close();
             }
 
             using (System.IO.StreamWriter writetext = new System.IO.StreamWriter(fileText))
             {
                 writetext.WriteLine(GPS.error);
             }
+
+            //MessageBox.Show("GPS erro: " + GPS.error, "",
+            //    MessageBoxButtons.OK, MessageBoxIcon.None,
+            //    MessageBoxDefaultButton.Button1);
         }
 
         public static GPSPosition pos;

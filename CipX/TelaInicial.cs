@@ -22,8 +22,8 @@ namespace CipX
             Application.DoEvents();
             StopTrimble();
             listGPS.Items.Clear();
-            //listGPS.Items.Add(ConectarTrimble());
-            listGPS.Items.Add(ConectarTrimbleSimulacao());
+            listGPS.Items.Add(ConectarTrimble());
+            //listGPS.Items.Add(ConectarTrimbleSimulacao());
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
         }
@@ -124,14 +124,14 @@ namespace CipX
                 listGPS.ForeColor = Color.Lime;
                 gpsOk = true;
             }
-            MessageBeep();
+            MessageBeepWav();
 
         }
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
             //Application.Exit();
-            System.Windows.Forms.Application.Exit();
+            this.Close();
         }
 
         private MySql.Data.MySqlClient.MySqlConnection myconn;

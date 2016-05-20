@@ -47,7 +47,7 @@ namespace CipX
 
             GPSForm.StartTraking();
 
-            while (GPS.accuracy > GPS.accuracyIdeal+100)
+            while (GPS.accuracy > GPS.accuracyIdeal+400)
             {
                 label1.Text = "Precisão está baixa: "+GPS.accuracy+"m";
                 //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
@@ -119,6 +119,7 @@ namespace CipX
                     int numRows = trafoTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
                     trafoTableAdapter.FillByPip(eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
+                    trafoBindingSource.MoveLast();
                     MessageBox.Show("Informações salvas com sucesso! ");
                 }
                 else

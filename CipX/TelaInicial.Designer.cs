@@ -101,7 +101,7 @@
             // nomeLabel
             // 
             nomeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            nomeLabel.Location = new System.Drawing.Point(3, 66);
+            nomeLabel.Location = new System.Drawing.Point(6, 7);
             nomeLabel.Name = "nomeLabel";
             nomeLabel.Size = new System.Drawing.Size(66, 14);
             nomeLabel.Text = "Usuário";
@@ -151,9 +151,8 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Location = new System.Drawing.Point(0, 61);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(240, 58);
             this.button1.TabIndex = 0;
@@ -189,8 +188,9 @@
             // nomeComboBox
             // 
             this.nomeComboBox.DataSource = this.usuarioBindingSource;
+            this.nomeComboBox.DisplayMember = "nome";
             this.nomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.nomeComboBox.Location = new System.Drawing.Point(3, 83);
+            this.nomeComboBox.Location = new System.Drawing.Point(6, 24);
             this.nomeComboBox.Name = "nomeComboBox";
             this.nomeComboBox.Size = new System.Drawing.Size(158, 22);
             this.nomeComboBox.TabIndex = 3;

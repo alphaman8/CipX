@@ -18,11 +18,25 @@ namespace CipX
 
         private void menuItem2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //SAIR
+            if (verificaPendencia())
+            {
+                MessageBox.Show("O sistema detectou pendências no cadastro","",
+                    MessageBoxButtons.OK,MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                tabControl1.SelectedIndex = 3;
+                return;
+            }
+
+            this.Close();        
+
         }
 
         private void CadastrarPostes_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_tipo_luminaria' table. You can move, or remove it, as needed.
+            //this.poste_has_tipo_luminariaTableAdapter.Fill(this.eletrocadDataSet.poste_has_tipo_luminaria);
+            // TODO: This line of code loads data into the 'eletrocadDataSet.poste_has_uso_mutuo' table. You can move, or remove it, as needed.
+            //this.poste_has_uso_mutuoTableAdapter.Fill(this.eletrocadDataSet.poste_has_uso_mutuo);
             // TODO: This line of code loads data into the 'eletrocadDataSet.poste' table. You can move, or remove it, as needed.
             this.posteTableAdapter.FillByTrafo(this.eletrocadDataSet.poste, CadastrarTrafo.trafoId);
             // TODO: This line of code loads data into the 'eletrocadDataSet.condicao_risco' table. You can move, or remove it, as needed.
@@ -43,11 +57,21 @@ namespace CipX
 
             GPSForm.StartTraking();
 
+            int tentativas = 0;
+
             while (GPS.accuracy > GPS.accuracyIdeal)
             {
                 label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
                 //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
                 //System.Threading.Thread.Sleep(1000);
+                tentativas += 1;
+
+                if (tentativas == 100)
+                {
+                    GPSForm.StartTraking();
+                    tentativas = 0;
+                }
+
                 Application.DoEvents();
             }
 
@@ -128,7 +152,14 @@ namespace CipX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message.Contains("trafo_id_sequencia"))
+                {
+                    MessageBox.Show("Não foi possível salvar: Sequência já existe.");
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 //citeluz2DataSet.RejectChanges();
             }
         }
@@ -184,6 +215,55 @@ namespace CipX
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
         {
             medidorTextBox.Enabled = checkBox1.Checked;
+        }
+
+        private bool verificaPendencia()
+        {
+            bool p = false;
+
+            //verificar se existe poste sem componente
+            listPendencias.Text = "";
+
+            int c = 0;
+
+            foreach (db.eletrocadDataSet.posteRow row in eletrocadDataSet.poste.Rows)
+            {
+                int i =
+                    poste_has_tipo_luminariaTableAdapter.FillByPoste(eletrocadDataSet.poste_has_tipo_luminaria,
+                    row.id);
+                int j = poste_has_uso_mutuoTableAdapter.FillByPoste(eletrocadDataSet.poste_has_uso_mutuo,
+                    row.id);
+
+                if (i <= 0)
+                {
+                    c += 1;
+                    listPendencias.Text += c+". Seq. " + row.sequencia + " sem luminária.";
+                    listPendencias.Text += Environment.NewLine;
+                    p = true;
+                }
+                if (j <= 0)
+                {
+                    c += 1;
+                    listPendencias.Text += c+". Seq. " + row.sequencia + " sem uso mútuo.";
+                    listPendencias.Text += Environment.NewLine;
+                    p = true;
+                }
+            }
+
+            return p;
+        }
+
+        private void verificarPendenciaButton(object sender, EventArgs e)
+        {
+            verificaPendencia();
+        }
+
+        private void sequenciaTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

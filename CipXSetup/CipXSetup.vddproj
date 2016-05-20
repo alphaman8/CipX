@@ -68,6 +68,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1BA850DB470E4DB8851D58203BA40CD4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1DED4B764AD31102DF63F7BDD015EF55"
         "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
         "MsmSig" = "8:_UNDEFINED"
@@ -182,6 +188,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8B98E943693441219B8FF5DC8B30AF49"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_930BDDC80BC5F4361E3A158F95A54CA5"
         "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
         "MsmSig" = "8:_UNDEFINED"
@@ -196,6 +208,12 @@
         {
         "MsmKey" = "8:_99B8E7921864731A9E6624BDB516D2F2"
         "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_99B8E7921864731A9E6624BDB516D2F2"
+        "OwnerKey" = "8:_1BA850DB470E4DB8851D58203BA40CD4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -262,6 +280,12 @@
         {
         "MsmKey" = "8:_A22A84D9C6B842BF958981DAF77E2123"
         "OwnerKey" = "8:_6697D08CCAB5A42B59E70E2601BBA333"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A22A84D9C6B842BF958981DAF77E2123"
+        "OwnerKey" = "8:_1BA850DB470E4DB8851D58203BA40CD4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -518,6 +542,34 @@
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_1BA850DB470E4DB8851D58203BA40CD4"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:kill, Version=1.0.0.0, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_1BA850DB470E4DB8851D58203BA40CD4"
+                    {
+                    "Name" = "8:kill.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\CipX\\kill.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_1DED4B764AD31102DF63F7BDD015EF55"
@@ -915,6 +967,24 @@
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_8B98E943693441219B8FF5DC8B30AF49"
+            {
+            "SourcePath" = "8:..\\CipX\\gps_beep.wav"
+            "TargetName" = "8:gps_beep.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_930BDDC80BC5F4361E3A158F95A54CA5"

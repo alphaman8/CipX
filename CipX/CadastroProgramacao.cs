@@ -109,6 +109,13 @@ namespace CipX
 
         private void importar(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Dados locais serão apagados. Confirma?", "",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+            {
+                return;
+            }
+
             label1.Text = "Iniciando Importação. Aguarde";
             label1.Visible = true;
 
