@@ -54,6 +54,11 @@ namespace CipX
             } 
             #endregion
 
+            if (Usuario.repetir_coord == 1)
+                chkRepetir.Checked = true;
+            if (Usuario.repetir_coord == 0)
+                chkRepetir.Checked = false;
+
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
 
@@ -64,17 +69,20 @@ namespace CipX
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
-            GPSForm.StartTraking();
+            //if (!GPSForm.StartTraking())
+            //{
+            //    return;
+            //}
 
-            while (GPS.accuracy > GPS.accuracyIdeal)
-            {
-                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
-                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
-                //System.Threading.Thread.Sleep(1000);
-                Application.DoEvents();
-            }
+            //while (GPS.accuracy > GPS.accuracyIdeal)
+            //{
+            //    label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+            //    //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+            //    //System.Threading.Thread.Sleep(1000);
+            //    Application.DoEvents();
+            //}
 
-            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy + "m";
+            //label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy + "m";
 
             try
             {
@@ -89,18 +97,24 @@ namespace CipX
             //ciaTextBox.Text = "";
             //alimentadorTextBox.Text = "";
             //chaveTextBox.Focus();
-            comboBox1.Focus();
+            cbTipoLum.Focus();
             poste_idTextBox.Text = CadastrarPostes.posteId.ToString();
 
-            gps_timeTextBox.Text = GPS.gpsTime.ToString();
+            //gps_timeTextBox.Text = GPS.gpsTime.ToString();
 
-            latTextBox.Text = GPS.lat.ToString();
-            lonTextBox.Text = GPS.lon.ToString();
+            //latTextBox.Text = GPS.lat.ToString();
+            //lonTextBox.Text = GPS.lon.ToString();
 
             tabControl1.SelectedIndex = 1;
-            comboBox1.Focus();
+            cbTipoLum.Focus();
             pictureBox1.Image = null;
             quantidadeTextBox.Text = ""+1;
+            cbLampada.SelectedIndex = -1; //luminaria
+            cbBraco.SelectedIndex = -1;
+            cbAtivacao.SelectedIndex = -1;
+            cbFaseId.SelectedIndex = -1;
+            cbChaveComando.SelectedIndex = -1;
+            cbReator.SelectedIndex = -1;
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             //trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
@@ -113,6 +127,27 @@ namespace CipX
 
         private void salvar(object sender, EventArgs e)
         {
+            if (chkRepetir.Checked)
+            {
+                gps_timeTextBox.Text = GPS.gpsTime.ToString();
+                latTextBox.Text = GPS.lat.ToString();
+                lonTextBox.Text = GPS.lon.ToString();
+            }
+            else
+            {
+                if (!GPSForm.StartTraking())
+                {
+                    return;
+                }
+
+                while (GPS.accuracy > GPS.accuracyIdeal)
+                {
+                    label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+                    //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+                    //System.Threading.Thread.Sleep(1000);
+                    Application.DoEvents();
+                }
+            }
 
             try
             {
@@ -134,6 +169,7 @@ namespace CipX
                     int numRows = poste_has_tipo_luminariaTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
                     poste_has_tipo_luminariaTableAdapter.FillByPoste(eletrocadDataSet.poste_has_tipo_luminaria, CadastrarPostes.posteId);
+                    this.luminariasTableAdapter.Fill(this.eletrocadDataSet.luminarias, CadastrarPostes.posteId);
                     pictureBox1.Image = null;
                     luminariasBindingSource.Position = 0;
                     MessageBox.Show("Informações salvas com sucesso! ");
@@ -368,6 +404,65 @@ namespace CipX
             DataRowView rowView = (DataRowView)luminariasBindingSource.Current;
             int pos = postehastipoluminariaBindingSource.Find("id",rowView["id"]);
             postehastipoluminariaBindingSource.Position = pos;
+        }
+
+        private void cbTipoLum_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbTipoLum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTipoLum.Text.Equals("PST"))
+            {
+                //remove e desabilita luminaria
+                cbLampada.Text = "SEM LAMPADA";
+                cbLampada.Enabled = false;
+
+                cbBraco.Text = "NENHUM";
+                cbBraco.Enabled = false;
+
+                cbAtivacao.Text = "NENHUMA";
+                cbAtivacao.Enabled = false;
+
+                cbFaseId.Text = "NENHUMA";
+                cbFaseId.Enabled = false;
+
+                cbChaveComando.Text = "NENHUMA";
+                cbChaveComando.Enabled = false;
+
+                cbReator.Text = "SEM REATOR";
+                cbReator.Enabled = false;
+
+                //remove e desabilita aceso 24h
+                checkBox1.Checked = false;
+                checkBox1.Enabled = false;
+            }
+            else
+            {
+                //remove e desabilita luminaria
+                cbLampada.SelectedIndex = -1;
+                cbLampada.Enabled = true;
+
+                cbBraco.SelectedIndex = -1;
+                cbBraco.Enabled = true;
+
+                cbAtivacao.SelectedIndex = -1;
+                cbAtivacao.Enabled = true;
+
+                cbFaseId.SelectedIndex = -1;
+                cbFaseId.Enabled = true;
+
+                cbChaveComando.SelectedIndex = -1;
+                cbChaveComando.Enabled = true;
+
+                cbReator.SelectedIndex = -1;
+                cbReator.Enabled = true;
+
+                //remove e desabilita aceso 24h
+                checkBox1.Checked = true;
+                checkBox1.Enabled = true;
+            }
         }
     }
 }

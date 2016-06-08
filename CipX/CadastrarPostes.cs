@@ -55,42 +55,26 @@ namespace CipX
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
-            GPSForm.StartTraking();
-
-            //int tentativas = 0;
-
-            while (GPS.accuracy > GPS.accuracyIdeal)
-            {
-                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
-                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
-                //System.Threading.Thread.Sleep(1000);
-                //tentativas += 1;
-
-                //if (tentativas == 100)
-                //{
-                //    GPSForm.StartTraking();
-                //    tentativas = 0;
-                //}
-
-                Application.DoEvents();
-            }
+            menuItemSalvar.Enabled = false;
 
             label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy + "m";
 
-            try
+            string bairro = "", logradouro = "";
+            int seq = 1;
+
+            if (posteBindingSource.Count > 0)
             {
                 posteBindingSource.MoveLast();
-                string bairro = ((DataRowView)posteBindingSource.Current).Row["bairro"].ToString();
-                string logradouro = ((DataRowView)posteBindingSource.Current).Row["logradouro"].ToString();
-                int seq = (int)(((DataRowView)posteBindingSource.Current).Row["sequencia"]);
+                bairro = ((DataRowView)posteBindingSource.Current).Row["bairro"].ToString();
+                logradouro = ((DataRowView)posteBindingSource.Current).Row["logradouro"].ToString();
+                seq = (int)(((DataRowView)posteBindingSource.Current).Row["sequencia"]);
                 seq++;
+            }
 
+            try
+            {
                 posteBindingSource.CancelEdit();
                 posteBindingSource.AddNew();
-
-                ruaTextBox.Text = logradouro;
-                bairroTextBox.Text = bairro;
-                sequenciaTextBox.Text = "" + seq;
 
             }
             catch (Exception ex)
@@ -106,6 +90,11 @@ namespace CipX
             gps_timeTextBox.Text = GPS.gpsTime.ToString();
             latTextBox.Text = GPS.lat.ToString();
             lonTextBox.Text = GPS.lon.ToString();
+
+            ruaTextBox.Text = logradouro;
+            bairroTextBox.Text = bairro;
+            sequenciaTextBox.Text = "" + seq;
+
             //usuario_idTextBox.Text = "" + 1;
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
@@ -114,6 +103,9 @@ namespace CipX
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
+
+
+            GPSForm.StartTraking();
         }
 
         private void salvar(object sender, EventArgs e)
@@ -145,6 +137,7 @@ namespace CipX
                     int numRows = posteTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
                     posteTableAdapter.FillByTrafo(eletrocadDataSet.poste, CadastrarTrafo.trafoId);
+                    posteBindingSource.MoveLast();
                     MessageBox.Show("Informações salvas com sucesso! ");
                 }
                 else
@@ -172,6 +165,10 @@ namespace CipX
                     MessageBox.Show(ex.Message);
                 }
                 //citeluz2DataSet.RejectChanges();
+            }
+            finally
+            {
+                GPSForm.StopTrimble();
             }
         }
 
@@ -206,6 +203,10 @@ namespace CipX
         private void menuItem5_Click(object sender, EventArgs e)
         {
             posteId = Convert.ToInt32(labelPosteID.Text);
+
+            Poste.lat = Convert.ToDouble(latTextBox.Text);
+            Poste.lon = Convert.ToDouble(lonTextBox.Text);
+            Poste.gps_time = Convert.ToDateTime(gps_timeTextBox.Text);
 
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
@@ -274,6 +275,24 @@ namespace CipX
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+            if (posteBindingSource.Count > 0)
+            {
+                menuItemComponente.Text = "Componentes (Seq.: " +
+                    ((DataRowView)posteBindingSource.Current).Row["sequencia"].ToString() + ")";
+            }
+
+            if (GPS.accuracy > GPS.accuracyIdeal)
+            {
+                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+            }
+            else
+            {
+                menuItemSalvar.Enabled = true;
             }
         }
     }

@@ -112,17 +112,24 @@ namespace CipX
             //listGPS.Items.Add("Error: " + GPS.error);
 
 
-            if (GPS.accuracy > 15 && status.Contains("corretamente"))
+            if (GPS.accuracy > GPS.accuracyIdeal - 10 
+                && status.Contains("corretamente") && GPS.numberOfSatellites < 7)
             {
                 listGPS.Items.Add("Baixa acurácia!");
                 listGPS.ForeColor = Color.Orange;
                 gpsOk = false;
             }
-            if (GPS.accuracy < GPS.accuracyIdeal && status.Contains("corretamente"))
+            if (GPS.accuracy <= GPS.accuracyIdeal - 10
+                && status.Contains("corretamente") && GPS.numberOfSatellites >= 7)
             {
                 listGPS.Items.Add("Boa acurácia!");
                 listGPS.ForeColor = Color.Lime;
                 gpsOk = true;
+
+                //if (ip == null)
+                //{
+                //    cadastrar(null, null);
+                //}
             }
             MessageBeepWav();
 
@@ -165,13 +172,7 @@ namespace CipX
                 }
 
 
-                //CONDICAO DE RISCO
-                while (eletrocadDataSet.condicao_risco.Count > 0)
-                {
-                    eletrocadDataSet.condicao_risco.Rows[0].Delete();
-                    condicao_riscoTableAdapter.Update(eletrocadDataSet.condicao_risco);
-                    eletrocadDataSet.condicao_risco.AcceptChanges();
-                }
+
 
                 //ativacao
                 while (eletrocadDataSet.ativacao.Count > 0)
@@ -202,6 +203,14 @@ namespace CipX
                     eletrocadDataSet.poste.Rows[0].Delete();
                     posteTableAdapter.Update(eletrocadDataSet.poste);
                     eletrocadDataSet.poste.AcceptChanges();
+                }
+
+                //CONDICAO DE RISCO
+                while (eletrocadDataSet.condicao_risco.Count > 0)
+                {
+                    eletrocadDataSet.condicao_risco.Rows[0].Delete();
+                    condicao_riscoTableAdapter.Update(eletrocadDataSet.condicao_risco);
+                    eletrocadDataSet.condicao_risco.AcceptChanges();
                 }
 
                 while (eletrocadDataSet.trafo.Count > 0)
@@ -308,6 +317,7 @@ namespace CipX
                             "`usuario`.`senha`, " +
                             "`usuario`.`nmax_barramento`, " +
                             "`usuario`.`nmin_barramento`, " +
+                            "`usuario`.`repetir_coord`, " +
                             "`usuario`.`email` " +
                         "FROM `eletrocad`.`usuario`";
                     //mycommand.Parameters.Clear();
@@ -327,6 +337,7 @@ namespace CipX
                         uRow.senha = reader.GetString("senha");
                         uRow.nmax_barramento = reader.GetInt32("nmax_barramento");
                         uRow.nmin_barramento = reader.GetInt32("nmin_barramento");
+                        uRow.repetir_coord = reader.GetByte("repetir_coord");
 
                         eletrocadDataSet.usuario.Rows.Add(uRow);
 
@@ -731,7 +742,7 @@ namespace CipX
             myconn = new  MySql.Data.MySqlClient.MySqlConnection(strconn);
             myconn.StateChange += new StateChangeEventHandler(myconn_StateChange);
 
-            conectarGps();
+            //conectarGps();
             
             /* APENAS PARA TESTE, APAGAR QUANDO FOR COMPILADO
              * FUNÇÃO PARA CLICAR NO BOTAO APÓS ALGUNS SEGUNDOS
@@ -761,10 +772,14 @@ namespace CipX
 
         private void cadastrar(object sender, EventArgs e)
         {
-            if (!gpsOk)
+
+            if (GPSForm.gpsTrimble != null && GPSForm.gpsTrimble.IsTracking())
             {
-                MessageBox.Show("GPS ainda não está com boa acurácia para o serviço. Aguarde melhorar o sinal");
-                return;
+                if (!gpsOk)
+                {
+                    MessageBox.Show("GPS ainda não está com boa acurácia para o serviço. Aguarde melhorar o sinal");
+                    return;
+                }
             }
 
             if (nomeComboBox.SelectedIndex == -1)
@@ -777,6 +792,8 @@ namespace CipX
                 Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["nmax_barramento"]);
             Usuario.nMinBarramento =
                 Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["nmin_barramento"]);
+            Usuario.repetir_coord =
+                Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["repetir_coord"]);
             Usuario.id =
                 Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["id"]);
 
@@ -784,19 +801,14 @@ namespace CipX
             Application.DoEvents();
             //CadastrarTrafo t = new CadastrarTrafo();
             StopTrimble();
-            CadastroProgramacao ip = new CadastroProgramacao();
+            ip = new CadastroProgramacao();
             ip.ShowDialog();
         }
+        private CadastroProgramacao ip;
 
         private void menuItem7_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Informações podem ser apagadas ao importar dados externos. Deseja continuar?",
-                "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2) == DialogResult.OK)
-            {
-                importar();
-                this.usuarioTableAdapter.Fill(this.eletrocadDataSet.usuario);
-            }
+
         }
 
         private void timerVerificarGps_Tick(object sender, EventArgs e)
@@ -812,6 +824,48 @@ namespace CipX
             }
 
             GPS.gpsOldTime = GPS.gpsTime;
+        }
+
+        private void buttonImage1_Click(object sender, EventArgs e)
+        {
+            cadastrar(sender, e);
+        }
+
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+            conectarGps();
+        }
+
+        private void menuItem10_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Informações podem ser apagadas ao importar dados externos. Deseja continuar?",
+                "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                importar();
+                this.usuarioTableAdapter.Fill(this.eletrocadDataSet.usuario);
+            }
+        }
+
+        private void menuItem9_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            //CadastrarTrafo t = new CadastrarTrafo();
+            EnviarDados p = new EnviarDados();
+            p.ShowDialog();
+        }
+
+        private void menuItem7_Click_1(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            StopTrimble();
+            listGPS.Items.Clear();
+            listGPS.Items.Add(ConectarTrimbleSimulacao());
+            //listGPS.Items.Add(ConectarTrimbleSimulacao());
+            Cursor.Current = Cursors.Default;
+            Application.DoEvents();
         }
     }
 }

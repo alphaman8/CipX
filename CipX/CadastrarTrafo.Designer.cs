@@ -42,10 +42,9 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItemNovo = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItemSalvar = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItemPostes = new System.Windows.Forms.MenuItem();
-            this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.trafoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,8 +61,8 @@
             this.ciaTextBox = new System.Windows.Forms.TextBox();
             this.chaveTextBox = new System.Windows.Forms.TextBox();
             this.lblTtrafoId = new System.Windows.Forms.Label();
-            this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
+            this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             programacao_ip_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -164,10 +163,9 @@
             // menuItem1
             // 
             this.menuItem1.MenuItems.Add(this.menuItemNovo);
-            this.menuItem1.MenuItems.Add(this.menuItem5);
+            this.menuItem1.MenuItems.Add(this.menuItemSalvar);
             this.menuItem1.MenuItems.Add(this.menuItem7);
             this.menuItem1.MenuItems.Add(this.menuItemPostes);
-            this.menuItem1.MenuItems.Add(this.menuItem8);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
@@ -179,10 +177,10 @@
             this.menuItemNovo.Text = "Novo";
             this.menuItemNovo.Click += new System.EventHandler(this.novo);
             // 
-            // menuItem5
+            // menuItemSalvar
             // 
-            this.menuItem5.Text = "Salvar";
-            this.menuItem5.Click += new System.EventHandler(this.salvar);
+            this.menuItemSalvar.Text = "Salvar";
+            this.menuItemSalvar.Click += new System.EventHandler(this.salvar);
             // 
             // menuItem7
             // 
@@ -192,11 +190,6 @@
             // 
             this.menuItemPostes.Text = "Postes";
             this.menuItemPostes.Click += new System.EventHandler(this.menuItem6_Click);
-            // 
-            // menuItem8
-            // 
-            this.menuItem8.Text = "Enviar Dados";
-            this.menuItem8.Click += new System.EventHandler(this.enviarDados);
             // 
             // menuItem3
             // 
@@ -211,7 +204,6 @@
             // 
             this.trafoBindingSource.DataMember = "trafo";
             this.trafoBindingSource.DataSource = this.eletrocadDataSet;
-            this.trafoBindingSource.Position = 0;
             // 
             // eletrocadDataSet
             // 
@@ -227,7 +219,7 @@
             this.trafoDataGrid.Location = new System.Drawing.Point(0, 0);
             this.trafoDataGrid.Name = "trafoDataGrid";
             this.trafoDataGrid.RowHeadersVisible = false;
-            this.trafoDataGrid.Size = new System.Drawing.Size(227, 251);
+            this.trafoDataGrid.Size = new System.Drawing.Size(240, 251);
             this.trafoDataGrid.TabIndex = 1;
             this.trafoDataGrid.TableStyles.Add(this.trafoTableStyleDataGridTableStyle);
             // 
@@ -245,7 +237,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(227, 274);
+            this.tabControl1.Size = new System.Drawing.Size(240, 274);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -253,7 +245,7 @@
             this.tabPage1.Controls.Add(this.trafoDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(227, 251);
+            this.tabPage1.Size = new System.Drawing.Size(240, 251);
             this.tabPage1.Text = "Tabela";
             // 
             // tabPage2
@@ -272,7 +264,7 @@
             this.tabPage2.Controls.Add(this.chaveTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(227, 251);
+            this.tabPage2.Size = new System.Drawing.Size(232, 248);
             this.tabPage2.Text = "Formulário";
             // 
             // programacao_ip_idTextBox
@@ -338,13 +330,9 @@
             this.lblTtrafoId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lblTtrafoId.Location = new System.Drawing.Point(0, 294);
             this.lblTtrafoId.Name = "lblTtrafoId";
-            this.lblTtrafoId.Size = new System.Drawing.Size(227, 20);
+            this.lblTtrafoId.Size = new System.Drawing.Size(240, 20);
             this.lblTtrafoId.Text = "0";
             this.lblTtrafoId.Visible = false;
-            // 
-            // trafoTableAdapter
-            // 
-            this.trafoTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -354,15 +342,19 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(0, 274);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 20);
+            this.label1.Size = new System.Drawing.Size(240, 20);
             this.label1.Text = "label1";
+            // 
+            // trafoTableAdapter
+            // 
+            this.trafoTableAdapter.ClearBeforeFill = true;
             // 
             // CadastrarTrafo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(240, 294);
+            this.ClientSize = new System.Drawing.Size(253, 294);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
@@ -398,7 +390,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.MenuItem menuItemNovo;
         private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem menuItemSalvar;
         private System.Windows.Forms.TextBox alimentadorTextBox;
         private System.Windows.Forms.TextBox ciaTextBox;
         private System.Windows.Forms.TextBox chaveTextBox;
@@ -408,7 +400,6 @@
         private System.Windows.Forms.MenuItem menuItemPostes;
         private System.Windows.Forms.Label lblTtrafoId;
         private System.Windows.Forms.MenuItem menuItem7;
-        private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.Label label1;
     }
 }

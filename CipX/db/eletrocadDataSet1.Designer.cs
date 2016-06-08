@@ -80,8 +80,6 @@ namespace CipX.db {
         
         private global::System.Data.DataRelation relationbraco_fk;
         
-        private global::System.Data.DataRelation relationlampada_fk;
-        
         private global::System.Data.DataRelation relationreator_fk;
         
         private global::System.Data.DataRelation relationativacao_fk;
@@ -91,6 +89,8 @@ namespace CipX.db {
         private global::System.Data.DataRelation relationchave_comando;
         
         private global::System.Data.DataRelation relationativacao_fk1;
+        
+        private global::System.Data.DataRelation relationlampada_fk;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -472,12 +472,12 @@ namespace CipX.db {
             this.relationfk_poste_has_tipo_luminaria_poste1 = this.Relations["fk_poste_has_tipo_luminaria_poste1"];
             this.relationtipo_luminaria_id_fk = this.Relations["tipo_luminaria_id_fk"];
             this.relationbraco_fk = this.Relations["braco_fk"];
-            this.relationlampada_fk = this.Relations["lampada_fk"];
             this.relationreator_fk = this.Relations["reator_fk"];
             this.relationativacao_fk = this.Relations["ativacao_fk"];
             this.relationfase_fk = this.Relations["fase_fk"];
             this.relationchave_comando = this.Relations["chave_comando"];
             this.relationativacao_fk1 = this.Relations["ativacao_fk1"];
+            this.relationlampada_fk = this.Relations["lampada_fk"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -565,10 +565,6 @@ namespace CipX.db {
                         this.tablebraco.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableposte_has_tipo_luminaria.braco_idColumn}, false);
             this.Relations.Add(this.relationbraco_fk);
-            this.relationlampada_fk = new global::System.Data.DataRelation("lampada_fk", new global::System.Data.DataColumn[] {
-                        this.tablelampada.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableposte_has_tipo_luminaria.lampada_idColumn}, false);
-            this.Relations.Add(this.relationlampada_fk);
             this.relationreator_fk = new global::System.Data.DataRelation("reator_fk", new global::System.Data.DataColumn[] {
                         this.tablereator.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableposte_has_tipo_luminaria.reator_idColumn}, false);
@@ -589,6 +585,10 @@ namespace CipX.db {
                         this.tableluminarias.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableposte_has_tipo_luminaria.ativacao_idColumn}, false);
             this.Relations.Add(this.relationativacao_fk1);
+            this.relationlampada_fk = new global::System.Data.DataRelation("lampada_fk", new global::System.Data.DataColumn[] {
+                        this.tablelampada.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableposte_has_tipo_luminaria.lampada_idColumn}, false);
+            this.Relations.Add(this.relationlampada_fk);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2022,8 +2022,6 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columnmedido;
             
-            private global::System.Data.DataColumn columnaceso;
-            
             private global::System.Data.DataColumn columntrafo_id;
             
             private global::System.Data.DataColumn columnlat;
@@ -2114,13 +2112,6 @@ namespace CipX.db {
             public global::System.Data.DataColumn medidoColumn {
                 get {
                     return this.columnmedido;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn acesoColumn {
-                get {
-                    return this.columnaceso;
                 }
             }
             
@@ -2229,7 +2220,6 @@ namespace CipX.db {
                         int sequencia, 
                         string barramento, 
                         short medido, 
-                        short aceso, 
                         trafoRow parenttrafoRowByfk_poste_trafo1, 
                         double lat, 
                         double lon, 
@@ -2249,7 +2239,6 @@ namespace CipX.db {
                         sequencia,
                         barramento,
                         medido,
-                        aceso,
                         null,
                         lat,
                         lon,
@@ -2261,10 +2250,10 @@ namespace CipX.db {
                         null,
                         poste_vizinho_id};
                 if ((parenttrafoRowByfk_poste_trafo1 != null)) {
-                    columnValuesArray[8] = parenttrafoRowByfk_poste_trafo1[0];
+                    columnValuesArray[7] = parenttrafoRowByfk_poste_trafo1[0];
                 }
                 if ((parentcondicao_riscoRowBycond_risco_fk != null)) {
-                    columnValuesArray[16] = parentcondicao_riscoRowBycond_risco_fk[1];
+                    columnValuesArray[15] = parentcondicao_riscoRowBycond_risco_fk[1];
                 }
                 rowposteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowposteRow);
@@ -2298,7 +2287,6 @@ namespace CipX.db {
                 this.columnsequencia = base.Columns["sequencia"];
                 this.columnbarramento = base.Columns["barramento"];
                 this.columnmedido = base.Columns["medido"];
-                this.columnaceso = base.Columns["aceso"];
                 this.columntrafo_id = base.Columns["trafo_id"];
                 this.columnlat = base.Columns["lat"];
                 this.columnlon = base.Columns["lon"];
@@ -2327,8 +2315,6 @@ namespace CipX.db {
                 base.Columns.Add(this.columnbarramento);
                 this.columnmedido = new global::System.Data.DataColumn("medido", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmedido);
-                this.columnaceso = new global::System.Data.DataColumn("aceso", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaceso);
                 this.columntrafo_id = new global::System.Data.DataColumn("trafo_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntrafo_id);
                 this.columnlat = new global::System.Data.DataColumn("lat", typeof(double), null, global::System.Data.MappingType.Element);
@@ -4598,6 +4584,8 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columnnmin_barramento;
             
+            private global::System.Data.DataColumn columnrepetir_coord;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public usuarioDataTable() {
                 this.TableName = "usuario";
@@ -4665,6 +4653,13 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn repetir_coordColumn {
+                get {
+                    return this.columnrepetir_coord;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int Count {
                 get {
                     return this.Rows.Count;
@@ -4692,7 +4687,7 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public usuarioRow AddusuarioRow(string nome, string senha, string email, int id, int nmax_barramento, int nmin_barramento) {
+            public usuarioRow AddusuarioRow(string nome, string senha, string email, int id, int nmax_barramento, int nmin_barramento, byte repetir_coord) {
                 usuarioRow rowusuarioRow = ((usuarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nome,
@@ -4700,7 +4695,8 @@ namespace CipX.db {
                         email,
                         id,
                         nmax_barramento,
-                        nmin_barramento};
+                        nmin_barramento,
+                        repetir_coord};
                 rowusuarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowusuarioRow);
                 return rowusuarioRow;
@@ -4732,6 +4728,7 @@ namespace CipX.db {
                 this.columnid = base.Columns["id"];
                 this.columnnmax_barramento = base.Columns["nmax_barramento"];
                 this.columnnmin_barramento = base.Columns["nmin_barramento"];
+                this.columnrepetir_coord = base.Columns["repetir_coord"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4748,6 +4745,8 @@ namespace CipX.db {
                 base.Columns.Add(this.columnnmax_barramento);
                 this.columnnmin_barramento = new global::System.Data.DataColumn("nmin_barramento", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnmin_barramento);
+                this.columnrepetir_coord = new global::System.Data.DataColumn("repetir_coord", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrepetir_coord);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnnome.AllowDBNull = false;
@@ -4887,8 +4886,6 @@ namespace CipX.db {
             
             private global::System.Data.DataColumn columndescricao;
             
-            private global::System.Data.DataColumn columnlampada_id;
-            
             private global::System.Data.DataColumn columnreator_id;
             
             private global::System.Data.DataColumn columnbraco_id;
@@ -4910,6 +4907,10 @@ namespace CipX.db {
             private global::System.Data.DataColumn columnlon;
             
             private global::System.Data.DataColumn columngps_time;
+            
+            private global::System.Data.DataColumn columnaceso;
+            
+            private global::System.Data.DataColumn columnlampada_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public poste_has_tipo_luminariaDataTable() {
@@ -4953,13 +4954,6 @@ namespace CipX.db {
             public global::System.Data.DataColumn descricaoColumn {
                 get {
                     return this.columndescricao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn lampada_idColumn {
-                get {
-                    return this.columnlampada_id;
                 }
             }
             
@@ -5041,6 +5035,20 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn acesoColumn {
+                get {
+                    return this.columnaceso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn lampada_idColumn {
+                get {
+                    return this.columnlampada_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int Count {
                 get {
                     return this.Rows.Count;
@@ -5068,13 +5076,12 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public poste_has_tipo_luminariaRow Addposte_has_tipo_luminariaRow(posteRow parentposteRowByfk_poste_has_tipo_luminaria_poste1, tipo_luminariaRow parenttipo_luminariaRowBytipo_luminaria_id_fk, string descricao, lampadaRow parentlampadaRowBylampada_fk, reatorRow parentreatorRowByreator_fk, bracoRow parentbracoRowBybraco_fk, int quantidade, ativacaoRow parentativacaoRowByativacao_fk, faseRow parentfaseRowByfase_fk, chave_comandoRow parentchave_comandoRowBychave_comando, string foto_path, double lat, double lon, System.DateTime gps_time) {
+            public poste_has_tipo_luminariaRow Addposte_has_tipo_luminariaRow(posteRow parentposteRowByfk_poste_has_tipo_luminaria_poste1, tipo_luminariaRow parenttipo_luminariaRowBytipo_luminaria_id_fk, string descricao, reatorRow parentreatorRowByreator_fk, bracoRow parentbracoRowBybraco_fk, int quantidade, ativacaoRow parentativacaoRowByativacao_fk, faseRow parentfaseRowByfase_fk, chave_comandoRow parentchave_comandoRowBychave_comando, string foto_path, double lat, double lon, System.DateTime gps_time, short aceso, lampadaRow parentlampadaRowBylampada_fk) {
                 poste_has_tipo_luminariaRow rowposte_has_tipo_luminariaRow = ((poste_has_tipo_luminariaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         descricao,
-                        null,
                         null,
                         null,
                         quantidade,
@@ -5085,30 +5092,32 @@ namespace CipX.db {
                         foto_path,
                         lat,
                         lon,
-                        gps_time};
+                        gps_time,
+                        aceso,
+                        null};
                 if ((parentposteRowByfk_poste_has_tipo_luminaria_poste1 != null)) {
                     columnValuesArray[0] = parentposteRowByfk_poste_has_tipo_luminaria_poste1[0];
                 }
                 if ((parenttipo_luminariaRowBytipo_luminaria_id_fk != null)) {
                     columnValuesArray[1] = parenttipo_luminariaRowBytipo_luminaria_id_fk[1];
                 }
-                if ((parentlampadaRowBylampada_fk != null)) {
-                    columnValuesArray[3] = parentlampadaRowBylampada_fk[4];
-                }
                 if ((parentreatorRowByreator_fk != null)) {
-                    columnValuesArray[4] = parentreatorRowByreator_fk[4];
+                    columnValuesArray[3] = parentreatorRowByreator_fk[4];
                 }
                 if ((parentbracoRowBybraco_fk != null)) {
-                    columnValuesArray[5] = parentbracoRowBybraco_fk[1];
+                    columnValuesArray[4] = parentbracoRowBybraco_fk[1];
                 }
                 if ((parentativacaoRowByativacao_fk != null)) {
-                    columnValuesArray[7] = parentativacaoRowByativacao_fk[1];
+                    columnValuesArray[6] = parentativacaoRowByativacao_fk[1];
                 }
                 if ((parentfaseRowByfase_fk != null)) {
-                    columnValuesArray[8] = parentfaseRowByfase_fk[1];
+                    columnValuesArray[7] = parentfaseRowByfase_fk[1];
                 }
                 if ((parentchave_comandoRowBychave_comando != null)) {
-                    columnValuesArray[9] = parentchave_comandoRowBychave_comando[0];
+                    columnValuesArray[8] = parentchave_comandoRowBychave_comando[0];
+                }
+                if ((parentlampadaRowBylampada_fk != null)) {
+                    columnValuesArray[15] = parentlampadaRowBylampada_fk[4];
                 }
                 rowposte_has_tipo_luminariaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowposte_has_tipo_luminariaRow);
@@ -5138,7 +5147,6 @@ namespace CipX.db {
                 this.columnposte_id = base.Columns["poste_id"];
                 this.columntipo_luminaria_id = base.Columns["tipo_luminaria_id"];
                 this.columndescricao = base.Columns["descricao"];
-                this.columnlampada_id = base.Columns["lampada_id"];
                 this.columnreator_id = base.Columns["reator_id"];
                 this.columnbraco_id = base.Columns["braco_id"];
                 this.columnquantidade = base.Columns["quantidade"];
@@ -5150,6 +5158,8 @@ namespace CipX.db {
                 this.columnlat = base.Columns["lat"];
                 this.columnlon = base.Columns["lon"];
                 this.columngps_time = base.Columns["gps_time"];
+                this.columnaceso = base.Columns["aceso"];
+                this.columnlampada_id = base.Columns["lampada_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5160,8 +5170,6 @@ namespace CipX.db {
                 base.Columns.Add(this.columntipo_luminaria_id);
                 this.columndescricao = new global::System.Data.DataColumn("descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescricao);
-                this.columnlampada_id = new global::System.Data.DataColumn("lampada_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlampada_id);
                 this.columnreator_id = new global::System.Data.DataColumn("reator_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreator_id);
                 this.columnbraco_id = new global::System.Data.DataColumn("braco_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -5184,12 +5192,15 @@ namespace CipX.db {
                 base.Columns.Add(this.columnlon);
                 this.columngps_time = new global::System.Data.DataColumn("gps_time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngps_time);
+                this.columnaceso = new global::System.Data.DataColumn("aceso", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaceso);
+                this.columnlampada_id = new global::System.Data.DataColumn("lampada_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlampada_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnposte_id.AllowDBNull = false;
                 this.columntipo_luminaria_id.AllowDBNull = false;
                 this.columndescricao.MaxLength = 45;
-                this.columnlampada_id.AllowDBNull = false;
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -6355,21 +6366,6 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public short aceso {
-                get {
-                    try {
-                        return ((short)(this[this.tableposte.acesoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'aceso\' in table \'poste\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableposte.acesoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int trafo_id {
                 get {
                     return ((int)(this[this.tableposte.trafo_idColumn]));
@@ -6562,16 +6558,6 @@ namespace CipX.db {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetmedidoNull() {
                 this[this.tableposte.medidoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsacesoNull() {
-                return this.IsNull(this.tableposte.acesoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetacesoNull() {
-                this[this.tableposte.acesoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7657,6 +7643,21 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public byte repetir_coord {
+                get {
+                    try {
+                        return ((byte)(this[this.tableusuario.repetir_coordColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'repetir_coord\' in table \'usuario\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuario.repetir_coordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool Isnmax_barramentoNull() {
                 return this.IsNull(this.tableusuario.nmax_barramentoColumn);
             }
@@ -7674,6 +7675,16 @@ namespace CipX.db {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void Setnmin_barramentoNull() {
                 this[this.tableusuario.nmin_barramentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isrepetir_coordNull() {
+                return this.IsNull(this.tableusuario.repetir_coordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setrepetir_coordNull() {
+                this[this.tableusuario.repetir_coordColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7732,16 +7743,6 @@ namespace CipX.db {
                 }
                 set {
                     this[this.tableposte_has_tipo_luminaria.descricaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int lampada_id {
-                get {
-                    return ((int)(this[this.tableposte_has_tipo_luminaria.lampada_idColumn]));
-                }
-                set {
-                    this[this.tableposte_has_tipo_luminaria.lampada_idColumn] = value;
                 }
             }
             
@@ -7893,6 +7894,36 @@ namespace CipX.db {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public short aceso {
+                get {
+                    try {
+                        return ((short)(this[this.tableposte_has_tipo_luminaria.acesoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'aceso\' in table \'poste_has_tipo_luminaria\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableposte_has_tipo_luminaria.acesoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int lampada_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableposte_has_tipo_luminaria.lampada_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lampada_id\' in table \'poste_has_tipo_luminaria\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableposte_has_tipo_luminaria.lampada_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public posteRow posteRow {
                 get {
                     return ((posteRow)(this.GetParentRow(this.Table.ParentRelations["fk_poste_has_tipo_luminaria_poste1"])));
@@ -7919,16 +7950,6 @@ namespace CipX.db {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["braco_fk"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lampadaRow lampadaRow {
-                get {
-                    return ((lampadaRow)(this.GetParentRow(this.Table.ParentRelations["lampada_fk"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["lampada_fk"]);
                 }
             }
             
@@ -7979,6 +8000,16 @@ namespace CipX.db {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["ativacao_fk1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lampadaRow lampadaRow {
+                get {
+                    return ((lampadaRow)(this.GetParentRow(this.Table.ParentRelations["lampada_fk"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["lampada_fk"]);
                 }
             }
             
@@ -8060,6 +8091,26 @@ namespace CipX.db {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void Setfoto_pathNull() {
                 this[this.tableposte_has_tipo_luminaria.foto_pathColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsacesoNull() {
+                return this.IsNull(this.tableposte_has_tipo_luminaria.acesoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetacesoNull() {
+                this[this.tableposte_has_tipo_luminaria.acesoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Islampada_idNull() {
+                return this.IsNull(this.tableposte_has_tipo_luminaria.lampada_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setlampada_idNull() {
+                this[this.tableposte_has_tipo_luminaria.lampada_idColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10352,7 +10403,6 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("sequencia", "sequencia");
             tableMapping.ColumnMappings.Add("barramento", "barramento");
             tableMapping.ColumnMappings.Add("medido", "medido");
-            tableMapping.ColumnMappings.Add("aceso", "aceso");
             tableMapping.ColumnMappings.Add("trafo_id", "trafo_id");
             tableMapping.ColumnMappings.Add("lat", "lat");
             tableMapping.ColumnMappings.Add("lon", "lon");
@@ -10366,12 +10416,15 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [poste] WHERE (([id] = @p1))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [poste] WHERE (([id] = @p1) AND ([sequencia] = @p2) AND ([trafo_id] =" +
+                " @p3))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "sequencia", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Original, null));
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [poste] ([bairro], [logradouro], [gps_time], [sequencia], [barramento], [medido], [aceso], [trafo_id], [lat], [lon], [obs], [gpgga], [medidor], [posicao_trafo], [ligacao_clandestina], [condicao_risco_id], [poste_vizinho_id]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [poste] ([bairro], [logradouro], [gps_time], [sequencia], [barramento], [medido], [trafo_id], [lat], [lon], [obs], [gpgga], [medidor], [posicao_trafo], [ligacao_clandestina], [condicao_risco_id], [poste_vizinho_id]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "bairro", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "logradouro", global::System.Data.DataRowVersion.Current, null));
@@ -10379,20 +10432,19 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "sequencia", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "barramento", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medido", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "aceso", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "obs", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gpgga", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medidor", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "posicao_trafo", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ligacao_clandestina", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p17", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "obs", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gpgga", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medidor", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "posicao_trafo", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ligacao_clandestina", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [poste] SET [bairro] = @p1, [logradouro] = @p2, [gps_time] = @p3, [sequencia] = @p4, [barramento] = @p5, [medido] = @p6, [aceso] = @p7, [trafo_id] = @p8, [lat] = @p9, [lon] = @p10, [obs] = @p11, [gpgga] = @p12, [medidor] = @p13, [posicao_trafo] = @p14, [ligacao_clandestina] = @p15, [condicao_risco_id] = @p16, [poste_vizinho_id] = @p17 WHERE (([id] = @p18))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [poste] SET [bairro] = @p1, [logradouro] = @p2, [gps_time] = @p3, [sequencia] = @p4, [barramento] = @p5, [medido] = @p6, [trafo_id] = @p7, [lat] = @p8, [lon] = @p9, [obs] = @p10, [gpgga] = @p11, [medidor] = @p12, [posicao_trafo] = @p13, [ligacao_clandestina] = @p14, [condicao_risco_id] = @p15, [poste_vizinho_id] = @p16 WHERE (([id] = @p17) AND ([sequencia] = @p18) AND ([trafo_id] = @p19))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "bairro", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "logradouro", global::System.Data.DataRowVersion.Current, null));
@@ -10400,18 +10452,19 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "sequencia", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "barramento", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medido", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "aceso", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "obs", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gpgga", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medidor", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "posicao_trafo", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ligacao_clandestina", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p17", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p18", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "obs", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gpgga", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "medidor", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "posicao_trafo", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ligacao_clandestina", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "condicao_risco_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_vizinho_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p17", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p18", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "sequencia", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p19", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10428,15 +10481,15 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, bairro, logradouro, gps_time, sequencia, barramento, medido, aceso, tr" +
-                "afo_id, lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, condi" +
-                "cao_risco_id, poste_vizinho_id FROM poste";
+            this._commandCollection[0].CommandText = "SELECT id, bairro, logradouro, gps_time, sequencia, barramento, medido, trafo_id," +
+                " lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, condicao_ris" +
+                "co_id, poste_vizinho_id FROM poste";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT id, bairro, logradouro, gps_time, sequencia, barramento, medido, aceso, tr" +
-                "afo_id, lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, condi" +
-                "cao_risco_id, poste_vizinho_id FROM poste WHERE (trafo_id = @trafo)";
+            this._commandCollection[1].CommandText = "SELECT id, bairro, logradouro, gps_time, sequencia, barramento, medido, trafo_id," +
+                " lat, lon, obs, gpgga, medidor, posicao_trafo, ligacao_clandestina, condicao_ris" +
+                "co_id, poste_vizinho_id FROM poste WHERE (trafo_id = @trafo)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@trafo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "trafo_id", global::System.Data.DataRowVersion.Current, null));
         }
@@ -10506,8 +10559,10 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1) {
+        public virtual int Delete(int p1, int p2, int p3) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(p2));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(p3));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10533,17 +10588,16 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                     int p4, 
                     string p5, 
                     global::System.Nullable<short> p6, 
-                    global::System.Nullable<short> p7, 
-                    int p8, 
+                    int p7, 
+                    double p8, 
                     double p9, 
-                    double p10, 
+                    string p10, 
                     string p11, 
                     string p12, 
-                    string p13, 
+                    global::System.Nullable<short> p13, 
                     global::System.Nullable<short> p14, 
-                    global::System.Nullable<short> p15, 
-                    global::System.Nullable<int> p16, 
-                    global::System.Nullable<int> p17) {
+                    global::System.Nullable<int> p15, 
+                    global::System.Nullable<int> p16) {
             if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -10570,15 +10624,15 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((p7.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((short)(p7.Value));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(p7));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((double)(p8));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((double)(p9));
+            if ((p10 == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(p10));
             }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(p8));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((double)(p9));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((double)(p10));
             if ((p11 == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
@@ -10591,11 +10645,11 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = ((string)(p12));
             }
-            if ((p13 == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            if ((p13.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((short)(p13.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(p13));
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((p14.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = ((short)(p14.Value));
@@ -10604,7 +10658,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((p15.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((short)(p15.Value));
+                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(p15.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
@@ -10614,12 +10668,6 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((p17.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((int)(p17.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10646,18 +10694,19 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                     int p4, 
                     string p5, 
                     global::System.Nullable<short> p6, 
-                    global::System.Nullable<short> p7, 
-                    int p8, 
+                    int p7, 
+                    double p8, 
                     double p9, 
-                    double p10, 
+                    string p10, 
                     string p11, 
                     string p12, 
-                    string p13, 
+                    global::System.Nullable<short> p13, 
                     global::System.Nullable<short> p14, 
-                    global::System.Nullable<short> p15, 
+                    global::System.Nullable<int> p15, 
                     global::System.Nullable<int> p16, 
-                    global::System.Nullable<int> p17, 
-                    int p18) {
+                    int p17, 
+                    int p18, 
+                    int p19) {
             if ((p1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -10684,15 +10733,15 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((p7.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((short)(p7.Value));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(p8));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(p9));
+            if ((p10 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(p8));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(p9));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(p10));
             if ((p11 == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
@@ -10705,11 +10754,11 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
             }
-            if ((p13 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            if ((p13.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((short)(p13.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((p14.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((short)(p14.Value));
@@ -10718,7 +10767,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((p15.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((short)(p15.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(p15.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
@@ -10729,13 +10778,9 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            if ((p17.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(p17.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(p17));
             this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(p18));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(p19));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13014,6 +13059,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("nmax_barramento", "nmax_barramento");
             tableMapping.ColumnMappings.Add("nmin_barramento", "nmin_barramento");
+            tableMapping.ColumnMappings.Add("repetir_coord", "repetir_coord");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -13023,7 +13069,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [usuario] ([nome], [senha], [email], [id], [nmax_barramento], [nmin_b" +
-                "arramento]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
+                "arramento], [repetir_coord]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nome", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "senha", global::System.Data.DataRowVersion.Current, null));
@@ -13031,10 +13077,12 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmax_barramento", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmin_barramento", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "repetir_coord", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [usuario] SET [nome] = @p1, [senha] = @p2, [email] = @p3, [id] = @p4, [nma" +
-                "x_barramento] = @p5, [nmin_barramento] = @p6 WHERE (([id] = @p7))";
+                "x_barramento] = @p5, [nmin_barramento] = @p6, [repetir_coord] = @p7 WHERE (([id]" +
+                " = @p8))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nome", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "senha", global::System.Data.DataRowVersion.Current, null));
@@ -13042,7 +13090,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmax_barramento", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "nmin_barramento", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "repetir_coord", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13059,7 +13108,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT nome, senha, email, id, nmax_barramento, nmin_barramento FROM usuario";
+            this._commandCollection[0].CommandText = "SELECT nome, senha, email, id, nmax_barramento, nmin_barramento, repetir_coord FR" +
+                "OM usuario";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13126,7 +13176,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, int p4, global::System.Nullable<int> p5, global::System.Nullable<int> p6) {
+        public virtual int Insert(string p1, string p2, string p3, int p4, global::System.Nullable<int> p5, global::System.Nullable<int> p6, global::System.Nullable<byte> p7) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -13158,6 +13208,12 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
+            if ((p7.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((byte)(p7.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13176,7 +13232,7 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, int p4, global::System.Nullable<int> p5, global::System.Nullable<int> p6, int p7) {
+        public virtual int Update(string p1, string p2, string p3, int p4, global::System.Nullable<int> p5, global::System.Nullable<int> p6, global::System.Nullable<byte> p7, int p8) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -13208,7 +13264,13 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
+            if ((p7.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((byte)(p7.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(p8));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13227,8 +13289,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, global::System.Nullable<int> p5, global::System.Nullable<int> p6, int p7) {
-            return this.Update(p1, p2, p3, p7, p5, p6, p7);
+        public virtual int Update(string p1, string p2, string p3, global::System.Nullable<int> p5, global::System.Nullable<int> p6, global::System.Nullable<byte> p7, int p8) {
+            return this.Update(p1, p2, p3, p8, p5, p6, p7, p8);
         }
     }
     
@@ -13318,7 +13380,6 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("poste_id", "poste_id");
             tableMapping.ColumnMappings.Add("tipo_luminaria_id", "tipo_luminaria_id");
             tableMapping.ColumnMappings.Add("descricao", "descricao");
-            tableMapping.ColumnMappings.Add("lampada_id", "lampada_id");
             tableMapping.ColumnMappings.Add("reator_id", "reator_id");
             tableMapping.ColumnMappings.Add("braco_id", "braco_id");
             tableMapping.ColumnMappings.Add("quantidade", "quantidade");
@@ -13330,6 +13391,8 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("lat", "lat");
             tableMapping.ColumnMappings.Add("lon", "lon");
             tableMapping.ColumnMappings.Add("gps_time", "gps_time");
+            tableMapping.ColumnMappings.Add("aceso", "aceso");
+            tableMapping.ColumnMappings.Add("lampada_id", "lampada_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -13338,41 +13401,43 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [poste_has_tipo_luminaria] ([poste_id], [tipo_luminaria_id], [descricao], [braco_id], [lampada_id], [quantidade], [reator_id], [ativacao_id], [fase_id], [chave_comando], [foto_path], [lat], [lon], [gps_time]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [poste_has_tipo_luminaria] ([poste_id], [tipo_luminaria_id], [descricao], [braco_id], [quantidade], [reator_id], [ativacao_id], [fase_id], [chave_comando], [foto_path], [lat], [lon], [gps_time], [aceso], [lampada_id]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "tipo_luminaria_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "descricao", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "braco_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lampada_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "quantidade", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ativacao_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "fase_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "chave_comando", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "foto_path", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gps_time", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "quantidade", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ativacao_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "fase_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "chave_comando", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "foto_path", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gps_time", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "aceso", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lampada_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [poste_has_tipo_luminaria] SET [poste_id] = @p1, [tipo_luminaria_id] = @p2, [descricao] = @p3, [braco_id] = @p4, [lampada_id] = @p5, [quantidade] = @p6, [reator_id] = @p7, [ativacao_id] = @p8, [fase_id] = @p9, [chave_comando] = @p10, [foto_path] = @p11, [lat] = @p12, [lon] = @p13, [gps_time] = @p14 WHERE (([id] = @p15))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [poste_has_tipo_luminaria] SET [poste_id] = @p1, [tipo_luminaria_id] = @p2, [descricao] = @p3, [braco_id] = @p4, [quantidade] = @p5, [reator_id] = @p6, [ativacao_id] = @p7, [fase_id] = @p8, [chave_comando] = @p9, [foto_path] = @p10, [lat] = @p11, [lon] = @p12, [gps_time] = @p13, [aceso] = @p14, [lampada_id] = @p15 WHERE (([id] = @p16))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "tipo_luminaria_id", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "descricao", global::System.Data.DataRowVersion.Current, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "braco_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lampada_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "quantidade", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ativacao_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "fase_id", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "chave_comando", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "foto_path", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gps_time", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "quantidade", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "reator_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ativacao_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "fase_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "chave_comando", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p10", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "foto_path", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p11", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lat", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p12", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lon", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p13", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "gps_time", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p14", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "aceso", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p15", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "lampada_id", global::System.Data.DataRowVersion.Current, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p16", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "id", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13389,16 +13454,15 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT poste_id, tipo_luminaria_id, descricao, braco_id, lampada_id, quantidade, " +
-                "reator_id, ativacao_id, fase_id, chave_comando, id, foto_path, lat, lon, gps_tim" +
-                "e FROM poste_has_tipo_luminaria";
+            this._commandCollection[0].CommandText = "SELECT poste_id, tipo_luminaria_id, descricao, braco_id, quantidade, reator_id, a" +
+                "tivacao_id, fase_id, chave_comando, id, foto_path, lat, lon, gps_time, aceso, la" +
+                "mpada_id FROM poste_has_tipo_luminaria";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        phtl.poste_id, phtl.tipo_luminaria_id, phtl.descricao, phtl.braco_id, phtl.lampada_id, phtl.quantidade, phtl.reator_id, phtl.ativacao_id, phtl.fase_id, 
-                         phtl.chave_comando, phtl.id, phtl.foto_path, phtl.lat, phtl.lon, phtl.gps_time
-FROM            poste_has_tipo_luminaria AS phtl 
-where phtl.poste_id = @poste";
+            this._commandCollection[1].CommandText = "SELECT poste_id, tipo_luminaria_id, descricao, braco_id, quantidade, reator_id, a" +
+                "tivacao_id, fase_id, chave_comando, id, foto_path, lat, lon, gps_time, aceso, la" +
+                "mpada_id FROM poste_has_tipo_luminaria AS phtl WHERE (poste_id = @poste)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@poste", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "poste_id", global::System.Data.DataRowVersion.Current, null));
         }
@@ -13488,7 +13552,7 @@ where phtl.poste_id = @poste";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int p1, int p2, string p3, int p4, int p5, int p6, global::System.Nullable<int> p7, int p8, int p9, global::System.Nullable<int> p10, string p11, double p12, double p13, System.DateTime p14) {
+        public virtual int Insert(int p1, int p2, string p3, int p4, int p5, global::System.Nullable<int> p6, int p7, int p8, global::System.Nullable<int> p9, string p10, double p11, double p12, System.DateTime p13, global::System.Nullable<short> p14, global::System.Nullable<int> p15) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2));
             if ((p3 == null)) {
@@ -13499,30 +13563,41 @@ where phtl.poste_id = @poste";
             }
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4));
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6));
-            if ((p7.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(p7.Value));
+            if ((p6.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(p7));
             this.Adapter.InsertCommand.Parameters[7].Value = ((int)(p8));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(p9));
-            if ((p10.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(p10.Value));
+            if ((p9.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(p9.Value));
             }
             else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((p10 == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((p11 == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(p10));
+            }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((double)(p11));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((double)(p12));
+            this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(p13));
+            if ((p14.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((short)(p14.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(p11));
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[11].Value = ((double)(p12));
-            this.Adapter.InsertCommand.Parameters[12].Value = ((double)(p13));
-            this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(p14));
+            if ((p15.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(p15.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13541,7 +13616,23 @@ where phtl.poste_id = @poste";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int p1, int p2, string p3, int p4, int p5, int p6, global::System.Nullable<int> p7, int p8, int p9, global::System.Nullable<int> p10, string p11, double p12, double p13, System.DateTime p14, int p15) {
+        public virtual int Update(
+                    int p1, 
+                    int p2, 
+                    string p3, 
+                    int p4, 
+                    int p5, 
+                    global::System.Nullable<int> p6, 
+                    int p7, 
+                    int p8, 
+                    global::System.Nullable<int> p9, 
+                    string p10, 
+                    double p11, 
+                    double p12, 
+                    System.DateTime p13, 
+                    global::System.Nullable<short> p14, 
+                    global::System.Nullable<int> p15, 
+                    int p16) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(p2));
             if ((p3 == null)) {
@@ -13552,31 +13643,42 @@ where phtl.poste_id = @poste";
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
-            if ((p7.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7.Value));
+            if ((p6.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(p8));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(p9));
-            if ((p10.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10.Value));
+            if ((p9.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(p9.Value));
             }
             else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((p10 == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((p11 == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(p11));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(p12));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(p13));
+            if ((p14.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((short)(p14.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(p12));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(p13));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(p14));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(p15));
+            if ((p15.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(p15.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(p16));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

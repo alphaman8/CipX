@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="LatLon.cs" />
     <Compile Include="Library.cs" />
+    <Compile Include="Poste.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CadastrarLuminaria.resx">

@@ -45,7 +45,12 @@ namespace CipX
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
-            GPSForm.StartTraking();
+            if (!GPSForm.StartTraking())
+            {
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+                return;
+            }
 
             while (GPS.accuracy > GPS.accuracyIdeal+75)
             {
@@ -170,8 +175,20 @@ namespace CipX
 
         private void menuItem1_Click(object sender, EventArgs e)
         {
-            menuItemPostes.Text = "Postes (Chave: " +
-                ((DataRowView)trafoBindingSource.Current).Row["chave"].ToString() + ")";
+            if (trafoBindingSource.Count > 0)
+            {
+                menuItemPostes.Text = "Postes (Chave: " +
+                    ((DataRowView)trafoBindingSource.Current).Row["chave"].ToString() + ")";
+            }
+
+            if (GPS.accuracy > GPS.accuracyIdeal)
+            {
+                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+            }
+            else
+            {
+                menuItemSalvar.Enabled = true;
+            }
         }
     }
 }

@@ -35,12 +35,14 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.menuItem8 = new System.Windows.Forms.MenuItem();
+            this.menuItem9 = new System.Windows.Forms.MenuItem();
+            this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.button1 = new CipX.components.ButtonImage(this.components);
             this.listGPS = new System.Windows.Forms.ListBox();
             this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -78,6 +80,8 @@
             this.tipo_luminariaTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.tipo_luminariaTableAdapter();
             this.chavecomandoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chave_comandoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter();
+            this.btnConectar = new CipX.components.ButtonImage(this.components);
+            this.buttonImage1 = new CipX.components.ButtonImage(this.components);
             nomeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -101,7 +105,7 @@
             // nomeLabel
             // 
             nomeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            nomeLabel.Location = new System.Drawing.Point(6, 7);
+            nomeLabel.Location = new System.Drawing.Point(3, 6);
             nomeLabel.Name = "nomeLabel";
             nomeLabel.Size = new System.Drawing.Size(66, 14);
             nomeLabel.Text = "Usuário";
@@ -113,7 +117,7 @@
             // menuItem1
             // 
             this.menuItem1.MenuItems.Add(this.menuItem6);
-            this.menuItem1.MenuItems.Add(this.menuItem7);
+            this.menuItem1.MenuItems.Add(this.menuItem8);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem2);
@@ -124,20 +128,37 @@
             this.menuItem6.Text = "Cadastrar";
             this.menuItem6.Click += new System.EventHandler(this.cadastrar);
             // 
-            // menuItem7
+            // menuItem8
             // 
-            this.menuItem7.Text = "Importar Dados";
-            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
+            this.menuItem8.MenuItems.Add(this.menuItem9);
+            this.menuItem8.MenuItems.Add(this.menuItem10);
+            this.menuItem8.Text = "Dados";
+            // 
+            // menuItem9
+            // 
+            this.menuItem9.Text = "Enviar";
+            this.menuItem9.Click += new System.EventHandler(this.menuItem9_Click);
+            // 
+            // menuItem10
+            // 
+            this.menuItem10.Text = "Receber";
+            this.menuItem10.Click += new System.EventHandler(this.menuItem10_Click);
             // 
             // menuItem3
             // 
             this.menuItem3.MenuItems.Add(this.menuItem5);
+            this.menuItem3.MenuItems.Add(this.menuItem7);
             this.menuItem3.Text = "GPS";
             // 
             // menuItem5
             // 
-            this.menuItem5.Text = "Conectar";
+            this.menuItem5.Text = "Conectar para Trabalho";
             this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // menuItem7
+            // 
+            this.menuItem7.Text = "Conectar Simulando";
+            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click_1);
             // 
             // menuItem4
             // 
@@ -148,26 +169,15 @@
             this.menuItem2.Text = "Sair";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(0, 61);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 58);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Cadastrar";
-            this.button1.Click += new System.EventHandler(this.cadastrar);
-            // 
             // listGPS
             // 
             this.listGPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listGPS.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listGPS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.listGPS.ForeColor = System.Drawing.Color.Lime;
-            this.listGPS.Location = new System.Drawing.Point(0, 155);
+            this.listGPS.Location = new System.Drawing.Point(0, 116);
             this.listGPS.Name = "listGPS";
-            this.listGPS.Size = new System.Drawing.Size(240, 119);
+            this.listGPS.Size = new System.Drawing.Size(240, 158);
             this.listGPS.TabIndex = 1;
             // 
             // eletrocadDataSet
@@ -190,9 +200,9 @@
             this.nomeComboBox.DataSource = this.usuarioBindingSource;
             this.nomeComboBox.DisplayMember = "nome";
             this.nomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.nomeComboBox.Location = new System.Drawing.Point(6, 24);
+            this.nomeComboBox.Location = new System.Drawing.Point(3, 23);
             this.nomeComboBox.Name = "nomeComboBox";
-            this.nomeComboBox.Size = new System.Drawing.Size(158, 22);
+            this.nomeComboBox.Size = new System.Drawing.Size(181, 22);
             this.nomeComboBox.TabIndex = 3;
             this.nomeComboBox.ValueMember = "nome";
             // 
@@ -347,6 +357,26 @@
             // 
             this.chave_comandoTableAdapter.ClearBeforeFill = true;
             // 
+            // btnConectar
+            // 
+            this.btnConectar.Image = ((System.Drawing.Image)(resources.GetObject("btnConectar.Image")));
+            this.btnConectar.Location = new System.Drawing.Point(3, 60);
+            this.btnConectar.Name = "btnConectar";
+            this.btnConectar.Size = new System.Drawing.Size(109, 35);
+            this.btnConectar.TabIndex = 5;
+            this.btnConectar.Text = "Conectar";
+            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
+            // 
+            // buttonImage1
+            // 
+            this.buttonImage1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImage1.Image")));
+            this.buttonImage1.Location = new System.Drawing.Point(125, 60);
+            this.buttonImage1.Name = "buttonImage1";
+            this.buttonImage1.Size = new System.Drawing.Size(109, 35);
+            this.buttonImage1.TabIndex = 8;
+            this.buttonImage1.Text = "Cadastrar";
+            this.buttonImage1.Click += new System.EventHandler(this.buttonImage1_Click);
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -354,10 +384,11 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonImage1);
+            this.Controls.Add(this.btnConectar);
             this.Controls.Add(nomeLabel);
             this.Controls.Add(this.nomeComboBox);
             this.Controls.Add(this.listGPS);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
@@ -391,7 +422,6 @@
 
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
-        private CipX.components.ButtonImage button1;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.MenuItem menuItem4;
@@ -401,7 +431,6 @@
         private System.Windows.Forms.BindingSource usuarioBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
         private System.Windows.Forms.ComboBox nomeComboBox;
-        private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_tipo_luminariaTableAdapter poste_has_tipo_luminariaTableAdapter;
@@ -434,5 +463,11 @@
         private CipX.db.eletrocadDataSetTableAdapters.tipo_luminariaTableAdapter tipo_luminariaTableAdapter;
         private System.Windows.Forms.BindingSource chavecomandoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter chave_comandoTableAdapter;
+        private CipX.components.ButtonImage btnConectar;
+        private CipX.components.ButtonImage buttonImage1;
+        private System.Windows.Forms.MenuItem menuItem8;
+        private System.Windows.Forms.MenuItem menuItem9;
+        private System.Windows.Forms.MenuItem menuItem10;
+        private System.Windows.Forms.MenuItem menuItem7;
     }
 }

@@ -50,10 +50,10 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem10 = new System.Windows.Forms.MenuItem();
+            this.menuItemSalvar = new System.Windows.Forms.MenuItem();
             this.menuItem12 = new System.Windows.Forms.MenuItem();
             this.menuItem11 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.menuItemComponente = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
@@ -66,7 +66,6 @@
             this.posteDataGrid = new System.Windows.Forms.DataGrid();
             this.posteTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.medidorTextBox = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.sequenciaTextBox = new System.Windows.Forms.TextBox();
@@ -272,23 +271,25 @@
             // menuItem1
             // 
             this.menuItem1.MenuItems.Add(this.menuItem4);
-            this.menuItem1.MenuItems.Add(this.menuItem10);
+            this.menuItem1.MenuItems.Add(this.menuItemSalvar);
             this.menuItem1.MenuItems.Add(this.menuItem12);
             this.menuItem1.MenuItems.Add(this.menuItem11);
-            this.menuItem1.MenuItems.Add(this.menuItem7);
+            this.menuItem1.MenuItems.Add(this.menuItemComponente);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem2);
             this.menuItem1.Text = "Opções";
+            this.menuItem1.Popup += new System.EventHandler(this.menuItem1_Click);
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
             // menuItem4
             // 
             this.menuItem4.Text = "Novo";
             this.menuItem4.Click += new System.EventHandler(this.novo);
             // 
-            // menuItem10
+            // menuItemSalvar
             // 
-            this.menuItem10.Text = "Salvar";
-            this.menuItem10.Click += new System.EventHandler(this.salvar);
+            this.menuItemSalvar.Text = "Salvar";
+            this.menuItemSalvar.Click += new System.EventHandler(this.salvar);
             // 
             // menuItem12
             // 
@@ -299,11 +300,11 @@
             // 
             this.menuItem11.Text = "-";
             // 
-            // menuItem7
+            // menuItemComponente
             // 
-            this.menuItem7.MenuItems.Add(this.menuItem5);
-            this.menuItem7.MenuItems.Add(this.menuItem9);
-            this.menuItem7.Text = "Componentes";
+            this.menuItemComponente.MenuItems.Add(this.menuItem5);
+            this.menuItemComponente.MenuItems.Add(this.menuItem9);
+            this.menuItemComponente.Text = "Componentes";
             // 
             // menuItem5
             // 
@@ -391,7 +392,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.checkBox2);
             this.tabPage2.Controls.Add(medidorLabel);
             this.tabPage2.Controls.Add(this.medidorTextBox);
             this.tabPage2.Controls.Add(this.checkBox1);
@@ -409,17 +409,8 @@
             this.tabPage2.Controls.Add(bairroLabel);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 248);
+            this.tabPage2.Size = new System.Drawing.Size(232, 245);
             this.tabPage2.Text = "Form. I";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.posteBindingSource, "aceso", true));
-            this.checkBox2.Location = new System.Drawing.Point(132, 170);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(100, 20);
-            this.checkBox2.TabIndex = 68;
-            this.checkBox2.Text = "Aceso";
             // 
             // medidorTextBox
             // 
@@ -507,7 +498,7 @@
             this.tabPage3.Controls.Add(this.obsTextBox);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(240, 248);
+            this.tabPage3.Size = new System.Drawing.Size(232, 245);
             this.tabPage3.Text = "Form. II";
             // 
             // posteVizinhoBindingSource1
@@ -628,8 +619,8 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label1.Location = new System.Drawing.Point(0, 274);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 20);
@@ -698,12 +689,12 @@
         private System.Windows.Forms.TextBox barramentoTextBox;
         private System.Windows.Forms.TextBox ruaTextBox;
         private System.Windows.Forms.TextBox bairroTextBox;
-        private System.Windows.Forms.MenuItem menuItem7;
+        private System.Windows.Forms.MenuItem menuItemComponente;
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox obsTextBox;
-        private System.Windows.Forms.MenuItem menuItem10;
+        private System.Windows.Forms.MenuItem menuItemSalvar;
         private System.Windows.Forms.TextBox sequenciaTextBox;
         private System.Windows.Forms.MenuItem menuItem11;
         private System.Windows.Forms.MenuItem menuItem12;
@@ -720,7 +711,6 @@
         private System.Windows.Forms.DataGrid posteDataGrid;
         private System.Windows.Forms.DataGridTableStyle posteTableStyleDataGridTableStyle;
         private System.Windows.Forms.Label labelPosteID;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;

@@ -120,7 +120,6 @@ namespace CipX
                                     "`sequencia`, " +
                                     "`barramento`, " +
                                     "`medido`, " +
-                                    "`aceso`, " +
                                     "`trafo_id`, " +
                                     "`lat`, " +
                                     "`lon`, " +
@@ -137,7 +136,6 @@ namespace CipX
                                     "@sequencia , " +
                                     "@barramento , " +
                                     "@medido , " +
-                                    "@aceso , " +
                                     "@trafo_id , " +
                                     "@lat , " +
                                     "@lon , " +
@@ -162,9 +160,6 @@ namespace CipX
 
                         if (rowPoste.IsmedidoNull()) { mycommandPoste.Parameters.AddWithValue("medido", null); }
                         else { mycommandPoste.Parameters.AddWithValue("medido", rowPoste.medido); }
-
-                        if (rowPoste.IsacesoNull()) { mycommandPoste.Parameters.AddWithValue("aceso", null); }
-                        else { mycommandPoste.Parameters.AddWithValue("aceso", rowPoste.aceso); }
 
                         mycommandPoste.Parameters.AddWithValue("trafo_id", mycommand.LastInsertedId);
                         mycommandPoste.Parameters.AddWithValue("lat", rowPoste.lat);
@@ -201,13 +196,23 @@ namespace CipX
 
                             //mfrn@0830$X-PRO
                             mycommandPosteHasTipoLuminaria.CommandText = "INSERT INTO `eletrocad`.`poste_has_tipo_luminaria` " +
-                                "(`poste_id`,`tipo_luminaria_id`,`lampada_id`,`reator_id`,`braco_id`,"+
+                                "(`poste_id`,`tipo_luminaria_id`,`lampada_id`,`reator_id`,`braco_id`,`aceso`," +
+                                "`lat`, " +
+                                "`lon`, " +
+                                "`gps_time`, " +
                                 "`quantidade`,`ativacao_id`,`fase_id`) VALUES "+
-                                "(@posteId, @tipoId,@lampada,@reator,@braco,@quantidade,@ativacao,@fase)";
+                                "(@posteId, @tipoId,@lampada,@reator,@braco,@aceso,@lat,@lon,@gps_time," +
+                                "@quantidade, "+
+                                "@ativacao, "+
+								"@fase)";
 
                             mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("posteId", mycommandPoste.LastInsertedId);
                             mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("tipoId", rowPosteHasTipoLuminaria.tipo_luminaria_id);
                             mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("lampada", rowPosteHasTipoLuminaria.lampada_id);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("aceso", rowPosteHasTipoLuminaria.aceso);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("lat", rowPosteHasTipoLuminaria.lat);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("lon", rowPosteHasTipoLuminaria.lon);
+                            mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("gps_time", rowPosteHasTipoLuminaria.gps_time);
 
                             if (rowPosteHasTipoLuminaria.Isreator_idNull()) { mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("reator", null); }
                             else { mycommandPosteHasTipoLuminaria.Parameters.AddWithValue("reator", rowPosteHasTipoLuminaria.reator_id); }

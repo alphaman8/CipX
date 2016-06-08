@@ -10,5 +10,6 @@ namespace CipX
         public static int nMaxBarramento;
         public static int nMinBarramento;
         public static int id;
+        public static int repetir_coord;
     }
 }

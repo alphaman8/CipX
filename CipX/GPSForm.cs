@@ -32,9 +32,10 @@ namespace CipX
         {
             InitializeComponent();
             ControlBox = false;
+
         }
 
-        public static GPSReceiver gpsTrimble;
+        public static GPSReceiver gpsTrimble = null;
         public SSFWriterErrorCode errorCode;
         public static SSFWriter ssfWriter;
         public static String gpsTrimbleStatus;
@@ -46,35 +47,41 @@ namespace CipX
             {
                 //gpsTrimble.PositionMinimumInterval = 25;
                 gpsTrimble.StopTracking();
-                //gpsTrimble.ResetGPSReceiver();
-                //Usuario.UsandoTrimble = false;
             }
         }
 
-        public static void StartTraking()
+        public static bool StartTraking()
         {
-            //GPS.accuracy = 200;
+            GPS.accuracy = 200;
             if (gpsTrimble != null)
             {
                 //gpsTrimble.PositionMinimumInterval = 5.0f;
                 gpsTrimble.StartTracking();
             }
+            else
+            {
+                MessageBox.Show("GPS Não foi conectado");
+                return false;
+            }
+            return true;
         }
 
         public bool usarSSF = true;
 
         public string ConectarTrimbleSimulacao()
         {
+
+            //GPS CONFIG
             gpsTrimble = new GPSReceiver();
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 10.0f;
+            gpsTrimble.PositionMinimumInterval = 6.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
             gpsTrimble.DOPType = DOPTypeCode.pfDOPTypePDOP;
-            gpsTrimble.MaximumPDOPMask = 99.0f;
+            gpsTrimble.MaximumPDOPMask = 8.0f;
             //this.gpsTrimble.MaximumHDOPMask = 3.9f;
             //this.gpsTrimble.VelocityFilter = false;
 
@@ -106,13 +113,18 @@ namespace CipX
             }
         }
 
+
+
         public string ConectarTrimble()
         {
+
+
+            //GPS CONFIG
             gpsTrimble = new GPSReceiver();
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 10.0f;
+            gpsTrimble.PositionMinimumInterval = 6.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -127,7 +139,6 @@ namespace CipX
                 new IGPSReceiverEvents_NewGPSStatusEventHandler(gpsTrimble_NewGPSStatus);
             gpsTrimble.NewPosition +=
                 new IGPSReceiverEvents_NewPositionEventHandler(gpsTrimble_NewPosition);
-
             //ativar simulação
             //gpsTrimble.SimulationSettings.Latitude = -12.212f;
             //gpsTrimble.SimulationSettings.Longitude = -38.958f;
@@ -177,15 +188,14 @@ namespace CipX
 
         private void gpsTrimble_NewPosition(GPSPosition position)
         {
-            pos = position;
-            
+            pos = position;            
             statusTrimble();
         }
 
         private void gpsTrimble_NewGPSStatus(GPSStatusCode code, String s)
         {
             gpsTrimbleStatus = s;
-            statusTrimble();
+            //statusTrimble();
         }
 
         public virtual void statusTrimble()

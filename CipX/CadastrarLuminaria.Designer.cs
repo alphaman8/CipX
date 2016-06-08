@@ -41,17 +41,10 @@
             System.Windows.Forms.Label latLabel;
             System.Windows.Forms.Label lonLabel;
             System.Windows.Forms.Label gps_timeLabel;
-            System.Windows.Forms.Label reator_idLabel;
-            System.Windows.Forms.DataGridTextBoxColumn chave_comandoDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn fase_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn ativacao_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn braco_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn quantidadeDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn lampada_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn luminariaDataGridColumnStyleDataGridTextBoxColumn;
-            System.Windows.Forms.DataGridTextBoxColumn lampadaDataGridColumnStyleDataGridTextBoxColumn;
             System.Windows.Forms.DataGridTextBoxColumn quantidadeDataGridColumnStyleDataGridTextBoxColumn1;
+            System.Windows.Forms.DataGridTextBoxColumn lampadaDataGridColumnStyleDataGridTextBoxColumn;
+            System.Windows.Forms.DataGridTextBoxColumn luminariaDataGridColumnStyleDataGridTextBoxColumn;
+            System.Windows.Forms.Label reator_idLabel;
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
@@ -67,27 +60,27 @@
             this.luminariasDataGrid = new System.Windows.Forms.DataGrid();
             this.eletrocadDataSet = new CipX.db.eletrocadDataSet();
             this.luminariasTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
-            this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.poste_has_tipo_luminariaDataGrid = new System.Windows.Forms.DataGrid();
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle = new System.Windows.Forms.DataGridTableStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.reatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.chavecomandoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cbChaveComando = new System.Windows.Forms.ComboBox();
+            this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quantidadeTextBox = new System.Windows.Forms.TextBox();
             this.faseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cbFaseId = new System.Windows.Forms.ComboBox();
             this.ativacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cbAtivacao = new System.Windows.Forms.ComboBox();
             this.bracoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbBraco = new System.Windows.Forms.ComboBox();
             this.lampadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbLampada = new System.Windows.Forms.ComboBox();
             this.tipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTipoLum = new System.Windows.Forms.ComboBox();
             this.poste_idTextBox = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.chkRepetir = new System.Windows.Forms.CheckBox();
+            this.reatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbReator = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.gps_timeTextBox = new System.Windows.Forms.TextBox();
             this.lonTextBox = new System.Windows.Forms.TextBox();
             this.latTextBox = new System.Windows.Forms.TextBox();
@@ -116,31 +109,24 @@
             latLabel = new System.Windows.Forms.Label();
             lonLabel = new System.Windows.Forms.Label();
             gps_timeLabel = new System.Windows.Forms.Label();
-            reator_idLabel = new System.Windows.Forms.Label();
-            chave_comandoDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            fase_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            braco_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            quantidadeDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            lampada_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            luminariaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-            lampadaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             quantidadeDataGridColumnStyleDataGridTextBoxColumn1 = new System.Windows.Forms.DataGridTextBoxColumn();
+            lampadaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
+            luminariaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
+            reator_idLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luminariasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lampadaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoluminariaBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,7 +198,7 @@
             // latLabel
             // 
             latLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            latLabel.Location = new System.Drawing.Point(49, 10);
+            latLabel.Location = new System.Drawing.Point(50, 61);
             latLabel.Name = "latLabel";
             latLabel.Size = new System.Drawing.Size(27, 14);
             latLabel.Text = "lat:";
@@ -220,7 +206,7 @@
             // lonLabel
             // 
             lonLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            lonLabel.Location = new System.Drawing.Point(46, 37);
+            lonLabel.Location = new System.Drawing.Point(47, 88);
             lonLabel.Name = "lonLabel";
             lonLabel.Size = new System.Drawing.Size(30, 14);
             lonLabel.Text = "lon:";
@@ -228,83 +214,10 @@
             // gps_timeLabel
             // 
             gps_timeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            gps_timeLabel.Location = new System.Drawing.Point(12, 64);
+            gps_timeLabel.Location = new System.Drawing.Point(13, 115);
             gps_timeLabel.Name = "gps_timeLabel";
             gps_timeLabel.Size = new System.Drawing.Size(64, 14);
             gps_timeLabel.Text = "gps time:";
-            // 
-            // reator_idLabel
-            // 
-            reator_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            reator_idLabel.Location = new System.Drawing.Point(49, 203);
-            reator_idLabel.Name = "reator_idLabel";
-            reator_idLabel.Size = new System.Drawing.Size(64, 14);
-            reator_idLabel.Text = "reator id:";
-            // 
-            // chave_comandoDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            chave_comandoDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            chave_comandoDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            chave_comandoDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "chave_comando";
-            chave_comandoDataGridColumnStyleDataGridTextBoxColumn.MappingName = "chave_comando";
-            // 
-            // fase_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "fase_id";
-            fase_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "fase_id";
-            // 
-            // ativacao_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "ativacao_id";
-            ativacao_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "ativacao_id";
-            // 
-            // braco_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "braco_id";
-            braco_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "braco_id";
-            // 
-            // quantidadeDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            quantidadeDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            quantidadeDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            quantidadeDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "quantidade";
-            quantidadeDataGridColumnStyleDataGridTextBoxColumn.MappingName = "quantidade";
-            // 
-            // lampada_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            lampada_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            lampada_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            lampada_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "lampada_id";
-            lampada_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "lampada_id";
-            // 
-            // tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "tipo_luminaria_id";
-            tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn.MappingName = "tipo_luminaria_id";
-            // 
-            // luminariaDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            luminariaDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            luminariaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            luminariaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "luminária";
-            luminariaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "luminaria";
-            luminariaDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
-            // 
-            // lampadaDataGridColumnStyleDataGridTextBoxColumn
-            // 
-            lampadaDataGridColumnStyleDataGridTextBoxColumn.Format = "";
-            lampadaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
-            lampadaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "lâmpada";
-            lampadaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "lampada";
-            lampadaDataGridColumnStyleDataGridTextBoxColumn.Width = 120;
             // 
             // quantidadeDataGridColumnStyleDataGridTextBoxColumn1
             // 
@@ -314,6 +227,30 @@
             quantidadeDataGridColumnStyleDataGridTextBoxColumn1.MappingName = "quantidade";
             quantidadeDataGridColumnStyleDataGridTextBoxColumn1.NullText = "";
             quantidadeDataGridColumnStyleDataGridTextBoxColumn1.Width = 80;
+            // 
+            // lampadaDataGridColumnStyleDataGridTextBoxColumn
+            // 
+            lampadaDataGridColumnStyleDataGridTextBoxColumn.Format = "";
+            lampadaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
+            lampadaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "lâmpada";
+            lampadaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "lampada";
+            lampadaDataGridColumnStyleDataGridTextBoxColumn.Width = 120;
+            // 
+            // luminariaDataGridColumnStyleDataGridTextBoxColumn
+            // 
+            luminariaDataGridColumnStyleDataGridTextBoxColumn.Format = "";
+            luminariaDataGridColumnStyleDataGridTextBoxColumn.FormatInfo = null;
+            luminariaDataGridColumnStyleDataGridTextBoxColumn.HeaderText = "luminária";
+            luminariaDataGridColumnStyleDataGridTextBoxColumn.MappingName = "luminaria";
+            luminariaDataGridColumnStyleDataGridTextBoxColumn.Width = 80;
+            // 
+            // reator_idLabel
+            // 
+            reator_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            reator_idLabel.Location = new System.Drawing.Point(18, 10);
+            reator_idLabel.Name = "reator_idLabel";
+            reator_idLabel.Size = new System.Drawing.Size(64, 14);
+            reator_idLabel.Text = "reator id:";
             // 
             // mainMenu1
             // 
@@ -361,8 +298,8 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label1.Location = new System.Drawing.Point(0, 274);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 20);
@@ -386,7 +323,6 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.luminariasDataGrid);
-            this.tabPage1.Controls.Add(this.poste_has_tipo_luminariaDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(240, 251);
@@ -422,90 +358,49 @@
             this.luminariasTableStyleDataGridTableStyle.GridColumnStyles.Add(quantidadeDataGridColumnStyleDataGridTextBoxColumn1);
             this.luminariasTableStyleDataGridTableStyle.MappingName = "luminarias";
             // 
-            // postehastipoluminariaBindingSource
-            // 
-            this.postehastipoluminariaBindingSource.DataMember = "poste_has_tipo_luminaria";
-            this.postehastipoluminariaBindingSource.DataSource = this.eletrocadDataSet;
-            this.postehastipoluminariaBindingSource.Position = 0;
-            // 
-            // poste_has_tipo_luminariaDataGrid
-            // 
-            this.poste_has_tipo_luminariaDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.poste_has_tipo_luminariaDataGrid.DataSource = this.postehastipoluminariaBindingSource;
-            this.poste_has_tipo_luminariaDataGrid.Location = new System.Drawing.Point(14, 143);
-            this.poste_has_tipo_luminariaDataGrid.Name = "poste_has_tipo_luminariaDataGrid";
-            this.poste_has_tipo_luminariaDataGrid.Size = new System.Drawing.Size(189, 86);
-            this.poste_has_tipo_luminariaDataGrid.TabIndex = 0;
-            this.poste_has_tipo_luminariaDataGrid.TableStyles.Add(this.poste_has_tipo_luminariaTableStyleDataGridTableStyle);
-            this.poste_has_tipo_luminariaDataGrid.Visible = false;
-            // 
-            // poste_has_tipo_luminariaTableStyleDataGridTableStyle
-            // 
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.GridColumnStyles.Add(tipo_luminaria_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.GridColumnStyles.Add(lampada_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.GridColumnStyles.Add(quantidadeDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.GridColumnStyles.Add(braco_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.GridColumnStyles.Add(ativacao_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.GridColumnStyles.Add(fase_idDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.GridColumnStyles.Add(chave_comandoDataGridColumnStyleDataGridTextBoxColumn);
-            this.poste_has_tipo_luminariaTableStyleDataGridTableStyle.MappingName = "poste_has_tipo_luminaria";
-            // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.comboBox3);
-            this.tabPage2.Controls.Add(reator_idLabel);
-            this.tabPage2.Controls.Add(this.comboBox7);
+            this.tabPage2.Controls.Add(this.cbChaveComando);
             this.tabPage2.Controls.Add(chave_comandoLabel);
             this.tabPage2.Controls.Add(quantidadeLabel);
             this.tabPage2.Controls.Add(this.quantidadeTextBox);
-            this.tabPage2.Controls.Add(this.comboBox6);
-            this.tabPage2.Controls.Add(this.comboBox5);
+            this.tabPage2.Controls.Add(this.cbFaseId);
+            this.tabPage2.Controls.Add(this.cbAtivacao);
             this.tabPage2.Controls.Add(fase_idLabel);
             this.tabPage2.Controls.Add(ativacao_idLabel);
-            this.tabPage2.Controls.Add(this.comboBox4);
+            this.tabPage2.Controls.Add(this.cbBraco);
             this.tabPage2.Controls.Add(braco_idLabel);
-            this.tabPage2.Controls.Add(this.comboBox2);
+            this.tabPage2.Controls.Add(this.cbLampada);
             this.tabPage2.Controls.Add(lampada_idLabel);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.cbTipoLum);
             this.tabPage2.Controls.Add(tipo_luminaria_idLabel);
             this.tabPage2.Controls.Add(poste_idLabel);
             this.tabPage2.Controls.Add(this.poste_idTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 251);
+            this.tabPage2.Size = new System.Drawing.Size(232, 248);
             this.tabPage2.Text = "Formulário I";
-            // 
-            // reatorBindingSource
-            // 
-            this.reatorBindingSource.DataMember = "reator";
-            this.reatorBindingSource.DataSource = this.eletrocadDataSet;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "reator_id", true));
-            this.comboBox3.DataSource = this.reatorBindingSource;
-            this.comboBox3.DisplayMember = "descricao";
-            this.comboBox3.Location = new System.Drawing.Point(114, 200);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(119, 22);
-            this.comboBox3.TabIndex = 43;
-            this.comboBox3.ValueMember = "id";
             // 
             // chavecomandoBindingSource
             // 
             this.chavecomandoBindingSource.DataMember = "chave_comando";
             this.chavecomandoBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // comboBox7
+            // cbChaveComando
             // 
-            this.comboBox7.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "chave_comando", true));
-            this.comboBox7.DataSource = this.chavecomandoBindingSource;
-            this.comboBox7.DisplayMember = "descricao";
-            this.comboBox7.Location = new System.Drawing.Point(114, 146);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(119, 22);
-            this.comboBox7.TabIndex = 32;
-            this.comboBox7.ValueMember = "id";
+            this.cbChaveComando.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "chave_comando", true));
+            this.cbChaveComando.DataSource = this.chavecomandoBindingSource;
+            this.cbChaveComando.DisplayMember = "descricao";
+            this.cbChaveComando.Location = new System.Drawing.Point(114, 146);
+            this.cbChaveComando.Name = "cbChaveComando";
+            this.cbChaveComando.Size = new System.Drawing.Size(119, 22);
+            this.cbChaveComando.TabIndex = 32;
+            this.cbChaveComando.ValueMember = "id";
+            // 
+            // postehastipoluminariaBindingSource
+            // 
+            this.postehastipoluminariaBindingSource.DataMember = "poste_has_tipo_luminaria";
+            this.postehastipoluminariaBindingSource.DataSource = this.eletrocadDataSet;
             // 
             // quantidadeTextBox
             // 
@@ -521,80 +416,82 @@
             this.faseBindingSource.DataMember = "fase";
             this.faseBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // comboBox6
+            // cbFaseId
             // 
-            this.comboBox6.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "fase_id", true));
-            this.comboBox6.DataSource = this.faseBindingSource;
-            this.comboBox6.DisplayMember = "descricao";
-            this.comboBox6.Location = new System.Drawing.Point(114, 118);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(119, 22);
-            this.comboBox6.TabIndex = 22;
-            this.comboBox6.ValueMember = "id";
+            this.cbFaseId.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "fase_id", true));
+            this.cbFaseId.DataSource = this.faseBindingSource;
+            this.cbFaseId.DisplayMember = "descricao";
+            this.cbFaseId.Location = new System.Drawing.Point(114, 118);
+            this.cbFaseId.Name = "cbFaseId";
+            this.cbFaseId.Size = new System.Drawing.Size(119, 22);
+            this.cbFaseId.TabIndex = 22;
+            this.cbFaseId.ValueMember = "id";
             // 
             // ativacaoBindingSource
             // 
             this.ativacaoBindingSource.DataMember = "ativacao";
             this.ativacaoBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // comboBox5
+            // cbAtivacao
             // 
-            this.comboBox5.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "ativacao_id", true));
-            this.comboBox5.DataSource = this.ativacaoBindingSource;
-            this.comboBox5.DisplayMember = "descricao";
-            this.comboBox5.Location = new System.Drawing.Point(114, 90);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(119, 22);
-            this.comboBox5.TabIndex = 21;
-            this.comboBox5.ValueMember = "id";
+            this.cbAtivacao.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "ativacao_id", true));
+            this.cbAtivacao.DataSource = this.ativacaoBindingSource;
+            this.cbAtivacao.DisplayMember = "descricao";
+            this.cbAtivacao.Location = new System.Drawing.Point(114, 90);
+            this.cbAtivacao.Name = "cbAtivacao";
+            this.cbAtivacao.Size = new System.Drawing.Size(119, 22);
+            this.cbAtivacao.TabIndex = 21;
+            this.cbAtivacao.ValueMember = "id";
             // 
             // bracoBindingSource
             // 
             this.bracoBindingSource.DataMember = "braco";
             this.bracoBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // comboBox4
+            // cbBraco
             // 
-            this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "braco_id", true));
-            this.comboBox4.DataSource = this.bracoBindingSource;
-            this.comboBox4.DisplayMember = "descricao";
-            this.comboBox4.Location = new System.Drawing.Point(114, 62);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(119, 22);
-            this.comboBox4.TabIndex = 13;
-            this.comboBox4.ValueMember = "id";
+            this.cbBraco.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "braco_id", true));
+            this.cbBraco.DataSource = this.bracoBindingSource;
+            this.cbBraco.DisplayMember = "descricao";
+            this.cbBraco.Location = new System.Drawing.Point(114, 62);
+            this.cbBraco.Name = "cbBraco";
+            this.cbBraco.Size = new System.Drawing.Size(119, 22);
+            this.cbBraco.TabIndex = 13;
+            this.cbBraco.ValueMember = "id";
             // 
             // lampadaBindingSource
             // 
             this.lampadaBindingSource.DataMember = "lampada";
             this.lampadaBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // comboBox2
+            // cbLampada
             // 
-            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "lampada_id", true));
-            this.comboBox2.DataSource = this.lampadaBindingSource;
-            this.comboBox2.DisplayMember = "descricao";
-            this.comboBox2.Location = new System.Drawing.Point(114, 35);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(119, 22);
-            this.comboBox2.TabIndex = 11;
-            this.comboBox2.ValueMember = "id";
+            this.cbLampada.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "lampada_id", true));
+            this.cbLampada.DataSource = this.lampadaBindingSource;
+            this.cbLampada.DisplayMember = "descricao";
+            this.cbLampada.Location = new System.Drawing.Point(114, 35);
+            this.cbLampada.Name = "cbLampada";
+            this.cbLampada.Size = new System.Drawing.Size(119, 22);
+            this.cbLampada.TabIndex = 11;
+            this.cbLampada.ValueMember = "id";
             // 
             // tipoluminariaBindingSource
             // 
             this.tipoluminariaBindingSource.DataMember = "tipo_luminaria";
             this.tipoluminariaBindingSource.DataSource = this.eletrocadDataSet;
             // 
-            // comboBox1
+            // cbTipoLum
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "tipo_luminaria_id", true));
-            this.comboBox1.DataSource = this.tipoluminariaBindingSource;
-            this.comboBox1.DisplayMember = "descricao";
-            this.comboBox1.Location = new System.Drawing.Point(114, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 22);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.ValueMember = "id";
+            this.cbTipoLum.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "tipo_luminaria_id", true));
+            this.cbTipoLum.DataSource = this.tipoluminariaBindingSource;
+            this.cbTipoLum.DisplayMember = "descricao";
+            this.cbTipoLum.Location = new System.Drawing.Point(114, 7);
+            this.cbTipoLum.Name = "cbTipoLum";
+            this.cbTipoLum.Size = new System.Drawing.Size(119, 22);
+            this.cbTipoLum.TabIndex = 8;
+            this.cbTipoLum.ValueMember = "id";
+            this.cbTipoLum.SelectedIndexChanged += new System.EventHandler(this.cbTipoLum_SelectedIndexChanged);
+            this.cbTipoLum.SelectedValueChanged += new System.EventHandler(this.cbTipoLum_SelectedValueChanged);
             // 
             // poste_idTextBox
             // 
@@ -608,6 +505,10 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.chkRepetir);
+            this.tabPage4.Controls.Add(this.cbReator);
+            this.tabPage4.Controls.Add(reator_idLabel);
+            this.tabPage4.Controls.Add(this.checkBox1);
             this.tabPage4.Controls.Add(gps_timeLabel);
             this.tabPage4.Controls.Add(this.gps_timeTextBox);
             this.tabPage4.Controls.Add(lonLabel);
@@ -619,10 +520,43 @@
             this.tabPage4.Size = new System.Drawing.Size(240, 251);
             this.tabPage4.Text = "Formulário II";
             // 
+            // chkRepetir
+            // 
+            this.chkRepetir.Location = new System.Drawing.Point(9, 142);
+            this.chkRepetir.Name = "chkRepetir";
+            this.chkRepetir.Size = new System.Drawing.Size(224, 20);
+            this.chkRepetir.TabIndex = 47;
+            this.chkRepetir.Text = "Repetir Coordenada do poste";
+            // 
+            // reatorBindingSource
+            // 
+            this.reatorBindingSource.DataMember = "reator";
+            this.reatorBindingSource.DataSource = this.eletrocadDataSet;
+            // 
+            // cbReator
+            // 
+            this.cbReator.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.postehastipoluminariaBindingSource, "reator_id", true));
+            this.cbReator.DataSource = this.reatorBindingSource;
+            this.cbReator.DisplayMember = "descricao";
+            this.cbReator.Location = new System.Drawing.Point(83, 7);
+            this.cbReator.Name = "cbReator";
+            this.cbReator.Size = new System.Drawing.Size(119, 22);
+            this.cbReator.TabIndex = 45;
+            this.cbReator.ValueMember = "id";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.postehastipoluminariaBindingSource, "aceso", true));
+            this.checkBox1.Location = new System.Drawing.Point(83, 35);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(100, 20);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Aceso 24 H";
+            // 
             // gps_timeTextBox
             // 
             this.gps_timeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "gps_time", true));
-            this.gps_timeTextBox.Location = new System.Drawing.Point(83, 61);
+            this.gps_timeTextBox.Location = new System.Drawing.Point(83, 115);
             this.gps_timeTextBox.Name = "gps_timeTextBox";
             this.gps_timeTextBox.ReadOnly = true;
             this.gps_timeTextBox.Size = new System.Drawing.Size(150, 21);
@@ -631,7 +565,7 @@
             // lonTextBox
             // 
             this.lonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "lon", true));
-            this.lonTextBox.Location = new System.Drawing.Point(83, 34);
+            this.lonTextBox.Location = new System.Drawing.Point(83, 88);
             this.lonTextBox.Name = "lonTextBox";
             this.lonTextBox.ReadOnly = true;
             this.lonTextBox.Size = new System.Drawing.Size(150, 21);
@@ -640,7 +574,7 @@
             // latTextBox
             // 
             this.latTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postehastipoluminariaBindingSource, "lat", true));
-            this.latTextBox.Location = new System.Drawing.Point(83, 7);
+            this.latTextBox.Location = new System.Drawing.Point(83, 61);
             this.latTextBox.Name = "latTextBox";
             this.latTextBox.ReadOnly = true;
             this.latTextBox.Size = new System.Drawing.Size(150, 21);
@@ -654,7 +588,7 @@
             this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(240, 251);
+            this.tabPage3.Size = new System.Drawing.Size(232, 248);
             this.tabPage3.Text = "Foto";
             this.tabPage3.GotFocus += new System.EventHandler(this.tabPage3_GotFocus);
             // 
@@ -752,16 +686,16 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.luminariasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chavecomandoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postehastipoluminariaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ativacaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bracoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lampadaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoluminariaBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reatorBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -783,20 +717,20 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbLampada;
+        private System.Windows.Forms.ComboBox cbTipoLum;
         private System.Windows.Forms.TextBox poste_idTextBox;
         private System.Windows.Forms.BindingSource lampadaBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.lampadaTableAdapter lampadaTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbBraco;
         private System.Windows.Forms.BindingSource reatorBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.reatorTableAdapter reatorTableAdapter;
         private System.Windows.Forms.BindingSource bracoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.bracoTableAdapter bracoTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cbAtivacao;
         private System.Windows.Forms.BindingSource ativacaoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.ativacaoTableAdapter ativacaoTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cbFaseId;
         private System.Windows.Forms.BindingSource faseBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter faseTableAdapter;
         private System.Windows.Forms.TabPage tabPage3;
@@ -806,7 +740,7 @@
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox quantidadeTextBox;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cbChaveComando;
         private System.Windows.Forms.BindingSource chavecomandoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter chave_comandoTableAdapter;
         private System.Windows.Forms.TextBox foto_pathTextBox;
@@ -814,12 +748,12 @@
         private System.Windows.Forms.TextBox lonTextBox;
         private System.Windows.Forms.TextBox latTextBox;
         private System.Windows.Forms.TextBox gps_timeTextBox;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.BindingSource luminariasBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.luminariasTableAdapter luminariasTableAdapter;
-        private System.Windows.Forms.DataGrid poste_has_tipo_luminariaDataGrid;
-        private System.Windows.Forms.DataGridTableStyle poste_has_tipo_luminariaTableStyleDataGridTableStyle;
+        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGrid luminariasDataGrid;
         private System.Windows.Forms.DataGridTableStyle luminariasTableStyleDataGridTableStyle;
+        private System.Windows.Forms.CheckBox chkRepetir;
+        private System.Windows.Forms.ComboBox cbReator;
     }
 }
