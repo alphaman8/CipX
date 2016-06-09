@@ -126,6 +126,7 @@ namespace CipX
                     trafoTableAdapter.FillByPip(eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
                     trafoBindingSource.MoveLast();
                     MessageBox.Show("Informações salvas com sucesso! ");
+                    tabControl1.SelectedIndex = 0;
                 }
                 else
                 {

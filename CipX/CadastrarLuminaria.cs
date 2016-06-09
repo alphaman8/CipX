@@ -109,6 +109,7 @@ namespace CipX
             cbTipoLum.Focus();
             pictureBox1.Image = null;
             quantidadeTextBox.Text = ""+1;
+            cbTipoLum.SelectedIndex = -1;
             cbLampada.SelectedIndex = -1; //luminaria
             cbBraco.SelectedIndex = -1;
             cbAtivacao.SelectedIndex = -1;
@@ -173,7 +174,7 @@ namespace CipX
                     pictureBox1.Image = null;
                     luminariasBindingSource.Position = 0;
                     MessageBox.Show("Informações salvas com sucesso! ");
-
+                    tabControl1.SelectedIndex = 0;
                 }
                 else
                 {

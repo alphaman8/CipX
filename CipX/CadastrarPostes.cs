@@ -139,6 +139,7 @@ namespace CipX
                     posteTableAdapter.FillByTrafo(eletrocadDataSet.poste, CadastrarTrafo.trafoId);
                     posteBindingSource.MoveLast();
                     MessageBox.Show("Informações salvas com sucesso! ");
+                    tabControl1.SelectedIndex = 0;
                 }
                 else
                 {
@@ -292,7 +293,7 @@ namespace CipX
             }
             else
             {
-                menuItemSalvar.Enabled = true;
+                menuItemSalvar.Enabled = true;                
             }
         }
     }

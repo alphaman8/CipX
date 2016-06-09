@@ -14058,13 +14058,13 @@ namespace CipX.db.eletrocadDataSetTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        phtl.poste_id, tl.descricao AS luminaria, phtl.descricao, b.descricao AS braco, tla.descricao AS lampada, phtl.quantidade, r.descricao AS reator, 
                          a.descricao AS ativacao, f.descricao AS fase, cc.descricao AS chave_de_comando, phtl.id, phtl.foto_path, phtl.lat, phtl.lon, phtl.gps_time
-FROM            poste_has_tipo_luminaria AS phtl INNER JOIN
-                         tipo_luminaria AS tl ON tl.id = phtl.tipo_luminaria_id LEFT OUTER JOIN
-                         braco AS b ON b.id = phtl.braco_id INNER JOIN
-                         tipo_lampada AS tla ON tla.id = phtl.lampada_id LEFT OUTER JOIN
-                         reator AS r ON r.id = phtl.reator_id LEFT OUTER JOIN
-                         ativacao AS a ON a.id = phtl.ativacao_id LEFT OUTER JOIN
-                         fase AS f ON f.id = phtl.fase_id LEFT OUTER JOIN
+FROM            poste_has_tipo_luminaria AS phtl JOIN
+                         tipo_luminaria AS tl ON tl.id = phtl.tipo_luminaria_id left JOIN
+                         braco AS b ON b.id = phtl.braco_id left JOIN
+                         tipo_lampada AS tla ON tla.id = phtl.lampada_id left JOIN
+                         reator AS r ON r.id = phtl.reator_id left JOIN
+                         ativacao AS a ON a.id = phtl.ativacao_id left JOIN
+                         fase AS f ON f.id = phtl.fase_id left JOIN
                          chave_comando AS cc ON cc.id = phtl.chave_comando
 WHERE        (phtl.poste_id = @poste)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
