@@ -112,14 +112,14 @@ namespace CipX
             //listGPS.Items.Add("Error: " + GPS.error);
 
 
-            if (GPS.accuracy > GPS.accuracyIdeal - 10 
+            if (GPS.accuracy > GPS.accuracyIdeal - 9
                 && status.Contains("corretamente") && GPS.numberOfSatellites < 7)
             {
                 listGPS.Items.Add("Baixa acurácia!");
                 listGPS.ForeColor = Color.Orange;
                 gpsOk = false;
             }
-            if (GPS.accuracy <= GPS.accuracyIdeal - 10
+            if (GPS.accuracy <= GPS.accuracyIdeal - 9
                 && status.Contains("corretamente") && GPS.numberOfSatellites >= 7)
             {
                 listGPS.Items.Add("Boa acurácia!");
@@ -679,7 +679,7 @@ namespace CipX
                     reader.Close();
 
                     label1.Text = "Luminária importada com sucesso!";
-                    StartTraking();
+                    //StartTraking();
 
                     Application.DoEvents();
 
@@ -772,6 +772,7 @@ namespace CipX
 
         private void cadastrar(object sender, EventArgs e)
         {
+            gpsTrimble.PositionMinimumInterval = 2.0f;
 
             if (GPSForm.gpsTrimble != null && GPSForm.gpsTrimble.IsTracking())
             {
@@ -838,7 +839,7 @@ namespace CipX
 
         private void menuItem10_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Informações podem ser apagadas ao importar dados externos. Deseja continuar?",
+            if (MessageBox.Show("Informações serão apagadas ao importar dados externos. Durante o processo o GPS será desligado. Deseja continuar?",
                 "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {

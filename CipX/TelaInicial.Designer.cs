@@ -82,6 +82,7 @@
             this.chave_comandoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter();
             this.btnConectar = new CipX.components.ButtonImage(this.components);
             this.buttonImage1 = new CipX.components.ButtonImage(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             nomeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -377,6 +378,14 @@
             this.buttonImage1.Text = "Cadastrar";
             this.buttonImage1.Click += new System.EventHandler(this.buttonImage1_Click);
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(174, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 20);
+            this.label2.Text = "B23";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -384,6 +393,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonImage1);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(nomeLabel);
@@ -469,5 +479,6 @@
         private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem7;
+        private System.Windows.Forms.Label label2;
     }
 }

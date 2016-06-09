@@ -88,7 +88,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.condicao_riscoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.condicao_riscoTableAdapter();
             this.posteTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.posteTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
             this.postehasusomutuoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poste_has_uso_mutuoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter();
             this.postehastipoluminariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -314,7 +313,7 @@
             // menuItem9
             // 
             this.menuItem9.Text = "Uso Mútuo";
-            this.menuItem9.Click += new System.EventHandler(this.menuItem9_Click);
+            this.menuItem9.Click += new System.EventHandler(this.cadastrarUsoMutuo);
             // 
             // menuItem3
             // 
@@ -331,10 +330,11 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(240, 271);
+            this.tabControl1.Size = new System.Drawing.Size(240, 294);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -343,7 +343,7 @@
             this.tabPage1.Controls.Add(this.posteDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(240, 248);
+            this.tabPage1.Size = new System.Drawing.Size(240, 271);
             this.tabPage1.Text = "Tabela";
             // 
             // labelPosteID
@@ -353,7 +353,7 @@
             this.labelPosteID.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelPosteID.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.labelPosteID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelPosteID.Location = new System.Drawing.Point(0, 228);
+            this.labelPosteID.Location = new System.Drawing.Point(0, 251);
             this.labelPosteID.Name = "labelPosteID";
             this.labelPosteID.Size = new System.Drawing.Size(240, 20);
             this.labelPosteID.Text = "0";
@@ -378,7 +378,7 @@
             this.posteDataGrid.Location = new System.Drawing.Point(0, 0);
             this.posteDataGrid.Name = "posteDataGrid";
             this.posteDataGrid.RowHeadersVisible = false;
-            this.posteDataGrid.Size = new System.Drawing.Size(240, 248);
+            this.posteDataGrid.Size = new System.Drawing.Size(240, 271);
             this.posteDataGrid.TabIndex = 0;
             this.posteDataGrid.TableStyles.Add(this.posteTableStyleDataGridTableStyle);
             // 
@@ -615,16 +615,6 @@
             // 
             this.posteTableAdapter.ClearBeforeFill = true;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(0, 274);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 20);
-            // 
             // postehasusomutuoBindingSource
             // 
             this.postehasusomutuoBindingSource.DataMember = "poste_has_uso_mutuo";
@@ -650,7 +640,6 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
@@ -711,7 +700,6 @@
         private System.Windows.Forms.DataGrid posteDataGrid;
         private System.Windows.Forms.DataGridTableStyle posteTableStyleDataGridTableStyle;
         private System.Windows.Forms.Label labelPosteID;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource postehasusomutuoBindingSource;
         private CipX.db.eletrocadDataSetTableAdapters.poste_has_uso_mutuoTableAdapter poste_has_uso_mutuoTableAdapter;
         private System.Windows.Forms.BindingSource postehastipoluminariaBindingSource;

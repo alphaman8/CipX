@@ -21,10 +21,18 @@ namespace CipX
             //SAIR
             if (verificaPendencia())
             {
-                MessageBox.Show("O sistema detectou pendências no cadastro","",
-                    MessageBoxButtons.OK,MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
-                tabControl1.SelectedIndex = 3;
-                return;
+                if (MessageBox.Show("O sistema detectou pendências no cadastro. Deseja sair assim mesmo?", "",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Asterisk,
+                    MessageBoxDefaultButton.Button1) == DialogResult.OK)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    tabControl1.SelectedIndex = 3;
+                    return;
+                }
             }
 
             this.Close();        
@@ -56,8 +64,6 @@ namespace CipX
             Application.DoEvents();
 
             menuItemSalvar.Enabled = false;
-
-            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy + "m";
 
             string bairro = "", logradouro = "";
             int seq = 1;
@@ -117,6 +123,13 @@ namespace CipX
                 return;
             }
 
+            if (GPSForm.gpsTrimble.IsTracking())
+            {
+                latTextBox.Text = GPS.lat.ToString();
+                lonTextBox.Text = GPS.lon.ToString();
+                gps_timeTextBox.Text = GPS.gpsTime.ToString();
+            }
+
             try
             {
                 this.posteBindingSource.EndEdit();
@@ -129,7 +142,9 @@ namespace CipX
                 }
 
                 DataTable dt = changes.Tables["poste"];
+                
                 db.eletrocadDataSet.posteRow r = (db.eletrocadDataSet.posteRow)dt.Rows[0];
+
                 DataRow[] badRows = dt.GetErrors();
 
                 if (badRows.Length == 0)
@@ -138,7 +153,19 @@ namespace CipX
                     this.eletrocadDataSet.AcceptChanges();
                     posteTableAdapter.FillByTrafo(eletrocadDataSet.poste, CadastrarTrafo.trafoId);
                     posteBindingSource.MoveLast();
-                    MessageBox.Show("Informações salvas com sucesso! ");
+
+                    int id = (int)((DataRowView)this.posteBindingSource.Current).Row["id"];
+                    int seq = (int)((DataRowView)this.posteBindingSource.Current).Row["sequencia"];
+
+                    if (MessageBox.Show("Informações salvas com sucesso. Inserir Uso Mútuo na Seq. "+seq+"?",
+                        "",MessageBoxButtons.OKCancel,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1) == DialogResult.OK && GPSForm.gpsTrimble.IsTracking())
+                    {
+                        posteId = Convert.ToInt32(id);
+                        GPSForm.StopTrimble();
+                        cadastrarUsoMutuo(sender, e);
+                    }
                     tabControl1.SelectedIndex = 0;
                 }
                 else
@@ -186,7 +213,7 @@ namespace CipX
             }
         }
 
-        private void menuItem9_Click(object sender, EventArgs e)
+        private void cadastrarUsoMutuo(object sender, EventArgs e)
         {
             posteId = Convert.ToInt32(labelPosteID.Text);
 
@@ -252,7 +279,7 @@ namespace CipX
                     c += 1;
                     listPendencias.Text += c+". Seq. " + row.sequencia + " sem luminária.";
                     listPendencias.Text += Environment.NewLine;
-                    p = true;
+                    //p = true;
                 }
                 if (j <= 0)
                 {
@@ -287,12 +314,15 @@ namespace CipX
                     ((DataRowView)posteBindingSource.Current).Row["sequencia"].ToString() + ")";
             }
 
-            if (GPS.accuracy > GPS.accuracyIdeal)
+            if (GPS.accuracy > GPS.accuracyIdeal - 5 && GPSForm.gpsTrimble.IsTracking())
             {
-                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+                menuItemSalvar.Text = "Salvar (Acurácia: "+GPS.accuracy+
+                    " / Ideal: "+(GPS.accuracyIdeal - 5)+")";
+                menuItemSalvar.Enabled = false;
             }
             else
             {
+                menuItemSalvar.Text = "Salvar";
                 menuItemSalvar.Enabled = true;                
             }
         }

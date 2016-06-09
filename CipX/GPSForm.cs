@@ -76,7 +76,7 @@ namespace CipX
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 6.0f;
+            gpsTrimble.PositionMinimumInterval = 5.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -124,7 +124,7 @@ namespace CipX
             gpsTrimble.CommPort = "COM4";
             //gpsTrimble.DGPSSettings.Source = DGPSSourceType.pfIntegratedSBASSource;
             //gpsTrimble.DGPSSettings.PositionMode = DGPSPositionMode.pfBestPositionsAvailable;
-            gpsTrimble.PositionMinimumInterval = 6.0f;
+            gpsTrimble.PositionMinimumInterval = 5.0f;
             gpsTrimble.MinimumElevationAngleMask = 5.0f;
             gpsTrimble.MinimumSNRMask = 12.0f;
             //this.gpsTrimble.MinimumNumberOfSatellites = 4;
@@ -200,6 +200,7 @@ namespace CipX
 
         public virtual void statusTrimble()
         {
+
         }
 
         //private void verificaConexao()

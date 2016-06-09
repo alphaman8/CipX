@@ -26,7 +26,6 @@ namespace CipX
             // TODO: This line of code loads data into the 'eletrocadDataSet.trafo' table. You can move, or remove it, as needed.
             this.trafoTableAdapter.FillByPip(this.eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
 
-            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy;
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();            
@@ -47,20 +46,9 @@ namespace CipX
 
             if (!GPSForm.StartTraking())
             {
-                Cursor.Current = Cursors.Default;
-                Application.DoEvents();
+                MessageBox.Show("GPS não está ligado.");
                 return;
             }
-
-            while (GPS.accuracy > GPS.accuracyIdeal+75)
-            {
-                label1.Text = "Precisão está baixa: "+GPS.accuracy+"m";
-                //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
-                //System.Threading.Thread.Sleep(1000);
-                Application.DoEvents();
-            }
-
-            label1.Text = "lat: " + GPS.lat + " lon: " + GPS.lon + " acc: " + GPS.accuracy+"m";
 
             try
             {
@@ -93,7 +81,14 @@ namespace CipX
 
             programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
 
-            GPSForm.StopTrimble();
+
+            //while (GPS.accuracy > GPS.accuracyIdeal + 75)
+            //{
+            //    label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+            //    //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+            //    //System.Threading.Thread.Sleep(1000);
+            //    Application.DoEvents();
+            //}
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -103,7 +98,20 @@ namespace CipX
         public static int trafoId;
 
         private void salvar(object sender, EventArgs e)
-        {            
+        {
+            //while (GPS.accuracy > GPS.accuracyIdeal + 75)
+            //{
+            //    label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+            //    //MessageBox.Show("Não é possível inserir pois a precisão está baixa");
+            //    //System.Threading.Thread.Sleep(1000);
+            //    Application.DoEvents();
+            //}
+
+            if (GPSForm.gpsTrimble.IsTracking())
+            {
+                gps_timeTextBox.Text = GPS.gpsTime.ToString();
+            }
+
             try
             {
                 this.trafoBindingSource.EndEdit();
@@ -124,7 +132,7 @@ namespace CipX
                     int numRows = trafoTableAdapter.Update(changes);
                     this.eletrocadDataSet.AcceptChanges();
                     trafoTableAdapter.FillByPip(eletrocadDataSet.trafo, CadastroProgramacao.programacaoId);
-                    trafoBindingSource.MoveLast();
+                    //trafoBindingSource.MoveLast();
                     MessageBox.Show("Informações salvas com sucesso! ");
                     tabControl1.SelectedIndex = 0;
                 }
@@ -146,6 +154,10 @@ namespace CipX
             {
                 MessageBox.Show(ex.Message);
                 //citeluz2DataSet.RejectChanges();
+            }
+            finally
+            {
+                GPSForm.StopTrimble();
             }
         }
 
@@ -182,12 +194,14 @@ namespace CipX
                     ((DataRowView)trafoBindingSource.Current).Row["chave"].ToString() + ")";
             }
 
-            if (GPS.accuracy > GPS.accuracyIdeal)
+            if (GPS.accuracy > GPS.accuracyIdeal && GPSForm.gpsTrimble.IsTracking())
             {
-                label1.Text = "Precisão está baixa: " + GPS.accuracy + "m";
+                menuItemSalvar.Text = "Salvar (Baixa acurácia)";
+                menuItemSalvar.Enabled = false;
             }
             else
             {
+                menuItemSalvar.Text = "Salvar";
                 menuItemSalvar.Enabled = true;
             }
         }

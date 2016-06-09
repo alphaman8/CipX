@@ -61,7 +61,6 @@
             this.ciaTextBox = new System.Windows.Forms.TextBox();
             this.chaveTextBox = new System.Windows.Forms.TextBox();
             this.lblTtrafoId = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.trafoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.trafoTableAdapter();
             chaveDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
             ciaDataGridColumnStyleDataGridTextBoxColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -219,7 +218,7 @@
             this.trafoDataGrid.Location = new System.Drawing.Point(0, 0);
             this.trafoDataGrid.Name = "trafoDataGrid";
             this.trafoDataGrid.RowHeadersVisible = false;
-            this.trafoDataGrid.Size = new System.Drawing.Size(240, 251);
+            this.trafoDataGrid.Size = new System.Drawing.Size(253, 251);
             this.trafoDataGrid.TabIndex = 1;
             this.trafoDataGrid.TableStyles.Add(this.trafoTableStyleDataGridTableStyle);
             // 
@@ -234,10 +233,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(240, 274);
+            this.tabControl1.Size = new System.Drawing.Size(253, 274);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -245,7 +245,7 @@
             this.tabPage1.Controls.Add(this.trafoDataGrid);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(240, 251);
+            this.tabPage1.Size = new System.Drawing.Size(253, 251);
             this.tabPage1.Text = "Tabela";
             // 
             // tabPage2
@@ -328,22 +328,11 @@
             this.lblTtrafoId.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblTtrafoId.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.lblTtrafoId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblTtrafoId.Location = new System.Drawing.Point(0, 294);
+            this.lblTtrafoId.Location = new System.Drawing.Point(0, 274);
             this.lblTtrafoId.Name = "lblTtrafoId";
-            this.lblTtrafoId.Size = new System.Drawing.Size(240, 20);
+            this.lblTtrafoId.Size = new System.Drawing.Size(253, 20);
             this.lblTtrafoId.Text = "0";
             this.lblTtrafoId.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(0, 274);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 20);
-            this.label1.Text = "label1";
             // 
             // trafoTableAdapter
             // 
@@ -356,7 +345,6 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(253, 294);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblTtrafoId);
             this.Location = new System.Drawing.Point(0, 0);
@@ -400,6 +388,5 @@
         private System.Windows.Forms.MenuItem menuItemPostes;
         private System.Windows.Forms.Label lblTtrafoId;
         private System.Windows.Forms.MenuItem menuItem7;
-        private System.Windows.Forms.Label label1;
     }
 }
