@@ -74,6 +74,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1C90B185A25043FF9C36ABB378E95E62"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1DED4B764AD31102DF63F7BDD015EF55"
         "OwnerKey" = "8:_965EB755103C4555873952DCEA19C65B"
         "MsmSig" = "8:_UNDEFINED"
@@ -558,6 +564,24 @@
                 }
             "SourcePath" = "8:..\\CipX\\kill.exe"
             "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_1C90B185A25043FF9C36ABB378E95E62"
+            {
+            "SourcePath" = "8:..\\..\\GpsLibCE.dll"
+            "TargetName" = "8:GpsLibCE.dll"
             "Tag" = "8:"
             "Folder" = "8:_CCD374147101435E9A255CEDE6F144F7"
             "Condition" = "8:"

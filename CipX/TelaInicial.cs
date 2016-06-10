@@ -772,7 +772,10 @@ namespace CipX
 
         private void cadastrar(object sender, EventArgs e)
         {
-            gpsTrimble.PositionMinimumInterval = 2.0f;
+            if (gpsTrimble != null && gpsTrimble.IsTracking())
+            {
+                gpsTrimble.PositionMinimumInterval = 2.0f;
+            }
 
             if (GPSForm.gpsTrimble != null && GPSForm.gpsTrimble.IsTracking())
             {
