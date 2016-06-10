@@ -215,7 +215,15 @@ namespace CipX
 
         private void cadastrarUsoMutuo(object sender, EventArgs e)
         {
-            posteId = Convert.ToInt32(labelPosteID.Text);
+            try
+            {
+                posteId = Convert.ToInt32(labelPosteID.Text);
+            }
+            catch (Exception)
+            {
+                
+                return;
+            }
 
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();

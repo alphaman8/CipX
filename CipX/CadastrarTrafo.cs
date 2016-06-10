@@ -194,15 +194,18 @@ namespace CipX
                     ((DataRowView)trafoBindingSource.Current).Row["chave"].ToString() + ")";
             }
 
-            if (GPS.accuracy > GPS.accuracyIdeal && GPSForm.gpsTrimble.IsTracking())
+            if (GPSForm.gpsTrimble != null)
             {
-                menuItemSalvar.Text = "Salvar (Baixa acurácia)";
-                menuItemSalvar.Enabled = false;
-            }
-            else
-            {
-                menuItemSalvar.Text = "Salvar";
-                menuItemSalvar.Enabled = true;
+                if (GPS.accuracy > GPS.accuracyIdeal && GPSForm.gpsTrimble.IsTracking())
+                {
+                    menuItemSalvar.Text = "Salvar (Baixa acurácia)";
+                    menuItemSalvar.Enabled = false;
+                }
+                else
+                {
+                    menuItemSalvar.Text = "Salvar";
+                    menuItemSalvar.Enabled = true;
+                }
             }
         }
     }

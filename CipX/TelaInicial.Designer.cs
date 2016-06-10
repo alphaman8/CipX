@@ -83,6 +83,7 @@
             this.btnConectar = new CipX.components.ButtonImage(this.components);
             this.buttonImage1 = new CipX.components.ButtonImage(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             nomeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -106,7 +107,7 @@
             // nomeLabel
             // 
             nomeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            nomeLabel.Location = new System.Drawing.Point(3, 6);
+            nomeLabel.Location = new System.Drawing.Point(3, 25);
             nomeLabel.Name = "nomeLabel";
             nomeLabel.Size = new System.Drawing.Size(66, 14);
             nomeLabel.Text = "Usuário";
@@ -201,7 +202,7 @@
             this.nomeComboBox.DataSource = this.usuarioBindingSource;
             this.nomeComboBox.DisplayMember = "nome";
             this.nomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.nomeComboBox.Location = new System.Drawing.Point(3, 23);
+            this.nomeComboBox.Location = new System.Drawing.Point(3, 43);
             this.nomeComboBox.Name = "nomeComboBox";
             this.nomeComboBox.Size = new System.Drawing.Size(181, 22);
             this.nomeComboBox.TabIndex = 3;
@@ -361,7 +362,7 @@
             // btnConectar
             // 
             this.btnConectar.Image = ((System.Drawing.Image)(resources.GetObject("btnConectar.Image")));
-            this.btnConectar.Location = new System.Drawing.Point(3, 60);
+            this.btnConectar.Location = new System.Drawing.Point(3, 74);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(109, 35);
             this.btnConectar.TabIndex = 5;
@@ -371,7 +372,7 @@
             // buttonImage1
             // 
             this.buttonImage1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImage1.Image")));
-            this.buttonImage1.Location = new System.Drawing.Point(125, 60);
+            this.buttonImage1.Location = new System.Drawing.Point(125, 74);
             this.buttonImage1.Name = "buttonImage1";
             this.buttonImage1.Size = new System.Drawing.Size(109, 35);
             this.buttonImage1.TabIndex = 8;
@@ -380,11 +381,19 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(174, 1);
+            this.label2.Location = new System.Drawing.Point(174, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 20);
-            this.label2.Text = "B23";
+            this.label2.Size = new System.Drawing.Size(63, 17);
+            this.label2.Text = "B25";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(240, 21);
+            this.textBox1.TabIndex = 11;
             // 
             // TelaInicial
             // 
@@ -393,6 +402,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonImage1);
             this.Controls.Add(this.btnConectar);
@@ -480,5 +490,6 @@
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

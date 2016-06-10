@@ -113,14 +113,14 @@ namespace CipX
 
 
             if (GPS.accuracy > GPS.accuracyIdeal - 9
-                && status.Contains("corretamente") && GPS.numberOfSatellites < 7)
+                && status.Contains("corretamente") && GPS.numberOfSatellites < 6)
             {
                 listGPS.Items.Add("Baixa acurácia!");
                 listGPS.ForeColor = Color.Orange;
                 gpsOk = false;
             }
             if (GPS.accuracy <= GPS.accuracyIdeal - 9
-                && status.Contains("corretamente") && GPS.numberOfSatellites >= 7)
+                && status.Contains("corretamente") && GPS.numberOfSatellites >= 6)
             {
                 listGPS.Items.Add("Boa acurácia!");
                 listGPS.ForeColor = Color.Lime;
@@ -772,13 +772,9 @@ namespace CipX
 
         private void cadastrar(object sender, EventArgs e)
         {
-            if (gpsTrimble != null && gpsTrimble.IsTracking())
-            {
-                gpsTrimble.PositionMinimumInterval = 2.0f;
-            }
-
             if (GPSForm.gpsTrimble != null && GPSForm.gpsTrimble.IsTracking())
             {
+                gpsTrimble.PositionMinimumInterval = 2.0f;
                 if (!gpsOk)
                 {
                     MessageBox.Show("GPS ainda não está com boa acurácia para o serviço. Aguarde melhorar o sinal");
@@ -792,14 +788,23 @@ namespace CipX
                 return;
             }
 
-            Usuario.nMaxBarramento =
-                Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["nmax_barramento"]);
-            Usuario.nMinBarramento =
-                Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["nmin_barramento"]);
-            Usuario.repetir_coord =
-                Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["repetir_coord"]);
-            Usuario.id =
-                Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["id"]);
+
+            try
+            {
+                Usuario.nMaxBarramento =
+                    Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["nmax_barramento"]);
+                Usuario.nMinBarramento =
+                    Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["nmin_barramento"]);
+                Usuario.repetir_coord =
+                    Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["repetir_coord"]);
+                Usuario.id =
+                    Convert.ToInt32(((DataRowView)usuarioBindingSource.Current).Row["id"]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar: " + ex.Message);
+                return;
+            }
 
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();

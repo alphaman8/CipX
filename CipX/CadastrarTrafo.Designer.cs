@@ -108,7 +108,7 @@
             // chaveLabel
             // 
             chaveLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            chaveLabel.Location = new System.Drawing.Point(52, 10);
+            chaveLabel.Location = new System.Drawing.Point(52, 30);
             chaveLabel.Name = "chaveLabel";
             chaveLabel.Size = new System.Drawing.Size(46, 14);
             chaveLabel.Text = "chave:";
@@ -116,7 +116,7 @@
             // ciaLabel
             // 
             ciaLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            ciaLabel.Location = new System.Drawing.Point(71, 37);
+            ciaLabel.Location = new System.Drawing.Point(71, 57);
             ciaLabel.Name = "ciaLabel";
             ciaLabel.Size = new System.Drawing.Size(27, 14);
             ciaLabel.Text = "cia:";
@@ -124,7 +124,7 @@
             // alimentadorLabel
             // 
             alimentadorLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            alimentadorLabel.Location = new System.Drawing.Point(14, 64);
+            alimentadorLabel.Location = new System.Drawing.Point(14, 84);
             alimentadorLabel.Name = "alimentadorLabel";
             alimentadorLabel.Size = new System.Drawing.Size(84, 14);
             alimentadorLabel.Text = "alimentador:";
@@ -132,7 +132,7 @@
             // gps_timeLabel
             // 
             gps_timeLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            gps_timeLabel.Location = new System.Drawing.Point(34, 91);
+            gps_timeLabel.Location = new System.Drawing.Point(34, 111);
             gps_timeLabel.Name = "gps_timeLabel";
             gps_timeLabel.Size = new System.Drawing.Size(64, 14);
             gps_timeLabel.Text = "gps time:";
@@ -140,7 +140,7 @@
             // usuario_idLabel
             // 
             usuario_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            usuario_idLabel.Location = new System.Drawing.Point(27, 199);
+            usuario_idLabel.Location = new System.Drawing.Point(27, 185);
             usuario_idLabel.Name = "usuario_idLabel";
             usuario_idLabel.Size = new System.Drawing.Size(71, 14);
             usuario_idLabel.Text = "usuario id:";
@@ -149,7 +149,7 @@
             // programacao_ip_idLabel
             // 
             programacao_ip_idLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            programacao_ip_idLabel.Location = new System.Drawing.Point(7, 226);
+            programacao_ip_idLabel.Location = new System.Drawing.Point(7, 212);
             programacao_ip_idLabel.Name = "programacao_ip_idLabel";
             programacao_ip_idLabel.Size = new System.Drawing.Size(91, 14);
             programacao_ip_idLabel.Text = "programação:";
@@ -264,13 +264,13 @@
             this.tabPage2.Controls.Add(this.chaveTextBox);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 248);
+            this.tabPage2.Size = new System.Drawing.Size(253, 251);
             this.tabPage2.Text = "Formulário";
             // 
             // programacao_ip_idTextBox
             // 
             this.programacao_ip_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "programacao_ip_id", true));
-            this.programacao_ip_idTextBox.Location = new System.Drawing.Point(105, 223);
+            this.programacao_ip_idTextBox.Location = new System.Drawing.Point(105, 209);
             this.programacao_ip_idTextBox.Name = "programacao_ip_idTextBox";
             this.programacao_ip_idTextBox.ReadOnly = true;
             this.programacao_ip_idTextBox.Size = new System.Drawing.Size(100, 21);
@@ -280,7 +280,7 @@
             // usuario_idTextBox
             // 
             this.usuario_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "usuario_id", true));
-            this.usuario_idTextBox.Location = new System.Drawing.Point(105, 196);
+            this.usuario_idTextBox.Location = new System.Drawing.Point(105, 182);
             this.usuario_idTextBox.Name = "usuario_idTextBox";
             this.usuario_idTextBox.ReadOnly = true;
             this.usuario_idTextBox.Size = new System.Drawing.Size(100, 21);
@@ -291,7 +291,7 @@
             // gps_timeTextBox
             // 
             this.gps_timeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "gps_time", true));
-            this.gps_timeTextBox.Location = new System.Drawing.Point(105, 88);
+            this.gps_timeTextBox.Location = new System.Drawing.Point(105, 108);
             this.gps_timeTextBox.Name = "gps_timeTextBox";
             this.gps_timeTextBox.ReadOnly = true;
             this.gps_timeTextBox.Size = new System.Drawing.Size(100, 21);
@@ -300,7 +300,7 @@
             // alimentadorTextBox
             // 
             this.alimentadorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "alimentador", true));
-            this.alimentadorTextBox.Location = new System.Drawing.Point(105, 61);
+            this.alimentadorTextBox.Location = new System.Drawing.Point(105, 81);
             this.alimentadorTextBox.Name = "alimentadorTextBox";
             this.alimentadorTextBox.Size = new System.Drawing.Size(100, 21);
             this.alimentadorTextBox.TabIndex = 5;
@@ -308,7 +308,7 @@
             // ciaTextBox
             // 
             this.ciaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "cia", true));
-            this.ciaTextBox.Location = new System.Drawing.Point(105, 34);
+            this.ciaTextBox.Location = new System.Drawing.Point(105, 54);
             this.ciaTextBox.Name = "ciaTextBox";
             this.ciaTextBox.Size = new System.Drawing.Size(100, 21);
             this.ciaTextBox.TabIndex = 3;
@@ -316,7 +316,7 @@
             // chaveTextBox
             // 
             this.chaveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.trafoBindingSource, "chave", true));
-            this.chaveTextBox.Location = new System.Drawing.Point(105, 7);
+            this.chaveTextBox.Location = new System.Drawing.Point(105, 27);
             this.chaveTextBox.Name = "chaveTextBox";
             this.chaveTextBox.Size = new System.Drawing.Size(100, 21);
             this.chaveTextBox.TabIndex = 1;
