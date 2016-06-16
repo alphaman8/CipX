@@ -774,7 +774,6 @@ namespace CipX
         {
             if (GPSForm.gpsTrimble != null && GPSForm.gpsTrimble.IsTracking())
             {
-                gpsTrimble.PositionMinimumInterval = 2.0f;
                 if (!gpsOk)
                 {
                     MessageBox.Show("GPS ainda não está com boa acurácia para o serviço. Aguarde melhorar o sinal");
@@ -802,14 +801,14 @@ namespace CipX
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar: " + ex.Message);
+                MessageBox.Show("Erro ao tentar cadastrar. Verifique se seu dados foram recebidos");
                 return;
             }
 
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
             //CadastrarTrafo t = new CadastrarTrafo();
-            StopTrimble();
+            //StopTrimble();
             ip = new CadastroProgramacao();
             ip.ShowDialog();
         }
@@ -865,7 +864,7 @@ namespace CipX
             p.ShowDialog();
         }
 
-        private void menuItem7_Click_1(object sender, EventArgs e)
+        private void conectarModoSimulacao(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();

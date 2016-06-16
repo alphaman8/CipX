@@ -98,6 +98,7 @@
             this.faseTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.faseTableAdapter();
             this.chave_comandoTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.chave_comandoTableAdapter();
             this.luminariasTableAdapter = new CipX.db.eletrocadDataSetTableAdapters.luminariasTableAdapter();
+            this.chkDerivacao = new System.Windows.Forms.CheckBox();
             tipo_luminaria_idLabel = new System.Windows.Forms.Label();
             poste_idLabel = new System.Windows.Forms.Label();
             lampada_idLabel = new System.Windows.Forms.Label();
@@ -505,6 +506,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.chkDerivacao);
             this.tabPage4.Controls.Add(this.chkRepetir);
             this.tabPage4.Controls.Add(this.cbReator);
             this.tabPage4.Controls.Add(reator_idLabel);
@@ -527,6 +529,7 @@
             this.chkRepetir.Size = new System.Drawing.Size(224, 20);
             this.chkRepetir.TabIndex = 47;
             this.chkRepetir.Text = "Repetir Coordenada do poste";
+            this.chkRepetir.CheckStateChanged += new System.EventHandler(this.chkDerivacao_CheckStateChanged);
             // 
             // reatorBindingSource
             // 
@@ -666,6 +669,15 @@
             // 
             this.luminariasTableAdapter.ClearBeforeFill = true;
             // 
+            // chkDerivacao
+            // 
+            this.chkDerivacao.Location = new System.Drawing.Point(9, 168);
+            this.chkDerivacao.Name = "chkDerivacao";
+            this.chkDerivacao.Size = new System.Drawing.Size(224, 20);
+            this.chkDerivacao.TabIndex = 52;
+            this.chkDerivacao.Text = "Derivação (Outra Coordenada)";
+            this.chkDerivacao.CheckStateChanged += new System.EventHandler(this.chkDerivacao_CheckStateChanged);
+            // 
             // CadastrarLuminaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -755,5 +767,6 @@
         private System.Windows.Forms.DataGridTableStyle luminariasTableStyleDataGridTableStyle;
         private System.Windows.Forms.CheckBox chkRepetir;
         private System.Windows.Forms.ComboBox cbReator;
+        private System.Windows.Forms.CheckBox chkDerivacao;
     }
 }

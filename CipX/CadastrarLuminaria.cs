@@ -120,7 +120,11 @@ namespace CipX
             //programacao_ip_idTextBox.Text = CadastroProgramacao.programacaoId.ToString();
             //trafo_idTextBox.Text = CadastrarTrafo.trafoId.ToString();
 
-            GPSForm.StopTrimble();
+            //GPSForm.StopTrimble();
+            if (chkRepetir.Checked)
+            {
+                GPSForm.gpsTrimble.PositionMinimumInterval = 10.0f;
+            }
 
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
@@ -136,10 +140,13 @@ namespace CipX
             }
             else
             {
-                if (!GPSForm.StartTraking())
+                if (GPSForm.gpsTrimble != null)
                 {
-                    return;
+                    GPSForm.StopTrimble();
+                    GPSForm.gpsTrimble.PositionMinimumInterval = 2.0f;
+                    GPSForm.StartTraking();
                 }
+                else { return; }
 
                 while (GPS.accuracy > GPS.accuracyIdeal)
                 {
@@ -464,6 +471,11 @@ namespace CipX
                 checkBox1.Checked = true;
                 checkBox1.Enabled = true;
             }
+        }
+
+        private void chkDerivacao_CheckStateChanged(object sender, EventArgs e)
+        {
+            chkRepetir.Checked = !chkDerivacao.Checked;
         }
     }
 }

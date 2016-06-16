@@ -56,6 +56,8 @@ namespace CipX
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
             //timer1.Enabled = true;
+
+            
         }
 
         private void novo(object sender, EventArgs e)
@@ -110,6 +112,8 @@ namespace CipX
             Cursor.Current = Cursors.Default;
             Application.DoEvents();
 
+            GPSForm.gpsTrimble.PositionMinimumInterval = 2.0f;
+
 
             GPSForm.StartTraking();
         }
@@ -163,7 +167,8 @@ namespace CipX
                         MessageBoxDefaultButton.Button1) == DialogResult.OK && GPSForm.gpsTrimble.IsTracking())
                     {
                         posteId = Convert.ToInt32(id);
-                        GPSForm.StopTrimble();
+                        //GPSForm.StopTrimble();
+                        GPSForm.gpsTrimble.PositionMinimumInterval = 10.0f;
                         cadastrarUsoMutuo(sender, e);
                     }
                     tabControl1.SelectedIndex = 0;
@@ -196,7 +201,8 @@ namespace CipX
             }
             finally
             {
-                GPSForm.StopTrimble();
+                //GPSForm.StopTrimble();
+                GPSForm.gpsTrimble.PositionMinimumInterval = 10.0f;
             }
         }
 

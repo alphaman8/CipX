@@ -83,7 +83,6 @@
             this.btnConectar = new CipX.components.ButtonImage(this.components);
             this.buttonImage1 = new CipX.components.ButtonImage(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             nomeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eletrocadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -160,7 +159,7 @@
             // menuItem7
             // 
             this.menuItem7.Text = "Conectar Simulando";
-            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click_1);
+            this.menuItem7.Click += new System.EventHandler(this.conectarModoSimulacao);
             // 
             // menuItem4
             // 
@@ -384,16 +383,8 @@
             this.label2.Location = new System.Drawing.Point(174, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 17);
-            this.label2.Text = "B25";
+            this.label2.Text = "A26";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 21);
-            this.textBox1.TabIndex = 11;
             // 
             // TelaInicial
             // 
@@ -402,7 +393,6 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonImage1);
             this.Controls.Add(this.btnConectar);
@@ -490,6 +480,5 @@
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem7;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

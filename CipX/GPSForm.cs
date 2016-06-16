@@ -50,7 +50,7 @@ namespace CipX
             }
         }
 
-        public static bool StartTraking()
+        public static void StartTraking()
         {
             GPS.accuracy = 200;
             if (gpsTrimble != null)
@@ -58,12 +58,6 @@ namespace CipX
                 //gpsTrimble.PositionMinimumInterval = 5.0f;
                 gpsTrimble.StartTracking();
             }
-            else
-            {
-                MessageBox.Show("GPS Não foi conectado");
-                return false;
-            }
-            return true;
         }
 
         public bool usarSSF = true;

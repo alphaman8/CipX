@@ -44,7 +44,13 @@ namespace CipX
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
 
-            if (!GPSForm.StartTraking())
+            if (GPSForm.gpsTrimble != null)
+            {
+                GPSForm.StopTrimble();
+                GPSForm.gpsTrimble.PositionMinimumInterval = 1.0f;
+                GPSForm.StartTraking();
+            }
+            else
             {
                 MessageBox.Show("GPS não está ligado.");
                 return;
@@ -157,7 +163,8 @@ namespace CipX
             }
             finally
             {
-                GPSForm.StopTrimble();
+                //GPSForm.StopTrimble();
+                GPSForm.gpsTrimble.PositionMinimumInterval = 10.0f;
             }
         }
 
